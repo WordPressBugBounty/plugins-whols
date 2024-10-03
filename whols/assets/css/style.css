@@ -1,0 +1,65 @@
+/*=======================================
+=            Frontend Styles            =
+=======================================*/
+
+.whols_loop_custom_price > div{
+    line-height: 1;
+}
+.whols_loop_custom_price .whols_label{
+	font-size: 13px;
+	font-weight: normal;
+	line-height: 1.5;
+}
+.whols_loop_custom_price > div:last-child{
+    margin-bottom: 10px;
+}
+.whols_minimum_quantity_notice{
+	font-size: 13px;
+	line-height: 1.5;
+	font-weight: 500;
+	margin-bottom: 10px
+}
+.whols_shop_table{
+	margin-bottom: 15px;
+}
+.whols_shop_table tbody td{
+	border-bottom: 0px;
+}
+.woocommerce div.product form.cart .whols_shop_table td{
+	padding-left: 1em;
+	border-left-width: 1px;
+}
+.woocommerce table.shop_table.whols_shop_table thead th{
+    border-left-width: 1px;
+    border-top-width: 1px;
+    border-right-width: 1px;
+}
+.whols_registration_form input{
+	width: 100%;
+	margin-bottom: 0;
+	margin-left: 0;
+}
+.whols_loop_custom_price .whols_label .whols_label_left {
+    font-weight: 700;
+}
+
+/* Registration form */
+.whols_registration_form label{
+	line-height: 2;
+}
+.whols_registration_form .required{
+	color: red;
+}
+.whols_registration_form input[type="submit"]{
+	margin-top: 15px;
+	width: auto;
+}
+.whols-form-row.type--checkbox .whols-input-wrapper{
+	display: flex;
+	align-items: center;
+}
+.whols-form-row.type--checkbox input{
+	width: auto;
+	margin-right: 5px;
+}
+/*=====  End of Frontend Styles  ======*/

@@ -1,0 +1,1236 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Whols - WooCommerce Wholesale Prices\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-09-08 12:01+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: \n"
+"Language: \n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Loco https://localise.biz/\n"
+"X-Loco-Version: 2.6.1; wp-6.0.2\n"
+"X-Domain: whols"
+
+#: includes/Admin/Role_Manager.php:34
+msgid " - Whols Role"
+msgstr ""
+
+#: includes/functions.php:119
+msgid " cannot be empty."
+msgstr ""
+
+#: includes/Admin/Wholesaler_Request_Metabox.php:65
+msgid ""
+"\">Click Here</a> to edit details profile information like (Shipping Address,"
+" Billing Address etc) of this user"
+msgstr ""
+
+#: includes/Admin/Global_Settings.php:464
+msgid "\"Login To See Price\" Label"
+msgstr ""
+
+#: includes/Admin/Custom_Columns.php:61
+#, php-format
+msgid "%1$s Approved %2$s"
+msgstr ""
+
+#: includes/Admin/Custom_Columns.php:73
+#, php-format
+msgid "%1$s Pending %2$s"
+msgstr ""
+
+#. 1: Whols.
+#. 2: WooCommerce.
+#: whols.php:230
+#, php-format
+msgid ""
+"%1$s plugin requires the %2$s plugin to be installed and activated in order "
+"to work."
+msgstr ""
+
+#: includes/Admin/Custom_Columns.php:67
+#, php-format
+msgid "%1$s Rejected %2$s"
+msgstr ""
+
+#: includes/Admin/Global_Settings.php:973
+msgid "(Theis option can be overridden for each role individually.)"
+msgstr ""
+
+#: includes/Admin/Global_Settings.php:268
+msgid ""
+"(These options can be overridden for each category & product individually.)"
+msgstr ""
+
+#: includes/Admin/Global_Settings.php:982
+msgid ""
+"(This option can be overridden for role individually.) Note: Free Shipping "
+"will not work unless you have enabled & configured free shipping from the "
+"\"WooCommerce > Settings > Shipping Zones\""
+msgstr ""
+
+#: includes/Admin/Global_Settings.php:201
+msgid ""
+"<b>Single Role</b> is useful when you have only one type of wholesaler. <br> "
+"<b>Multiple Role</b> is useful when you have different kind of wholesaler "
+"and you want different price for each kind of wholesaler."
+msgstr ""
+
+#: includes/Admin.php:171
+msgid ""
+"<span>Want to have complete control over the dull designs of all WooCommerce "
+"default pages and create an eye-catching WooCommerce store?</span> If you "
+"are interested, don't forget to try out the free version of the WooLentor "
+"today!"
+msgstr ""
+
+#: includes/Admin.php:155
+#: includes/Admin/install-manager/class-install-manager.php:55
+msgid "Activated"
+msgstr ""
+
+#: includes/Admin.php:175
+#: includes/Admin/install-manager/class-install-manager.php:54
+msgid "Activating.."
+msgstr ""
+
+#: includes/Admin.php:144 includes/Admin.php:150
+msgid "Active Now"
+msgstr ""
+
+#: includes/Admin/Custom_Posts.php:45
+msgid "Add New"
+msgstr ""
+
+#: includes/Admin/Custom_Posts.php:44
+msgid "Add New Request"
+msgstr ""
+
+#: includes/Admin/Custom_Taxonomies.php:48
+msgid "Add New Role"
+msgstr ""
+
+#: includes/Admin/Custom_Taxonomies.php:53
+msgid "Add or remove roles"
+msgstr ""
+
+#: includes/Admin/Custom_Taxonomies.php:44
+msgid "All Roles"
+msgstr ""
+
+#: includes/Admin/Global_Settings.php:213
+msgid "All Users"
+msgstr ""
+
+#: includes/Admin/Role_Cat_Metabox.php:68
+msgid "Allow Free Shipping"
+msgstr ""
+
+#: includes/Admin/Global_Settings.php:981
+msgid "Allow Free Shipping For Wholesale Customers"
+msgstr ""
+
+#: includes/Admin/Wholesaler_Request_Metabox.php:99
+msgid "Approve / Reject"
+msgstr ""
+
+#: includes/Admin/Wholesaler_Request_Metabox.php:101
+msgid "Approve."
+msgstr ""
+
+#: includes/Admin/Global_Settings.php:916
+msgid "Approved Notification"
+msgstr ""
+
+#: includes/Admin/Wholesaler_Request_Metabox.php:91
+msgid "Assign A Role"
+msgstr ""
+
+#: includes/Admin/Global_Settings.php:400
+msgid "Automatically approve new user registration."
+msgstr ""
+
+#: includes/Admin/install-manager/class-install-manager.php:51
+msgid "Buy Now"
+msgstr ""
+
+#: includes/functions.php:417
+msgid "Choose an option"
+msgstr ""
+
+#: includes/Admin/Custom_Taxonomies.php:54
+msgid "Choose from the most used"
+msgstr ""
+
+#: includes/Admin/Global_Settings.php:533
+#: includes/Admin/Global_Settings.php:573
+#: includes/Admin/Global_Settings.php:626
+#: includes/Admin/Global_Settings.php:666
+#: includes/Admin/Global_Settings.php:719
+#: includes/Admin/Global_Settings.php:759
+#: includes/Admin/Global_Settings.php:812
+msgid "Color"
+msgstr ""
+
+#: includes/Admin/Custom_Columns.php:85
+msgid "Count"
+msgstr ""
+
+#: includes/functions.php:611
+msgid "Default Role"
+msgstr ""
+
+#: includes/functions.php:614
+msgid "Default Wholesale Role"
+msgstr ""
+
+#: includes/Admin/Global_Settings.php:389
+msgid "Default Wholesaler Role"
+msgstr ""
+
+#: includes/Admin/Global_Settings.php:599
+#: includes/Admin/Global_Settings.php:692
+#: includes/Admin/Global_Settings.php:785
+#: includes/Admin/Global_Settings.php:838
+msgid "Default: 400"
+msgstr ""
+
+#: includes/Admin/Global_Settings.php:559
+#: includes/Admin/Global_Settings.php:652
+#: includes/Admin/Global_Settings.php:745
+msgid "Default: 700"
+msgstr ""
+
+#: includes/Admin/Global_Settings.php:509
+msgid "Define who can access the entire website."
+msgstr ""
+
+#: includes/Admin/Global_Settings.php:491
+msgid "Define who can access the shop."
+msgstr ""
+
+#: includes/Admin/Global_Settings.php:522
+msgid "Design"
+msgstr ""
+
+#: includes/Admin/Role_Cat_Metabox.php:44
+msgid "Disable Coupons"
+msgstr ""
+
+#: includes/Admin/Global_Settings.php:960
+msgid "Disable Coupons For Wholesale Customers"
+msgstr ""
+
+#: includes/Admin/Global_Settings.php:967
+msgid "Disable Payment Gateway For Wholesale Customers"
+msgstr ""
+
+#: includes/Admin/Role_Cat_Metabox.php:56
+msgid "Disable Payment Methods"
+msgstr ""
+
+#. 1: label
+#: includes/Admin/Global_Settings.php:107
+msgid "Discount Label"
+msgstr ""
+
+#: includes/Admin/Global_Settings.php:341
+msgid "Discount Percentage Custom Label"
+msgstr ""
+
+#: includes/Admin/Wholesaler_Request_Metabox.php:50
+#: includes/Admin/Custom_Posts.php:47
+msgid "Edit Request"
+msgstr ""
+
+#: includes/Admin/Custom_Taxonomies.php:49
+msgid "Edit Role"
+msgstr ""
+
+#: includes/functions.php:260
+msgid "Email"
+msgstr ""
+
+#: includes/functions.php:171
+msgid "Email Already in Use"
+msgstr ""
+
+#: includes/Admin/recommended-plugins/recommendations.php:98
+msgid ""
+"Email Candy is an outstanding WordPress plugin that allows you to customize "
+"the default WooCommerce email templates and give a professional look to your "
+"WooCommerce emails. If you are tired of using the boring design of "
+"WooCommerce emails and want to create customized emails, then this plugin "
+"will come in handy."
+msgstr ""
+
+#: includes/Admin/recommended-plugins/recommendations.php:95
+msgid "Email Candy Pro - Email customizer for WooCommerce"
+msgstr ""
+
+#: includes/functions.php:164
+msgid "Email is not valid"
+msgstr ""
+
+#: includes/Admin/Global_Settings.php:847
+msgid "Email Notification"
+msgstr ""
+
+#: includes/Admin/Global_Settings.php:866
+#: includes/Admin/Global_Settings.php:898
+msgid "Email Subject"
+msgstr ""
+
+#: includes/Admin/Global_Settings.php:859
+#: includes/Admin/Global_Settings.php:891
+#: includes/Admin/Global_Settings.php:923
+#: includes/Admin/Global_Settings.php:937
+msgid "Enable"
+msgstr ""
+
+#: includes/Admin/Global_Settings.php:922
+msgid "Enable Approved Notification"
+msgstr ""
+
+#: includes/Admin/Global_Settings.php:399
+msgid "Enable Auto Approve"
+msgstr ""
+
+#: includes/Admin/Global_Settings.php:936
+msgid "Enable Rejection Notification"
+msgstr ""
+
+#: includes/Admin/Global_Settings.php:368
+msgid ""
+"Enable this option to hide the \"General products\" from the wholesalers. "
+"Note: \"General Product\" means the product that has not been marked as a "
+"wholesale product from the product edit screen."
+msgstr ""
+
+#: includes/Admin/Global_Settings.php:360
+msgid ""
+"Enable this option to hide the \"Wholesale Only\" products from the visitors "
+"& general customers. Note: You can mark an individual product as a wholesale "
+"product from the \"Whols\" tab in the product edit screen."
+msgstr ""
+
+#: includes/Admin/Global_Settings.php:457
+msgid ""
+"Enable this option to show the price only for those users who are logged in."
+msgstr ""
+
+#: includes/Admin/Global_Settings.php:43 includes/Admin/Global_Settings.php:230
+#: includes/Admin/Product_Category_Metabox.php:45
+msgid "Enable This Pricing"
+msgstr ""
+
+#: includes/Admin/Global_Settings.php:472
+msgid "Enable Website Restriction Type"
+msgstr ""
+
+#: includes/Admin/Global_Settings.php:187
+msgid "Enable Wholesale Store"
+msgstr ""
+
+#: includes/Admin/Global_Settings.php:334
+msgid ""
+"Enabling this option will hide the discount amount (%) from the product "
+"listing/loop of your shop page & product details page"
+msgstr ""
+
+#: includes/Admin/recommended-plugins/recommendations.php:55
+msgid "EverCompare"
+msgstr ""
+
+#: includes/Admin/Global_Settings.php:487
+#: includes/Admin/Global_Settings.php:505
+msgid "Everyone"
+msgstr ""
+
+#: includes/Admin/Global_Settings.php:254
+#, php-format
+msgid ""
+"Example: If \"Price Type\" is set to \"Percentage\" & if you enter 75. Then "
+"product price will be 75% of the existing price & wholesaler will get 25% "
+"discount."
+msgstr ""
+
+#: includes/Admin/Global_Settings.php:952
+msgid "Exclude Tax for Wholesale Customers"
+msgstr ""
+
+#: includes/Admin/Custom_Posts.php:54
+msgid "Featured Image"
+msgstr ""
+
+#: includes/Admin/Custom_Posts.php:62
+msgid "Filter requests list"
+msgstr ""
+
+#: includes/Admin/Global_Settings.php:54 includes/Admin/Global_Settings.php:241
+#: includes/Admin/Product_Category_Metabox.php:57
+msgid "Flat Rate"
+msgstr ""
+
+#: includes/Admin/Global_Settings.php:539
+#: includes/Admin/Global_Settings.php:579
+#: includes/Admin/Global_Settings.php:632
+#: includes/Admin/Global_Settings.php:672
+#: includes/Admin/Global_Settings.php:725
+#: includes/Admin/Global_Settings.php:765
+#: includes/Admin/Global_Settings.php:818
+msgid "Font size"
+msgstr ""
+
+#: includes/Admin/Global_Settings.php:555
+#: includes/Admin/Global_Settings.php:595
+#: includes/Admin/Global_Settings.php:648
+#: includes/Admin/Global_Settings.php:688
+#: includes/Admin/Global_Settings.php:741
+#: includes/Admin/Global_Settings.php:781
+#: includes/Admin/Global_Settings.php:834
+msgid "Font Weight"
+msgstr ""
+
+#: includes/Admin/Global_Settings.php:477
+msgid "For Entire Website"
+msgstr ""
+
+#: includes/Admin/Global_Settings.php:476
+msgid "For Only Shop"
+msgstr ""
+
+#: includes/Admin/Role_Cat_Metabox.php:69
+msgid ""
+"Free Shipping will not work unless you have enabled & configured free "
+"shipping into the \"WooCommerce > Settings > Shipping Zones\""
+msgstr ""
+
+#: includes/Admin/Global_Settings.php:180
+msgid "General Settings"
+msgstr ""
+
+#: includes/Admin/Global_Settings.php:447
+msgid "Guest Access Restriction"
+msgstr ""
+
+#: includes/Admin/recommended-plugins/recommendations.php:104
+msgid "HashBar - Notification Bar"
+msgstr ""
+
+#: includes/Admin/recommended-plugins/recommendations.php:107
+#, php-format
+msgid ""
+"HashBar is a WordPress Notification / Alert / Offer Bar plugin which allows "
+"you to create unlimited notification bars to notify your customers. This "
+"plugin has option to show email subscription form (sometimes it increases up "
+"to 500% email subscriber), Offer text and buttons about your promotions. "
+"This plugin has the options to add unlimited background colors and images to "
+"make your notification bar more professional."
+msgstr ""
+
+#. Author of the plugin
+msgid "HasThemes"
+msgstr ""
+
+#: includes/Admin/Global_Settings.php:367
+msgid "Hide \"General\" Products From Wholesalers"
+msgstr ""
+
+#: includes/Admin/Global_Settings.php:359
+msgid "Hide \"Wholesale Only\" Products From Visitors & General Customers"
+msgstr ""
+
+#: includes/Admin/Global_Settings.php:331
+msgid "Hide Discount %"
+msgstr ""
+
+#: includes/Admin/Global_Settings.php:454
+msgid "Hide Price For Guest Users"
+msgstr ""
+
+#: includes/Admin/Global_Settings.php:280
+msgid "Hide Retailer Price"
+msgstr ""
+
+#: includes/Admin/Global_Settings.php:308
+msgid ""
+"Hide the wholesaler price which appear into the product listing/loop of your "
+"shop page & product details page."
+msgstr ""
+
+#: includes/Admin/Global_Settings.php:305
+msgid "Hide Wholesaler Price"
+msgstr ""
+
+#. Author URI of the plugin
+msgid "https://hasthemes.com"
+msgstr ""
+
+#. URI of the plugin
+msgid "https://plugins.hasthemes.com/whols/demo/create-sandbox/"
+msgstr ""
+
+#: includes/Admin/Global_Settings.php:409
+msgid ""
+"If \"Auto Approve\" is enabled. Then this message will show into the "
+"customer registration page, after a successful wholesaler registration. HTML "
+"is allowed."
+msgstr ""
+
+#: includes/Admin/Global_Settings.php:892
+msgid ""
+"If Enabled, The registered wholesale customer will get an email about the "
+"registration."
+msgstr ""
+
+#: includes/Admin/Global_Settings.php:924
+msgid ""
+"If Enabled, The registered wholesale customer will get an email if the "
+"wholesaler request is approved."
+msgstr ""
+
+#: includes/Admin/Global_Settings.php:938
+msgid ""
+"If Enabled, The registered wholesale customer will get an email if the "
+"wholesaler request is rejected."
+msgstr ""
+
+#: includes/Admin/Global_Settings.php:860
+msgid ""
+"If Enabled, The site admin will get an email about the new wholesaler "
+"registration request."
+msgstr ""
+
+#: includes/Admin/Global_Settings.php:215
+msgid ""
+"If you choose \"Only Wholesaler\" plugin will be active for only wholesaler "
+"customers. Otherwise plugin will be active for all users. <br>You may use "
+"\"All Users\" option when you want to test the pricing."
+msgstr ""
+
+#: includes/Admin/Global_Settings.php:989
+msgid "Import & Export"
+msgstr ""
+
+#: includes/Admin/Global_Settings.php:995
+msgid "Import / Export Settings"
+msgstr ""
+
+#: includes/Admin/Global_Settings.php:421
+msgid ""
+"Insert a custom message for a successful registration. HTML tags are also "
+"allowed. When the \"Auto Approve\" option is disabled, this message will be "
+"shown on the customer registration page after a successful wholesaler "
+"registration."
+msgstr ""
+
+#: includes/Admin/Global_Settings.php:440
+msgid ""
+"Insert a page URL where you want the users to be redirected after a "
+"successful login. Leave empty for default redirection. Note: Make sure you "
+"have entered a page URL of the same domain."
+msgstr ""
+
+#: includes/Admin/Global_Settings.php:432
+msgid ""
+"Insert a page URL where you want the users to be redirected after a "
+"successful registration. Leave empty if you don't want to redirect the users."
+msgstr ""
+
+#: includes/Admin/Custom_Posts.php:58
+msgid "Insert into request"
+msgstr ""
+
+#: includes/Admin/install-manager/class-install-manager.php:53
+msgid "Installing.."
+msgstr ""
+
+#: includes/Admin/recommended-plugins/recommendations.php:60
+msgid "JustTables"
+msgstr ""
+
+#: includes/Admin/recommended-plugins/recommendations.php:80
+msgid ""
+"JustTables is an incredible WordPress plugin that lets you showcase all your "
+"WooCommerce products in a sortable and filterable table view. It allows your "
+"customers to easily navigate through different attributes of the products "
+"and compare them on a single page. This plugin will be of great help if you "
+"are looking for an easy solution that increases the chances of landing a "
+"sale on your online store."
+msgstr ""
+
+#: includes/Admin/recommended-plugins/recommendations.php:77
+msgid "JustTables Pro"
+msgstr ""
+
+#: includes/Admin/Global_Settings.php:547
+#: includes/Admin/Global_Settings.php:587
+#: includes/Admin/Global_Settings.php:640
+#: includes/Admin/Global_Settings.php:680
+#: includes/Admin/Global_Settings.php:733
+#: includes/Admin/Global_Settings.php:773
+#: includes/Admin/Global_Settings.php:826
+msgid "Line Height"
+msgstr ""
+
+#: includes/Admin/Global_Settings.php:488
+#: includes/Admin/Global_Settings.php:506
+msgid "Loged In Users"
+msgstr ""
+
+#: includes/Admin/Global_Settings.php:489
+#: includes/Admin/Global_Settings.php:507
+msgid "Loged In Users With Wholesale Role"
+msgstr ""
+
+#: includes/woo-config.php:55
+msgid "Login to view price"
+msgstr ""
+
+#: includes/Frontend/Wholesaler_Login_Register.php:71
+msgid "Logout"
+msgstr ""
+
+#: includes/Admin/Global_Settings.php:128
+msgid "Made with Love by HasThemes"
+msgstr ""
+
+#: includes/Admin/Product_Metabox.php:68
+msgid "Mark this product as a wholesale only product"
+msgstr ""
+
+#: includes/Admin/Product_Metabox.php:110
+#: includes/Admin/Product_Metabox.php:177
+msgid "Min. Quantity"
+msgstr ""
+
+#: includes/woo-config.php:453 includes/Admin/Global_Settings.php:73
+#: includes/Admin/Global_Settings.php:261
+#: includes/Admin/Product_Category_Metabox.php:76
+msgid "Minimum Quantity"
+msgstr ""
+
+#: includes/Admin/Global_Settings.php:807
+msgid "Minimum Quantity Notice"
+msgstr ""
+
+#: includes/Admin/Global_Settings.php:265
+msgid ""
+"Minimum quantity to purchase to qualify the price. A notice with the "
+"\"Minimum Quantity\" value will be shown with the products"
+msgstr ""
+
+#: includes/Admin/recommended-plugins/recommendations.php:65
+msgid "Multi Currency"
+msgstr ""
+
+#: includes/Admin/recommended-plugins/recommendations.php:86
+msgid "Multi Currency Pro for WooCommerce"
+msgstr ""
+
+#: includes/Admin/recommended-plugins/recommendations.php:89
+msgid ""
+"Multi-Currency Pro for WooCommerce is a prominent currency switcher plugin "
+"for WooCommerce. This plugin allows your website or online store visitors to "
+"switch to their preferred currency or their country’s currency."
+msgstr ""
+
+#: includes/Admin/Global_Settings.php:199
+msgid "Multiple Role Based"
+msgstr ""
+
+#: includes/functions.php:244 includes/functions.php:247
+msgid "Name"
+msgstr ""
+
+#: includes/Admin/Custom_Posts.php:46
+msgid "New Request"
+msgstr ""
+
+#: includes/Admin/Custom_Taxonomies.php:47
+msgid "New Role Name"
+msgstr ""
+
+#: includes/Admin/Global_Settings.php:45 includes/Admin/Global_Settings.php:232
+#: includes/Admin/Global_Settings.php:282
+#: includes/Admin/Global_Settings.php:307
+#: includes/Admin/Global_Settings.php:333
+#: includes/Admin/Global_Settings.php:456
+#: includes/Admin/Role_Cat_Metabox.php:49
+#: includes/Admin/Product_Category_Metabox.php:47
+msgid "No"
+msgstr ""
+
+#: includes/Admin/User_Metabox.php:71
+msgid "No additional fields found!"
+msgstr ""
+
+#: includes/ajax-actions.php:26
+msgid "No naughty business please!"
+msgstr ""
+
+#: includes/Admin/Global_Settings.php:475
+msgid "No Restriction"
+msgstr ""
+
+#: includes/Admin/Custom_Taxonomies.php:58
+msgid "No roles"
+msgstr ""
+
+#: includes/Admin/Custom_Taxonomies.php:57
+msgid "Not Found"
+msgstr ""
+
+#: includes/Admin/Custom_Posts.php:52
+msgid "Not found"
+msgstr ""
+
+#: includes/Admin/Custom_Posts.php:53
+msgid "Not found in Trash"
+msgstr ""
+
+#: includes/Admin/Global_Settings.php:212
+msgid "Only Wholesaler Users "
+msgstr ""
+
+#: includes/functions.php:336
+msgid "optional"
+msgstr ""
+
+#: includes/Admin/Global_Settings.php:946
+msgid "Others Settings"
+msgstr ""
+
+#: includes/Admin/Custom_Posts.php:42
+msgid "Parent Request:"
+msgstr ""
+
+#: includes/Admin/Custom_Taxonomies.php:45
+msgid "Parent Role"
+msgstr ""
+
+#: includes/Admin/Custom_Taxonomies.php:46
+msgid "Parent Role:"
+msgstr ""
+
+#: includes/functions.php:268
+msgid "Password"
+msgstr ""
+
+#: includes/functions.php:153
+msgid "Password length must be greater than 5"
+msgstr ""
+
+#: includes/Admin/Product_Category_Metabox.php:58
+msgid "Percent"
+msgstr ""
+
+#: includes/Admin/Global_Settings.php:55 includes/Admin/Global_Settings.php:242
+msgid "Percentage"
+msgstr ""
+
+#: includes/Frontend/Wholesaler_Login_Register.php:82
+msgid "Please Wait..."
+msgstr ""
+
+#: includes/Admin/install-manager/class-install-manager.php:69
+msgid "Plugin Not Found"
+msgstr ""
+
+#: includes/Admin/install-manager/class-install-manager.php:89
+msgid "Plugin Successfully Activated"
+msgstr ""
+
+#: includes/Admin/Custom_Taxonomies.php:55
+msgid "Popular Roles"
+msgstr ""
+
+#: includes/Admin/Custom_Posts.php:36
+msgctxt "Post Type General Name"
+msgid "Wholsaler Requests"
+msgstr ""
+
+#: includes/Admin/Custom_Posts.php:37
+msgctxt "Post Type Singular Name"
+msgid "Wholesaler Request"
+msgstr ""
+
+#: includes/Admin/install-manager/class-install-manager.php:52
+msgid "Preview"
+msgstr ""
+
+#: includes/Admin/Product_Metabox.php:106
+#: includes/Admin/Product_Metabox.php:172
+msgid "Price"
+msgstr ""
+
+#: includes/Admin/Product_Category_Metabox.php:39
+msgid "Price Options For Pricing Model: Single"
+msgstr ""
+
+#: includes/Admin/Global_Settings.php:223
+msgid "Price Options For Pricing Model: Single Role"
+msgstr ""
+
+#: includes/woo-config.php:454
+msgid "Price Per Unit"
+msgstr ""
+
+#: includes/Admin/Global_Settings.php:52 includes/Admin/Global_Settings.php:239
+#: includes/Admin/Product_Category_Metabox.php:55
+msgid "Price Type"
+msgstr ""
+
+#: includes/Admin/Global_Settings.php:63 includes/Admin/Global_Settings.php:250
+#: includes/Admin/Product_Category_Metabox.php:66
+msgid "Price Value"
+msgstr ""
+
+#: includes/Admin/recommended-plugins/recommendations.php:28
+msgid "Pro Version"
+msgstr ""
+
+#: includes/Admin/Global_Settings.php:352
+msgid "Product Visibility Settings"
+msgstr ""
+
+#: includes/Admin/recommended-plugins/recommendations.php:44
+msgid "Recommended Plugins"
+msgstr ""
+
+#: includes/Admin/Global_Settings.php:439
+msgid "Redirect Page URL (After Login)"
+msgstr ""
+
+#: includes/Admin/Global_Settings.php:431
+msgid "Redirect Page URL (After Registration)"
+msgstr ""
+
+#: includes/Frontend/Wholesaler_Login_Register.php:61
+msgid "Register As Wholesaler"
+msgstr ""
+
+#: includes/Admin/Global_Settings.php:375
+msgid "Registration & Login"
+msgstr ""
+
+#: includes/Admin/Global_Settings.php:419
+msgid "Registration Successful Message"
+msgstr ""
+
+#: includes/Admin/Wholesaler_Request_Metabox.php:102
+msgid "Reject."
+msgstr ""
+
+#: includes/Admin/Global_Settings.php:930
+msgid "Rejection Notification"
+msgstr ""
+
+#: includes/Admin/Custom_Posts.php:56
+msgid "Remove featured image"
+msgstr ""
+
+#: includes/Admin/Custom_Posts.php:40
+msgid "Request Archives"
+msgstr ""
+
+#: includes/Admin/Custom_Posts.php:41
+msgid "Request Attributes"
+msgstr ""
+
+#: includes/Admin/Custom_Posts.php:60
+msgid "Requests list"
+msgstr ""
+
+#: includes/Admin/Custom_Posts.php:61
+msgid "Requests list navigation"
+msgstr ""
+
+#: includes/functions.php:334
+msgid "required"
+msgstr ""
+
+#: includes/Admin/Global_Settings.php:568
+msgid "Retailer Price"
+msgstr ""
+
+#: includes/Admin/Global_Settings.php:289
+msgid "Retailer Price Custom Label"
+msgstr ""
+
+#. 1: label
+#: includes/Admin/Global_Settings.php:89 includes/Admin/Global_Settings.php:528
+msgid "Retailer Price Label"
+msgstr ""
+
+#: includes/woo-config.php:200
+msgid "Retailer Price:"
+msgstr ""
+
+#: includes/Admin/Global_Settings.php:608
+msgid "Retialer Price Area Margin"
+msgstr ""
+
+#: includes/Admin/Custom_Taxonomies.php:43
+msgid "Role"
+msgstr ""
+
+#: includes/Admin/Custom_Taxonomies.php:41
+msgctxt "Role General Name"
+msgid "Roles"
+msgstr ""
+
+#: includes/Admin/Custom_Taxonomies.php:42
+msgctxt "Role Singular Name"
+msgid "Role"
+msgstr ""
+
+#: includes/Admin/Custom_Taxonomies.php:59
+msgid "Roles list"
+msgstr ""
+
+#: includes/Admin/Custom_Taxonomies.php:60
+msgid "Roles list navigation"
+msgstr ""
+
+#: includes/Admin/Global_Settings.php:714
+msgid "Save Amount Label"
+msgstr ""
+
+#: includes/Admin/Global_Settings.php:754
+msgid "Save Amount Price"
+msgstr ""
+
+#: includes/woo-config.php:399
+msgid "Save: "
+msgstr ""
+
+#: includes/Admin/Custom_Posts.php:51
+msgid "Search Request"
+msgstr ""
+
+#: includes/Admin/Custom_Taxonomies.php:56
+msgid "Search Roles"
+msgstr ""
+
+#: includes/Admin/Role_Cat_Metabox.php:59
+msgid "Select payment methods to disable for this role"
+msgstr ""
+
+#: includes/Admin/Wholesaler_Request_Metabox.php:92
+msgid "Select role"
+msgstr ""
+
+#: includes/Admin/Global_Settings.php:391
+msgid ""
+"Select the default role of a wholesaler that will be used for the new "
+"wholesaler registration. Note: This option will work when the \"Pricing "
+"Model\" is set to \"Multiple Role\"."
+msgstr ""
+
+#: includes/Admin/Custom_Taxonomies.php:52
+msgid "Separate roles with commas"
+msgstr ""
+
+#: includes/Admin/Custom_Posts.php:55
+msgid "Set featured image"
+msgstr ""
+
+#. 1: Settings label
+#: includes/Admin.php:55 includes/Admin.php:128
+msgid "Settings"
+msgstr ""
+
+#: includes/Admin/Global_Settings.php:209
+msgid "Show Wholesale Price For"
+msgstr ""
+
+#: includes/Admin/Global_Settings.php:198
+msgid "Single Role Based"
+msgstr ""
+
+#: includes/ajax-actions.php:71
+msgid "Something is wrong please check again!"
+msgstr ""
+
+#: includes/functions.php:135
+msgid "Sorry, that username already exists!"
+msgstr ""
+
+#: includes/functions.php:142
+msgid "Sorry, the username you entered is not valid"
+msgstr ""
+
+#: includes/Admin/Custom_Columns.php:43
+msgid "Status"
+msgstr ""
+
+#: includes/Admin/Global_Settings.php:408
+#: includes/Admin/Global_Settings.php:875
+#: includes/Admin/Global_Settings.php:907
+msgid "Successful Registration Message"
+msgstr ""
+
+#: includes/ajax-actions.php:49
+msgid ""
+"Thank you for registering. Your account will be reviewed by us & approve "
+"manually. Please wait to be approved."
+msgstr ""
+
+#: includes/Admin/Global_Settings.php:420
+msgid ""
+"Thank you very much for completing the registration. Your account will be "
+"reviewed by us & approved manually. Please wait for a while."
+msgstr ""
+
+#: includes/Admin/Global_Settings.php:283
+#: includes/Admin/Global_Settings.php:290
+#: includes/Admin/Global_Settings.php:315
+#: includes/Admin/Global_Settings.php:342
+#: includes/Admin/Global_Settings.php:465
+msgid ""
+"This label will be shown in the product listing/loop of your shop page & "
+"product details page."
+msgstr ""
+
+#. Description of the plugin
+msgid ""
+"This plugin provides all the necessary features that you will ever need to "
+"sell wholesale products from your WooCommerce online store."
+msgstr ""
+
+#: includes/Admin/Custom_Posts.php:48
+msgid "Update Request"
+msgstr ""
+
+#: includes/Admin/Custom_Taxonomies.php:50
+msgid "Update Role"
+msgstr ""
+
+#: includes/Admin/Custom_Posts.php:59
+msgid "Uploaded to this request"
+msgstr ""
+
+#: includes/woo-config.php:364
+msgid "Upto "
+msgstr ""
+
+#: includes/Admin/Custom_Posts.php:57
+msgid "Use as featured image"
+msgstr ""
+
+#: includes/Admin/Role_Cat_Metabox.php:47
+msgid "Use Global Option"
+msgstr ""
+
+#: includes/Admin/Global_Settings.php:876
+#: includes/Admin/Global_Settings.php:908
+msgid ""
+"Use these  {name}, {email}, {date}, {time} placeholder tags to get dynamic "
+"content."
+msgstr ""
+
+#: includes/Admin/Wholesaler_Request_Metabox.php:71
+msgid "User ID"
+msgstr ""
+
+#: includes/functions.php:252 includes/functions.php:255
+#: includes/Admin/Wholesaler_Request_Metabox.php:81
+msgid "Username"
+msgstr ""
+
+#: includes/functions.php:128
+msgid "Username too short. At least 4 characters is required"
+msgstr ""
+
+#: includes/Admin/Custom_Posts.php:49
+msgid "View Request"
+msgstr ""
+
+#: includes/Admin/Custom_Posts.php:50
+msgid "View Requests"
+msgstr ""
+
+#: includes/Admin/Custom_Taxonomies.php:51
+msgid "View Role"
+msgstr ""
+
+#: includes/Admin.php:129
+msgid "Welcome"
+msgstr ""
+
+#: includes/Admin/Global_Settings.php:502
+msgid "Who Can Access Entire Website"
+msgstr ""
+
+#: includes/Admin/Global_Settings.php:484
+msgid "Who Can Access Shop"
+msgstr ""
+
+#: includes/Admin/Product_Metabox.php:176
+msgid "Wholesale Min. Quantity"
+msgstr ""
+
+#: includes/Admin/Product_Metabox.php:67
+msgid "Wholesale Only"
+msgstr ""
+
+#: includes/Admin/Product_Metabox.php:96 includes/Admin/Product_Metabox.php:171
+msgid "Wholesale Price"
+msgstr ""
+
+#. translators
+#. 1: minimum quantity label
+#: includes/woo-config.php:264
+#, php-format
+msgid "Wholesale price will apply for minimum quantity of %1$s products."
+msgstr ""
+
+#: includes/Admin/Global_Settings.php:661
+msgid "Wholesaler Price"
+msgstr ""
+
+#: includes/Admin/Global_Settings.php:701
+msgid "Wholesaler Price Area Margin"
+msgstr ""
+
+#: includes/Admin/Global_Settings.php:314
+msgid "Wholesaler Price Custom Label"
+msgstr ""
+
+#. 1: label
+#: includes/Admin/Global_Settings.php:98 includes/Admin/Global_Settings.php:621
+msgid "Wholesaler Price Label"
+msgstr ""
+
+#: includes/woo-config.php:241
+msgid "Wholesaler Price:"
+msgstr ""
+
+#: includes/Admin/Global_Settings.php:884
+#: includes/Admin/Global_Settings.php:890
+msgid "Wholesaler Registration Notification"
+msgstr ""
+
+#: includes/Admin/Custom_Posts.php:66
+msgid "Wholesaler Request"
+msgstr ""
+
+#: includes/Admin/Global_Settings.php:852
+#: includes/Admin/Global_Settings.php:858
+msgid "Wholesaler Request Notification"
+msgstr ""
+
+#: includes/Admin/Custom_Posts.php:43
+msgid "Wholesaler Requests"
+msgstr ""
+
+#: includes/Admin/Custom_Taxonomies.php:85
+msgid "Wholesaler Roles"
+msgstr ""
+
+#: includes/Admin/Global_Settings.php:794
+msgid "Wholesaler Save Amount Margin"
+msgstr ""
+
+#: whols.php:231 includes/Admin/Global_Settings.php:114
+#: includes/Admin/Product_Metabox.php:48
+msgid "Whols"
+msgstr ""
+
+#: includes/Admin/User_Metabox.php:41
+msgid "Whols - Additional Fields"
+msgstr ""
+
+#. Name of the plugin
+msgid "Whols - WooCommerce Wholesale Prices"
+msgstr ""
+
+#: includes/Admin.php:128
+msgid "Whols Admin"
+msgstr ""
+
+#: includes/Admin/recommended-plugins/recommendations.php:38
+msgid ""
+"Whols is an outstanding WordPress plugin for WooCommerce that allows store "
+"owners to set wholesale prices for the products of their online stores. This "
+"plugin enables you to show special wholesale prices to the wholesaler. Users "
+"can easily request to become a wholesale customer by filling out a simple "
+"online registration form. Once the registration is complete, the owner of "
+"the store will be able to review the request and approve the request either "
+"manually or automatically."
+msgstr ""
+
+#: includes/Admin/recommended-plugins/recommendations.php:35
+msgid "Whols Pro – WooCommerce Wholesale Prices"
+msgstr ""
+
+#: includes/Admin/Custom_Posts.php:39
+msgid "Wholsaler Request"
+msgstr ""
+
+#: includes/Admin/Custom_Posts.php:38 includes/Admin/Custom_Posts.php:67
+msgid "Wholsaler Requests"
+msgstr ""
+
+#: includes/Admin/recommended-plugins/recommendations.php:50
+msgid "WishSuite"
+msgstr ""
+
+#: whols.php:232
+msgid "WooCommerce"
+msgstr ""
+
+#: includes/Admin/Global_Settings.php:118
+msgid "WooCommerce Wholesale Price Settings"
+msgstr ""
+
+#: includes/Admin/recommended-plugins/recommendations.php:113
+msgid "WP Plugin Manager Pro"
+msgstr ""
+
+#: includes/Admin/recommended-plugins/recommendations.php:116
+msgid ""
+"WP Plugin Manager Pro is a specialized WordPress Plugin that helps you to "
+"deactivate unnecessary WordPress Plugins page wise and boosts the speed of "
+"your WordPress site to improve the overall site performance."
+msgstr ""
+
+#: includes/woo-config.php:659 includes/Admin/Global_Settings.php:44
+#: includes/Admin/Global_Settings.php:188
+#: includes/Admin/Global_Settings.php:231
+#: includes/Admin/Global_Settings.php:281
+#: includes/Admin/Global_Settings.php:306
+#: includes/Admin/Global_Settings.php:332
+#: includes/Admin/Global_Settings.php:455
+#: includes/Admin/Global_Settings.php:953
+#: includes/Admin/Role_Cat_Metabox.php:48
+#: includes/Admin/Product_Category_Metabox.php:46
+msgid "Yes"
+msgstr ""
+
+#: includes/Admin/Global_Settings.php:961
+msgid "Yes (This option can be overridden for each role individually.)"
+msgstr ""
+
+#: includes/Frontend/Wholesaler_Login_Register.php:71
+msgid "You are Logged in as: "
+msgstr ""
+
+#: includes/Admin/recommended-plugins/recommendations.php:71
+msgid "You May Also Like"
+msgstr ""
+
+#: includes/functions.php:263
+msgid "Your Email"
+msgstr ""
+
+#: includes/functions.php:271
+msgid "Your Password"
+msgstr ""

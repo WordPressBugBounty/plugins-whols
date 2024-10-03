@@ -1,0 +1,21 @@
+<wpml-config>
+    <admin-texts>
+        <key name="whols_options">
+			<key name="registration_fields" />
+			<key name="min_qty_notice_custom_text" />
+			<key name="registration_successful_message_for_manual_approve" />
+			<key name="redirect_page_customer_registration" />
+			<key name="redirect_page_customer_login" />
+			<key name="registration_notification_subject_for_admin" />
+			<key name="registration_notification_message_for_admin" />
+			<key name="registration_notification_subject_for_user" />
+			<key name="registration_notification_message_for_user" />
+			
+			<key name="retailer_price_options">
+				<key name="retailer_price_custom_label" />
+				<key name="wholesaler_price_custom_label" />
+				<key name="discount_percent_custom_label" />
+			</key>
+		</key>
+    </admin-texts>
+</wpml-config>
