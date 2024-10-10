@@ -172,6 +172,7 @@ class Global_Settings {
                 'show_wholesale_price_for'            => 'only_wholesalers',
                 'exclude_tax_for_wholesale_customers' => '',
                 'enable_wholesale_store'              => '1',
+                'registration_notification_recipients' => '',
             )
         ) );
 
@@ -789,6 +790,17 @@ class Global_Settings {
                 'title'      => esc_html__( 'Wholesaler Request Notification', 'whols' ),
                 'label'      => esc_html__( 'Enable', 'whols' ),
                 'desc'       => esc_html__( 'If Enabled, The site admin will get an email about the new wholesaler registration request.' , 'whols' ),
+                ),
+                // registration_notification_recipients
+                array(
+                    'id'       => 'registration_notification_recipients',
+                    'type'     => 'text',
+                    'title'    => esc_html__( 'Recipient Email(s)', 'whols'),
+                    'desc'     => esc_html__( 'Leave it empty for default admin email. You can enter multiple emails separated by commas.' , 'whols' ),
+                    'placeholder' => get_option('admin_email'),
+                    'dependency' => array(
+                        'enable_registration_notification_for_admin', '==', '1'
+                    )
                 ),
                 // email_subject
                 array(

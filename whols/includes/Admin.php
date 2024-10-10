@@ -11,6 +11,7 @@ namespace Whols;
  * Admin class.
  */
 class Admin {
+    public $version = WHOLS_VERSION;
 
     /**
      * Admin constructor.
@@ -18,6 +19,11 @@ class Admin {
      * @since 1.0.0
      */
     public function __construct() {
+        // Debug mode
+        if( defined( 'WP_DEBUG' ) && WP_DEBUG ){
+            $this->version = time();
+        }
+
         new Admin\Custom_Posts();
         new Admin\Custom_Taxonomies();
         new Admin\Wholesaler_Request_Metabox();
@@ -28,15 +34,13 @@ class Admin {
         new Admin\Role_Manager();
         new Admin\Custom_Columns();
         new Admin\Install_Manager();
+        new Admin\Menu_Manager();
 
         // Bind admin page link to the plugin action link.
         add_filter( 'plugin_action_links_whols/whols.php', array($this, 'action_links_add'), 10, 4 );
 
         // Admin assets hook into action.
         add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_admin_assets' ) );
-
-        // Set settings page as submenu
-        add_action( 'admin_menu', array( $this, 'dashboard_menu_tweaks' ), 30 );
 
         // Add page states to the page list table
         add_filter('display_post_states', array( $this, 'filter_post_states' ), 10, 2); 
@@ -79,11 +83,11 @@ class Admin {
             'user-edit'                  == $current_screen->base ||  
             $current_screen->taxonomy    == 'whols_role_cat'
         ) {
-            wp_enqueue_style( 'vex', WHOLS_ASSETS . '/css/vex.css', null, WHOLS_VERSION );
-            wp_enqueue_style( 'vex-theme-plain', WHOLS_ASSETS . '/css/vex-theme-plain.css', null, WHOLS_VERSION );
-            wp_enqueue_style( 'whols-admin', WHOLS_ASSETS . '/css/admin.css', null, WHOLS_VERSION );
-            wp_enqueue_script( 'vex', WHOLS_ASSETS . '/js/vex.combined.min.js', array('jquery'), WHOLS_VERSION );
-            wp_enqueue_script( 'whols-admin', WHOLS_ASSETS . '/js/admin.js', array('jquery'), WHOLS_VERSION );
+            wp_enqueue_style( 'vex', WHOLS_ASSETS . '/css/vex.css', null, $this->version );
+            wp_enqueue_style( 'vex-theme-plain', WHOLS_ASSETS . '/css/vex-theme-plain.css', null, $this->version );
+            wp_enqueue_style( 'whols-admin', WHOLS_ASSETS . '/css/admin.css', null, $this->version );
+            wp_enqueue_script( 'vex', WHOLS_ASSETS . '/js/vex.combined.min.js', array('jquery'), $this->version );
+            wp_enqueue_script( 'whols-admin', WHOLS_ASSETS . '/js/admin.js', array('jquery'), $this->version );
 
             // inline js for the settings submenu
             $is_whols_setting = isset( $_GET['page'] ) ? sanitize_text_field($_GET['page']) : '';
@@ -93,96 +97,6 @@ class Admin {
 
         $css = '#adminmenu li a[href="admin.php?page=whols-welcome"]{display: none;}';
         wp_add_inline_style('common', $css);
-    }
-
-    /**
-     * Set settings page as submenu
-     *
-     * @since 1.0.0
-     */
-    function dashboard_menu_tweaks(){
-        global $menu, $submenu;
-        $capabilities = whols_get_capabilities();
-        
-        $query = new \WP_Query(array(
-            'post_type' => 'whols_user_request',
-            'meta_query' => array(
-                'relation' => 'AND',
-                 array(
-                    'key'     => 'whols_user_request_meta',
-                    'value'   => serialize('approve'),
-                    'compare' => 'NOT LIKE',
-                 ),
-                 array(
-                    'key'     => 'whols_user_request_meta',
-                    'value'   => serialize('reject'),
-                    'compare' => 'NOT LIKE',
-                 ),
-               ),
-        ));
-
-        $pending_request_count = $query->post_count;
-        wp_reset_postdata();
-        
-        if($pending_request_count > 0){
-            $menu[56][0] = 'Whols <span class="update-plugins whols_request_count"><span>'. $pending_request_count .'</span></span>';
-        }
-
-        add_submenu_page( 'whols-admin', esc_html__('Whols Admin', 'whols'), esc_html__( 'Settings', 'whols' ), $capabilities['manage_settings'],'admin.php?page=whols-admin', '', 0);
-        add_submenu_page( 'whols-admin', esc_html__('Welcome', 'whols'), esc_html__( 'Welcome', 'whols' ), $capabilities['manage_settings'],'whols-welcome', array( $this, 'quick_recommended_plugin'), 1);
-    }
-
-    // Recommended plugin page after activating the plugin
-    public function quick_recommended_plugin(){
-        wp_enqueue_script('ht-install-manager');
-
-         // $plugin_file = 'woolentor-addons/woolentor_addons_elementor.php';
-         $plugin_slug = 'woolentor-addons';
-         $plugin_file = 'woolentor-addons/woolentor_addons_elementor.php';
-
-         // Installed but Inactive.
-         if ( file_exists( WP_PLUGIN_DIR . '/' . $plugin_file ) && is_plugin_inactive( $plugin_file ) ) {
-
-             $button_classes = 'button ht-activate-now button-primary';
-             $button_text    = esc_html__( 'Active Now', 'whols' );
-
-         // Not Installed.
-         } elseif ( ! file_exists( WP_PLUGIN_DIR . '/' . $plugin_file ) ) {
-
-             $button_classes = 'button ht-install-now button-primary';
-             $button_text    = esc_html__( 'Active Now', 'whols' );
-
-         // Active.
-         } else {
-             $button_classes = 'button disabled';
-             $button_text    = esc_html__( 'Activated', 'whols' );
-         }
-
-         $data_attr = array(
-             'slug'      => $plugin_slug,
-             'location'  => $plugin_file,
-             'name'      => '',
-         );
-        ?>
-        <!-- ht-quick-recommended-plugin-area -->
-        <div class="ht-qrp-area">
-            <div class="ht-qrp">
-                <div class="ht-qrp-body">
-                    <div class="ht-qrp-logo">
-                        <img src="<?php echo esc_url(WHOLS_ASSETS . '/images/woolentor-logo.png') ?>" alt="">
-                    </div>
-                    <p><?php echo __('<span>Want to have complete control over the dull designs of all WooCommerce default pages and create an eye-catching WooCommerce store?</span> If you are interested, don\'t forget to try out the free version of the WooLentor today!', 'whols') ?></p>
-                    <button class="<?php echo esc_attr($button_classes); ?>" 
-                        data-slug='<?php echo esc_attr($data_attr['slug']); ?>' 
-                        data-location="<?php echo esc_attr($data_attr['location']); ?>"
-                        data-progress_message="<?php echo esc_attr__('Activating..', 'whols') ?>" 
-                        data-redirect_after_activate="<?php echo esc_url(admin_url('admin.php?page=whols-admin')) ?>">
-                        <?php echo esc_html($button_text); ?>
-                    </button>
-                </div>
-            </div>
-        </div> <!-- .ht-quick-recommended-plugin-area -->
-        <?php
     }
 
     /**

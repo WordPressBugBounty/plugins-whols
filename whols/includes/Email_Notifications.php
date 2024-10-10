@@ -22,6 +22,7 @@ class Email_Notifications {
         $subject                   = whols_get_option('registration_notification_subject_for_admin');
         $body                      = whols_get_option('registration_notification_message_for_admin');
         $user                      = get_user_by( 'ID', $user_id );
+        $custom_emails             = whols_get_option('registration_notification_recipients'); // Comma separated emails
 
         if( $enable_email_notification && $user ){
             // subject
@@ -36,6 +37,10 @@ class Email_Notifications {
 
             // send the mail
             $to = get_option('admin_email');
+            if( $custom_emails ){
+                $to = implode(',', $custom_emails);
+            }
+            
             $headers[] = 'Content-Type: text/html; charset=UTF-8';
 
             wp_mail( $to, $subject, $body, $headers );

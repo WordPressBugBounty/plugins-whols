@@ -4,7 +4,7 @@ Tags: wholesale plugin, wholesale pricing, wholesale prices, woocommerce wholesa
 Requires at least: 4.0
 Tested up to: 6.6
 Requires PHP: 5.4
-Stable tag: 1.3.7
+Stable tag: 1.3.8
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -19,7 +19,10 @@ Whols is an outstanding WordPress plugin for WooCommerce that allows store owner
 
 Whols plugin reduces the hassle to create multiple stores for both the consumers and the wholesalers. By utilizing the functionality of this amazing plugin, you can easily maintain both the consumers and the wholesalers from a single store.
 
-[Live Demo](https://theplugindemo.com/whols/demo/create-sandbox/) | [Documentation](https://theplugindemo.com/whols/doc/free/) | [Purchase Pro](https://wpwhols.com/pricing/) | [Contact Us](https://hasthemes.com/contact-us/)
+🖥️ [Live Demo](https://theplugindemo.com/whols/demo/create-sandbox/) 
+🖥️ [Live Demo 2 (Pro Version)](https://theplugindemo.com/whols-pro/demo/create-sandbox/) 
+
+[Purchase Pro](https://wpwhols.com/pricing/) | [Documentation](https://theplugindemo.com/whols/doc/free/) | [Contact Us](https://hasthemes.com/contact-us/)
 
 == Whols - WooCommerce Wholesale Prices and WooCommerce B2B Store Plugin Free Features: ==
 * Admin can assign a wholesaler registration form (New)
@@ -241,6 +244,10 @@ Needs assistance to use this plugin?
 Feel free to [Contact us](https://hasthemes.com/contact-us/)
 
 == Changelog ==
+= Version: 1.3.8 -Date: 10 Oct 2024 =
+- Fixed: Menu active issue and refractored the code
+- Added: Multiple recipient email option for email notification
+
 = Version: 1.3.7 -Date: 22 Aug 2024 =
 - Fixed: Price ranges for variable products showed the dummy maximum price
 
