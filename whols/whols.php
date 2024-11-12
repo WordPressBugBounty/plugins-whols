@@ -3,7 +3,7 @@
  * Plugin Name: Whols - Wholesale Prices and B2B Store Solution for WooCommerce
  * Plugin URI:  https://wpwhols.com/
  * Description: This plugin provides all the necessary features that you will ever need to sell wholesale products from your WooCommerce online store.
- * Version:     1.3.8
+ * Version:     1.3.9
  * Author:      HasThemes
  * Author URI:  https://hasthemes.com
  * License:     GPL v2 or later
@@ -30,7 +30,7 @@ final class Whols_Lite {
      *
      * @since 1.0.0
      */
-    public $version = '1.3.8';
+    public $version = '1.3.9';
 
     /**
      * The single instance of the class
@@ -124,6 +124,7 @@ final class Whols_Lite {
         require_once WHOLS_PATH . '/includes/Admin/Diagnostic_Data.php';
         require_once WHOLS_PATH . '/includes/Admin/Trial.php';
         require_once WHOLS_PATH . '/includes/Admin/Menu_Manager.php';
+        require_once WHOLS_PATH . '/includes/Admin/Notice_Handler.php';
 
         require_once WHOLS_PATH . '/includes/Frontend.php';
         require_once WHOLS_PATH . '/includes/Frontend/Wholesaler_Login_Register.php';
@@ -242,6 +243,19 @@ final class Whols_Lite {
 
         // Test mode
         $this->init_test_mode();
+
+        // Notice
+        add_action( 'admin_head', function(){
+            $remote_banner_data = whols_get_plugin_remote_data();
+
+            if (!empty($remote_banner_data) && is_array($remote_banner_data)) {
+                foreach ($remote_banner_data as $banner) {
+                    if (empty($banner['disable'])) {
+                        Whols\Admin\Notice_Handler::set_notice($banner);
+                    }
+                }
+            }
+        } );
     }
 
     /**

@@ -974,3 +974,43 @@ if( !function_exists('whols_is_wholesale_priced') ){
         return false;
     }
 }
+
+    /**
+     * Retrieves remote data and caches it using WordPress transients.
+     *
+     * This function fetches remote data from a specified URL and caches it using a transient.
+     * If the transient is already set and not expired, it returns the cached data.
+     * Otherwise, it makes a remote request to fetch the data, caches it, and then returns it.
+     *
+     * @param string|null $version The version of the data to retrieve. It is used to flush the transient cache when the version changes.
+     * @return array The remote data retrieved and cached.
+     */
+    function whols_get_plugin_remote_data($version = null) {
+        $transient_key = 'whols_remote_data_v' . $version;
+        $feequency_to_update = 2 * DAY_IN_SECONDS; // N Days later fetch data again
+        $remote_url = 'https://feed.hasthemes.com/notices/whols.json';
+        // $remote_url = WHOLS_URL . '/remote.json';
+        
+        $remote_banner_data = [];
+        $transient_data = get_transient($transient_key);
+        
+        // Check if we should force update or if transient is not set
+        if ( $transient_data ) {
+            $remote_banner_data = $transient_data;
+        } elseif( false === $transient_data ) {
+            $remote_banner_req = wp_remote_get($remote_url, array(
+                'timeout' => 10,
+                'sslverify' => false,
+            ));
+    
+            // If request success, set data to transient
+            if ( !is_wp_error($remote_banner_req) && $remote_banner_req['response']['code'] == 200 ) {
+                $remote_banner_data = json_decode($remote_banner_req['body'], true);
+                
+                // Store in version-specific transient if force update, otherwise use regular transient
+                set_transient($transient_key, $remote_banner_data, $feequency_to_update);
+            }
+        }
+    
+        return $remote_banner_data;
+    }

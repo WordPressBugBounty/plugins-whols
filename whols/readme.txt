@@ -2,9 +2,9 @@
 Contributors: htplugins, alberuni-azad, aslamhasib, zenaulislam, tarekht
 Tags: wholesale plugin, wholesale pricing, wholesale prices, woocommerce wholesale, woocommerce b2b
 Requires at least: 4.0
-Tested up to: 6.6
+Tested up to: 6.7
 Requires PHP: 5.4
-Stable tag: 1.3.8
+Stable tag: 1.3.9
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -244,6 +244,10 @@ Needs assistance to use this plugin?
 Feel free to [Contact us](https://hasthemes.com/contact-us/)
 
 == Changelog ==
+= Version: 1.3.9 -Date: 12 Nov 2024 =
+- Fixed: Number input field design issue
+- Tested: With latest WordPress version
+
 = Version: 1.3.8 -Date: 10 Oct 2024 =
 - Fixed: Menu active issue and refractored the code
 - Added: Multiple recipient email option for email notification

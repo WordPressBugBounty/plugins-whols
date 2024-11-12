@@ -389,4 +389,8 @@ table.wp-list-table th.column-wholesale_price{
 	margin-bottom: 0;
 }
 
+/* Misc */
+[data-section-id="design"] .csf-fieldset-content div.csf-field-number:last-child .csf--unit{
+	display: none;
+}
 /*=====  End of Admin Style  ======*/
