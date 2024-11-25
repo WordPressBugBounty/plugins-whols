@@ -4,7 +4,7 @@ Tags: wholesale plugin, wholesale pricing, wholesale prices, woocommerce wholesa
 Requires at least: 4.0
 Tested up to: 6.7
 Requires PHP: 5.4
-Stable tag: 1.3.9
+Stable tag: 1.4.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -64,6 +64,7 @@ Whols plugin reduces the hassle to create multiple stores for both the consumers
 ✓ Registered form fields manager,editor
 ✓ Ability to adding custom / additional field into the registration form Visually / Without coding
 ✓ Option to use the WooCommerce billing fields into the Wholesaler registration form
+✓ Add upload field into the Wholesaler registration form
 ✓ Create & manage unlimited user role
 ✓ Wholesaler request management (Approve / Reject)
 ✓ Give different pricing to different wholesaler role
@@ -77,6 +78,10 @@ Whols plugin reduces the hassle to create multiple stores for both the consumers
 ✓ Whole can access the Entire Website / Shop (Loged In Users/Loged In Users With Wholesale Role)
 ✓ Role wise disable payment method
 ✓ Role wise enable free shipping
+✓ Admin can Place Wholesale Orders
+✓ Conversation between Admin and Wholesaler
+✓ Wholesaler can request a quote for products
+✓ Create dynamic rules - Use dynamic rules to create discounts, fees, and BOGO offers based on cart subtotal, quantity, specific products, user roles, or combinations of these conditions
 ✓ Email Notification (Registration, Wholesaler Approve & Rejection)
 
 == Video Overview: ==
@@ -244,6 +249,9 @@ Needs assistance to use this plugin?
 Feel free to [Contact us](https://hasthemes.com/contact-us/)
 
 == Changelog ==
+= Version: 1.4.0 -Date: 25 Nov 2024 =
+- Fixed: Textdomain loading warning with WP 6.9 version
+
 = Version: 1.3.9 -Date: 12 Nov 2024 =
 - Fixed: Number input field design issue
 - Tested: With latest WordPress version

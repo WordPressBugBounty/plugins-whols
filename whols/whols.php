@@ -3,7 +3,7 @@
  * Plugin Name: Whols - Wholesale Prices and B2B Store Solution for WooCommerce
  * Plugin URI:  https://wpwhols.com/
  * Description: This plugin provides all the necessary features that you will ever need to sell wholesale products from your WooCommerce online store.
- * Version:     1.3.9
+ * Version:     1.4.0
  * Author:      HasThemes
  * Author URI:  https://hasthemes.com
  * License:     GPL v2 or later
@@ -30,7 +30,7 @@ final class Whols_Lite {
      *
      * @since 1.0.0
      */
-    public $version = '1.3.9';
+    public $version = '1.4.0';
 
     /**
      * The single instance of the class
@@ -147,7 +147,7 @@ final class Whols_Lite {
             add_action( 'admin_notices', array( $this, 'build_dependencies_notice' ) );
         } else {
             // Set up localisation.
-            add_action( 'plugins_loaded', array( $this, 'load_plugin_textdomain' ) );
+            add_action( 'init', array( $this, 'load_plugin_textdomain' ) );
 
             // Finally initialize this plugin
             add_action( 'plugins_loaded', array( $this, 'init' ) );
