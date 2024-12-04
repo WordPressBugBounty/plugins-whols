@@ -22,7 +22,7 @@ Whols plugin reduces the hassle to create multiple stores for both the consumers
 🖥️ [Live Demo](https://theplugindemo.com/whols/demo/create-sandbox/) 
 🖥️ [Live Demo 2 (Pro Version)](https://theplugindemo.com/whols-pro/demo/create-sandbox/) 
 
-[Purchase Pro](https://wpwhols.com/pricing/) | [Documentation](https://theplugindemo.com/whols/doc/free/) | [Contact Us](https://hasthemes.com/contact-us/)
+[Purchase Pro](https://wpwhols.com/pricing/) | [Documentation](https://wpwhols.com/docs/) | [Contact Us](https://hasthemes.com/contact-us/)
 
 == Whols - WooCommerce Wholesale Prices and WooCommerce B2B Store Plugin Free Features: ==
 * Admin can assign a wholesaler registration form (New)
