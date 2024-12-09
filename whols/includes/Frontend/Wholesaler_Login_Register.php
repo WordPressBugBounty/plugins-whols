@@ -65,9 +65,13 @@ class Wholesaler_Login_Register{
                                     'class'         => $class,
                                 ), $value );
                             }
+
+                            $submit_button_label_filter = apply_filters( 'whols_registration_submit_label', __( 'Register As Wholesaler', 'whols' ) );
+                            $submit_button_label        = whols_get_option('registration_form_submit_button_label');
+                            $submit_button_label        = $submit_button_label ? $submit_button_label : $submit_button_label_filter;
                         ?>
 
-                        <input type="submit" name="reg_submit" id="whols_reg_submit" value="<?php echo apply_filters( 'whols_registration_submit_label', __( 'Register As Wholesaler', 'whols' ) ); ?>">
+                        <button type="submit" name="reg_submit" id="whols_reg_submit" class="" value="<?php echo apply_filters( 'whols_registration_submit_label', __( 'Register As Wholesaler', 'whols' ) ); ?>"><?php echo wp_kses_post($submit_button_label); ?></button>
                     </form>
                 </div>
 

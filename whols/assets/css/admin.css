@@ -393,4 +393,10 @@ table.wp-list-table th.column-wholesale_price{
 [data-section-id="design"] .csf-fieldset-content div.csf-field-number:last-child .csf--unit{
 	display: none;
 }
+.whols_wholesale_only_categories .csf-submessage{
+	font-size: 14px;
+    background: #e6f4ff;
+    border: 1px solid #91caff;
+    color: rgb(0 0 0 / 70%);;
+}
 /*=====  End of Admin Style  ======*/

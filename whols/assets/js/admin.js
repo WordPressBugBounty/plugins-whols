@@ -88,8 +88,8 @@
         // Change Field manager can't add more text
         $('.whols_field_manager .csf-cloneable-alert.csf-cloneable-max').text('Adding custom fields requires the Pro version.');
 
-        // Add "New!" ribbon
-        var $selector = $('.whols_global_options [data-tab-id="registration-login/fields-manager"], .whols_global_options [data-tab-id="message-email-notifications/custom-thank-you-message"]');
+        // Add "New!" ribbon / badge
+        var $selector = $('.whols_global_options [data-tab-id="registration-login/fields-manager"], .whols_global_options [data-tab-id="message-email-notifications/custom-thank-you-message"], [data-tab-id="request-a-quote"]');
         $selector.append(' <h1 class="whols-ribbon">New!</h1>');
     });
 

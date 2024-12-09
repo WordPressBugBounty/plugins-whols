@@ -3,7 +3,7 @@
  * Plugin Name: Whols - Wholesale Prices and B2B Store Solution for WooCommerce
  * Plugin URI:  https://wpwhols.com/
  * Description: This plugin provides all the necessary features that you will ever need to sell wholesale products from your WooCommerce online store.
- * Version:     1.4.0
+ * Version:     1.4.1
  * Author:      HasThemes
  * Author URI:  https://hasthemes.com
  * License:     GPL v2 or later
@@ -30,7 +30,7 @@ final class Whols_Lite {
      *
      * @since 1.0.0
      */
-    public $version = '1.4.0';
+    public $version = '1.4.1';
 
     /**
      * The single instance of the class
@@ -105,6 +105,9 @@ final class Whols_Lite {
             require_once WHOLS_PATH . '/includes/Admin/csf-fields/CSF_Field_registration_details.php';
         }
 
+        // Assets
+        require_once WHOLS_PATH . '/includes/class-assets-manager.php';
+
         require_once WHOLS_PATH . '/includes/Admin.php';
 
         require_once WHOLS_PATH . '/includes/Admin/Custom_Posts.php';
@@ -129,6 +132,9 @@ final class Whols_Lite {
         require_once WHOLS_PATH . '/includes/Frontend.php';
         require_once WHOLS_PATH . '/includes/Frontend/Wholesaler_Login_Register.php';
         require_once WHOLS_PATH . '/includes/Frontend/Woo_Config.php';
+
+        // Quote
+        require_once WHOLS_PATH . '/includes/request-a-quote/class-request-quote.php';
         
         require_once WHOLS_PATH . '/includes/Email_Notifications.php';
         require_once WHOLS_PATH . '/includes/Manage_Order.php';
@@ -222,6 +228,7 @@ final class Whols_Lite {
      */
     public function init() {
         // Both admin + frontend
+        new Whols\Assets_Manager();
         new Whols\Admin\Global_Settings();
         new Whols\Manage_Order();
         new Whols\Compatibility();
@@ -233,6 +240,7 @@ final class Whols_Lite {
         // Frontend
         new Whols\Frontend();
         new Whols\Frontend\Woo_Config();
+        new Whols\Request_Quote();
 
         if ( is_admin() ) {
             new Whols\Admin();

@@ -9,9 +9,6 @@ class Woo_Config {
      * Constructor.
      */
     public function __construct() {
-        // Hide price for guest users
-        add_action( 'wp', array( $this, 'hide_prices_for_guest_users') );
-
         // Apply discount or Adjust price
         add_action( 'woocommerce_before_calculate_totals', array( $this, 'apply_discount') );
 
@@ -38,31 +35,10 @@ class Woo_Config {
 
         // Cart page
         add_filter( 'woocommerce_get_item_data', array( $this, 'filter_get_item_data' ), 99, 2 );
-    }
 
-    public function hide_prices_for_guest_users(){
-        $hide_price_for_guest_users = whols_get_option( 'hide_price_for_guest_users' );
-
-        // Added filter to hide price for guest users based on conditions, get_queried_object() can be used to get the current page object.
-        $hide_price_for_guest_users = apply_filters( 'whols_hide_price_for_guest_users', $hide_price_for_guest_users );
-    
-        if( $hide_price_for_guest_users && !is_user_logged_in() ){
-            // remove cart button from loop
-            remove_action( 'woocommerce_after_shop_loop_item', 'woocommerce_template_loop_add_to_cart', 10 );
-    
-            // remove cart button from product details
-            remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_add_to_cart', 30 );
-    
-            // disable purchasing products for over protection
-            add_filter( 'woocommerce_is_purchasable', array( $this, 'disable_purchasable_guest_users' ) );
-    
-            // finally add custom message instead of showing price & cart button
-            add_filter( 'woocommerce_get_price_html', array( $this, 'filter_woocommerce_get_price_html' ), 10, 2 );
-        }
-    }
-
-    public function disable_purchasable_guest_users( $purchasable ){
-        return false;
+        // Set default value in the quantity field
+        add_filter( 'woocommerce_loop_add_to_cart_link', array($this, 'set_min_qty_for_shop'), 10, 2 );
+        add_filter( 'woocommerce_quantity_input_args', array( $this, 'set_default_value_in_quantity_field' ), 10, 2 );
     }
 
     /**
@@ -566,7 +542,7 @@ class Woo_Config {
         $should_show_wholesale_status       = whols_is_wholesaler(get_current_user_id()) && $enable_this_pricing && $price_value &&  $cart_item['quantity'] >= $minimum_quantity;
         $show_wholesale_status_in_item_data = apply_filters('whols_show_wholesale_status_in_item_data', $should_show_wholesale_status, $item_data, $cart_item );
 
-        if( $show_wholesale_status_in_item_data  ){
+        if( $show_wholesale_status_in_item_data && is_cart()  ){ // Only show in the cart page
             $item_data[] = array(
                 'name'      => 'Wholesale',
                 'display'   => '<span class="whols_wholesale_status_label">'. esc_html__('Yes', 'whols') .'</span>',
@@ -576,4 +552,69 @@ class Woo_Config {
     
         return $item_data;
     }
+
+    /**
+	 * Set minimum quantity for product loop.
+	 *
+	 * @return array
+	 */
+    function set_min_qty_for_shop( $html, $product ) {
+		if( !whols_is_wholesaler() || !$product->is_type('simple') || !whols_get_option('auto_apply_minimum_quantity') || !whols_get_option('force_auto_apply_minimum_quantity') ){
+			return $html;
+		}
+
+		$product_status      = whols_get_product_status( $product );
+		$enable_this_pricing = $product_status['enable_this_pricing'];
+		$minimum_quantity    = $product_status['minimum_quantity'];
+		$price_tiers 	   	 = !empty($product_status['tiers']) ? $product_status['tiers'] : array();
+
+		// If auto apply minimum quantity option is disabled, then return.
+		if( !$enable_this_pricing ){
+			return $html;
+		}
+
+		if( $price_tiers ){
+			$min_qty = min( array_keys($price_tiers) );
+            $html = str_replace( 'quantity="1"', 'quantity="'. $min_qty .'"', $html );
+		} elseif( $minimum_quantity ){
+			$html = str_replace( 'quantity="1"', 'quantity="'. $minimum_quantity .'"', $html );
+		}
+
+        return $html;
+    }
+
+
+	/**
+	 * Set default value in the quantity field
+	 *
+	 * @param array $args
+	 * @param object $product
+	 *
+	 * @return array
+	 */
+	function set_default_value_in_quantity_field( $args, $product ){
+		// Only for simple product.
+		// Variable product support added differently by the woocommerce_available_variation hook.
+		if( !is_product() || !whols_is_wholesaler() || !$product->is_type('simple') || !whols_get_option('auto_apply_minimum_quantity') ){
+			return $args;
+		}
+
+		$product_status      = whols_get_product_status( $product );
+		$enable_this_pricing = $product_status['enable_this_pricing'];
+		$minimum_quantity    = $product_status['minimum_quantity'];
+		$price_tiers 	   	 = !empty($product_status['tiers']) ? $product_status['tiers'] : array();
+
+		// If auto apply minimum quantity option is disabled, then return.
+		if( !$enable_this_pricing ){
+			return $args;
+		}
+
+		if( $price_tiers ){
+			$args['min_value'] = min( array_keys($price_tiers) );
+		} elseif( $minimum_quantity ){
+			$args['min_value'] = $minimum_quantity;
+		}
+
+		return $args;
+	}
 }

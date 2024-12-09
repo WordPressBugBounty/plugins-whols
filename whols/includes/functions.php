@@ -22,9 +22,13 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @return string|null
  */
 if( !function_exists('whols_get_option') ){
-    function whols_get_option( $option_name = '', $default = null ) {
+    function whols_get_option( $option_name = '', $default = null, $check_empty = false  ) {
         $options = get_option( 'whols_options' );
-    
+
+        if( $check_empty && empty($options[$option_name]) ){
+            return $default;
+        }
+
         return ( isset( $options[$option_name] ) ) ? $options[$option_name] : $default;
     }
 }
@@ -56,16 +60,11 @@ if( !function_exists('whols_get_term_meta') ){
  */
 if(!function_exists('whols_get_payment_gateways')){
     function whols_get_payment_gateways(){
-        $gateways = (array) get_option( 'woocommerce_gateway_order' );
+        $gateways = WC()->payment_gateways->get_available_payment_gateways();
         $gateway_list = array();
     
         foreach( $gateways as $key => $gateway ) {
-            $gateway_info = get_option('woocommerce_'. $key .'_settings');
-    
-            if( isset($gateway_info['enabled']) && $gateway_info['enabled'] == 'yes' ) {
-                $gateway_list[$key] = $key;
-                $gateway_list[$key] = isset($gateway_info['title']) ? $gateway_info['title'] : '';
-            }
+            $gateway_list[$key] = $gateway->get_title();
         }
     
         return $gateway_list;
@@ -842,6 +841,165 @@ if( !function_exists('whols_is_on_wholesale') ){
 }
 
 /**
+ * Accepts either normal product or a variation product.
+ * Returns the informations about the product info whether it should or not qualified as a wholesale product.
+ *
+ * @param $product_data Product/Variation object.
+ *
+ * @return array(
+        'enable_this_pricing'  => '', bool
+        'price_type'           => '', flat_rate/percent
+        'price_value'          => '', input_price/new_input_min_price:new_input_max_price
+        'minimum_quantity'     => '', number
+    )
+ */
+if( !function_exists('whols_get_product_status') ){
+    function whols_get_product_status( $product_data ) {
+        // current user role
+        $current_user_roles  = whols_get_current_user_roles();
+        $current_user_role   = isset( $current_user_roles[0] ) ? $current_user_roles[0] : '';
+        $current_user_id     = get_current_user_id();
+
+        $pricing_model  = whols_get_option( 'pricing_model' );
+        $term_meta      = '';
+
+        $price_type_1_properties = whols_get_option( 'price_type_1_properties' );
+        $enable_this_pricing     = $price_type_1_properties['enable_this_pricing'];
+        $price_type              = $price_type_1_properties['price_type'];
+        $price_value             = $price_type_1_properties['price_value'];
+        $minimum_quantity        = $price_type_1_properties['minimum_quantity'];
+
+        if( $product_data->is_type('variation') ){
+            $product = wc_get_product( $product_data->get_parent_id() );
+        } else {
+            $product = $product_data;
+        }
+
+        $tiers = array();
+
+        $current_product_category_ids = $product->get_category_ids();
+
+        foreach( $current_product_category_ids as $id ){
+            $term_meta = whols_get_term_meta( $id, 'whols_product_category_meta' );
+
+            if( $pricing_model  ==  'single_role' ){
+                $price_type_1_properties = whols_get_option( 'price_type_1_properties' );
+                $enable_this_pricing     = $price_type_1_properties['enable_this_pricing'];
+                $price_type              = $price_type_1_properties['price_type'];
+                $price_value             = $price_type_1_properties['price_value'];
+                $minimum_quantity        = $price_type_1_properties['minimum_quantity'];
+
+                // override from category level
+                if( isset( $term_meta[ 'price_type_1_properties' ] ) && $term_meta[ 'price_type_1_properties' ] ){
+                    $price_type_1_properties = $term_meta[ 'price_type_1_properties' ];
+                    if( $price_type_1_properties['enable_this_pricing']  ){
+                        $enable_this_pricing = $price_type_1_properties['enable_this_pricing'];
+                        $price_type          = $price_type_1_properties['price_type'];
+                        $price_value         = $price_type_1_properties['price_value'];
+                        $minimum_quantity    = $price_type_1_properties['minimum_quantity'];
+
+                        break;
+                    }
+                }
+            } else { // Multiple role
+                $price_type_2_properties         = whols_get_option( 'price_type_2_properties' );
+                $show_wholesale_price_for        = whols_get_option('show_wholesale_price_for');
+                $select_role_for_all_users_price = whols_get_option('select_role_for_all_users_price');
+
+                // Support for test mode
+                if( $show_wholesale_price_for == 'administrator' ){
+                    $select_role_for_all_users_price = 'whols_default_role';
+                }
+
+                if( in_array($show_wholesale_price_for, array('all_users', 'administrator')) && $select_role_for_all_users_price ){
+
+                    $enable_this_pricing     = isset($price_type_2_properties[$select_role_for_all_users_price. '__enable_this_pricing']) ? $price_type_2_properties[$select_role_for_all_users_price. '__enable_this_pricing'] : '';
+                    $price_type              = isset($price_type_2_properties[$select_role_for_all_users_price. '__price_type']) ? $price_type_2_properties[$select_role_for_all_users_price. '__price_type'] : '';
+                    $price_value             = isset($price_type_2_properties[$select_role_for_all_users_price. '__price_value']) ? $price_type_2_properties[$select_role_for_all_users_price. '__price_value'] : '';
+                    $minimum_quantity        = isset($price_type_2_properties[$select_role_for_all_users_price. '__minimum_quantity']) ? $price_type_2_properties[$select_role_for_all_users_price. '__minimum_quantity'] : '';
+
+                } else { // only wholesalers
+                    $enable_this_pricing     = isset($price_type_2_properties[$current_user_role. '__enable_this_pricing']) ? $price_type_2_properties[$current_user_role. '__enable_this_pricing'] : '';
+                    $price_type              = isset($price_type_2_properties[$current_user_role. '__price_type']) ? $price_type_2_properties[$current_user_role. '__price_type'] : '';
+                    $price_value             = isset($price_type_2_properties[$current_user_role. '__price_value']) ? $price_type_2_properties[$current_user_role. '__price_value'] : '';
+                    $minimum_quantity        = isset($price_type_2_properties[$current_user_role. '__minimum_quantity']) ? $price_type_2_properties[$current_user_role. '__minimum_quantity'] : '';
+                }
+
+
+                // override from category level
+                if( isset( $term_meta[ 'price_type_2_properties' ] ) && $term_meta[ 'price_type_2_properties' ] ){
+                    $price_type_2_properties = $term_meta[ 'price_type_2_properties' ];
+                    if( isset($price_type_2_properties[$current_user_role. '__enable_this_pricing']) && $price_type_2_properties[$current_user_role. '__enable_this_pricing']  ){
+                        $enable_this_pricing = $price_type_2_properties[$current_user_role. '__enable_this_pricing'];
+                        $price_type          = $price_type_2_properties[$current_user_role. '__price_type'];
+                        $price_value         = $price_type_2_properties[$current_user_role. '__price_value'];
+                        $minimum_quantity    = $price_type_2_properties[$current_user_role. '__minimum_quantity'];
+
+                        break;
+                    }
+                }
+            }
+        }
+
+        // override from product level
+        if( $pricing_model == 'single_role' ){
+            $price_type_1_properties_meta = get_post_meta( $product_data->get_id(), '_whols_price_type_1_properties', true);
+
+            if( $price_type_1_properties_meta ){
+                $price_type_1_properties_arr = explode( ':', $price_type_1_properties_meta );
+
+                if( $price_type_1_properties_arr[0] ){
+                    $enable_this_pricing = true;
+                    $price_type = 'flat_rate';
+                    $price_value = $price_type_1_properties_arr[0];
+                    $minimum_quantity = $price_type_1_properties_arr[1] ? $price_type_1_properties_arr[1] : 1;
+                }
+            }
+
+        } elseif( $pricing_model == 'multiple_role' ){
+            // Fix, Show price for all user doesn't show for multiple role
+            if( $show_wholesale_price_for == 'all_users' && $select_role_for_all_users_price ){
+                $current_user_roles[] = $select_role_for_all_users_price;
+            }
+
+            $price_type_2_properties_meta = get_post_meta( $product_data->get_id(), '_whols_price_type_2_properties', true);
+
+            if( $price_type_2_properties_meta ){
+                $roles_data_list = explode( ';', $price_type_2_properties_meta );
+
+                foreach( $roles_data_list as $role_data ){
+                    $role_data_arr = explode( ':', $role_data );
+
+                    if(
+                        ( is_admin() && !wp_doing_ajax() ) || // Don't need to check role for admin
+                        in_array( 'any_role',  $role_data_arr ) ||
+                        array_intersect($current_user_roles, $role_data_arr) // Fix, Show price for all user doesn't show for multiple role
+                    ){
+                        if( !empty($role_data_arr[1]) ){
+                            $enable_this_pricing = true;
+                            $price_type          = 'flat_rate';
+                            $price_value         = $role_data_arr[1];
+                            $minimum_quantity    = $role_data_arr[2] ? $role_data_arr[2] : 1;
+                        }
+
+                        break;
+                    }
+                }
+            }
+
+        }  // elseif multiple_role
+
+        return array(
+            'enable_this_pricing'  => $enable_this_pricing,
+            'price_type'           => $price_type,
+            'price_value'          => $price_value,
+            'minimum_quantity'     => $minimum_quantity,
+            'tiers'                => $tiers
+        );
+    }
+}
+
+/**
  * Sanitize checkbox
  *
  * @since 1.0.0
@@ -975,42 +1133,90 @@ if( !function_exists('whols_is_wholesale_priced') ){
     }
 }
 
+if( !function_exists('whols_get_product_price_tiers') ){
     /**
-     * Retrieves remote data and caches it using WordPress transients.
+     * It takes a product object and a boolean value as parameters and returns an array of price tiers
      *
-     * This function fetches remote data from a specified URL and caches it using a transient.
-     * If the transient is already set and not expired, it returns the cached data.
-     * Otherwise, it makes a remote request to fetch the data, caches it, and then returns it.
+     * @param product The product/variation object
+     * @param return_prepared_prices If set to true, the function will return an array of min qty =>
+     * price pairs. If set to false, it will return an array of arrays, each containing the role, price
+     * and min qty.
      *
-     * @param string|null $version The version of the data to retrieve. It is used to flush the transient cache when the version changes.
-     * @return array The remote data retrieved and cached.
+     * @return array
      */
-    function whols_get_plugin_remote_data($version = null) {
-        $transient_key = 'whols_remote_data_v' . $version;
-        $feequency_to_update = 2 * DAY_IN_SECONDS; // N Days later fetch data again
-        $remote_url = 'https://feed.hasthemes.com/notices/whols.json';
-        // $remote_url = WHOLS_URL . '/remote.json';
-        
-        $remote_banner_data = [];
-        $transient_data = get_transient($transient_key);
-        
-        // Check if we should force update or if transient is not set
-        if ( $transient_data ) {
-            $remote_banner_data = $transient_data;
-        } elseif( false === $transient_data ) {
-            $remote_banner_req = wp_remote_get($remote_url, array(
-                'timeout' => 10,
-                'sslverify' => false,
-            ));
-    
-            // If request success, set data to transient
-            if ( !is_wp_error($remote_banner_req) && $remote_banner_req['response']['code'] == 200 ) {
-                $remote_banner_data = json_decode($remote_banner_req['body'], true);
-                
-                // Store in version-specific transient if force update, otherwise use regular transient
-                set_transient($transient_key, $remote_banner_data, $feequency_to_update);
+    function whols_get_product_price_tiers( $product, $return_prepared_prices ){
+        $tiers = array(); // tier_qty => price pair
+
+        // For price tyep 2 / multiple role
+        $price_type_2_properties    = get_post_meta( $product->get_id(), '_whols_price_type_2_properties', true);
+        $roles_data_list            = explode( ';', $price_type_2_properties );
+
+        // Prepare price tiers for multiple role
+        if( $price_type_2_properties && whols_get_option('pricing_model') == 'multiple_role' ){
+            foreach( $roles_data_list as $role_data ){
+                if(
+                    ( is_admin() && !wp_doing_ajax() ) || // Don't need to check for admin
+                    in_array( 'any_role', explode( ':', $role_data ) ) ||
+                    array_intersect( whols_get_current_user_roles(), explode( ':', $role_data ))
+                ){
+
+                    $price_data = explode( ':', $role_data );
+
+                    if( $return_prepared_prices ){
+                        $min_qty = !empty($price_data[2]) ? $price_data[2] : 1;
+
+                        // Make sure min qty & price has given
+                        // then take price to the array
+                        if( !empty($price_data[1]) ){
+                            $tiers[$min_qty] = $price_data[1];
+                        }
+                    } else {
+                        $tiers[] = explode( ':', $role_data );
+                    }
+                }
             }
         }
-    
-        return $remote_banner_data;
+
+        return $tiers;
     }
+}
+
+/**
+ * Retrieves remote data and caches it using WordPress transients.
+ *
+ * This function fetches remote data from a specified URL and caches it using a transient.
+ * If the transient is already set and not expired, it returns the cached data.
+ * Otherwise, it makes a remote request to fetch the data, caches it, and then returns it.
+ *
+ * @param string|null $version The version of the data to retrieve. It is used to flush the transient cache when the version changes.
+ * @return array The remote data retrieved and cached.
+ */
+function whols_get_plugin_remote_data($version = null) {
+    $transient_key = 'whols_remote_data_v' . $version;
+    $feequency_to_update = 2 * DAY_IN_SECONDS; // N Days later fetch data again
+    $remote_url = 'https://feed.hasthemes.com/notices/whols.json';
+    // $remote_url = WHOLS_URL . '/remote.json';
+    
+    $remote_banner_data = [];
+    $transient_data = get_transient($transient_key);
+    
+    // Check if we should force update or if transient is not set
+    if ( $transient_data ) {
+        $remote_banner_data = $transient_data;
+    } elseif( false === $transient_data ) {
+        $remote_banner_req = wp_remote_get($remote_url, array(
+            'timeout' => 10,
+            'sslverify' => false,
+        ));
+
+        // If request success, set data to transient
+        if ( !is_wp_error($remote_banner_req) && $remote_banner_req['response']['code'] == 200 ) {
+            $remote_banner_data = json_decode($remote_banner_req['body'], true);
+            
+            // Store in version-specific transient if force update, otherwise use regular transient
+            set_transient($transient_key, $remote_banner_data, $feequency_to_update);
+        }
+    }
+
+    return $remote_banner_data;
+}

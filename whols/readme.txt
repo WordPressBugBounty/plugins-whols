@@ -4,7 +4,7 @@ Tags: wholesale plugin, wholesale pricing, wholesale prices, woocommerce wholesa
 Requires at least: 4.0
 Tested up to: 6.7
 Requires PHP: 5.4
-Stable tag: 1.4.0
+Stable tag: 1.4.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -82,7 +82,9 @@ Whols plugin reduces the hassle to create multiple stores for both the consumers
 ✓ Conversation between Admin and Wholesaler
 ✓ Wholesaler can request a quote for products
 ✓ Create dynamic rules - Use dynamic rules to create discounts, fees, and BOGO offers based on cart subtotal, quantity, specific products, user roles, or combinations of these conditions
+✓ Pay using wallet
 ✓ Email Notification (Registration, Wholesaler Approve & Rejection)
+✓ Enable Google reCAPTCHA (v3) for the wholesaler registration form spam protection
 
 == Video Overview: ==
 [youtube https://www.youtube.com/watch?v=OArnKMljqWs]
@@ -249,6 +251,14 @@ Needs assistance to use this plugin?
 Feel free to [Contact us](https://hasthemes.com/contact-us/)
 
 == Changelog ==
+= Version: 1.4.1 -Date: 09 Dec 2024 =
+- Added: Request a quote feature
+- Added: Auto Input Minimum Quantity
+- Added: Option to change the registration form submit button text
+- Fixed: Payment gateways were not showing
+- Fixed: Wholesale label was showing in the order review list
+- Updated: Plugin settings screenshots
+
 = Version: 1.4.0 -Date: 25 Nov 2024 =
 - Fixed: Textdomain loading warning with WP 6.9 version
 
@@ -512,22 +522,26 @@ If you can't find an answer to your question here, contact us and we'll be happy
 
 
 == Screenshots ==
-1. Navigate Settings Quickly After Activating the plugin
-2. Wholesaler Registration Form Shortcode
-3. Wholesaler Registration Form Frontend
-4. Registered Wholesale User Pending for Approval
-5. Approve Wholesaler Request
-6. General Settings
-7. General Settings
-8. Product Visibility Settings
-8. Registration & Login Settings
-9. Registration & Login Settings
-11. Guest Access Restriction Settings
-12. Other Settings
-13. Product Level Settings
-14. Wholesale pricing options
-15. Wholesale price is now showing in the Frontnd
-16. Wholesale price is now showing in the product details page
-17. Wholesale pricing options For: Variable Product
-18. Wholesale pricing options showing in the product details page For: Variable Product
-19. Product Category Settings
+1. Quick access to plugin settings.  
+2. Setting & displaying prices on shop & product pages.  
+3. Setting prices for multiple roles(Pro).  
+4. Price tiers displayed on the product page (Pro).  
+5. Registration field setup & output overview.  
+6. Embedding the registration form with shortcode.  
+7. Error handling after form submission.  
+8. Customer registration pending approval.  
+9. Admin panel view of pending approvals.  
+10. Admin editing/approval of wholesaler requests.  
+11. Registration & login settings overview.  
+12. Managing default & custom fields(Pro).  
+13. General settings configuration.  
+14. Product visibility settings.  
+15. Restrict category to specific wholesalers (Pro).  
+16. Guest restriction settings.  
+17. Enabling & configuring "Request a Quote".  
+18. Wallet feature setup (Pro).  
+19. Customizing email notifications.  
+20. Setting a custom "Thank You" message.  
+21. Additional settings configurations.  
+22. Design customization options.  
+23. Fixed/percentage price for product categories (Pro).

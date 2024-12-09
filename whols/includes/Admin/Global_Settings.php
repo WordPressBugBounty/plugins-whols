@@ -108,6 +108,7 @@ class Global_Settings {
         );
 
         $capabilities = whols_get_capabilities();
+        $defaults = include WHOLS_PATH . '/includes/Admin/defaults.php';
 
         // Create Settings Wrapper
         \CSF::createOptions( $prefix, array(
@@ -115,7 +116,7 @@ class Global_Settings {
             'menu_slug'          => 'whols-admin',
             'menu_icon'          => 'dashicons-money-alt',
             'menu_capability'    => $capabilities['manage_settings'],
-            'framework_title'    => esc_html__( 'WooCommerce Wholesale Price Settings', 'whols' ),
+            'framework_title'    => esc_html__( 'Settings', 'whols' ),
             'theme'              => 'light',
             'sticky_header'      => false,
             'class'              => 'whols_global_options',
@@ -126,54 +127,7 @@ class Global_Settings {
             'show_reset_section' => true,
             'show_bar_menu'      => false,
             'footer_text'      => esc_html__('Made with Love by HasThemes', 'whols'),
-            'defaults'           => array(
-                'pricing_model'           => 'single_role',
-                'price_type_1_properties' => array(
-                    'enable_this_pricing' => '',
-                    'price_type'          => 'flat_rate',
-                    'price_value'         => '',
-                    'minimum_quantity'    => '',
-                ),
-                'price_type_2_properties'   => array(
-                    'whols_default_role__enable_this_pricing' => '',
-                    'whols_default_role__price_type'          => 'flat_rate',
-                    'whols_default_role__price_value'         => '',
-                    'whols_default_role__minimum_quantity'    => '',
-                ),
-                'retailer_price_options' => array(
-                    'hide_retailer_price'         => '',
-                    'retailer_price_custom_label' => '',
-                ),
-                'wholesaler_price_options'  => array(
-                    'hide_wholesaler_price'         => '',
-                    'wholesaler_price_custom_label' => '',
-                ),
-                'discount_label_options' => array(
-                    'hide_discount_percent'         => '',
-                    'discount_percent_custom_label' => ''
-                ),
-                'lgoin_to_see_price_label'                                 => '',
-                'hide_wholesale_only_products_from_other_customers'             => '',
-                'hide_general_products_from_wholesalers'                   => '',
-                'default_wholesale_role'                                   => 'whols_default_role',
-                'enable_auto_approve_customer_registration'                => '',
-                'registration_successful_message_for_auto_approve'         => 'Thank you for registering.',
-                'registration_successful_message_for_manual_approve'       => 'Thank you for registering. Your account will be reviewed by us & approve manually. Please wait to be approved.',
-                'redirect_page_customer_registration'                      => '',
-                'redirect_page_customer_login'                             => '',
-                'hide_price_for_guest_users'                               => '',
-                'enable_website_restriction'                               => '',
-                'who_can_access_shop'                                      => 'everyone',
-                'who_can_access_entire_website'                            => 'everyone',
-                'disable_coupon_for_wholesale_customers'                   => '',
-                'disable_specific_payment_gateway_for_wholesale_customers' => '',
-                'allow_free_shipping_for_wholesale_customers'              => '',
-
-                'show_wholesale_price_for'            => 'only_wholesalers',
-                'exclude_tax_for_wholesale_customers' => '',
-                'enable_wholesale_store'              => '1',
-                'registration_notification_recipients' => '',
-            )
+            'defaults'           => $defaults
         ) );
 
         // General Settings Tab
@@ -399,6 +353,13 @@ class Global_Settings {
                     'class'       => 'whols_pro whols_enable_auto_approve_customer_registration'
                 ),
 
+                array(
+                    'id'       => 'registration_form_submit_button_label',
+                    'type'     => 'text',
+                    'title'    => esc_html__( 'Submit Button Label', 'whols'),
+                    'after'    => esc_html__( 'Custom label for the registration form submit button.', 'whols'  ),
+                ),
+
                 // successful message
                 array(
                     'id'       => 'registration_successful_message_for_auto_approve',
@@ -436,6 +397,15 @@ class Global_Settings {
                     'type'     => 'text',
                     'title'    => esc_html__( 'Redirect Page URL (After Login)', 'whols'),
                     'after'    => esc_html__( 'Insert a page URL where you want the users to be redirected after a successful login. Leave empty for default redirection. Note: Make sure you have entered a page URL of the same domain.', 'whols'  ),
+                ),
+
+                // enable enable_recaptcha
+                array(
+                    'id'       => 'enable_recaptcha',
+                    'type'     => 'checkbox',
+                    'title'    => esc_html__( 'Enable Google reCAPTCHA (V3)', 'whols'),
+                    'label'    => esc_html__( 'Yes', 'whols'  ),
+                    'class'       => 'whols_pro whols_enable_recaptcha'
                 ),
             )
         ));
@@ -648,29 +618,45 @@ class Global_Settings {
             'title'  => esc_html__( 'Wholesaler Only Categories',  'whols' ),
             'class'  => 'whols-ribbon-new',
             'fields' => array(
+                // enable_wholesale_only_categories
+                array(
+                    'id'         => '_enable_wholesale_only_categories',
+                    'type'       => 'switcher',
+                    'title'      => esc_html__( 'Enable', 'whols'),
+                    'desc'       => esc_html__( 'Enable to Define Wholesaler Only Categories.', 'whols'),
+                    'text_on'    => esc_html__( 'Yes', 'whols' ),
+                    'text_off'   => esc_html__( 'No', 'whols' ),
+                    'class'      => 'whols_pro'
+                ),
+                
                 // include_children
                 array(
-                    'id'         => 'include_children',
+                    'id'         => '_include_children',
                     'type'       => 'checkbox',
                     'title'      => esc_html__( 'Include Children Categories', 'whols'),
                     'desc'       => __( 'If checked, all the child categories within a parent category will be selected as well. <br>If not checked, parents or children relationship will not be considered in the selection of the category.', 'whols'),
                     'label'      => esc_html__( 'Yes', 'whols' ),
-                    'class'      => 'whols_pro'
-                ),
+                    'class'      => 'whols_pro_opacity'
+                ),                  
 
                 // wholesale_only_categories
                 array(
-                    'id'          => 'wholesale_only_categories',
+                    'id'          => '_wholesale_only_categories',
                     'type'        => 'repeater',
                     'title'       => esc_html__( '', 'whols' ),
-                    'class'       => 'whols_wholesale_only_categories whols_pro_opacity',
+                    'class'       => 'whols_wholesale_only_categories whols_pro_opacity', // whols_pro_opacity
+                    'before'      => '<div class="csf-submessage csf-submessage-info">Example below shows how to restrict categories for wholesalers only in the PRO version.</div>',
                     'fields'      => array(
                         array(
                             'id'          => 'categories',
                             'type'        => 'select',
                             'title'       => __( 'Category(s)', 'whols' ) . '<div class="csf-help"><span class="csf-help-text">'. __('Products in the following categories will be available only for the assigned Roles.', 'whols') .'</span><i class="fas fa-question-circle"></i></div>',
                             'placeholder' => __( 'Select', 'whols' ),
-                            'options'     => whols_product_category_dropdown_options(),
+                            'options'     => array(
+                                'cat-1' => 'Category 1',
+                                'cat-2' => 'Category 2',
+                                'cat-3' => 'Category 3',
+                            ),
                             'multiple'    => true,
                             'chosen'      => true,
                         ),
@@ -679,7 +665,11 @@ class Global_Settings {
                             'type'        => 'select',
                             'title'       => __( 'Assign Role(s)', 'whols' ) . '<div class="csf-help"><span class="csf-help-text">'. __('These are the roles that have access to the categories selected. <br>Leaving it empty will restrict the categories to All Wholesalers.', 'whols') .'</span><i class="fas fa-question-circle"></i></div>',
                             'placeholder' => __( 'Leave it empty, to assign all roles.', 'whols' ),
-                            'options'     => whols_roles_dropdown_options(),
+                            'options'     => array(
+                                'role-1' => 'Role 1',
+                                'role-2' => 'Role 2',
+                                'role-3' => 'Role 3',
+                            ),
                             'multiple'    => true,
                             'chosen'      => true,
                         ),
@@ -687,8 +677,21 @@ class Global_Settings {
                     'button_title'      => __('Add New', 'whols'),
                     'default'   => array(
                         array(
-                          'categories' => array(),
-                          'roles' => array()
+                          'categories' => array(
+                            'cat-1',
+                            'cat-2'
+                          ),
+                          'roles' => array(
+                            'role-1',
+                          )
+                        ),
+                        array(
+                            'categories' => array(
+                              'cat-3',
+                            ),
+                            'roles' => array(
+                              'role-3',
+                            )
                         ),
                     )
                 ),
@@ -707,7 +710,7 @@ class Global_Settings {
                     'title'    => esc_html__( 'Hide Price For Guest Users', 'whols'),
                     'text_on'  => esc_html__( 'Yes', 'whols' ),
                     'text_off' => esc_html__( 'No', 'whols' ),
-                    'label'    => esc_html__( 'Enable this option to show the price only for those users who are logged in.'  , 'whols'  ),
+                    'label'    => esc_html__( 'If enabled, the price will be hidden for non-logged in users.'  , 'whols'  ),
                 ),
 
                 // login to see price label
@@ -767,121 +770,114 @@ class Global_Settings {
             )
         ) );
 
+        // Request a quote settings
+        \CSF::createSection( $prefix, array(
+            'id'     => 'request_a_quote',
+            'title'  => esc_html__( 'Request a Quote', 'whols' ),
+            'description' => __('Learn more about this feature in our <a href="https://wpwhols.com/doc/how-to-enable-the-request-a-quote-feature/" target="_blank">Documentation</a>', 'whols'),
+            'fields' => array(
+                // enable_request_a_quote
+                array(
+                    'id'         => 'enable_request_a_quote',
+                    'type'       => 'checkbox',
+                    'title'      => esc_html__( 'Enable Request a Quote', 'whols' ),
+                    'label'      => esc_html__( 'Yes', 'whols' ),
+                    'desc'       => esc_html__( 'Enable a "Request a Quote" feature on the cart page, letting customers easily submit quote requests for products in their cart.', 'whols' ),
+                ),
+                // request_a_quote_label
+                array(
+                    'id'         => 'request_a_quote_label',
+                    'type'       => 'text',
+                    'title'      => esc_html__( 'Button Label', 'whols' ),
+                    'desc'       => esc_html__( 'Label of the request a quote button.', 'whols' ),
+                    'dependency' => array(
+                        'enable_request_a_quote', '==', '1'
+                    ),
+                ),
+                // create_conversation_when_request_a_quote
+                array(
+                    'id'         => 'create_conversation_when_request_a_quote',
+                    'type'       => 'checkbox',
+                    'title'      => esc_html__( 'Create Conversation', 'whols' ),
+                    'label'      => esc_html__( 'Yes', 'whols' ),
+                    'desc'       => esc_html__( 'Enable to create a new conversation when a request a quote is submitted. Conversation feature should be enabled to use this option.', 'whols' ),
+                    'dependency' => array(
+                        'enable_request_a_quote', '==', '1'
+                    ),
+                    'class'      => 'whols_pro'
+                ),
+
+                array(
+                    'type'    => 'notice',
+                    'style'   => 'success',
+                    'content' => 'Want to know how the conversation works? Please visit <a href="https://wpwhols.com/docs/" target="_blank">Conversation Feature Documentation</a>',
+                ),
+            )
+        ));
+
+        // Wallet settings
+        \CSF::createSection( $prefix, array(
+            'id'     => 'wallet',
+            'title'  => esc_html__( 'Wallet', 'whols' ),
+            'description' => __('Learn more about this feature in our <a href="https://wpwhols.com/docs/" target="_blank">Documentation</a>', 'whols'), // @todo update with specific url
+            'fields' => array(
+                // enable_wallet_payment
+                array(
+                    'id'         => 'enable_wallet_payment',
+                    'type'       => 'checkbox',
+                    'title'      => esc_html__( 'Enable Wallet Payment', 'whols' ),
+                    'label'      => esc_html__( 'Yes', 'whols' ),
+                    'desc'       => esc_html__( 'Enable to allow customers to pay using their wallet.', 'whols' ),
+                    'class'      => 'whols_pro'
+                ),
+                // min_amount_can_recharge
+                array(
+                    'id'         => 'min_amount_can_recharge',
+                    'type'       => 'number',
+                    'title'      => esc_html__( 'Minimum Amount Can Recharge', 'whols' ),
+                    'placeholder' => esc_html__( 'No Limit', 'whols' ),
+                    'desc'      => esc_html__( 'Minimum amount that can be recharged to the wallet. Leave it blank for no limit.', 'whols' ),
+                    'min'      => 1,
+                    'class'      => 'whols_pro_opacity'
+                ),
+                // max_amount_can_recharge
+                array(
+                    'id'         => 'max_amount_can_recharge',
+                    'type'       => 'number',
+                    'title'      => esc_html__( 'Maximum Amount Can Recharge', 'whols' ),
+                    'placeholder' => esc_html__( 'No Limit', 'whols' ),
+                    'desc'       => esc_html__( 'Maximum amount that can be recharged to the wallet. Leave it blank for no limit.', 'whols' ),
+                    'min'      => 1,
+                    'class'      => 'whols_pro_opacity'
+                ),
+                // otp_verification_method
+                array(
+                    'id'         => 'otp_verification_method',
+                    'type'       => 'select',
+                    'title'      => esc_html__( 'OTP Verification Method', 'whols' ),
+                    'options'    => array(
+                        '' => esc_html__('None', 'whols'),
+                        'email' => esc_html__('Email', 'whols'),
+                    ),
+                    'desc'       => esc_html__( 'Select the OTP verification method for wallet transactions.', 'whols' ),
+                    'class'      => 'whols_pro_opacity'
+                ),
+            )
+        ));
+
         // Registration Settings Tab
         \CSF::createSection( $prefix, array(
             'id'    => 'message_and_email_notifications_tab',
             'title' => esc_html__( 'Message & Email Notifications',  'whols' ),
         ) );
 
+        $email_notification_fields = include __DIR__ . '/csf-settings/email-notifications.php';
+
         // Email Notification
         \CSF::createSection( $prefix, array(
             'parent' => 'message_and_email_notifications_tab',
-            'title'  => esc_html__( 'Email Notification',  'whols' ),
-            'fields' => array(
-                // Heading
-                array(
-                'type'    => 'heading',
-                'content' => esc_html__('Wholesaler Request Notification', 'whols'),
-                ),
-                // enable_registration_notification_for_admin
-                array(
-                'id'         => 'enable_registration_notification_for_admin',
-                'type'       => 'checkbox',
-                'title'      => esc_html__( 'Wholesaler Request Notification', 'whols' ),
-                'label'      => esc_html__( 'Enable', 'whols' ),
-                'desc'       => esc_html__( 'If Enabled, The site admin will get an email about the new wholesaler registration request.' , 'whols' ),
-                ),
-                // registration_notification_recipients
-                array(
-                    'id'       => 'registration_notification_recipients',
-                    'type'     => 'text',
-                    'title'    => esc_html__( 'Recipient Email(s)', 'whols'),
-                    'desc'     => esc_html__( 'Leave it empty for default admin email. You can enter multiple emails separated by commas.' , 'whols' ),
-                    'placeholder' => get_option('admin_email'),
-                    'dependency' => array(
-                        'enable_registration_notification_for_admin', '==', '1'
-                    )
-                ),
-                // email_subject
-                array(
-                    'id'       => 'registration_notification_subject_for_admin',
-                    'type'     => 'text',
-                    'title'    => esc_html__( 'Email Subject', 'whols'),
-                    'dependency' => array(
-                        'enable_registration_notification_for_admin', '==', '1'
-                    )
-                ),
-                // message
-                array(
-                    'id'       => 'registration_notification_message_for_admin',
-                    'type'     => 'wp_editor',
-                    'title'    => esc_html__( 'Successful Registration Message', 'whols'),
-                    'desc'     => esc_html__( 'Use these  {name}, {email}, {date}, {time} placeholder tags to get dynamic content.', 'whols'  ),
-                    'dependency' => array(
-                        'enable_registration_notification_for_admin', '==', '1'
-                    )
-                ),
-                // Heading
-                array(
-                'type'    => 'heading',
-                'content' => esc_html__('Wholesaler Registration Notification', 'whols'),
-                ),
-                // enable_registration_notification_for_user
-                array(
-                'id'         => 'enable_registration_notification_for_user',
-                'type'       => 'checkbox',
-                'title'      => esc_html__( 'Wholesaler Registration Notification', 'whols' ),
-                'label'      => esc_html__( 'Enable', 'whols' ),
-                'desc'       => esc_html__( 'If Enabled, The registered wholesale customer will get an email about the registration.' , 'whols' ),
-                ),
-                // email_subject
-                array(
-                    'id'       => 'registration_notification_subject_for_user',
-                    'type'     => 'text',
-                    'title'    => esc_html__( 'Email Subject', 'whols'),
-                    'dependency' => array(
-                        'enable_registration_notification_for_user', '==', '1'
-                    )
-                ),
-                // message
-                array(
-                    'id'       => 'registration_notification_message_for_user',
-                    'type'     => 'wp_editor',
-                    'title'    => esc_html__( 'Successful Registration Message', 'whols'),
-                    'desc'     => esc_html__( 'Use these  {name}, {email}, {date}, {time} placeholder tags to get dynamic content.', 'whols'  ),
-                    'dependency' => array(
-                        'enable_registration_notification_for_user', '==', '1'
-                    )
-                ),
-                // Heading
-                array(
-                'type'    => 'heading',
-                'content' => esc_html__('Approved Notification', 'whols'),
-                ),
-                // enable_approved_notification
-                array(
-                'id'         => 'enable_approved_notification',
-                'type'       => 'checkbox',
-                'title'      => esc_html__( 'Enable Approved Notification', 'whols' ),
-                'label'      => esc_html__( 'Enable', 'whols' ),
-                'desc'       => esc_html__( 'If Enabled, The registered wholesale customer will get an email if the wholesaler request is approved.' , 'whols' ),
-                'class'      => 'whols_pro'
-                ),
-                // Heading
-                array(
-                'type'    => 'heading',
-                'content' => esc_html__('Rejection Notification', 'whols'),
-                ),
-                // enable_rejection_notification
-                array(
-                'id'         => 'enable_rejection_notification',
-                'type'       => 'checkbox',
-                'title'      => esc_html__( 'Enable Rejection Notification', 'whols' ),
-                'label'      => esc_html__( 'Enable', 'whols' ),
-                'desc'       => esc_html__( 'If Enabled, The registered wholesale customer will get an email if the wholesaler request is rejected.' , 'whols' ),
-                'class'      => 'whols_pro'
-                ),
-            )
+            'title'  => esc_html__( 'Email Notifications',  'whols' ),
+            'fields' => $email_notification_fields
         ));
 
         // Custom thank you message
@@ -931,43 +927,67 @@ class Global_Settings {
         \CSF::createSection( $prefix, array(
             'title'  => esc_html__( 'Others Settings',  'whols' ),
             'fields' => array(
+                // auto_apply_minimum_quantity
+                array(
+                    'id'    => 'auto_apply_minimum_quantity',
+                    'type'  => 'checkbox',
+                    'title' => esc_html__( 'Auto Input Minimum Quantity', 'whols' ),
+                    'label' => esc_html__( 'Yes', 'whols' ),
+                    'after' => esc_html__( 'Setting the quantity field to its minimum quantity automatically will eliminate manual input in the product page', 'whols' ),
+                ),
+
+                array(
+                    'id'    => 'force_auto_apply_minimum_quantity',
+                    'type'  => 'checkbox',
+                    'title' => esc_html__( ' ', 'whols' ),
+                    'label' => esc_html__( 'Force Applying Minimum Quantity', 'whols' ),
+                    'after' => esc_html__( 'Force minimum quantity when adding products to Cart from Product loop/list.', 'whols' ),
+                    'dependency' => array(
+                        'auto_apply_minimum_quantity', '==', '1'
+                    )
+                ),
+
                 // exclude_tax_for_wholesale_customers
                 array(
-                    'id'         => 'exclude_tax_for_wholesale_customers',
-                    'type'       => 'checkbox',
-                    'title'      => esc_html__( 'Exclude Tax For Wholesale Customers', 'whols'),
-                    'label'      => esc_html__( 'Yes', 'whols'  ),
+                    'id'    => 'exclude_tax_for_wholesale_customers',
+                    'type'  => 'checkbox',
+                    'title' => esc_html__( 'Exclude Tax', 'whols' ),
+                    'label' => esc_html__( 'Yes', 'whols' ),
+                    'after' => esc_html__( 'Exclude Tax for Wholesalers', 'whols' ),
                 ),
 
                 // disable coupon for wholesale customers
                 array(
-                    'id'         => 'disable_coupon_for_wholesale_customers',
-                    'type'       => 'checkbox',
-                    'title'      => esc_html__( 'Disable Coupons For Wholesale Customers', 'whols'),
-                    'label'      => esc_html__( 'Yes', 'whols'  ),
-                    'after'      => esc_html__( '(This option can be overridden for each role individually)', 'whols'  ),
+                    'id'    => 'disable_coupon_for_wholesale_customers',
+                    'type'  => 'checkbox',
+                    'title' => esc_html__( 'Disable Coupons', 'whols' ),
+                    'label' => esc_html__( 'Yes', 'whols' ),
+                    'after' => esc_html__( 'Disable Coupons For Wholesalers', 'whols' ),
+                    'desc'  => esc_html__( '(This option can be overridden for each role individually)', 'whols' ),
                 ),
 
                 // disable specific payment gateway for wholesale customers
                 array(
                     'id'          => 'disable_specific_payment_gateway_for_wholesale_customers',
-                    'title'       => esc_html__( 'Disable Payment Gateway For Wholesale Customers', 'whols'),
+                    'title'       => esc_html__( 'Disable Payment Gateway', 'whols' ),
+                    'after'       => esc_html__( 'Disable Payment Gateway For Wholesalers', 'whols' ),
+                    'desc'        => esc_html__( '(This option can be overridden for each role individually)', 'whols' ),
                     'type'        => 'select',
                     'options'     => whols_get_payment_gateways(),
                     'placeholder' => esc_html__( 'Select Gateways' ),
                     'chosen'      => true,
                     'multiple'    => true,
-                    'after'       => esc_html__( '(Theis option can be overridden for each role individually)', 'whols'  ),
                     'class'       => 'whols_pro whols_disable_gateway'
                 ),
 
                 // enable free shipping for wholsale customers
                 array(
                     'id'         => 'allow_free_shipping_for_wholesale_customers',
-                    'type'       => 'checkbox',
-                    'title'      => esc_html__( 'Allow Free Shipping For Wholesale Customers', 'whols'),
-                    'label'      => esc_html__( 'Yes', 'whols'),
-                    'after'      => __( '<strong>Note: </strong>Free Shipping will not work unless you have enabled & configured free shipping from the "WooCommerce > Settings > Shipping Zones" </br>  (This option can be overridden for role individually) '  , 'whols' ),
+                    'type'  => 'checkbox',
+                    'title' => esc_html__( 'Allow Free Shipping', 'whols' ),
+                    'label' => esc_html__( 'Yes', 'whols' ),
+                    'after' => __( 'Allow Free Shipping For Wholesalers ' . '</br><strong>Note:</strong> Free Shipping will not work unless you have enabled & configured free shipping from the "WooCommerce > Settings > Shipping Zones"', 'whols' ),
+                    'desc'  => esc_html__( '(This option can be overridden for role individually)', 'whols' ),
                 ),
             )
         ) );
