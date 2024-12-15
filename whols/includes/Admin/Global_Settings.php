@@ -127,7 +127,7 @@ class Global_Settings {
             'show_reset_section' => true,
             'show_bar_menu'      => false,
             'footer_text'      => esc_html__('Made with Love by HasThemes', 'whols'),
-            'defaults'           => $defaults
+            'defaults'           => $defaults['global_settings'],
         ) );
 
         // General Settings Tab
