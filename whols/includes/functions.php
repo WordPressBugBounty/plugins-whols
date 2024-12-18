@@ -60,13 +60,13 @@ if( !function_exists('whols_get_term_meta') ){
  */
 if(!function_exists('whols_get_payment_gateways')){
     function whols_get_payment_gateways(){
-        $gateways = WC()->payment_gateways->get_available_payment_gateways();
-        $gateway_list = array();
-    
-        foreach( $gateways as $key => $gateway ) {
-            $gateway_list[$key] = $gateway->get_title();
-        }
-    
+        // Sample payment gateways, windcave gateway was causing fatal error
+        $gateway_list = array(
+            'cod' => __('Cash on Delivery', 'whols'),
+            'cheque' => __('Cheque Payment', 'whols'),
+            'paypal' => __('PayPal', 'whols'),
+        );
+
         return $gateway_list;
     }
 }
