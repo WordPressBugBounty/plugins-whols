@@ -28,14 +28,19 @@ class Email_Notifications {
         $custom_emails             = whols_get_option('registration_notification_recipients'); // Comma separated emails
 
         if( $enable_email_notification && $user ){
+            $posted_data = [
+                'name' => $user->first_name,
+                'email' => $user->user_email,
+                'date' => gmdate( 'Y-m-d', strtotime( $user->user_registered ) ),
+                'time' => gmdate( 'H:i:s', strtotime( $user->user_registered ) )
+            ];
+
             // subject
             $subject = stripslashes( html_entity_decode($subject, ENT_QUOTES, 'UTF-8' ) );
+            $subject = $this->replace_placeholders($subject, $posted_data);
             
             // body
-            $body = str_replace('{name}', $user->first_name, $body);
-            $body = str_replace('{email}', $user->user_email, $body);
-            $body = str_replace('{date}', gmdate( 'Y-m-d', strtotime( $user->user_registered ) ), $body);
-            $body = str_replace('{time}', gmdate( 'H:i:s', strtotime( $user->user_registered ) ), $body);
+            $body = $this->replace_placeholders($body, $posted_data);
             $body = wpautop($body);
 
             // send the mail
@@ -60,11 +65,18 @@ class Email_Notifications {
         $user                      = get_user_by( 'ID', $user_id );
 
         if( $enable_email_notification && $user ){
+            $posted_data = [
+                'name' => $user->first_name,
+                'email' => $user->user_email,
+                'date' => gmdate( 'Y-m-d', strtotime( $user->user_registered ) ),
+                'time' => gmdate( 'H:i:s', strtotime( $user->user_registered ) )
+            ];
+            
+            // subject
+            $subject = $this->replace_placeholders($subject, $posted_data);
+            
             // body
-            $body = str_replace('{name}', $user->first_name, $body);
-            $body = str_replace('{email}', $user->user_email, $body);
-            $body = str_replace('{date}', gmdate( 'Y-m-d', strtotime( $user->user_registered ) ), $body);
-            $body = str_replace('{time}', gmdate( 'H:i:s', strtotime( $user->user_registered ) ), $body);
+            $body = $this->replace_placeholders($body, $posted_data);
             $body = wpautop($body);
 
             // send the mail
@@ -194,6 +206,7 @@ class Email_Notifications {
             '{time}' => date_i18n( get_option( 'time_format' ) ),
             '{subject}' => !empty($posted_data['subject']) ? $posted_data['subject'] : '', // For conversation
             '{site_title}' => get_bloginfo('name'),
+            '{shop_url}' => get_permalink( wc_get_page_id( 'shop' ) )
         ];
 
         return str_replace(array_keys($placeholders), array_values($placeholders), $content);

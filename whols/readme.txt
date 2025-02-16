@@ -4,7 +4,7 @@ Tags: wholesale plugin, wholesale pricing, wholesale prices, woocommerce wholesa
 Requires at least: 4.0
 Tested up to: 6.7
 Requires PHP: 5.4
-Stable tag: 1.4.3
+Stable tag: 2.0.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -251,6 +251,11 @@ Needs assistance to use this plugin?
 Feel free to [Contact us](https://hasthemes.com/contact-us/)
 
 == Changelog ==
+= Version: 2.0.0 -Date: 16 Feb 2025 =
+- Enhanced: The dashboard settings with new design
+- Added: Compatibility with CURCY – Multi Currency plugin by VillaTheme Free and Pro
+- Added: Default messages & placeholder supports for all the email notifications
+
 = Version: 1.4.3 -Date: 18 Dec 2024 =
 - Fixed: Conflict with windcave payment gateway
 

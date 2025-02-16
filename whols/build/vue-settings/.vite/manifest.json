@@ -1,0 +1,19 @@
+{
+  "_element-plus-iPl5fit8.js": {
+    "file": "element-plus-iPl5fit8.js",
+    "name": "element-plus"
+  },
+  "src/vue-settings/main.js": {
+    "file": "main.js",
+    "name": "main",
+    "src": "src/vue-settings/main.js",
+    "isEntry": true,
+    "imports": [
+      "_element-plus-iPl5fit8.js"
+    ]
+  },
+  "style.css": {
+    "file": "style.css",
+    "src": "style.css"
+  }
+}

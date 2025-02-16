@@ -3,7 +3,7 @@
  * Plugin Name: Whols - Wholesale Prices and B2B Store Solution for WooCommerce
  * Plugin URI:  https://wpwhols.com/
  * Description: This plugin provides all the necessary features that you will ever need to sell wholesale products from your WooCommerce online store.
- * Version:     1.4.3
+ * Version:     2.0.0
  * Author:      HasThemes
  * Author URI:  https://hasthemes.com
  * License:     GPL v2 or later
@@ -11,6 +11,11 @@
  * Text Domain: whols
  * Domain Path: /languages
  */
+
+use const Whols\PL_VERSION;
+use const Whols\PL_FILE;
+use const Whols\PL_PATH;
+use const Whols\PL_URL;
 
 // If this file is accessed directly, exit
 if ( ! defined( 'ABSPATH' ) ) {
@@ -30,7 +35,7 @@ final class Whols_Lite {
      *
      * @since 1.0.0
      */
-    public $version = '1.4.3';
+    public $version = '2.0.0';
 
     /**
      * The single instance of the class
@@ -75,6 +80,12 @@ final class Whols_Lite {
         define( 'WHOLS_PATH', __DIR__ );
         define( 'WHOLS_URL', plugins_url( '', WHOLS_FILE ) );
         define( 'WHOLS_ASSETS', WHOLS_URL . '/assets' );
+
+		define( 'Whols\PL_VERSION', $this->version );
+		define( 'Whols\PL_FILE', __FILE__ );
+		define( 'Whols\PL_PATH', __DIR__ );
+		define( 'Whols\PL_URL', plugins_url( '', PL_FILE ) );
+		define( 'Whols\PL_ASSETS', PL_URL . '/assets' );
     }
 
     /**
@@ -101,7 +112,7 @@ final class Whols_Lite {
         require_once WHOLS_PATH . '/includes/ajax-actions.php';
 
         if ( ! class_exists( 'CSF' ) ) {
-            require_once WHOLS_PATH .'/includes/Admin/settings/classes/setup.class.php';
+            require_once WHOLS_PATH .'/includes/Admin/csf-settings-custom/classes/setup.class.php';
             require_once WHOLS_PATH . '/includes/Admin/csf-fields/CSF_Field_registration_details.php';
         }
 
@@ -115,7 +126,6 @@ final class Whols_Lite {
         require_once WHOLS_PATH . '/includes/Admin/Wholesaler_Request_Metabox.php';
         require_once WHOLS_PATH . '/includes/Admin/Product_Metabox.php';
         require_once WHOLS_PATH . '/includes/Admin/User_Metabox.php';
-        require_once WHOLS_PATH . '/includes/Admin/Global_Settings.php';
         require_once WHOLS_PATH . '/includes/Admin/Role_Cat_Metabox.php';
         require_once WHOLS_PATH . '/includes/Admin/Product_Category_Metabox.php';
         require_once WHOLS_PATH . '/includes/Admin/Role_Manager.php';
@@ -139,6 +149,9 @@ final class Whols_Lite {
         require_once WHOLS_PATH . '/includes/Email_Notifications.php';
         require_once WHOLS_PATH . '/includes/Manage_Order.php';
         require_once WHOLS_PATH . '/includes/Compatibility.php';
+
+        // Vue settings
+		require_once PL_PATH . '/includes/vue-settings/class-init.php';
     }
 
     /**
@@ -156,7 +169,7 @@ final class Whols_Lite {
             add_action( 'init', array( $this, 'load_plugin_textdomain' ) );
 
             // Finally initialize this plugin
-            add_action( 'plugins_loaded', array( $this, 'init' ) );
+            add_action( 'plugins_loaded', array( $this, 'plugins_loaded_cb' ) );
 
             // Redirect to welcome page after activate the plugin
             // $plugin_file = 'woolentor-addons/woolentor_addons_elementor.php';
@@ -197,6 +210,13 @@ final class Whols_Lite {
         // It sets a transient that will be used to redirect the user to the welcome page after
         // activating the plugin.
         set_transient( 'whols_do_activation_redirect', true, 30 );
+
+        // Save initial settings if not already.
+		$existing_settings = get_option('whols_options');
+		if ( empty($existing_settings) ) {
+			$defaults = Whols\Vue_Settings\Settings_Defaults::get_defaults();
+			update_option( 'whols_options', $defaults );
+		}
     }
 
     /**
@@ -226,12 +246,12 @@ final class Whols_Lite {
      *
      * @since 1.0.0
      */
-    public function init() {
+    public function plugins_loaded_cb() {
         // Both admin + frontend
         new Whols\Assets_Manager();
-        new Whols\Admin\Global_Settings();
         new Whols\Manage_Order();
         new Whols\Compatibility();
+        new Whols\Admin\Custom_Posts();
 
         // Prior this was instantiate only in the Frontend.php file
         // The reason why moved it here is to load it on both frontend & admin because for using the has_shortcode function in the admin area too.
@@ -244,6 +264,7 @@ final class Whols_Lite {
 
         if ( is_admin() ) {
             new Whols\Admin();
+            new Whols\Admin\Menu_Manager();
         }
 
         // Insert default role

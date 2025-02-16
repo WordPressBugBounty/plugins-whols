@@ -23,8 +23,7 @@ class Admin {
         if( defined( 'WP_DEBUG' ) && WP_DEBUG ){
             $this->version = time();
         }
-
-        new Admin\Custom_Posts();
+        
         new Admin\Custom_Taxonomies();
         new Admin\Wholesaler_Request_Metabox();
         new Admin\Product_Metabox();
@@ -34,7 +33,6 @@ class Admin {
         new Admin\Role_Manager();
         new Admin\Custom_Columns();
         new Admin\Install_Manager();
-        new Admin\Menu_Manager();
 
         // Bind admin page link to the plugin action link.
         add_filter( 'plugin_action_links_whols/whols.php', array($this, 'action_links_add'), 10, 4 );

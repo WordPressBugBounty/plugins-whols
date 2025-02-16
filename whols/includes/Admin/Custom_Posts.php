@@ -19,7 +19,7 @@ class Custom_Posts{
      * @since 1.0.0
      */
     public function __construct() {
-        add_action( 'init', array( $this, 'custom_post_type' ), 0 );
+        add_action( 'init', array( $this, 'custom_post_type' ) );
 
         // Delete request when an user deleted from the database
         add_action( 'delete_user', array( $this, 'delete_request' ), 10, 3 );
@@ -31,7 +31,6 @@ class Custom_Posts{
      * @since 1.0.0
      */
     function custom_post_type() {
-
         $labels = array(
             'name'                  => esc_html_x( 'Wholsaler Requests', 'Post Type General Name', 'whols' ),
             'singular_name'         => esc_html_x( 'Wholesaler Request', 'Post Type Singular Name', 'whols' ),

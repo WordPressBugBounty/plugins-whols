@@ -190,6 +190,10 @@ if( !function_exists('whols_get_user_reg_validation_status') ){
 
 /**
  * Return wholesaler price
+ * 
+ * @param $price_type Price type. Can be 'flat_rate' or 'percentage'.
+ * @param $price_value e.g. '14' or '10:14', formate like this '10:14' where 10 is min and 14 refers to the max price.
+ * @param $product Product object
  *
  * @since 1.0.0
  */
@@ -200,6 +204,12 @@ if( !function_exists('whols_get_wholesaler_price') ){
     
         if( $product_type == 'simple' ){
             if( $price_type == 'flat_rate'){
+                $wholesale_price_info = apply_filters( 'whols_override_wholesale_price', array(
+                    'price' => $price_value,
+                ), $product ); // For multicurrency support
+                
+                $price_value = $wholesale_price_info['price'];
+
                 $wholesaler_price = wc_price( wc_get_price_to_display( $product, array( 
                     'price' => $price_value
                 )) ) . $product->get_price_suffix( $price_value );
@@ -214,8 +224,13 @@ if( !function_exists('whols_get_wholesaler_price') ){
             if( $price_type == 'flat_rate'){
                 $price = explode(':', $price_value);
                 if( $price_value && count($price) > 1 ){
-                    $min_price        = $price[0];
-                    $max_price        = $price[1];
+                    $wholesale_price_info = apply_filters( 'whols_override_wholesale_price', array(
+                        'min_price' => $price[0],
+                        'max_price' => $price[1],
+                    ), $product ); // For multicurrency support
+    
+                    $min_price        = $wholesale_price_info['min_price'];
+                    $max_price        = $wholesale_price_info['max_price'];
     
                     // When both price is same, show only one price
                     if( $min_price ==  $max_price ){
@@ -314,6 +329,12 @@ if( !function_exists('whols_get_price_save_info') ){
     
         if( $product_type  ==  'simple' ){
             if( $price_type == 'flat_rate' ){
+                $wholesale_price_info = apply_filters( 'whols_override_wholesale_price', array(
+                    'price' => $price_value
+                ), $product ); // For multicurrency
+
+                $price_value = $wholesale_price_info['price'];
+
                 $save_price = (float) $retailer_price - (float) $price_value;
                 $save_info  = $save_price >= 1 ? wc_price( $save_price ) . ' ('. round(whols_get_discount_percent( $retailer_price, $price_value )) .'%)' : '';
             } else {
@@ -332,8 +353,13 @@ if( !function_exists('whols_get_price_save_info') ){
                 if( $price_value && count($price) == 1 ){
                     $save_info = '';
                 }elseif( $price_value && count($price) > 1 ){
-                    $new_min_price = $price[0];
-                    $new_max_price = $price[1];
+                    $wholesale_price_info = apply_filters( 'whols_override_wholesale_price', array(
+                        'min_price' => $price[0],
+                        'max_price' => $price[1],
+                    ), $product ); // For multicurrency
+
+                    $new_min_price = $wholesale_price_info['min_price'];
+                    $new_max_price = $wholesale_price_info['max_price'];
     
                     $discount1 = round(whols_get_discount_percent( $old_min_price, $new_min_price ));
                     $discount2 = round(whols_get_discount_percent( $old_max_price, $new_max_price ));
@@ -1059,6 +1085,36 @@ if( !function_exists('whols_insert_element_after_specific_array_key') ){
     }
 }
 
+/**
+ * Get all WordPress pages for dropdown options
+ *
+ * @return array Array of pages with id as key and title as value
+ */
+function whols_pages_dropdown_options( $post_type = 'page' ) {
+    $query = new WP_Query(array(
+        'post_type' => $post_type,
+        'post_status' => 'publish',
+        'posts_per_page' => 200, // @todo apply_filter
+        'orderby' => 'title',
+        'order' => 'ASC',
+    ));
+
+    $options = array();
+
+    if ($query->have_posts()) {
+        while ($query->have_posts()) {
+            $query->the_post();
+            $options[] = array(
+                'id' => (string) get_the_ID(),
+                'title' => get_the_title()
+            );
+        }
+        wp_reset_postdata();
+    }
+
+    return $options;
+}
+
 if( !function_exists('whols_product_category_dropdown_options') ){
     function whols_product_category_dropdown_options(){
         $query  = new WP_Term_Query( array(
@@ -1075,6 +1131,58 @@ if( !function_exists('whols_product_category_dropdown_options') ){
         }
     
         return $options;
+    }
+}
+
+/**
+ * Get all WordPress terms for dropdown options
+ *
+ * @param string $taxonomy Taxonomy name
+ * @return array Array of terms with id as key and title as value
+ */
+function whols_terms_dropdown_options($taxonomy = 'product_cat') {
+    $terms = get_terms(array(
+        'taxonomy' => $taxonomy,
+        'hide_empty' => true,
+        'orderby' => 'name',
+        'order' => 'ASC',
+        'number' => 0, // Get all terms
+        'fields' => 'all', // Get all term fields
+        'update_term_meta_cache' => false // Don't fetch term meta if not needed
+    ));
+
+    if (is_wp_error($terms)) {
+        return array();
+    }
+
+    // Use array_map for better performance than foreach
+    return array_map(function($term) {
+        return array(
+            'id' => (string) $term->term_id,
+            'slug' => $term->slug,
+            'title' => $term->name
+        );
+    }, $terms);
+}
+
+/**
+ * Get users dropdown options
+ *
+ * @return array
+ */
+if( !function_exists('whols_users_dropdown_options') ){
+    function whols_users_dropdown_options() {
+        $users = get_users([
+            'fields'  => ['ID', 'display_name'],
+            'number'  => 200,
+            'orderby' => 'display_name',
+            'order'   => 'ASC'
+        ]);
+
+        return array_reduce($users, function($options, $user) {
+            $options[$user->ID] = $user->display_name;
+            return $options;
+        }, []);
     }
 }
 
@@ -1095,6 +1203,58 @@ if( !function_exists('whols_roles_dropdown_options') ){
     
         return $options;
     }
+}
+
+/**
+ * Get countries
+ *
+ * @return array
+ */
+function whols_get_countries() {
+    $countries = array();
+
+    if( class_exists('WC_Countries') ){
+        if( WC()->countries ){
+            $countries = WC()->countries->get_countries();
+        } else {
+            $c = new WC_Countries(); // WC_Countries instance created after woocommerce_init hook
+            $countries = $c->get_countries();
+        }
+    }
+
+    return $countries;
+}
+
+/**
+ * List enabled payment gateways.
+ *
+ * @return array
+ */
+function whols_get_enabled_payment_gateways(){
+    global $wpdb;
+
+    $query = "SELECT option_name, option_value
+                FROM {$wpdb->prefix}options
+                WHERE option_name LIKE 'woocommerce_%_settings'
+                AND option_name NOT LIKE 'woocommerce_settings_%'";
+
+    $results = $wpdb->get_results($query);
+
+    $enabled_gateways = array();
+    foreach ($results as $result) {
+        // Extract gateway ID from option name (e.g., 'woocommerce_cod_settings' -> 'cod')
+        $gateway_id = str_replace(['woocommerce_', '_settings'], '', $result->option_name);
+
+        // Unserialize the settings
+        $settings = maybe_unserialize($result->option_value);
+
+        $enabled = isset($settings['enabled']) ? $settings['enabled'] : 'no';
+        if (is_array($settings) && isset($settings['title']) && $enabled == 'yes') {
+            $enabled_gateways[$gateway_id] = $settings['title'];
+        }
+    }
+
+    return $enabled_gateways;
 }
 
 if( !function_exists('whols_is_wholesale_priced') ){
@@ -1179,6 +1339,65 @@ if( !function_exists('whols_get_product_price_tiers') ){
 
         return $tiers;
     }
+}
+
+/**
+ * Returns true if the request is a non-legacy REST API request.
+ *
+ * Legacy REST requests should still run some extra code for backwards compatibility.
+ *
+ * @todo: replace this function once core WP function is available: https://core.trac.wordpress.org/ticket/42061.
+ *
+ * @return bool
+ */
+function whols_is_rest_api_request() {
+    if ( empty( $_SERVER['REQUEST_URI'] ) ) {
+        return false;
+    }
+
+    $rest_prefix         = trailingslashit( rest_get_url_prefix() );
+    $is_rest_api_request = ( false !== strpos( $_SERVER['REQUEST_URI'], $rest_prefix ) ); // phpcs:disable WordPress.Security.ValidatedSanitizedInput.MissingUnslash, WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
+
+    return $is_rest_api_request;
+}
+
+/**
+ * What type of request is this?
+ *
+ * @param  string $type admin, ajax, cron or frontend.
+ * @return bool
+ */
+function whols_is_request( $type ) {
+    switch ( $type ) {
+        case 'admin':
+            return is_admin();
+        case 'ajax':
+            return defined( 'DOING_AJAX' );
+        case 'cron':
+            return defined( 'DOING_CRON' );
+        case 'frontend':
+            return ( ! is_admin() || defined( 'DOING_AJAX' ) ) && ! defined( 'DOING_CRON' ) && ! whols_is_rest_api_request();
+    }
+}
+
+/**
+ * Get conversation count
+ *
+ * @param string $status
+ *
+ * @return int
+ */
+function whols_get_conversation_count( $status = 'pending' ) {
+    $args = array(
+        'post_type'      => 'whols_conversation',
+        'post_status'    => 'pending',
+        'numberposts'    => -1,
+        'fields'         => 'ids',
+    );
+
+    $conversations = get_posts( $args );
+
+    return count( $conversations );
 }
 
 /**
