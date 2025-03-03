@@ -68,9 +68,8 @@ class HTRP_Recommended_Plugins {
         // Initialize properties
         $this->text_domain       =  !empty( $args['text_domain'] ) ? $args['text_domain'] : 'htrp';
         $this->parent_menu_slug  =  !empty( $args['parent_menu_slug'] ) ? $args['parent_menu_slug'] : 'plugins.php';
-        $this->menu_label        =  !empty( $args['menu_label'] ) ? $args['menu_label'] : esc_html__( 'Recommendations', $this->text_domain );
         $this->menu_capability   =  !empty( $args['menu_capability'] ) ? $args['menu_capability'] : 'manage_options';
-        $this->menu_page_slug    =  !empty( $args['menu_page_slug'] ) ? $args['menu_page_slug'] : $this->text_domain . '_extensions';
+        $this->menu_page_slug    =  !empty( $args['menu_page_slug'] ) ? $args['menu_page_slug'] : 'whols' . '_extensions';
         $this->priority          =  !empty( $args['priority'] ) ? $args['priority'] : 100;
         $this->hook_suffix       =  !empty( $args['hook_suffix'] ) ? $args['hook_suffix'] : '';
         $this->assets_url        =  !empty( $args['assets_url'] ) ? $args['assets_url'] : plugins_url( 'assets', __FILE__ );
@@ -82,7 +81,6 @@ class HTRP_Recommended_Plugins {
 
         // Ajax Action
         add_action( 'wp_ajax_'.$this->text_domain.'_ajax_plugin_activation', [ $this, 'plugin_activation' ] );
-
     }
 
     /**
@@ -92,10 +90,10 @@ class HTRP_Recommended_Plugins {
     public function admin_menu(){
         add_submenu_page(
             $this->parent_menu_slug, 
-            $this->menu_label,
-            $this->menu_label,
+            'Recommendations',
+            'Recommendations',
             $this->menu_capability, 
-            $this->menu_page_slug, 
+            $this->menu_page_slug,
             [ $this, 'render_html' ] 
         );
     }
@@ -117,13 +115,13 @@ class HTRP_Recommended_Plugins {
         }
 
         $localize_vars['ajaxurl'] = admin_url('admin-ajax.php');
-        $localize_vars['text_domain'] = sanitize_title_with_dashes( $this->text_domain );
+        $localize_vars['text_domain'] = 'whols';
         $localize_vars['buttontxt'] = array(
-            'buynow'     => esc_html__( 'Buy Now', $this->text_domain ),
-            'preview'    => esc_html__( 'Preview', $this->text_domain ),
-            'installing' => esc_html__( 'Installing..', $this->text_domain ),
-            'activating' => esc_html__( 'Activating..', $this->text_domain ),
-            'active'     => esc_html__( 'Activated', $this->text_domain ),
+            'buynow'     => esc_html__( 'Buy Now', 'whols' ),
+            'preview'    => esc_html__( 'Preview', 'whols' ),
+            'installing' => esc_html__( 'Installing..', 'whols' ),
+            'activating' => esc_html__( 'Activating..', 'whols' ),
+            'active'     => esc_html__( 'Activated', 'whols' ),
         );
         wp_localize_script( 'htrp-plugin-install-manager', 'htrp_params', $localize_vars );
 
@@ -225,10 +223,10 @@ class HTRP_Recommended_Plugins {
                                     $plugins_type = 'pro';
                                     $image_url     = $this->plugin_icon( $plugins_type, $plugin['slug'] );
                                     $description    = isset($plugin['description']) ? $plugin['description'] : '';
-                                    $author_name    = esc_html__( 'HasTheme', $this->text_domain );
+                                    $author_name    = esc_html__( 'HasTheme', 'whols' );
                                     $author_link    = isset($plugin['author_link']) ? $plugin['author_link'] : '';
                                     $details_link   = isset($plugin['link']) ? $plugin['link'] : '';
-                                    $button_text    = esc_html__('Buy Now', $this->text_domain );
+                                    $button_text    = esc_html__('Buy Now', 'whols' );
                                     $button_classes = 'button button-primary';
                                     $target         = '_blank';
                                     $modal_class    = '';
@@ -240,18 +238,18 @@ class HTRP_Recommended_Plugins {
                                     if ( file_exists( WP_PLUGIN_DIR . '/' . $data['location'] ) && is_plugin_inactive( $data['location'] ) ) {
 
                                         $button_classes = 'button activate-now button-primary';
-                                        $button_text    = esc_html__( 'Activate', $this->text_domain );
+                                        $button_text    = esc_html__( 'Activate', 'whols' );
 
                                     // Not Installed.
                                     } elseif ( ! file_exists( WP_PLUGIN_DIR . '/' . $data['location'] ) ) {
 
                                         $button_classes = 'button install-now';
-                                        $button_text    = esc_html__( 'Install Now', $this->text_domain );
+                                        $button_text    = esc_html__( 'Install Now', 'whols' );
 
                                     // Active.
                                     } else {
                                         $button_classes = 'button disabled';
-                                        $button_text    = esc_html__( 'Activated', $this->text_domain );
+                                        $button_text    = esc_html__( 'Activated', 'whols' );
                                     }
 
                                     ?>
@@ -268,7 +266,7 @@ class HTRP_Recommended_Plugins {
                                             <div class="desc column-description" style="margin-right: 0;">
                                                 <p><?php echo wp_trim_words( $description, 23, '....'); ?></p>
                                                 <p class="authors">
-                                                    <cite><?php echo esc_html__( 'By ', $this->text_domain ); ?>
+                                                    <cite><?php echo esc_html__( 'By ', 'whols' ); ?>
                                                         <?php if( $plugins_type == 'free' ): ?>
                                                             <?php echo $author_name; ?>
                                                         <?php else: ?>
@@ -282,7 +280,7 @@ class HTRP_Recommended_Plugins {
                                             <div class="column-updated">
                                                 <?php
                                                     if (! file_exists( WP_PLUGIN_DIR . '/' . $data['location'] ) && $plugins_type == 'pro' ) {
-                                                        echo '<a class="button button-primary" href="'.esc_url( $details_link ).'" target="'.esc_attr( $target ).'">'.esc_html__( 'Buy Now', $this->text_domain ).'</a>';
+                                                        echo '<a class="button button-primary" href="'.esc_url( $details_link ).'" target="'.esc_attr( $target ).'">'.esc_html__( 'Buy Now', 'whols' ).'</a>';
                                                     }else{
                                                 ?>
                                                     <button class="<?php echo $button_classes; ?>" data-pluginopt='<?php echo wp_json_encode( $data ); ?>'><?php echo $button_text; ?></button>
@@ -290,7 +288,7 @@ class HTRP_Recommended_Plugins {
                                                 <?php } ?>
                                             </div>
                                             <div class="column-downloaded">
-                                                <a href="<?php echo esc_url( $details_link ) ?>" target="<?php echo esc_attr( $target ) ?>" <?php echo $modal_class; ?>><?php echo esc_html__('More Details', $this->text_domain) ?></a>
+                                                <a href="<?php echo esc_url( $details_link ) ?>" target="<?php echo esc_attr( $target ) ?>" <?php echo $modal_class; ?>><?php echo esc_html__('More Details', 'whols') ?></a>
                                                 <span class="downloaded-count">
                                                     <?php
                                                         if( $plugins_type == 'free' ){
@@ -391,7 +389,7 @@ class HTRP_Recommended_Plugins {
             wp_send_json_error(
                 array(
                     'success' => false,
-                    'message' => esc_html__( 'Plugin Not Found', $this->text_domain ),
+                    'message' => esc_html__( 'Plugin Not Found', 'whols' ),
                 )
             );
         }
@@ -411,7 +409,7 @@ class HTRP_Recommended_Plugins {
         wp_send_json_success(
             array(
                 'success' => true,
-                'message' => esc_html__( 'Plugin Successfully Activated', $this->text_domain ),
+                'message' => esc_html__( 'Plugin Successfully Activated', 'whols' ),
             )
         );
 

@@ -7,10 +7,34 @@ class Settings_Defaults {
      *
      * @return array Array of default values
      */
-    public static function get_defaults() {
+    public static function get_defaults_old() {
         $fields_schema = Settings_Schema::get_schema();
 
         return self::extract_defaults( $fields_schema );
+    }
+
+    public static function get_defaults() {
+        $fields_schema = Settings_Schema::get_schema();
+
+        return self::extract_defaults_new( $fields_schema );
+    }
+
+    /**
+     * Recursively extract default values from fields
+     *
+     * @param array $fields Field configurations
+     * @return array Extracted default values
+     */
+    public static function extract_defaults_new($route_schema = array()) {
+        $defaults = [];
+
+        foreach ($route_schema as $route_key => $route_info) {
+           $fields = $route_info['fields'];
+
+           $defaults = array_merge( $defaults, self::extract_defaults( $fields ) );
+        }
+
+        return $defaults;
     }
 
     /**

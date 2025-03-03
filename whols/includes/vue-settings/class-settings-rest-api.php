@@ -173,7 +173,7 @@ class Settings_REST_API {
         $current_settings = get_option($this->option_name, []);
 
         // Get allowed fields from schema
-        $allowed_fields = array_keys(Settings_Schema::get_schema());
+        $allowed_fields = array_keys(Settings_Defaults::get_defaults());
 
         // Sanitize and update each allowed field
         foreach ($allowed_fields as $field) {

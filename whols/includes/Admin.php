@@ -23,12 +23,16 @@ class Admin {
         if( defined( 'WP_DEBUG' ) && WP_DEBUG ){
             $this->version = time();
         }
+
+        // Fixed textdomain loading early issue
+        add_action( 'init', function() {
+            new Admin\Wholesaler_Request_Metabox();
+            new Admin\Role_Cat_Metabox();
+            new Admin\Product_Category_Metabox();
+        }, -1 );
         
         new Admin\Custom_Taxonomies();
-        new Admin\Wholesaler_Request_Metabox();
         new Admin\Product_Metabox();
-        new Admin\Role_Cat_Metabox();
-        new Admin\Product_Category_Metabox();
         new Admin\User_Metabox();
         new Admin\Role_Manager();
         new Admin\Custom_Columns();

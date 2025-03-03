@@ -1,9 +1,10 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: Whols - WooCommerce Wholesale Prices\n"
+"Project-Id-Version: Whols - Wholesale Prices and B2B Store Solution for "
+"WooCommerce\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-09-08 12:01+0000\n"
+"POT-Creation-Date: 2025-03-03 05:33+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
@@ -13,254 +14,796 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Loco https://localise.biz/\n"
-"X-Loco-Version: 2.6.1; wp-6.0.2\n"
+"X-Loco-Version: 2.7.1; wp-6.7.2\n"
 "X-Domain: whols"
+
+#: includes/Email_Notifications.php:124
+msgid ""
+"\n"
+"            Name: {name}\n"
+"            Email: {email}\n"
+"            Subject: {subject}\n"
+"            Message: {message}\n"
+"            Products: {products}"
+msgstr ""
 
 #: includes/Admin/Role_Manager.php:34
 msgid " - Whols Role"
 msgstr ""
 
-#: includes/functions.php:119
+#: includes/functions.php:128
 msgid " cannot be empty."
+msgstr ""
+
+#: includes/vue-settings/schema-parts/email-notifications.php:145
+msgid " Message"
 msgstr ""
 
 #: includes/Admin/Wholesaler_Request_Metabox.php:65
 msgid ""
-"\">Click Here</a> to edit details profile information like (Shipping Address,"
+"\">Click Here</a> to edit/update profile informations like (Shipping Address,"
 " Billing Address etc) of this user"
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:464
-msgid "\"Login To See Price\" Label"
-msgstr ""
-
-#: includes/Admin/Custom_Columns.php:61
+#: includes/Admin/Custom_Columns.php:64
 #, php-format
 msgid "%1$s Approved %2$s"
 msgstr ""
 
-#: includes/Admin/Custom_Columns.php:73
+#: includes/Admin/Custom_Columns.php:76
 #, php-format
 msgid "%1$s Pending %2$s"
 msgstr ""
 
 #. 1: Whols.
 #. 2: WooCommerce.
-#: whols.php:230
+#: whols.php:302
 #, php-format
 msgid ""
 "%1$s plugin requires the %2$s plugin to be installed and activated in order "
 "to work."
 msgstr ""
 
-#: includes/Admin/Custom_Columns.php:67
+#: includes/Admin/Custom_Columns.php:70
 #, php-format
 msgid "%1$s Rejected %2$s"
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:973
-msgid "(Theis option can be overridden for each role individually.)"
-msgstr ""
-
-#: includes/Admin/Global_Settings.php:268
+#: includes/vue-settings/schema-parts/general.php:108
+#: includes/vue-settings/schema-parts/general.php:144
 msgid ""
 "(These options can be overridden for each category & product individually.)"
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:982
-msgid ""
-"(This option can be overridden for role individually.) Note: Free Shipping "
-"will not work unless you have enabled & configured free shipping from the "
-"\"WooCommerce > Settings > Shipping Zones\""
+#: includes/vue-settings/schema-parts/others.php:43
+#: includes/vue-settings/schema-parts/others.php:51
+msgid "(This option can be overridden for each role individually)"
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:201
-msgid ""
-"<b>Single Role</b> is useful when you have only one type of wholesaler. <br> "
-"<b>Multiple Role</b> is useful when you have different kind of wholesaler "
-"and you want different price for each kind of wholesaler."
+#: includes/vue-settings/schema-parts/others.php:64
+msgid "(This option can be overridden for role individually)"
 msgstr ""
 
-#: includes/Admin.php:171
-msgid ""
-"<span>Want to have complete control over the dull designs of all WooCommerce "
-"default pages and create an eye-catching WooCommerce store?</span> If you "
-"are interested, don't forget to try out the free version of the WooLentor "
-"today!"
+#: includes/vue-settings/schema-parts/registration.php:29
+msgid "---Search a page---"
 msgstr ""
 
-#: includes/Admin.php:155
+#: includes/vue-settings/schema-parts/dynamic-rules.php:78
+msgid "50"
+msgstr ""
+
+#: includes/vue-settings/schema-parts/general.php:128
+#: includes/vue-settings/schema-parts/general.php:169
+msgid ""
+"<b>For Percentage:</b> Enter a value between 1-100 to set the final price as "
+"a percentage of retail price.<br>Example: Entering 75 means wholesalers pay "
+"75% of retail price (25% discount).<br><b>For Flat Rate:</b> Enter the fixed "
+"wholesale price you want to charge."
+msgstr ""
+
+#: includes/vue-settings/schema-parts/general.php:46
+msgid ""
+"<b>Single Role:</b> One fixed wholesale price for all wholesale customers."
+"<br><b>Multiple Role:</b> Different price tiers for different types of "
+"wholesalers (e.g., small, medium, large volume buyers)."
+msgstr ""
+
+#: includes/Email_Notifications.php:131
+msgid "[{site_title}] New Conversation from {name}"
+msgstr ""
+
+#: includes/Email_Notifications.php:123
+#: includes/Admin/csf-settings/email-notifications.php:166
+msgid "[{site_title}] New Quote Request from {name}"
+msgstr ""
+
+#: includes/vue-settings/schema-parts/email-notifications.php:38
+msgid "[{site_title}] New Wholesaler Registration Request from {name} "
+msgstr ""
+
+#: includes/vue-settings/schema-parts/email-notifications.php:140
+msgid "[{site_title}] Welcome - Your Wholesale Account Registration"
+msgstr ""
+
+#: includes/vue-settings/schema-parts/email-notifications.php:176
+msgid "[{site_title}] Your Wholesale Account Request is Approved"
+msgstr ""
+
+#: includes/vue-settings/schema-parts/email-notifications.php:214
+msgid "[{site_title}] Your Wholesale Account Request is Rejected"
+msgstr ""
+
+#: includes/Admin/csf-settings/email-notifications.php:35
+msgid "A New Wholesale Application Received"
+msgstr ""
+
+#: includes/vue-settings/schema-parts/email-notifications.php:11
+msgid "Account Approval"
+msgstr ""
+
+#: includes/vue-settings/schema-parts/email-notifications.php:12
+msgid "Account Rejection"
+msgstr ""
+
+#: includes/Admin/recommended-plugins/class.recommended-plugins.php:241
+msgid "Activate"
+msgstr ""
+
+#: includes/Admin/recommended-plugins/class.recommended-plugins.php:124
+#: includes/Admin/recommended-plugins/class.recommended-plugins.php:252
 #: includes/Admin/install-manager/class-install-manager.php:55
 msgid "Activated"
 msgstr ""
 
-#: includes/Admin.php:175
+#: includes/Admin/recommended-plugins/class.recommended-plugins.php:123
 #: includes/Admin/install-manager/class-install-manager.php:54
 msgid "Activating.."
 msgstr ""
 
-#: includes/Admin.php:144 includes/Admin.php:150
-msgid "Active Now"
-msgstr ""
-
-#: includes/Admin/Custom_Posts.php:45
-msgid "Add New"
+#: includes/vue-settings/schema-parts/dynamic-rules.php:49
+msgid "Add internal notes about this rule (only visible to administrators)"
 msgstr ""
 
 #: includes/Admin/Custom_Posts.php:44
+#: includes/vue-settings/schema-parts/wholesale-only-categories.php:5
+#: includes/vue-settings/schema-parts/wholesale-only-categories.php:64
+#: includes/vue-settings/schema-parts/dynamic-rules.php:16
+#: includes/vue-settings/schema-parts/fields-manager.php:7
+msgid "Add New"
+msgstr ""
+
+#: includes/Admin/Custom_Posts.php:43
 msgid "Add New Request"
 msgstr ""
 
-#: includes/Admin/Custom_Taxonomies.php:48
+#: includes/Admin/Custom_Taxonomies.php:42
 msgid "Add New Role"
 msgstr ""
 
-#: includes/Admin/Custom_Taxonomies.php:53
+#: includes/Admin/Custom_Taxonomies.php:47
 msgid "Add or remove roles"
 msgstr ""
 
-#: includes/Admin/Custom_Taxonomies.php:44
+#: includes/vue-settings/schema-parts/dynamic-rules.php:27
+msgid "Add Rule"
+msgstr ""
+
+#: includes/vue-settings/schema-parts/dynamic-rules.php:58
+msgid "Additional Fee - Add extra charge to cart"
+msgstr ""
+
+#: includes/vue-settings/schema-parts/fields-manager.php:9
+msgid "Additional Settings"
+msgstr ""
+
+#: includes/vue-settings/schema-parts/email-notifications.php:5
+msgid "Admin - Email Notifications"
+msgstr ""
+
+#: includes/Admin/csf-settings/email-notifications.php:34
+msgid "Admin Email Subject"
+msgstr ""
+
+#: includes/Admin/csf-settings/email-notifications.php:22
+msgid "Admin Email(s)"
+msgstr ""
+
+#: includes/Admin/csf-settings/email-notifications.php:6
+msgid "Admin Notification for Wholesaler Registrations"
+msgstr ""
+
+#: includes/vue-settings/schema-parts/custom-thank-you-message.php:20
+msgid "After default \"Thank You\" message"
+msgstr ""
+
+#: includes/vue-settings/schema-parts/guest-access.php:61
+#: includes/vue-settings/schema-parts/guest-access.php:74
+msgid "All Logged in Users"
+msgstr ""
+
+#: includes/vue-settings/schema-parts/dynamic-rules.php:274
+msgid "All of the products of the given categories will be selected."
+msgstr ""
+
+#: includes/vue-settings/schema-parts/dynamic-rules.php:213
+msgid "All Products of given category"
+msgstr ""
+
+#: includes/Admin/Custom_Taxonomies.php:38
 msgid "All Roles"
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:213
-msgid "All Users"
+#: includes/vue-settings/schema-parts/dynamic-rules.php:26
+msgid "All Rules"
 msgstr ""
 
 #: includes/Admin/Role_Cat_Metabox.php:68
+#: includes/vue-settings/schema-parts/others.php:61
 msgid "Allow Free Shipping"
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:981
-msgid "Allow Free Shipping For Wholesale Customers"
+#: includes/vue-settings/schema-parts/fields-manager.php:125
+msgid "Allowed File Types"
 msgstr ""
 
-#: includes/Admin/Wholesaler_Request_Metabox.php:99
+#: includes/vue-settings/schema-parts/dynamic-rules.php:77
+msgid "Amount"
+msgstr ""
+
+#: includes/vue-settings/schema-parts/dynamic-rules.php:66
+msgid "Amount Type"
+msgstr ""
+
+#: includes/vue-settings/schema-parts/dynamic-rules.php:298
+msgid "Any Customers"
+msgstr ""
+
+#: includes/vue-settings/schema-parts/dynamic-rules.php:91
+#: includes/vue-settings/schema-parts/dynamic-rules.php:211
+msgid "Any Products"
+msgstr ""
+
+#: includes/Admin/csf-settings/email-notifications.php:114
+msgid "Approval Notification"
+msgstr ""
+
+#: includes/Admin/Wholesaler_Request_Metabox.php:109
+msgid "Approve"
+msgstr ""
+
+#: includes/Admin/Wholesaler_Request_Metabox.php:107
 msgid "Approve / Reject"
 msgstr ""
 
-#: includes/Admin/Wholesaler_Request_Metabox.php:101
-msgid "Approve."
-msgstr ""
-
-#: includes/Admin/Global_Settings.php:916
-msgid "Approved Notification"
-msgstr ""
-
-#: includes/Admin/Wholesaler_Request_Metabox.php:91
+#: includes/Admin/Wholesaler_Request_Metabox.php:99
 msgid "Assign A Role"
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:400
-msgid "Automatically approve new user registration."
+#: includes/vue-settings/schema-parts/wholesale-only-categories.php:55
+msgid "Assign Role(s)"
 msgstr ""
 
+#: includes/Admin/Diagnostic_Data.php:490
+#, php-format
+msgid ""
+"At %2$s%1$s%3$s, we prioritize continuous improvement and compatibility. To "
+"achieve this, we gather non-sensitive diagnostic information and details "
+"about plugin usage. This includes your site's URL, the versions of WordPress "
+"and PHP you're using, and a list of your installed plugins and themes. We "
+"also require your email address to provide you with exclusive discount "
+"coupons and updates. This data collection is crucial for ensuring that "
+"%2$s%1$s%3$s remains up-to-date and compatible with the most widely-used "
+"plugins and themes. Rest assured, your privacy is our priority – no spam, "
+"guaranteed. %4$sPrivacy Policy%5$s"
+msgstr ""
+
+#: includes/vue-settings/schema-parts/dynamic-rules.php:371
+msgid "At least"
+msgstr ""
+
+#: includes/vue-settings/schema-parts/others.php:9
+msgid "Auto Input Minimum Quantity"
+msgstr ""
+
+#: includes/vue-settings/schema-parts/registration.php:75
+msgid ""
+"Auto-approval success message:<br>• Shown after successful registration<br>• "
+"Only displays when auto-approve is ON<br>• Supports HTML for formatting"
+msgstr ""
+
+#: includes/Admin/csf-settings/email-notifications.php:139
+msgid ""
+"Automatically notify customers if their wholesale application is not "
+"approved."
+msgstr ""
+
+#: includes/Admin/csf-settings/email-notifications.php:123
+msgid ""
+"Automatically notify customers when their wholesale application is approved."
+msgstr ""
+
+#: includes/vue-settings/schema-parts/dynamic-rules.php:300
+msgid "B2B customers only"
+msgstr ""
+
+#: includes/vue-settings/schema-parts/dynamic-rules.php:5
+#: includes/vue-settings/schema-parts/fields-manager.php:8
+msgid "Basic Settings"
+msgstr ""
+
+#: includes/vue-settings/schema-parts/custom-thank-you-message.php:19
+msgid "Before default \"Thank You\" message"
+msgstr ""
+
+#: includes/vue-settings/schema-parts/fields-manager.php:33
+msgid "Billing Address"
+msgstr ""
+
+#: includes/vue-settings/schema-parts/fields-manager.php:34
+msgid "Billing City"
+msgstr ""
+
+#: includes/vue-settings/schema-parts/fields-manager.php:32
+msgid "Billing Company"
+msgstr ""
+
+#: includes/vue-settings/schema-parts/fields-manager.php:36
+msgid "Billing Country"
+msgstr ""
+
+#: includes/vue-settings/schema-parts/fields-manager.php:38
+msgid "Billing Phone"
+msgstr ""
+
+#: includes/vue-settings/schema-parts/fields-manager.php:35
+msgid "Billing Postcode"
+msgstr ""
+
+#: includes/vue-settings/schema-parts/fields-manager.php:37
+msgid "Billing State"
+msgstr ""
+
+#: includes/vue-settings/schema-parts/dynamic-rules.php:59
+msgid "BOGO Offer - Create Buy One Get One offer"
+msgstr ""
+
+#: includes/vue-settings/schema-parts/dynamic-rules.php:7
+msgid "BOGO Settings"
+msgstr ""
+
+#: includes/Admin/recommended-plugins/class.recommended-plugins.php:120
+#: includes/Admin/recommended-plugins/class.recommended-plugins.php:229
+#: includes/Admin/recommended-plugins/class.recommended-plugins.php:283
 #: includes/Admin/install-manager/class-install-manager.php:51
 msgid "Buy Now"
 msgstr ""
 
-#: includes/functions.php:417
+#: includes/vue-settings/schema-parts/dynamic-rules.php:88
+msgid "Buy Products"
+msgstr ""
+
+#: includes/Admin/recommended-plugins/class.recommended-plugins.php:269
+msgid "By "
+msgstr ""
+
+#: includes/vue-settings/schema-parts/wholesale-only-categories.php:9
+#: includes/vue-settings/schema-parts/dynamic-rules.php:19
+#: includes/vue-settings/schema-parts/fields-manager.php:11
+msgid "Cancel"
+msgstr ""
+
+#: includes/vue-settings/schema-parts/dynamic-rules.php:361
+msgid "Cart - item count"
+msgstr ""
+
+#: includes/vue-settings/schema-parts/dynamic-rules.php:359
+msgid "Cart - subtotal"
+msgstr ""
+
+#: includes/vue-settings/schema-parts/dynamic-rules.php:360
+msgid "Cart - total quantity"
+msgstr ""
+
+#: includes/vue-settings/schema-parts/dynamic-rules.php:57
+msgid "Cart Discount - Apply discount to entire cart"
+msgstr ""
+
+#: includes/functions.php:65
+msgid "Cash on Delivery"
+msgstr ""
+
+#: includes/vue-settings/schema-parts/wholesale-only-categories.php:44
+msgid "Category(s)"
+msgstr ""
+
+#: includes/vue-settings/schema-parts/fields-manager.php:71
+msgid "Checkbox"
+msgstr ""
+
+#: includes/vue-settings/schema-parts/dynamic-rules.php:362
+msgid "Checkout - shipping country"
+msgstr ""
+
+#: includes/functions.php:66
+msgid "Cheque Payment"
+msgstr ""
+
+#: includes/vue-settings/schema-parts/dynamic-rules.php:55
+msgid "Choose Action"
+msgstr ""
+
+#: includes/functions.php:647
 msgid "Choose an option"
 msgstr ""
 
-#: includes/Admin/Custom_Taxonomies.php:54
+#: includes/vue-settings/schema-parts/dynamic-rules.php:296
+msgid "Choose Condition"
+msgstr ""
+
+#: includes/vue-settings/schema-parts/registration.php:41
+msgid ""
+"Choose default wholesaler role:<br>• Automatically assigned to new "
+"registrations<br>• Can be changed later in user management<br>• Determines "
+"initial pricing tier access"
+msgstr ""
+
+#: includes/Admin/Custom_Taxonomies.php:48
 msgid "Choose from the most used"
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:533
-#: includes/Admin/Global_Settings.php:573
-#: includes/Admin/Global_Settings.php:626
-#: includes/Admin/Global_Settings.php:666
-#: includes/Admin/Global_Settings.php:719
-#: includes/Admin/Global_Settings.php:759
-#: includes/Admin/Global_Settings.php:812
+#: includes/vue-settings/schema-parts/general.php:118
+#: includes/vue-settings/schema-parts/general.php:158
+msgid ""
+"Choose how to calculate wholesale prices:<br>• <b>Flat Rate:</b> Set a fixed "
+"wholesale price (e.g., $10 per item)<br>• <b>Percentage:</b> Set price as a "
+"percentage of retail price"
+msgstr ""
+
+#: includes/vue-settings/schema-parts/dynamic-rules.php:67
+msgid "Choose how you want to apply the amount"
+msgstr ""
+
+#: includes/vue-settings/schema-parts/dynamic-rules.php:208
+msgid "Choose Products"
+msgstr ""
+
+#: includes/vue-settings/schema-parts/general.php:67
+msgid ""
+"Choose which wholesale price tier should be displayed to all visitors when "
+"\"Public Access\" is enabled. <br> This price tier will be shown to everyone,"
+" regardless of their role."
+msgstr ""
+
+#: includes/vue-settings/schema-parts/fields-manager.php:197
+msgid "Class"
+msgstr ""
+
+#: includes/vue-settings/schema-parts/design.php:28
+#: includes/vue-settings/schema-parts/design.php:69
+#: includes/vue-settings/schema-parts/design.php:127
+#: includes/vue-settings/schema-parts/design.php:168
+#: includes/vue-settings/schema-parts/design.php:226
+#: includes/vue-settings/schema-parts/design.php:267
+#: includes/vue-settings/schema-parts/design.php:325
 msgid "Color"
 msgstr ""
 
-#: includes/Admin/Custom_Columns.php:85
+#: includes/vue-settings/schema-parts/dynamic-rules.php:8
+msgid "Common Conditions"
+msgstr ""
+
+#: includes/vue-settings/schema-parts/dynamic-rules.php:107
+#: includes/vue-settings/schema-parts/dynamic-rules.php:228
+#: includes/vue-settings/schema-parts/dynamic-rules.php:369
+#: includes/vue-settings/schema-parts/dynamic-rules.php:388
+msgid "Compare Operator"
+msgstr ""
+
+#: includes/vue-settings/schema-parts/dynamic-rules.php:357
+msgid "Condition Name"
+msgstr ""
+
+#: includes/vue-settings/schema-parts/registration.php:159
+msgid ""
+"Configure reCAPTCHA security level:<br>• Enter value between 0.0 and 1.0<br>"
+"• Higher score = stricter verification<br>• Recommended: 0.5<br>• Leave "
+"empty to accept all scores"
+msgstr ""
+
+#: includes/vue-settings/schema-parts/others.php:63
+msgid ""
+"Configure wholesale shipping options:<br>• ON: Enable free shipping for "
+"wholesale orders<br>• OFF: Apply normal shipping rates<br>• Note: Requires "
+"free shipping method setup in WooCommerce Shipping Zones<br>• Can be "
+"configured per wholesale role"
+msgstr ""
+
+#: includes/vue-settings/schema-parts/others.php:42
+msgid ""
+"Control coupon usage for wholesalers:<br>• ON: Prevent wholesalers from "
+"using any coupons<br>• OFF: Allow normal coupon usage<br>• Can be configured "
+"per wholesale role"
+msgstr ""
+
+#: includes/vue-settings/schema-parts/general.php:258
+msgid ""
+"Control discount percentage visibility:<br>• Hide/show savings percentage on "
+"all pages<br>• Affects both product listings and detail pages"
+msgstr ""
+
+#: includes/vue-settings/schema-parts/product-visibility.php:32
+msgid ""
+"Control product visibility for retailers:<br>• ON: Hide wholesale-only "
+"products from retail customers<br>• OFF: Show all available products<br>• "
+"Note: Product visibility can be set in the product edit page under \"WHOLS "
+"Options\""
+msgstr ""
+
+#: includes/vue-settings/schema-parts/others.php:19
+msgid ""
+"Control quantity from product lists:<br>• ON: Force minimum quantity when "
+"adding from product lists<br>• OFF: Allow any quantity from quick-add "
+"buttons<br>• Only works when Auto Input Minimum Quantity is enabled"
+msgstr ""
+
+#: includes/vue-settings/schema-parts/registration.php:174
+msgid ""
+"Control reCAPTCHA badge visibility:<br>• ON: Hide the badge<br>• OFF: Show "
+"badge at bottom-right"
+msgstr ""
+
+#: includes/vue-settings/schema-parts/registration.php:57
+msgid ""
+"Control registration approval:<br>• ON: Instant account activation<br>• OFF: "
+"Manual admin approval required<br>• Affects all new wholesaler registrations"
+msgstr ""
+
+#: includes/vue-settings/schema-parts/product-visibility.php:55
+msgid ""
+"Control retail product visibility:<br>• ON: Hide retail-only products from "
+"wholesalers<br>• OFF: Show all products to wholesalers<br>• Affects products "
+"marked as \"Retailers Only\" in the product edit page under \"WHOLS Options\""
+msgstr ""
+
+#: includes/vue-settings/schema-parts/general.php:204
+msgid ""
+"Control visibility of retail prices:<br>• Affects both shop listings and "
+"product pages<br>• Useful when you want to show only wholesale prices"
+msgstr ""
+
+#: includes/vue-settings/schema-parts/general.php:231
+msgid ""
+"Control visibility of wholesale prices:<br>• Affects both shop listings and "
+"product pages"
+msgstr ""
+
+#: includes/vue-settings/menu.php:39
+#: includes/vue-settings/schema-parts/conversation.php:3
+#: includes/vue-settings/schema-parts/email-notifications.php:9
+msgid "Conversation"
+msgstr ""
+
+#: includes/Admin/Custom_Columns.php:88
 msgid "Count"
 msgstr ""
 
-#: includes/functions.php:611
+#: includes/Admin/Diagnostic_Data.php:494
+msgid "Count Me In"
+msgstr ""
+
+#: includes/vue-settings/schema-parts/dynamic-rules.php:424
+msgid "Country"
+msgstr ""
+
+#: includes/vue-settings/schema-parts/request-a-quote.php:31
+msgid "Create Conversation When Request a Quote"
+msgstr ""
+
+#: includes/vue-settings/schema-parts/dynamic-rules.php:13
+msgid ""
+"Create powerful pricing rules including discounts, fees, and buy-one-get-one "
+"offers. Rules can be triggered by cart total, product quantities, specific "
+"items, customer roles, or any combination of these conditions."
+msgstr ""
+
+#: includes/vue-settings/schema-parts/fields-manager.php:27
+msgid "Custom Field"
+msgstr ""
+
+#: includes/vue-settings/menu.php:51
+#: includes/vue-settings/schema-parts/custom-thank-you-message.php:3
+msgid "Custom Thank You Message"
+msgstr ""
+
+#: includes/vue-settings/schema-parts/email-notifications.php:6
+msgid "Customer - Email Notifications"
+msgstr ""
+
+#: includes/Admin/csf-settings/email-notifications.php:92
+msgid "Customer Confirmation Message"
+msgstr ""
+
+#: includes/Admin/csf-settings/email-notifications.php:80
+msgid "Customer Email Subject"
+msgstr ""
+
+#: includes/Admin/csf-settings/email-notifications.php:64
+msgid "Customer Registration Confirmation"
+msgstr ""
+
+#: includes/vue-settings/schema-parts/general.php:283
+msgid ""
+"Customize minimum quantity notice:<br>• Use {qty} to show required "
+"quantity<br>• Example: \"Buy {qty} or more for wholesale price\"<br>• Leave "
+"empty to use default text"
+msgstr ""
+
+#: includes/vue-settings/schema-parts/registration.php:66
+msgid ""
+"Customize registration button:<br>• Change the text on submit button<br>• "
+"Make it clear and action-oriented<br>• Default: \"Register As Wholesaler\""
+msgstr ""
+
+#: includes/vue-settings/schema-parts/general.php:210
+#: includes/vue-settings/schema-parts/general.php:264
+msgid ""
+"Customize the retail price label:<br>• Displays before the retail price<br>• "
+"Shows on both product lists and detail pages"
+msgstr ""
+
+#: includes/vue-settings/schema-parts/general.php:237
+msgid ""
+"Customize the wholesale price label:<br>• Displays before the wholesale "
+"price<br>• Shows on both product lists and detail pages"
+msgstr ""
+
+#: includes/vue-settings/schema-parts/general.php:66
+msgid "Default Price Tier Selection"
+msgstr ""
+
+#: whols.php:320
 msgid "Default Role"
 msgstr ""
 
-#: includes/functions.php:614
+#: includes/vue-settings/schema-parts/fields-manager.php:177
+msgid "Default Value"
+msgstr ""
+
+#: whols.php:323
 msgid "Default Wholesale Role"
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:389
+#: includes/vue-settings/schema-parts/registration.php:38
 msgid "Default Wholesaler Role"
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:599
-#: includes/Admin/Global_Settings.php:692
-#: includes/Admin/Global_Settings.php:785
-#: includes/Admin/Global_Settings.php:838
+#: includes/vue-settings/schema-parts/design.php:95
+#: includes/vue-settings/schema-parts/design.php:194
+#: includes/vue-settings/schema-parts/design.php:293
+#: includes/vue-settings/schema-parts/design.php:351
 msgid "Default: 400"
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:559
-#: includes/Admin/Global_Settings.php:652
-#: includes/Admin/Global_Settings.php:745
+#: includes/vue-settings/schema-parts/design.php:54
+#: includes/vue-settings/schema-parts/design.php:153
+#: includes/vue-settings/schema-parts/design.php:252
 msgid "Default: 700"
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:509
+#: includes/vue-settings/schema-parts/general.php:134
+#: includes/vue-settings/schema-parts/general.php:179
+msgid ""
+"Define how many items a customer must buy to get wholesale prices:<br>• This "
+"threshold applies per product<br>• Customers will see this requirement "
+"displayed on product pages<br>• Leave empty to remove quantity restrictions"
+msgstr ""
+
+#: includes/vue-settings/schema-parts/custom-thank-you-message.php:24
+msgid "Define how the message should be displayed."
+msgstr ""
+
+#: includes/vue-settings/schema-parts/guest-access.php:76
 msgid "Define who can access the entire website."
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:491
+#: includes/vue-settings/schema-parts/guest-access.php:63
 msgid "Define who can access the shop."
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:522
+#: includes/vue-settings/schema-parts/fields-manager.php:6
+msgid "Delete"
+msgstr ""
+
+#: includes/vue-settings/schema-parts/fields-manager.php:171
+msgid "Description"
+msgstr ""
+
+#: includes/vue-settings/menu.php:59
+#: includes/vue-settings/schema-parts/design.php:3
 msgid "Design"
 msgstr ""
 
 #: includes/Admin/Role_Cat_Metabox.php:44
+#: includes/vue-settings/schema-parts/others.php:40
 msgid "Disable Coupons"
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:960
-msgid "Disable Coupons For Wholesale Customers"
-msgstr ""
-
-#: includes/Admin/Global_Settings.php:967
-msgid "Disable Payment Gateway For Wholesale Customers"
+#: includes/vue-settings/schema-parts/others.php:49
+msgid "Disable Payment Gateway"
 msgstr ""
 
 #: includes/Admin/Role_Cat_Metabox.php:56
 msgid "Disable Payment Methods"
 msgstr ""
 
-#. 1: label
-#: includes/Admin/Global_Settings.php:107
+#: includes/vue-settings/schema-parts/registration.php:173
+msgid "Disable Recaptcha Badge"
+msgstr ""
+
+#: includes/vue-settings/schema-parts/general.php:27
+#: includes/vue-settings/schema-parts/general.php:253
 msgid "Discount Label"
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:341
+#: includes/vue-settings/schema-parts/general.php:263
 msgid "Discount Percentage Custom Label"
 msgstr ""
 
+#: includes/vue-settings/schema-parts/dynamic-rules.php:6
+msgid "Discount Settings"
+msgstr ""
+
+#: includes/vue-settings/schema-parts/dynamic-rules.php:185
+msgid "Discounted / Free products"
+msgstr ""
+
+#: includes/vue-settings/schema-parts/dynamic-rules.php:184
+msgid "Discounted Product"
+msgstr ""
+
+#: includes/vue-settings/schema-parts/fields-manager.php:128
+msgid "Documents (PDF)"
+msgstr ""
+
+#: includes/vue-settings/menu.php:33
+#: includes/vue-settings/schema-parts/dynamic-rules.php:3
+msgid "Dynamic Rules"
+msgstr ""
+
+#: includes/vue-settings/schema-parts/fields-manager.php:90
+msgid "e.g: company_name"
+msgstr ""
+
+#: includes/vue-settings/schema-parts/fields-manager.php:5
+msgid "Edit"
+msgstr ""
+
 #: includes/Admin/Wholesaler_Request_Metabox.php:50
-#: includes/Admin/Custom_Posts.php:47
+#: includes/Admin/Custom_Posts.php:46
 msgid "Edit Request"
 msgstr ""
 
-#: includes/Admin/Custom_Taxonomies.php:49
+#: includes/Admin/Custom_Taxonomies.php:43
 msgid "Edit Role"
 msgstr ""
 
-#: includes/functions.php:260
+#: includes/vue-settings/schema-parts/dynamic-rules.php:17
+msgid "Edit Rule"
+msgstr ""
+
+#: includes/functions.php:468
+#: includes/Admin/csf-fields/CSF_Field_registration_details.php:43
+#: includes/vue-settings/schema-parts/wallet.php:41
+#: includes/vue-settings/schema-parts/fields-manager.php:43
+#: includes/vue-settings/schema-parts/fields-manager.php:221
 msgid "Email"
 msgstr ""
 
-#: includes/functions.php:171
+#: includes/functions.php:180
 msgid "Email Already in Use"
 msgstr ""
 
-#: includes/Admin/recommended-plugins/recommendations.php:98
+#: includes/Admin/recommended-plugins/recommendations.php:100
 msgid ""
 "Email Candy is an outstanding WordPress plugin that allows you to customize "
 "the default WooCommerce email templates and give a professional look to your "
@@ -269,140 +812,253 @@ msgid ""
 "will come in handy."
 msgstr ""
 
-#: includes/Admin/recommended-plugins/recommendations.php:95
+#: includes/Admin/recommended-plugins/recommendations.php:97
 msgid "Email Candy Pro - Email customizer for WooCommerce"
 msgstr ""
 
-#: includes/functions.php:164
+#: includes/functions.php:173
 msgid "Email is not valid"
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:847
-msgid "Email Notification"
+#: includes/vue-settings/menu.php:48
+#: includes/vue-settings/schema-parts/email-notifications.php:3
+msgid "Email Notifications"
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:866
-#: includes/Admin/Global_Settings.php:898
+#: includes/vue-settings/schema-parts/email-notifications.php:28
+msgid "Email Recipients"
+msgstr ""
+
+#: includes/vue-settings/schema-parts/email-notifications.php:35
+#: includes/vue-settings/schema-parts/email-notifications.php:76
+#: includes/vue-settings/schema-parts/email-notifications.php:107
+#: includes/vue-settings/schema-parts/email-notifications.php:138
+#: includes/vue-settings/schema-parts/email-notifications.php:175
+#: includes/vue-settings/schema-parts/email-notifications.php:213
 msgid "Email Subject"
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:859
-#: includes/Admin/Global_Settings.php:891
-#: includes/Admin/Global_Settings.php:923
-#: includes/Admin/Global_Settings.php:937
+#: includes/Admin/csf-settings/email-notifications.php:14
+#: includes/Admin/csf-settings/email-notifications.php:72
+#: includes/Admin/csf-settings/email-notifications.php:122
+#: includes/Admin/csf-settings/email-notifications.php:138
+#: includes/vue-settings/schema-parts/wallet.php:9
+#: includes/vue-settings/schema-parts/wholesale-only-categories.php:18
+#: includes/vue-settings/schema-parts/request-a-quote.php:9
+#: includes/vue-settings/schema-parts/dynamic-rules.php:34
+#: includes/vue-settings/schema-parts/conversation.php:9
+#: includes/vue-settings/schema-parts/fields-manager.php:52
+#: includes/vue-settings/schema-parts/email-notifications.php:20
+#: includes/vue-settings/schema-parts/email-notifications.php:68
+#: includes/vue-settings/schema-parts/email-notifications.php:98
+#: includes/vue-settings/schema-parts/email-notifications.php:130
+#: includes/vue-settings/schema-parts/email-notifications.php:166
+#: includes/vue-settings/schema-parts/email-notifications.php:204
+#: includes/vue-settings/schema-parts/general.php:112
+#: includes/vue-settings/schema-parts/general.php:150
+#: includes/vue-settings/schema-parts/custom-thank-you-message.php:9
 msgid "Enable"
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:922
-msgid "Enable Approved Notification"
-msgstr ""
-
-#: includes/Admin/Global_Settings.php:399
+#: includes/vue-settings/schema-parts/registration.php:56
 msgid "Enable Auto Approve"
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:936
-msgid "Enable Rejection Notification"
+#: includes/vue-settings/schema-parts/registration.php:122
+msgid "Enable Google reCAPTCHA (V3)"
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:368
-msgid ""
-"Enable this option to hide the \"General products\" from the wholesalers. "
-"Note: \"General Product\" means the product that has not been marked as a "
-"wholesale product from the product edit screen."
-msgstr ""
-
-#: includes/Admin/Global_Settings.php:360
-msgid ""
-"Enable this option to hide the \"Wholesale Only\" products from the visitors "
-"& general customers. Note: You can mark an individual product as a wholesale "
-"product from the \"Whols\" tab in the product edit screen."
-msgstr ""
-
-#: includes/Admin/Global_Settings.php:457
-msgid ""
-"Enable this option to show the price only for those users who are logged in."
-msgstr ""
-
-#: includes/Admin/Global_Settings.php:43 includes/Admin/Global_Settings.php:230
 #: includes/Admin/Product_Category_Metabox.php:45
 msgid "Enable This Pricing"
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:472
+#: includes/vue-settings/schema-parts/wallet.php:11
+msgid "Enable to allow customers to pay using their wallet."
+msgstr ""
+
+#: includes/vue-settings/schema-parts/request-a-quote.php:11
+msgid "Enable to allow customers to request a quote for the products."
+msgstr ""
+
+#: includes/vue-settings/schema-parts/conversation.php:11
+msgid ""
+"Enable to allow customers to start a conversation with the wholesaler from "
+"the my account page."
+msgstr ""
+
+#: includes/vue-settings/schema-parts/request-a-quote.php:33
+msgid ""
+"Enable to create a new conversation when a request a quote is submitted. <br>"
+" Conversation feature should be enabled to use this option."
+msgstr ""
+
+#: includes/vue-settings/schema-parts/custom-thank-you-message.php:11
+msgid "Enable to customize thank you message for the wholesalers."
+msgstr ""
+
+#: includes/vue-settings/schema-parts/wholesale-only-categories.php:19
+msgid "Enable to Define Wholesaler Only Categories."
+msgstr ""
+
+#: includes/vue-settings/schema-parts/guest-access.php:31
 msgid "Enable Website Restriction Type"
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:187
-msgid "Enable Wholesale Store"
+#: includes/vue-settings/schema-parts/dynamic-rules.php:42
+msgid "Enter a name to help you identify this rule in your admin panel"
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:334
+#: includes/vue-settings/schema-parts/fields-manager.php:111
 msgid ""
-"Enabling this option will hide the discount amount (%) from the product "
-"listing/loop of your shop page & product details page"
+"Enter each option on a new line with key|value pair . For example: <br> "
+"<code>option-1|Option 1</code> <br> <code>option-2|Option 2</code> <br> "
+"<code>option-3|Option 3</code>"
 msgstr ""
 
-#: includes/Admin/recommended-plugins/recommendations.php:55
+#: includes/Admin/csf-settings/email-notifications.php:23
+msgid ""
+"Enter email addresses that should receive new wholesaler notifications. Use "
+"commas to separate multiple emails. If left empty, the default admin email "
+"will be used."
+msgstr ""
+
+#: includes/vue-settings/class-settings-page.php:137
+msgid "Error"
+msgstr ""
+
+#: includes/Admin/recommended-plugins/recommendations.php:57
 msgid "EverCompare"
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:487
-#: includes/Admin/Global_Settings.php:505
+#: includes/vue-settings/schema-parts/guest-access.php:59
+#: includes/vue-settings/schema-parts/guest-access.php:72
 msgid "Everyone"
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:254
-#, php-format
-msgid ""
-"Example: If \"Price Type\" is set to \"Percentage\" & if you enter 75. Then "
-"product price will be 75% of the existing price & wholesaler will get 25% "
-"discount."
+#: includes/vue-settings/schema-parts/dynamic-rules.php:373
+msgid "Exactly equals"
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:952
-msgid "Exclude Tax for Wholesale Customers"
+#: includes/vue-settings/schema-parts/others.php:32
+msgid "Exclude Tax"
 msgstr ""
 
-#: includes/Admin/Custom_Posts.php:54
+#: includes/Admin/Custom_Posts.php:53
 msgid "Featured Image"
 msgstr ""
 
-#: includes/Admin/Custom_Posts.php:62
+#: includes/vue-settings/schema-parts/fields-manager.php:25
+msgid "Field"
+msgstr ""
+
+#: includes/request-a-quote/class-request-quote.php:110
+msgid "Field is required."
+msgstr ""
+
+#: includes/vue-settings/schema-parts/fields-manager.php:110
+msgid "Field Options"
+msgstr ""
+
+#: includes/vue-settings/schema-parts/fields-manager.php:66
+msgid "Field Type"
+msgstr ""
+
+#: includes/vue-settings/schema-parts/fields-manager.php:88
+msgid "Field Unique Name"
+msgstr ""
+
+#: includes/vue-settings/menu.php:14
+#: includes/vue-settings/schema-parts/fields-manager.php:3
+msgid "Fields Manager"
+msgstr ""
+
+#: includes/vue-settings/schema-parts/fields-manager.php:73
+msgid "File / Upload"
+msgstr ""
+
+#: includes/vue-settings/schema-parts/fields-manager.php:10
+msgid "File Upload Settings"
+msgstr ""
+
+#: includes/vue-settings/schema-parts/product-visibility.php:46
+msgid ""
+"Filter products for wholesalers:<br>• ON: Show only wholesale-specific "
+"products<br>• OFF: Show all available products<br>• Note: Product visibility "
+"can be set in WooCommerce product settings under \"WHOLS Options\" <br>• "
+"Useful for focused wholesale catalogs"
+msgstr ""
+
+#: includes/Admin/Custom_Posts.php:61
 msgid "Filter requests list"
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:54 includes/Admin/Global_Settings.php:241
+#: includes/vue-settings/schema-parts/dynamic-rules.php:70
+msgid "Fixed"
+msgstr ""
+
 #: includes/Admin/Product_Category_Metabox.php:57
+#: includes/vue-settings/schema-parts/general.php:120
+#: includes/vue-settings/schema-parts/general.php:160
 msgid "Flat Rate"
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:539
-#: includes/Admin/Global_Settings.php:579
-#: includes/Admin/Global_Settings.php:632
-#: includes/Admin/Global_Settings.php:672
-#: includes/Admin/Global_Settings.php:725
-#: includes/Admin/Global_Settings.php:765
-#: includes/Admin/Global_Settings.php:818
+#: includes/vue-settings/schema-parts/design.php:34
+#: includes/vue-settings/schema-parts/design.php:75
+#: includes/vue-settings/schema-parts/design.php:133
+#: includes/vue-settings/schema-parts/design.php:174
+#: includes/vue-settings/schema-parts/design.php:232
+#: includes/vue-settings/schema-parts/design.php:273
+#: includes/vue-settings/schema-parts/design.php:331
 msgid "Font size"
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:555
-#: includes/Admin/Global_Settings.php:595
-#: includes/Admin/Global_Settings.php:648
-#: includes/Admin/Global_Settings.php:688
-#: includes/Admin/Global_Settings.php:741
-#: includes/Admin/Global_Settings.php:781
-#: includes/Admin/Global_Settings.php:834
+#: includes/vue-settings/schema-parts/design.php:50
+#: includes/vue-settings/schema-parts/design.php:91
+#: includes/vue-settings/schema-parts/design.php:149
+#: includes/vue-settings/schema-parts/design.php:190
+#: includes/vue-settings/schema-parts/design.php:248
+#: includes/vue-settings/schema-parts/design.php:289
+#: includes/vue-settings/schema-parts/design.php:347
 msgid "Font Weight"
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:477
+#: includes/vue-settings/schema-parts/registration.php:76
+msgid "For Auto Approval"
+msgstr ""
+
+#: includes/vue-settings/schema-parts/dynamic-rules.php:79
+msgid ""
+"For Cart Discount: Amount to reduce from cart total <br>For Additional Fee: "
+"Amount to add to cart total <br>For BOGO: Discount on Get/Discounted product"
+msgstr ""
+
+#: includes/vue-settings/schema-parts/guest-access.php:35
 msgid "For Entire Website"
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:476
+#: includes/vue-settings/schema-parts/registration.php:93
+msgid "For Manual Approval"
+msgstr ""
+
+#: includes/vue-settings/schema-parts/guest-access.php:34
 msgid "For Only Shop"
+msgstr ""
+
+#: includes/vue-settings/schema-parts/product-visibility.php:6
+msgid "For Retailers / General Customers"
+msgstr ""
+
+#: includes/vue-settings/schema-parts/product-visibility.php:10
+msgid "For Wholesalers"
+msgstr ""
+
+#: includes/vue-settings/schema-parts/others.php:17
+#: includes/vue-settings/schema-parts/others.php:18
+msgid "Force Applying Minimum Quantity"
+msgstr ""
+
+#: includes/vue-settings/schema-parts/registration.php:11
+msgid "Form Settings"
 msgstr ""
 
 #: includes/Admin/Role_Cat_Metabox.php:69
@@ -411,20 +1067,38 @@ msgid ""
 "shipping into the \"WooCommerce > Settings > Shipping Zones\""
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:180
+#: includes/vue-settings/class-settings-page.php:135
+#: includes/vue-settings/menu.php:4
+#: includes/vue-settings/schema-parts/general.php:3
+#: includes/vue-settings/schema-parts/registration.php:7
 msgid "General Settings"
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:447
+#: includes/Admin/CSF_Field_whols_image.php:18
+msgid "Get PRO to Unlock"
+msgstr ""
+
+#: includes/vue-settings/schema-parts/general.php:143
+msgid "Global Wholesale Pricing - Multi Role Setup"
+msgstr ""
+
+#: includes/vue-settings/schema-parts/general.php:100
+msgid "Global Wholesale Pricing - Single Role Setup"
+msgstr ""
+
+#: includes/vue-settings/schema-parts/guest-access.php:3
+msgid "Guest Access"
+msgstr ""
+
+#: includes/vue-settings/menu.php:30
 msgid "Guest Access Restriction"
 msgstr ""
 
-#: includes/Admin/recommended-plugins/recommendations.php:104
+#: includes/Admin/recommended-plugins/recommendations.php:106
 msgid "HashBar - Notification Bar"
 msgstr ""
 
-#: includes/Admin/recommended-plugins/recommendations.php:107
-#, php-format
+#: includes/Admin/recommended-plugins/recommendations.php:109
 msgid ""
 "HashBar is a WordPress Notification / Alert / Offer Bar plugin which allows "
 "you to create unlimited notification bars to notify your customers. This "
@@ -434,38 +1108,111 @@ msgid ""
 "make your notification bar more professional."
 msgstr ""
 
+#: includes/Admin/recommended-plugins/class.recommended-plugins.php:226
+msgid "HasTheme"
+msgstr ""
+
 #. Author of the plugin
 msgid "HasThemes"
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:367
-msgid "Hide \"General\" Products From Wholesalers"
+#: includes/vue-settings/schema-parts/email-notifications.php:47
+msgid ""
+"Hello Admin,\n"
+"\n"
+"A new wholesale registration request has been submitted on your website.\n"
+"\n"
+"Registration Details:\n"
+"------------------------\n"
+"Full Name: {name}\n"
+"Email Address: {email}\n"
+"Submission Date: {date}\n"
+"Submission Time: {time}\n"
+"\n"
+"This request requires your review. Please log in to your WordPress dashboard "
+"to approve or reject this registration.\n"
+"\n"
+"Best regards,\n"
+"WholS Pro System"
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:359
-msgid "Hide \"Wholesale Only\" Products From Visitors & General Customers"
+#: includes/vue-settings/schema-parts/email-notifications.php:185
+msgid ""
+"Hi {name},\n"
+"\n"
+"Good news! Your wholesale account request for {site_title} has been approved."
+"\n"
+"\n"
+"You can now log in to access wholesale pricing and place orders:\n"
+"Email: {email}\n"
+"Password: The one you set during registration\n"
+"\n"
+"Visit our store: {shop_url}\n"
+"\n"
+"Welcome aboard!\n"
+"{site_title}"
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:331
+#: includes/vue-settings/schema-parts/email-notifications.php:148
+msgid ""
+"Hi {name},\n"
+"\n"
+"Thanks for registering with {site_title}. Your wholesale account request is "
+"under review.\n"
+"\n"
+"Details:\n"
+"Email: {email}\n"
+"Date: {date}\n"
+"\n"
+"We'll notify you once your account is approved.\n"
+"\n"
+"Regards,\n"
+"{site_title}"
+msgstr ""
+
+#: includes/vue-settings/schema-parts/email-notifications.php:223
+msgid ""
+"Hi {name},\n"
+"\n"
+"We're sorry to inform you that your wholesale account request for "
+"{site_title} has been rejected.\n"
+"\n"
+"Please contact us for more information.\n"
+"\n"
+"Regards,\n"
+"{site_title}"
+msgstr ""
+
+#: includes/vue-settings/schema-parts/product-visibility.php:53
+msgid "Hide \"Retailer Only\" Products"
+msgstr ""
+
+#: includes/vue-settings/schema-parts/product-visibility.php:30
+msgid "Hide \"Wholesaler Only\" Products"
+msgstr ""
+
+#: includes/vue-settings/schema-parts/general.php:257
 msgid "Hide Discount %"
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:454
+#: includes/vue-settings/schema-parts/guest-access.php:10
 msgid "Hide Price For Guest Users"
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:280
+#: includes/vue-settings/schema-parts/guest-access.php:43
+msgid "Hide Price For Non-wholesale Customers"
+msgstr ""
+
+#: includes/vue-settings/schema-parts/general.php:203
 msgid "Hide Retailer Price"
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:308
-msgid ""
-"Hide the wholesaler price which appear into the product listing/loop of your "
-"shop page & product details page."
+#: includes/vue-settings/schema-parts/general.php:230
+msgid "Hide Wholesaler Price"
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:305
-msgid "Hide Wholesaler Price"
+#: includes/vue-settings/schema-parts/dynamic-rules.php:145
+msgid "How many items customer must buy to qualify for the BOGO offer"
 msgstr ""
 
 #. Author URI of the plugin
@@ -473,89 +1220,97 @@ msgid "https://hasthemes.com"
 msgstr ""
 
 #. URI of the plugin
-msgid "https://plugins.hasthemes.com/whols/demo/create-sandbox/"
+msgid "https://wpwhols.com/"
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:409
+#: includes/vue-settings/schema-parts/wholesale-only-categories.php:29
 msgid ""
-"If \"Auto Approve\" is enabled. Then this message will show into the "
-"customer registration page, after a successful wholesaler registration. HTML "
-"is allowed."
+"If checked, all the child categories within a parent category will be "
+"selected as well. <br>If not checked, parents or children relationship will "
+"not be considered in the selection of the category."
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:892
+#: includes/vue-settings/schema-parts/guest-access.php:11
+msgid "If enabled, the price will be hidden for non-logged in users."
+msgstr ""
+
+#: includes/vue-settings/schema-parts/email-notifications.php:132
 msgid ""
 "If Enabled, The registered wholesale customer will get an email about the "
 "registration."
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:924
+#: includes/vue-settings/schema-parts/email-notifications.php:168
 msgid ""
 "If Enabled, The registered wholesale customer will get an email if the "
 "wholesaler request is approved."
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:938
+#: includes/vue-settings/schema-parts/email-notifications.php:206
 msgid ""
 "If Enabled, The registered wholesale customer will get an email if the "
 "wholesaler request is rejected."
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:860
+#: includes/vue-settings/schema-parts/email-notifications.php:22
 msgid ""
 "If Enabled, The site admin will get an email about the new wholesaler "
 "registration request."
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:215
+#: includes/vue-settings/schema-parts/email-notifications.php:70
 msgid ""
-"If you choose \"Only Wholesaler\" plugin will be active for only wholesaler "
-"customers. Otherwise plugin will be active for all users. <br>You may use "
-"\"All Users\" option when you want to test the pricing."
+"If enabled, the site admin will receive an email when a customer submits a "
+"request for a quote."
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:989
-msgid "Import & Export"
-msgstr ""
-
-#: includes/Admin/Global_Settings.php:995
-msgid "Import / Export Settings"
-msgstr ""
-
-#: includes/Admin/Global_Settings.php:421
+#: includes/vue-settings/schema-parts/email-notifications.php:100
 msgid ""
-"Insert a custom message for a successful registration. HTML tags are also "
-"allowed. When the \"Auto Approve\" option is disabled, this message will be "
-"shown on the customer registration page after a successful wholesaler "
-"registration."
+"If enabled, the site admin will receive an email when a new conversation is "
+"started."
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:440
+#: includes/vue-settings/schema-parts/general.php:60
 msgid ""
-"Insert a page URL where you want the users to be redirected after a "
-"successful login. Leave empty for default redirection. Note: Make sure you "
-"have entered a page URL of the same domain."
+"If you select \"Test Mode\", Admin & Wholesalers will be able to access "
+"pricing."
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:432
-msgid ""
-"Insert a page URL where you want the users to be redirected after a "
-"successful registration. Leave empty if you don't want to redirect the users."
+#: includes/vue-settings/schema-parts/fields-manager.php:127
+msgid "Images (JPG, PNG, GIF)"
 msgstr ""
 
-#: includes/Admin/Custom_Posts.php:58
+#: includes/vue-settings/schema-parts/wholesale-only-categories.php:28
+msgid "Include Children Categories"
+msgstr ""
+
+#: includes/Admin/Custom_Posts.php:57
 msgid "Insert into request"
 msgstr ""
 
+#: includes/Admin/recommended-plugins/class.recommended-plugins.php:247
+msgid "Install Now"
+msgstr ""
+
+#: includes/Admin/recommended-plugins/class.recommended-plugins.php:122
 #: includes/Admin/install-manager/class-install-manager.php:53
 msgid "Installing.."
 msgstr ""
 
-#: includes/Admin/recommended-plugins/recommendations.php:60
+#: includes/request-a-quote/class-request-quote.php:120
+msgid "Invalid email address."
+msgstr ""
+
+#: includes/vue-settings/schema-parts/fields-manager.php:89
+msgid ""
+"It will be used to save the field value in the database. It must be unique."
+msgstr ""
+
+#: includes/Admin/recommended-plugins/recommendations.php:62
 msgid "JustTables"
 msgstr ""
 
-#: includes/Admin/recommended-plugins/recommendations.php:80
+#: includes/Admin/recommended-plugins/recommendations.php:82
 msgid ""
 "JustTables is an incredible WordPress plugin that lets you showcase all your "
 "WooCommerce products in a sortable and filterable table view. It allows your "
@@ -565,208 +1320,439 @@ msgid ""
 "sale on your online store."
 msgstr ""
 
-#: includes/Admin/recommended-plugins/recommendations.php:77
+#: includes/Admin/recommended-plugins/recommendations.php:79
 msgid "JustTables Pro"
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:547
-#: includes/Admin/Global_Settings.php:587
-#: includes/Admin/Global_Settings.php:640
-#: includes/Admin/Global_Settings.php:680
-#: includes/Admin/Global_Settings.php:733
-#: includes/Admin/Global_Settings.php:773
-#: includes/Admin/Global_Settings.php:826
+#: includes/vue-settings/schema-parts/dynamic-rules.php:41
+#: includes/vue-settings/schema-parts/fields-manager.php:104
+msgid "Label"
+msgstr ""
+
+#: includes/vue-settings/schema-parts/request-a-quote.php:18
+msgid "Label of the request a quote button."
+msgstr ""
+
+#: includes/vue-settings/schema-parts/conversation.php:19
+msgid "Label of the start conversation text shown on the popup form."
+msgstr ""
+
+#: includes/vue-settings/schema-parts/fields-manager.php:145
+msgid "Leave it empty for default. Default: 2MB"
+msgstr ""
+
+#: includes/vue-settings/schema-parts/wholesale-only-categories.php:56
+msgid "Leave it empty, to assign all roles."
+msgstr ""
+
+#: includes/vue-settings/schema-parts/dynamic-rules.php:372
+msgid "Less than"
+msgstr ""
+
+#: includes/vue-settings/schema-parts/design.php:42
+#: includes/vue-settings/schema-parts/design.php:83
+#: includes/vue-settings/schema-parts/design.php:141
+#: includes/vue-settings/schema-parts/design.php:182
+#: includes/vue-settings/schema-parts/design.php:240
+#: includes/vue-settings/schema-parts/design.php:281
+#: includes/vue-settings/schema-parts/design.php:339
 msgid "Line Height"
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:488
-#: includes/Admin/Global_Settings.php:506
-msgid "Loged In Users"
+#: includes/vue-settings/class-settings-page.php:136
+msgid "Loading..."
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:489
-#: includes/Admin/Global_Settings.php:507
-msgid "Loged In Users With Wholesale Role"
+#: includes/vue-settings/schema-parts/guest-access.php:17
+msgid "Login To See Price\" Custom Label"
 msgstr ""
 
-#: includes/woo-config.php:55
+#: includes/Frontend/Woo_Config.php:62
+#: includes/vue-settings/schema-parts/guest-access.php:26
 msgid "Login to view price"
 msgstr ""
 
-#: includes/Frontend/Wholesaler_Login_Register.php:71
+#: includes/Frontend/Wholesaler_Login_Register.php:84
 msgid "Logout"
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:128
-msgid "Made with Love by HasThemes"
+#: includes/vue-settings/schema-parts/others.php:11
+msgid ""
+"Manage minimum quantity behavior:<br>• ON: Automatically set quantity to "
+"minimum required<br>• OFF: Let customers manually enter quantity<br>• "
+"Applies to product pages only"
 msgstr ""
 
-#: includes/Admin/Product_Metabox.php:68
-msgid "Mark this product as a wholesale only product"
+#: includes/vue-settings/schema-parts/others.php:34
+msgid ""
+"Manage tax settings for wholesalers:<br>• ON: Remove tax charges for "
+"wholesale orders<br>• OFF: Apply normal tax rates<br>• Affects all wholesale "
+"user roles"
 msgstr ""
 
-#: includes/Admin/Product_Metabox.php:110
-#: includes/Admin/Product_Metabox.php:177
+#: includes/vue-settings/schema-parts/registration.php:91
+msgid ""
+"Manual approval message:<br>• Shown after registration when auto-approve is "
+"OFF<br>• Inform users about approval process<br>• Supports HTML for "
+"formatting"
+msgstr ""
+
+#: includes/vue-settings/schema-parts/dynamic-rules.php:232
+msgid "Matches all of selected"
+msgstr ""
+
+#: includes/vue-settings/schema-parts/dynamic-rules.php:109
+#: includes/vue-settings/schema-parts/dynamic-rules.php:231
+#: includes/vue-settings/schema-parts/dynamic-rules.php:390
+msgid "Matches any of selected"
+msgstr ""
+
+#: includes/vue-settings/schema-parts/dynamic-rules.php:233
+#: includes/vue-settings/schema-parts/dynamic-rules.php:391
+msgid "Matches none of selected"
+msgstr ""
+
+#: includes/vue-settings/schema-parts/wallet.php:28
+msgid "Maximum Amount Can Recharge"
+msgstr ""
+
+#: includes/vue-settings/schema-parts/wallet.php:30
+msgid ""
+"Maximum amount that can be recharged to the wallet. Leave it blank for no "
+"limit."
+msgstr ""
+
+#: includes/vue-settings/schema-parts/fields-manager.php:144
+msgid "Maximum File Size"
+msgstr ""
+
+#: includes/vue-settings/schema-parts/email-notifications.php:43
+#: includes/vue-settings/schema-parts/email-notifications.php:86
+#: includes/vue-settings/schema-parts/email-notifications.php:115
+#: includes/vue-settings/schema-parts/email-notifications.php:182
+#: includes/vue-settings/schema-parts/email-notifications.php:220
+#: includes/vue-settings/schema-parts/custom-thank-you-message.php:29
+msgid "Message"
+msgstr ""
+
+#: includes/vue-settings/menu.php:45
+msgid "Message & Email Notifications"
+msgstr ""
+
+#: includes/vue-settings/schema-parts/dynamic-rules.php:144
+msgid "Min Quantity to Buy"
+msgstr ""
+
+#: includes/Admin/Product_Metabox.php:111
+#: includes/Admin/Product_Metabox.php:178
 msgid "Min. Quantity"
 msgstr ""
 
-#: includes/woo-config.php:453 includes/Admin/Global_Settings.php:73
-#: includes/Admin/Global_Settings.php:261
+#: includes/vue-settings/schema-parts/wallet.php:18
+msgid "Minimum Amount Can Recharge"
+msgstr ""
+
+#: includes/vue-settings/schema-parts/wallet.php:20
+msgid ""
+"Minimum amount that can be recharged to the wallet. Leave it blank for no "
+"limit."
+msgstr ""
+
+#: includes/Frontend/Woo_Config.php:301
 #: includes/Admin/Product_Category_Metabox.php:76
+#: includes/vue-settings/schema-parts/general.php:133
+#: includes/vue-settings/schema-parts/general.php:178
 msgid "Minimum Quantity"
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:807
+#: includes/vue-settings/schema-parts/design.php:321
+#: includes/vue-settings/schema-parts/general.php:31
 msgid "Minimum Quantity Notice"
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:265
-msgid ""
-"Minimum quantity to purchase to qualify the price. A notice with the "
-"\"Minimum Quantity\" value will be shown with the products"
+#: includes/vue-settings/schema-parts/general.php:282
+msgid "Minimum Quantity Notice Custom Text"
 msgstr ""
 
-#: includes/Admin/recommended-plugins/recommendations.php:65
+#: includes/Admin/recommended-plugins/class.recommended-plugins.php:291
+msgid "More Details"
+msgstr ""
+
+#: includes/Admin/recommended-plugins/recommendations.php:67
 msgid "Multi Currency"
 msgstr ""
 
-#: includes/Admin/recommended-plugins/recommendations.php:86
+#: includes/Admin/recommended-plugins/recommendations.php:88
 msgid "Multi Currency Pro for WooCommerce"
 msgstr ""
 
-#: includes/Admin/recommended-plugins/recommendations.php:89
+#: includes/vue-settings/schema-parts/general.php:15
+msgid "Multi Role Pricing"
+msgstr ""
+
+#: includes/Admin/recommended-plugins/recommendations.php:91
 msgid ""
 "Multi-Currency Pro for WooCommerce is a prominent currency switcher plugin "
 "for WooCommerce. This plugin allows your website or online store visitors to "
 "switch to their preferred currency or their country’s currency."
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:199
+#: includes/vue-settings/schema-parts/general.php:43
 msgid "Multiple Role Based"
 msgstr ""
 
-#: includes/functions.php:244 includes/functions.php:247
+#: includes/functions.php:452 includes/functions.php:455
+#: includes/Admin/csf-fields/CSF_Field_registration_details.php:35
+#: includes/vue-settings/schema-parts/fields-manager.php:41
+#: includes/vue-settings/schema-parts/fields-manager.php:207
 msgid "Name"
 msgstr ""
 
-#: includes/Admin/Custom_Posts.php:46
+#: includes/Email_Notifications.php:132
+msgid ""
+"Name: {name}\n"
+"            Email: {email}\n"
+"            Subject: {subject}\n"
+"            Message: {message}\n"
+"            "
+msgstr ""
+
+#: includes/Admin/Custom_Posts.php:45
 msgid "New Request"
 msgstr ""
 
-#: includes/Admin/Custom_Taxonomies.php:47
+#: includes/Admin/Custom_Taxonomies.php:41
 msgid "New Role Name"
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:45 includes/Admin/Global_Settings.php:232
-#: includes/Admin/Global_Settings.php:282
-#: includes/Admin/Global_Settings.php:307
-#: includes/Admin/Global_Settings.php:333
-#: includes/Admin/Global_Settings.php:456
 #: includes/Admin/Role_Cat_Metabox.php:49
 #: includes/Admin/Product_Category_Metabox.php:47
+#: includes/vue-settings/schema-parts/wholesale-only-categories.php:21
 msgid "No"
+msgstr ""
+
+#: includes/vue-settings/schema-parts/dynamic-rules.php:15
+msgid "No additional conditions added yet"
 msgstr ""
 
 #: includes/Admin/User_Metabox.php:71
 msgid "No additional fields found!"
 msgstr ""
 
-#: includes/ajax-actions.php:26
+#: includes/vue-settings/schema-parts/wholesale-only-categories.php:7
+msgid "No category rules added yet."
+msgstr ""
+
+#: includes/vue-settings/schema-parts/dynamic-rules.php:14
+msgid "No dynamic rules added yet"
+msgstr ""
+
+#: includes/vue-settings/schema-parts/wallet.php:19
+#: includes/vue-settings/schema-parts/wallet.php:29
+msgid "No Limit"
+msgstr ""
+
+#: includes/ajax-actions.php:27
 msgid "No naughty business please!"
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:475
+#: includes/vue-settings/schema-parts/guest-access.php:33
 msgid "No Restriction"
 msgstr ""
 
-#: includes/Admin/Custom_Taxonomies.php:58
+#: includes/Admin/Custom_Taxonomies.php:52
 msgid "No roles"
 msgstr ""
 
-#: includes/Admin/Custom_Taxonomies.php:57
+#: includes/vue-settings/schema-parts/wholesale-only-categories.php:8
+msgid "No rules added yet."
+msgstr ""
+
+#: includes/Admin/Diagnostic_Data.php:497
+msgid "No, Thanks"
+msgstr ""
+
+#: includes/Admin/Diagnostic_Data.php:168
+msgid "Nonce Varification fail"
+msgstr ""
+
+#: includes/vue-settings/class-settings-rest-api.php:146
+msgid "Nonce verification failed."
+msgstr ""
+
+#: includes/vue-settings/schema-parts/wallet.php:40
+msgid "None"
+msgstr ""
+
+#: includes/Admin/Custom_Taxonomies.php:51
 msgid "Not Found"
 msgstr ""
 
-#: includes/Admin/Custom_Posts.php:52
+#: includes/Admin/Custom_Posts.php:51
 msgid "Not found"
 msgstr ""
 
-#: includes/Admin/Custom_Posts.php:53
+#: includes/Admin/Custom_Posts.php:52
 msgid "Not found in Trash"
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:212
-msgid "Only Wholesaler Users "
+#: includes/Admin/csf-settings/email-notifications.php:13
+msgid "Notify Admin of New Wholesaler"
 msgstr ""
 
-#: includes/functions.php:336
+#: includes/Admin/csf-settings/email-notifications.php:153
+msgid "Notify Admin of Quote Requests"
+msgstr ""
+
+#: includes/vue-settings/schema-parts/dynamic-rules.php:164
+msgid ""
+"Number of items customer will receive at the discounted price or free. <br> "
+"<i>This value will be customizable in future updates.</i>"
+msgstr ""
+
+#: includes/vue-settings/schema-parts/wholesale-only-categories.php:46
+#: includes/vue-settings/schema-parts/wholesale-only-categories.php:57
+msgid ""
+"Only users with the assigned roles can access products in these selected "
+"categories."
+msgstr ""
+
+#: includes/vue-settings/schema-parts/guest-access.php:60
+#: includes/vue-settings/schema-parts/guest-access.php:73
+msgid "Only Wholesalers"
+msgstr ""
+
+#: includes/request-a-quote/class-request-quote.php:49
+msgid ""
+"Oops! Something went wrong while checking the security token. Please try "
+"again or refresh the page, and if the issue persists, get in touch with us!"
+msgstr ""
+
+#: includes/vue-settings/schema-parts/general.php:84
+msgid "Open Purchase - Everyone Can Buy"
+msgstr ""
+
+#: includes/functions.php:566
 msgid "optional"
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:946
-msgid "Others Settings"
+#: includes/vue-settings/menu.php:56
+msgid "Other Settings"
 msgstr ""
 
-#: includes/Admin/Custom_Posts.php:42
+#: includes/vue-settings/schema-parts/design.php:16
+#: includes/vue-settings/schema-parts/others.php:3
+msgid "Others"
+msgstr ""
+
+#: includes/vue-settings/schema-parts/wallet.php:38
+msgid "OTP Verification Method"
+msgstr ""
+
+#: includes/vue-settings/class-settings-page.php:127
+msgid ""
+"Our free version is great, but it doesn't have all our advanced features. "
+"The best way to unlock all of the features in our plugin is by purchasing "
+"the pro version."
+msgstr ""
+
+#: includes/Admin/Custom_Posts.php:41
 msgid "Parent Request:"
 msgstr ""
 
-#: includes/Admin/Custom_Taxonomies.php:45
+#: includes/Admin/Custom_Taxonomies.php:39
 msgid "Parent Role"
 msgstr ""
 
-#: includes/Admin/Custom_Taxonomies.php:46
+#: includes/Admin/Custom_Taxonomies.php:40
 msgid "Parent Role:"
 msgstr ""
 
-#: includes/functions.php:268
+#: includes/functions.php:476
+#: includes/vue-settings/schema-parts/fields-manager.php:44
+#: includes/vue-settings/schema-parts/fields-manager.php:228
 msgid "Password"
 msgstr ""
 
-#: includes/functions.php:153
+#: includes/functions.php:162
 msgid "Password length must be greater than 5"
+msgstr ""
+
+#: includes/functions.php:67
+msgid "PayPal"
 msgstr ""
 
 #: includes/Admin/Product_Category_Metabox.php:58
 msgid "Percent"
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:55 includes/Admin/Global_Settings.php:242
+#: includes/vue-settings/schema-parts/dynamic-rules.php:69
+#: includes/vue-settings/schema-parts/general.php:121
+#: includes/vue-settings/schema-parts/general.php:161
 msgid "Percentage"
 msgstr ""
 
-#: includes/Frontend/Wholesaler_Login_Register.php:82
+#: includes/vue-settings/schema-parts/fields-manager.php:165
+msgid "Placeholder"
+msgstr ""
+
+#: includes/vue-settings/schema-parts/custom-thank-you-message.php:17
+msgid "Placement"
+msgstr ""
+
+#: includes/request-a-quote/class-request-quote.php:111
+msgid "Please fill it up."
+msgstr ""
+
+#: includes/Frontend/Wholesaler_Login_Register.php:95
 msgid "Please Wait..."
 msgstr ""
 
+#: includes/Admin/recommended-plugins/class.recommended-plugins.php:392
 #: includes/Admin/install-manager/class-install-manager.php:69
 msgid "Plugin Not Found"
 msgstr ""
 
+#: includes/Admin/recommended-plugins/class.recommended-plugins.php:412
 #: includes/Admin/install-manager/class-install-manager.php:89
 msgid "Plugin Successfully Activated"
 msgstr ""
 
-#: includes/Admin/Custom_Taxonomies.php:55
+#: includes/Admin/Custom_Taxonomies.php:49
 msgid "Popular Roles"
 msgstr ""
 
-#: includes/Admin/Custom_Posts.php:36
+#: includes/Admin/Custom_Posts.php:35
 msgctxt "Post Type General Name"
 msgid "Wholsaler Requests"
 msgstr ""
 
-#: includes/Admin/Custom_Posts.php:37
+#: includes/Admin/Custom_Posts.php:36
 msgctxt "Post Type Singular Name"
 msgid "Wholesaler Request"
 msgstr ""
 
+#: includes/vue-settings/schema-parts/registration.php:115
+msgid ""
+"Post-login redirect:<br>• Enter full URL for redirect page<br>• Must be same-"
+"domain URL<br>• Leave empty for default dashboard"
+msgstr ""
+
+#: includes/vue-settings/schema-parts/registration.php:107
+msgid ""
+"Post-registration redirect:<br>• Enter full URL for redirect page<br>• "
+"Redirects after successful registration<br>• Leave empty to stay on "
+"registration page"
+msgstr ""
+
+#: includes/Admin/recommended-plugins/class.recommended-plugins.php:121
 #: includes/Admin/install-manager/class-install-manager.php:52
 msgid "Preview"
 msgstr ""
 
-#: includes/Admin/Product_Metabox.php:106
-#: includes/Admin/Product_Metabox.php:172
+#: includes/Admin/Product_Metabox.php:107
+#: includes/Admin/Product_Metabox.php:173
+#: includes/request-a-quote/html-product-data.php:12
 msgid "Price"
 msgstr ""
 
@@ -774,229 +1760,604 @@ msgstr ""
 msgid "Price Options For Pricing Model: Single"
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:223
-msgid "Price Options For Pricing Model: Single Role"
-msgstr ""
-
-#: includes/woo-config.php:454
+#: includes/Frontend/Woo_Config.php:302
 msgid "Price Per Unit"
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:52 includes/Admin/Global_Settings.php:239
 #: includes/Admin/Product_Category_Metabox.php:55
+#: includes/vue-settings/schema-parts/general.php:117
+#: includes/vue-settings/schema-parts/general.php:157
 msgid "Price Type"
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:63 includes/Admin/Global_Settings.php:250
 #: includes/Admin/Product_Category_Metabox.php:66
+#: includes/vue-settings/schema-parts/general.php:127
+#: includes/vue-settings/schema-parts/general.php:168
 msgid "Price Value"
 msgstr ""
 
-#: includes/Admin/recommended-plugins/recommendations.php:28
+#: includes/vue-settings/schema-parts/guest-access.php:44
+msgid ""
+"Prices are visible exclusively to wholesale customers, while general "
+"customers will not see the product price even if they are logged in."
+msgstr ""
+
+#: includes/vue-settings/schema-parts/general.php:57
+msgid "Private Mode (Wholesalers Only)"
+msgstr ""
+
+#: includes/vue-settings/schema-parts/dynamic-rules.php:48
+msgid "Private Note"
+msgstr ""
+
+#: includes/Admin/recommended-plugins/recommendations.php:30
 msgid "Pro Version"
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:352
-msgid "Product Visibility Settings"
+#: includes/request-a-quote/html-product-data.php:11
+msgid "Product"
 msgstr ""
 
-#: includes/Admin/recommended-plugins/recommendations.php:44
+#: includes/vue-settings/schema-parts/dynamic-rules.php:9
+msgid "Product Conditions"
+msgstr ""
+
+#: includes/vue-settings/schema-parts/dynamic-rules.php:229
+msgid "Product matching criterias"
+msgstr ""
+
+#: includes/vue-settings/menu.php:19
+msgid "Product Settings"
+msgstr ""
+
+#: includes/Admin/Product_Metabox.php:65 includes/vue-settings/menu.php:22
+#: includes/vue-settings/schema-parts/product-visibility.php:3
+msgid "Product Visibility"
+msgstr ""
+
+#: includes/vue-settings/schema-parts/general.php:56
+msgid "Public Mode (Visible to Everyone)"
+msgstr ""
+
+#: includes/vue-settings/schema-parts/general.php:82
+msgid "Purchase Permission"
+msgstr ""
+
+#: includes/request-a-quote/html-product-data.php:13
+msgid "Quantity"
+msgstr ""
+
+#: includes/vue-settings/schema-parts/dynamic-rules.php:163
+msgid "Quantity will Get"
+msgstr ""
+
+#: includes/vue-settings/schema-parts/email-notifications.php:8
+msgid "Quote Request"
+msgstr ""
+
+#: includes/Admin/csf-settings/email-notifications.php:164
+msgid "Quote Request Email Subject"
+msgstr ""
+
+#: includes/Admin/csf-settings/email-notifications.php:146
+msgid "Quote Request Notification"
+msgstr ""
+
+#: includes/Admin/csf-settings/email-notifications.php:176
+msgid "Quote Request Notification Message"
+msgstr ""
+
+#: includes/vue-settings/schema-parts/fields-manager.php:72
+msgid "Radio"
+msgstr ""
+
+#: includes/vue-settings/schema-parts/registration.php:158
+msgid "Recaptcha Minimum Score"
+msgstr ""
+
+#: includes/vue-settings/schema-parts/registration.php:144
+msgid "Recaptcha Secret Key"
+msgstr ""
+
+#: includes/vue-settings/schema-parts/registration.php:19
+msgid "reCAPTCHA Settings"
+msgstr ""
+
+#: includes/vue-settings/schema-parts/registration.php:130
+msgid "Recaptcha Site Key"
+msgstr ""
+
+#: includes/Admin/recommended-plugins/recommendations.php:46
 msgid "Recommended Plugins"
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:439
+#: includes/vue-settings/schema-parts/registration.php:114
 msgid "Redirect Page URL (After Login)"
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:431
+#: includes/vue-settings/schema-parts/registration.php:106
 msgid "Redirect Page URL (After Registration)"
 msgstr ""
 
-#: includes/Frontend/Wholesaler_Login_Register.php:61
+#: includes/vue-settings/schema-parts/registration.php:15
+msgid "Redirect Settings"
+msgstr ""
+
+#: includes/Frontend/Wholesaler_Login_Register.php:69
+#: includes/Frontend/Wholesaler_Login_Register.php:74
+#: includes/vue-settings/schema-parts/registration.php:67
 msgid "Register As Wholesaler"
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:375
+#: includes/vue-settings/schema-parts/dynamic-rules.php:299
+msgid "Registered customers only"
+msgstr ""
+
+#: includes/vue-settings/menu.php:8
 msgid "Registration & Login"
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:419
-msgid "Registration Successful Message"
+#: includes/vue-settings/schema-parts/email-notifications.php:10
+msgid "Registration Confirmation"
 msgstr ""
 
-#: includes/Admin/Wholesaler_Request_Metabox.php:102
-msgid "Reject."
+#: includes/Admin/Wholesaler_Request_Metabox.php:71
+msgid "Registration Details"
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:930
+#: includes/vue-settings/schema-parts/fields-manager.php:18
+msgid "Registration Fields Manager"
+msgstr ""
+
+#: includes/vue-settings/schema-parts/email-notifications.php:7
+msgid "Registration Notification"
+msgstr ""
+
+#: includes/vue-settings/menu.php:11
+msgid "Registration Options"
+msgstr ""
+
+#: includes/vue-settings/schema-parts/registration.php:3
+msgid "Registration Settings"
+msgstr ""
+
+#: includes/Admin/Wholesaler_Request_Metabox.php:110
+msgid "Reject"
+msgstr ""
+
+#: includes/Admin/csf-settings/email-notifications.php:130
 msgid "Rejection Notification"
 msgstr ""
 
-#: includes/Admin/Custom_Posts.php:56
+#: includes/Admin/Custom_Posts.php:55
 msgid "Remove featured image"
 msgstr ""
 
-#: includes/Admin/Custom_Posts.php:40
+#: includes/vue-settings/schema-parts/custom-thank-you-message.php:21
+msgid "Replace default \"Thank You\" message"
+msgstr ""
+
+#: includes/request-a-quote/html-modal.php:2
+#: includes/request-a-quote/class-request-quote.php:29
+#: includes/vue-settings/menu.php:36
+#: includes/vue-settings/schema-parts/request-a-quote.php:3
+msgid "Request a Quote"
+msgstr ""
+
+#: includes/vue-settings/schema-parts/request-a-quote.php:17
+msgid "Request a Quote Label"
+msgstr ""
+
+#: includes/Admin/Custom_Posts.php:39
 msgid "Request Archives"
 msgstr ""
 
-#: includes/Admin/Custom_Posts.php:41
+#: includes/Admin/Custom_Posts.php:40
 msgid "Request Attributes"
 msgstr ""
 
-#: includes/Admin/Custom_Posts.php:60
+#: includes/Admin/csf-settings/email-notifications.php:178
+msgid ""
+"Requested Products:\n"
+"{products}"
+msgstr ""
+
+#: includes/Admin/Custom_Posts.php:59
 msgid "Requests list"
 msgstr ""
 
-#: includes/Admin/Custom_Posts.php:61
+#: includes/Admin/Custom_Posts.php:60
 msgid "Requests list navigation"
 msgstr ""
 
-#: includes/functions.php:334
+#: includes/functions.php:564
 msgid "required"
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:568
+#: includes/vue-settings/schema-parts/fields-manager.php:183
+msgid "Required?"
+msgstr ""
+
+#: includes/vue-settings/schema-parts/others.php:50
+msgid ""
+"Restrict payment methods:<br>• Select gateways to disable for wholesalers<br>"
+"• Affects checkout payment options<br>• Can be configured per wholesale role"
+msgstr ""
+
+#: includes/vue-settings/schema-parts/general.php:85
+msgid "Restricted Purchase - Wholesalers Only"
+msgstr ""
+
+#: includes/vue-settings/schema-parts/design.php:7
 msgid "Retailer Price"
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:289
+#: includes/vue-settings/schema-parts/design.php:24
+msgid "Retailer Price - Label"
+msgstr ""
+
+#: includes/vue-settings/schema-parts/design.php:106
+msgid "Retailer Price - Margin"
+msgstr ""
+
+#: includes/vue-settings/schema-parts/design.php:65
+msgid "Retailer Price - Price"
+msgstr ""
+
+#: includes/vue-settings/schema-parts/general.php:209
 msgid "Retailer Price Custom Label"
 msgstr ""
 
-#. 1: label
-#: includes/Admin/Global_Settings.php:89 includes/Admin/Global_Settings.php:528
+#: includes/vue-settings/schema-parts/general.php:19
+#: includes/vue-settings/schema-parts/general.php:199
 msgid "Retailer Price Label"
 msgstr ""
 
-#: includes/woo-config.php:200
+#: includes/Frontend/Woo_Config.php:199
+#: includes/vue-settings/schema-parts/general.php:218
 msgid "Retailer Price:"
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:608
-msgid "Retialer Price Area Margin"
-msgstr ""
-
-#: includes/Admin/Custom_Taxonomies.php:43
+#: includes/Admin/Custom_Taxonomies.php:37
 msgid "Role"
 msgstr ""
 
-#: includes/Admin/Custom_Taxonomies.php:41
+#: includes/Admin/Custom_Taxonomies.php:35
 msgctxt "Role General Name"
 msgid "Roles"
 msgstr ""
 
-#: includes/Admin/Custom_Taxonomies.php:42
+#: includes/Admin/Custom_Taxonomies.php:36
 msgctxt "Role Singular Name"
 msgid "Role"
 msgstr ""
 
-#: includes/Admin/Custom_Taxonomies.php:59
+#: includes/Manage_Order.php:63
+msgid "Roles"
+msgstr ""
+
+#: includes/Admin/Custom_Taxonomies.php:53
 msgid "Roles list"
 msgstr ""
 
-#: includes/Admin/Custom_Taxonomies.php:60
+#: includes/Admin/Custom_Taxonomies.php:54
 msgid "Roles list navigation"
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:714
-msgid "Save Amount Label"
+#: includes/vue-settings/schema-parts/fields-manager.php:12
+msgid "Save"
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:754
-msgid "Save Amount Price"
+#: includes/vue-settings/schema-parts/design.php:13
+msgid "Save Amount"
 msgstr ""
 
-#: includes/woo-config.php:399
+#: includes/vue-settings/schema-parts/design.php:222
+msgid "Save Amount - Label"
+msgstr ""
+
+#: includes/vue-settings/schema-parts/design.php:304
+msgid "Save Amount - Margin"
+msgstr ""
+
+#: includes/vue-settings/schema-parts/design.php:263
+msgid "Save Amount - Price"
+msgstr ""
+
+#: includes/vue-settings/schema-parts/wholesale-only-categories.php:10
+#: includes/vue-settings/schema-parts/dynamic-rules.php:18
+msgid "Save Changes"
+msgstr ""
+
+#: includes/vue-settings/schema-parts/general.php:274
+msgid "Save:"
+msgstr ""
+
+#: includes/functions.php:402
 msgid "Save: "
 msgstr ""
 
-#: includes/Admin/Custom_Posts.php:51
+#: includes/vue-settings/schema-parts/dynamic-rules.php:186
+msgid "Search a product"
+msgstr ""
+
+#: includes/Admin/Custom_Posts.php:50
 msgid "Search Request"
 msgstr ""
 
-#: includes/Admin/Custom_Taxonomies.php:56
+#: includes/Admin/Custom_Taxonomies.php:50
 msgid "Search Roles"
+msgstr ""
+
+#: includes/vue-settings/schema-parts/wholesale-only-categories.php:45
+#: includes/vue-settings/schema-parts/fields-manager.php:70
+msgid "Select"
+msgstr ""
+
+#: includes/vue-settings/schema-parts/dynamic-rules.php:273
+msgid "Select a category"
+msgstr ""
+
+#: includes/vue-settings/schema-parts/dynamic-rules.php:125
+#: includes/vue-settings/schema-parts/dynamic-rules.php:249
+msgid "Select a Product(s)"
+msgstr ""
+
+#: includes/vue-settings/schema-parts/dynamic-rules.php:310
+msgid "Select a Role(s)"
+msgstr ""
+
+#: includes/vue-settings/schema-parts/dynamic-rules.php:329
+msgid "Select a User(s)"
+msgstr ""
+
+#: includes/vue-settings/schema-parts/dynamic-rules.php:272
+msgid "Select category(s)"
+msgstr ""
+
+#: includes/vue-settings/schema-parts/dynamic-rules.php:425
+msgid "Select Country(s)"
+msgstr ""
+
+#: includes/vue-settings/schema-parts/others.php:53
+msgid "Select Gateways"
 msgstr ""
 
 #: includes/Admin/Role_Cat_Metabox.php:59
 msgid "Select payment methods to disable for this role"
 msgstr ""
 
-#: includes/Admin/Wholesaler_Request_Metabox.php:92
+#: includes/vue-settings/schema-parts/dynamic-rules.php:124
+#: includes/vue-settings/schema-parts/dynamic-rules.php:248
+msgid "Select Product(s)"
+msgstr ""
+
+#: includes/vue-settings/schema-parts/dynamic-rules.php:250
+msgid "Select Products"
+msgstr ""
+
+#: includes/Admin/Wholesaler_Request_Metabox.php:100
 msgid "Select role"
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:391
-msgid ""
-"Select the default role of a wholesaler that will be used for the new "
-"wholesaler registration. Note: This option will work when the \"Pricing "
-"Model\" is set to \"Multiple Role\"."
+#: includes/vue-settings/schema-parts/dynamic-rules.php:309
+msgid "Select Role(s)"
 msgstr ""
 
-#: includes/Admin/Custom_Taxonomies.php:52
+#: includes/vue-settings/schema-parts/wallet.php:43
+msgid "Select the OTP verification method for wallet transactions."
+msgstr ""
+
+#: includes/vue-settings/schema-parts/dynamic-rules.php:328
+msgid "Select User(s)"
+msgstr ""
+
+#: includes/vue-settings/schema-parts/dynamic-rules.php:302
+msgid "Selected customers only"
+msgstr ""
+
+#: includes/vue-settings/schema-parts/dynamic-rules.php:301
+msgid "Selected user roles only"
+msgstr ""
+
+#: includes/Admin/csf-settings/email-notifications.php:73
+msgid ""
+"Send an automatic confirmation email to customers when they submit a "
+"wholesale application."
+msgstr ""
+
+#: includes/Admin/csf-settings/email-notifications.php:15
+msgid ""
+"Send an email notification to admin when a new wholesale application is "
+"received."
+msgstr ""
+
+#: includes/Admin/csf-settings/email-notifications.php:121
+msgid "Send Approval Notification"
+msgstr ""
+
+#: includes/Admin/csf-settings/email-notifications.php:155
+msgid ""
+"Send email notifications to administrators when customers submit quote "
+"requests."
+msgstr ""
+
+#: includes/Admin/csf-settings/email-notifications.php:71
+msgid "Send Registration Confirmation to Customer"
+msgstr ""
+
+#: includes/Admin/csf-settings/email-notifications.php:137
+msgid "Send Rejection Notification"
+msgstr ""
+
+#: includes/Admin/Custom_Taxonomies.php:46
 msgid "Separate roles with commas"
 msgstr ""
 
-#: includes/Admin/Custom_Posts.php:55
+#: includes/Admin/Diagnostic_Data.php:492
+#, php-format
+msgid ""
+"Server information (Web server, PHP version, MySQL version), WordPress "
+"information, site name, site URL, number of plugins, number of users, your "
+"name, and email address. You can rest assured that no sensitive data will be "
+"collected or tracked. %1$sLearn more%2$s."
+msgstr ""
+
+#: includes/Admin/Custom_Posts.php:54
 msgid "Set featured image"
 msgstr ""
 
+#: includes/vue-settings/schema-parts/registration.php:31
+msgid ""
+"Set up registration page:<br>• Select a page to display the registration "
+"form<br>• Or use shortcode [whols_registration_form] on any page<br>• Form "
+"includes all necessary wholesaler fields"
+msgstr ""
+
+#: includes/vue-settings/schema-parts/registration.php:27
+msgid "Set up The Registration Page"
+msgstr ""
+
 #. 1: Settings label
-#: includes/Admin.php:55 includes/Admin.php:128
+#: includes/Admin.php:64 includes/Admin/Menu_Manager.php:37
 msgid "Settings"
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:209
-msgid "Show Wholesale Price For"
+#: includes/vue-settings/schema-parts/product-visibility.php:44
+msgid "Show only \"Wholesaler Only\" products"
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:198
+#: includes/vue-settings/schema-parts/product-visibility.php:14
+msgid ""
+"Since you set the \"Wholesale Price Visibility\" to \"Public Mode\", so the "
+"\"Product Visibility\" settings are not effective and they are hidden. <br>"
+"The options will be available once you set the visibility to \"Testing "
+"Mode\" or \"Private Mode\"."
+msgstr ""
+
+#: includes/vue-settings/schema-parts/general.php:42
 msgid "Single Role Based"
 msgstr ""
 
-#: includes/ajax-actions.php:71
+#: includes/vue-settings/schema-parts/general.php:11
+msgid "Single Role Pricing"
+msgstr ""
+
+#: includes/ajax-actions.php:72
 msgid "Something is wrong please check again!"
 msgstr ""
 
-#: includes/functions.php:135
+#: includes/functions.php:144
 msgid "Sorry, that username already exists!"
 msgstr ""
 
-#: includes/functions.php:142
+#: includes/functions.php:151
 msgid "Sorry, the username you entered is not valid"
 msgstr ""
 
-#: includes/Admin/Custom_Columns.php:43
+#: includes/vue-settings/schema-parts/dynamic-rules.php:92
+#: includes/vue-settings/schema-parts/dynamic-rules.php:212
+msgid "Specific Products"
+msgstr ""
+
+#: includes/vue-settings/schema-parts/email-notifications.php:29
+msgid ""
+"Specify email addresses that should receive new wholesaler notifications. "
+"<br>• Multiple emails can be separated by commas. <br>• Admin email will be "
+"used if left empty."
+msgstr ""
+
+#: includes/vue-settings/schema-parts/email-notifications.php:45
+msgid "Specify the email message."
+msgstr ""
+
+#: includes/vue-settings/schema-parts/email-notifications.php:36
+msgid "Specify the email subject."
+msgstr ""
+
+#: includes/request-a-quote/html-modal.php:3
+msgid "Start Conversation"
+msgstr ""
+
+#: includes/vue-settings/schema-parts/conversation.php:18
+msgid "Start Conversation Label"
+msgstr ""
+
+#: includes/Admin/Custom_Columns.php:46
 msgid "Status"
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:408
-#: includes/Admin/Global_Settings.php:875
-#: includes/Admin/Global_Settings.php:907
+#: includes/Admin/csf-settings/email-notifications.php:82
+msgid "Subject line for the confirmation email sent to customers."
+msgstr ""
+
+#: includes/Admin/defaults.php:4 includes/request-a-quote/html-modal.php:4
+msgid "Submit"
+msgstr ""
+
+#: includes/vue-settings/schema-parts/registration.php:65
+msgid "Submit Button Label"
+msgstr ""
+
+#: includes/Admin/csf-settings/email-notifications.php:45
+#: includes/vue-settings/schema-parts/registration.php:74
+#: includes/vue-settings/schema-parts/registration.php:90
 msgid "Successful Registration Message"
 msgstr ""
 
-#: includes/ajax-actions.php:49
+#: includes/vue-settings/schema-parts/general.php:55
+msgid "Testing Mode (Admin & Wholesalers Only)"
+msgstr ""
+
+#: includes/vue-settings/schema-parts/fields-manager.php:68
+msgid "Text"
+msgstr ""
+
+#: includes/vue-settings/schema-parts/fields-manager.php:69
+msgid "Textarea"
+msgstr ""
+
+#: includes/vue-settings/schema-parts/custom-thank-you-message.php:31
+msgid ""
+"Thank you <strong>{billing_first_name}</strong>. Your order has been "
+"received."
+msgstr ""
+
+#: includes/vue-settings/schema-parts/registration.php:84
+msgid ""
+"Thank you for registering! Your account has been automatically approved. You "
+"can now log in and start using your wholesale account."
+msgstr ""
+
+#: includes/ajax-actions.php:50
 msgid ""
 "Thank you for registering. Your account will be reviewed by us & approve "
 "manually. Please wait to be approved."
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:420
+#: includes/vue-settings/schema-parts/registration.php:92
 msgid ""
 "Thank you very much for completing the registration. Your account will be "
 "reviewed by us & approved manually. Please wait for a while."
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:283
-#: includes/Admin/Global_Settings.php:290
-#: includes/Admin/Global_Settings.php:315
-#: includes/Admin/Global_Settings.php:342
-#: includes/Admin/Global_Settings.php:465
+#: includes/Admin/Diagnostic_Data.php:518
+#, php-format
+msgid "Thank you very much for supporting %2$s%1$s%3$s."
+msgstr ""
+
+#: includes/vue-settings/schema-parts/dynamic-rules.php:209
+msgid "The cart should have these products to qualify this rule"
+msgstr ""
+
+#: includes/vue-settings/schema-parts/dynamic-rules.php:89
+msgid "The products to buy to qualify BOGO discount"
+msgstr ""
+
+#: includes/vue-settings/schema-parts/guest-access.php:18
 msgid ""
 "This label will be shown in the product listing/loop of your shop page & "
-"product details page."
+"product details page. Leave blank to show the default label."
 msgstr ""
 
 #. Description of the plugin
@@ -1005,23 +2366,31 @@ msgid ""
 "sell wholesale products from your WooCommerce online store."
 msgstr ""
 
-#: includes/Admin/Custom_Posts.php:48
+#: includes/Admin/csf-settings/email-notifications.php:47
+msgid "Time: {time}"
+msgstr ""
+
+#: includes/Manage_Order.php:53
+msgid "Types"
+msgstr ""
+
+#: includes/Admin/Custom_Posts.php:47
 msgid "Update Request"
 msgstr ""
 
-#: includes/Admin/Custom_Taxonomies.php:50
+#: includes/Admin/Custom_Taxonomies.php:44
 msgid "Update Role"
 msgstr ""
 
-#: includes/Admin/Custom_Posts.php:59
+#: includes/Admin/Custom_Posts.php:58
 msgid "Uploaded to this request"
 msgstr ""
 
-#: includes/woo-config.php:364
+#: includes/functions.php:367
 msgid "Upto "
 msgstr ""
 
-#: includes/Admin/Custom_Posts.php:57
+#: includes/Admin/Custom_Posts.php:56
 msgid "Use as featured image"
 msgstr ""
 
@@ -1029,118 +2398,178 @@ msgstr ""
 msgid "Use Global Option"
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:876
-#: includes/Admin/Global_Settings.php:908
+#: includes/vue-settings/schema-parts/custom-thank-you-message.php:30
+msgid ""
+"Use the placeholder tags below to get dynamic content. <br><span "
+"class=\"whols_pre\">{billing_first_name}, {billing_last_name}, "
+"{billing_email}</pre>"
+msgstr ""
+
+#: includes/Admin/csf-settings/email-notifications.php:46
+#: includes/Admin/csf-settings/email-notifications.php:93
 msgid ""
 "Use these  {name}, {email}, {date}, {time} placeholder tags to get dynamic "
 "content."
 msgstr ""
 
-#: includes/Admin/Wholesaler_Request_Metabox.php:71
+#: includes/vue-settings/schema-parts/email-notifications.php:37
+#: includes/vue-settings/schema-parts/email-notifications.php:46
+#: includes/vue-settings/schema-parts/email-notifications.php:139
+#: includes/vue-settings/schema-parts/email-notifications.php:147
+#: includes/vue-settings/schema-parts/email-notifications.php:184
+#: includes/vue-settings/schema-parts/email-notifications.php:222
+msgid ""
+"Use these {name}, {email}, {date}, {time} placeholder tags to get dynamic "
+"content."
+msgstr ""
+
+#: includes/vue-settings/schema-parts/email-notifications.php:117
+msgid ""
+"Use these {name}, {email}, {date}, {time}, {message} placeholder tags to get "
+"dynamic content."
+msgstr ""
+
+#: includes/Admin/csf-settings/email-notifications.php:177
+#: includes/vue-settings/schema-parts/email-notifications.php:88
+msgid ""
+"Use these {name}, {email}, {date}, {time}, {products}, {message} placeholder "
+"tags to get dynamic content."
+msgstr ""
+
+#: includes/Admin/csf-settings/email-notifications.php:165
+#: includes/vue-settings/schema-parts/email-notifications.php:77
+#: includes/vue-settings/schema-parts/email-notifications.php:108
+msgid ""
+"Use these {name}, {email}, {subject} placeholder tags to get dynamic content."
+msgstr ""
+
+#: includes/vue-settings/schema-parts/dynamic-rules.php:10
+msgid "User Conditions"
+msgstr ""
+
+#: includes/Admin/Wholesaler_Request_Metabox.php:77
 msgid "User ID"
 msgstr ""
 
-#: includes/functions.php:252 includes/functions.php:255
-#: includes/Admin/Wholesaler_Request_Metabox.php:81
+#: includes/functions.php:460 includes/functions.php:463
+#: includes/Admin/Wholesaler_Request_Metabox.php:88
+#: includes/Admin/csf-fields/CSF_Field_registration_details.php:39
+#: includes/vue-settings/schema-parts/fields-manager.php:42
+#: includes/vue-settings/schema-parts/fields-manager.php:214
 msgid "Username"
 msgstr ""
 
-#: includes/functions.php:128
+#: includes/functions.php:137
 msgid "Username too short. At least 4 characters is required"
 msgstr ""
 
-#: includes/Admin/Custom_Posts.php:49
+#: includes/vue-settings/schema-parts/dynamic-rules.php:406
+msgid "Value"
+msgstr ""
+
+#: includes/Admin/Custom_Posts.php:48
 msgid "View Request"
 msgstr ""
 
-#: includes/Admin/Custom_Posts.php:50
+#: includes/Admin/Custom_Posts.php:49
 msgid "View Requests"
 msgstr ""
 
-#: includes/Admin/Custom_Taxonomies.php:51
+#: includes/Admin/Custom_Taxonomies.php:45
 msgid "View Role"
 msgstr ""
 
-#: includes/Admin.php:129
-msgid "Welcome"
+#: includes/vue-settings/menu.php:42
+#: includes/vue-settings/schema-parts/wallet.php:3
+msgid "Wallet"
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:502
+#: includes/vue-settings/schema-parts/guest-access.php:70
 msgid "Who Can Access Entire Website"
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:484
+#: includes/vue-settings/schema-parts/guest-access.php:57
 msgid "Who Can Access Shop"
 msgstr ""
 
-#: includes/Admin/Product_Metabox.php:176
+#: includes/Admin/Product_Metabox.php:177
 msgid "Wholesale Min. Quantity"
 msgstr ""
 
-#: includes/Admin/Product_Metabox.php:67
-msgid "Wholesale Only"
-msgstr ""
-
-#: includes/Admin/Product_Metabox.php:96 includes/Admin/Product_Metabox.php:171
+#: includes/Admin/Product_Metabox.php:97 includes/Admin/Product_Metabox.php:172
+#: includes/Admin/Custom_Columns.php:108
 msgid "Wholesale Price"
 msgstr ""
 
-#. translators
-#. 1: minimum quantity label
-#: includes/woo-config.php:264
-#, php-format
-msgid "Wholesale price will apply for minimum quantity of %1$s products."
+#: includes/vue-settings/schema-parts/general.php:23
+msgid "Wholesale Price Label"
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:661
+#: includes/vue-settings/schema-parts/general.php:53
+msgid "Wholesale Price Visibility"
+msgstr ""
+
+#: includes/Frontend/Woo_Config.php:256
+#: includes/vue-settings/schema-parts/general.php:284
+msgid "Wholesale price will apply for minimum quantity of {qty} products."
+msgstr ""
+
+#: includes/Admin/Product_Metabox.php:68
+msgid "Wholesaler Only"
+msgstr ""
+
+#: includes/vue-settings/menu.php:25
+#: includes/vue-settings/schema-parts/wholesale-only-categories.php:3
+msgid "Wholesaler Only Categories"
+msgstr ""
+
+#: includes/vue-settings/schema-parts/design.php:10
 msgid "Wholesaler Price"
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:701
-msgid "Wholesaler Price Area Margin"
+#: includes/vue-settings/schema-parts/design.php:123
+msgid "Wholesaler Price - Label"
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:314
+#: includes/vue-settings/schema-parts/design.php:205
+msgid "Wholesaler Price - Margin"
+msgstr ""
+
+#: includes/vue-settings/schema-parts/design.php:164
+msgid "Wholesaler Price - Price"
+msgstr ""
+
+#: includes/vue-settings/schema-parts/general.php:236
 msgid "Wholesaler Price Custom Label"
 msgstr ""
 
-#. 1: label
-#: includes/Admin/Global_Settings.php:98 includes/Admin/Global_Settings.php:621
+#: includes/vue-settings/schema-parts/general.php:226
 msgid "Wholesaler Price Label"
 msgstr ""
 
-#: includes/woo-config.php:241
+#: includes/Frontend/Woo_Config.php:240
+#: includes/vue-settings/schema-parts/general.php:245
 msgid "Wholesaler Price:"
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:884
-#: includes/Admin/Global_Settings.php:890
-msgid "Wholesaler Registration Notification"
-msgstr ""
-
-#: includes/Admin/Custom_Posts.php:66
+#: includes/Admin/Custom_Posts.php:65
 msgid "Wholesaler Request"
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:852
-#: includes/Admin/Global_Settings.php:858
-msgid "Wholesaler Request Notification"
-msgstr ""
-
-#: includes/Admin/Custom_Posts.php:43
+#: includes/Admin/Custom_Posts.php:42
 msgid "Wholesaler Requests"
 msgstr ""
 
-#: includes/Admin/Custom_Taxonomies.php:85
+#: includes/Admin/Menu_Manager.php:60
+#: includes/vue-settings/schema-parts/fields-manager.php:29
 msgid "Wholesaler Roles"
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:794
-msgid "Wholesaler Save Amount Margin"
+#: includes/vue-settings/schema-parts/general.php:40
+msgid "Wholesaler Type Setup"
 msgstr ""
 
-#: whols.php:231 includes/Admin/Global_Settings.php:114
-#: includes/Admin/Product_Metabox.php:48
+#: whols.php:303 includes/Admin/Product_Metabox.php:48
 msgid "Whols"
 msgstr ""
 
@@ -1149,14 +2578,14 @@ msgid "Whols - Additional Fields"
 msgstr ""
 
 #. Name of the plugin
-msgid "Whols - WooCommerce Wholesale Prices"
+msgid "Whols - Wholesale Prices and B2B Store Solution for WooCommerce"
 msgstr ""
 
-#: includes/Admin.php:128
+#: includes/Admin/Menu_Manager.php:37
 msgid "Whols Admin"
 msgstr ""
 
-#: includes/Admin/recommended-plugins/recommendations.php:38
+#: includes/Admin/recommended-plugins/recommendations.php:40
 msgid ""
 "Whols is an outstanding WordPress plugin for WooCommerce that allows store "
 "owners to set wholesale prices for the products of their online stores. This "
@@ -1167,70 +2596,128 @@ msgid ""
 "manually or automatically."
 msgstr ""
 
-#: includes/Admin/recommended-plugins/recommendations.php:35
+#: includes/Admin/recommended-plugins/recommendations.php:37
 msgid "Whols Pro – WooCommerce Wholesale Prices"
 msgstr ""
 
-#: includes/Admin/Custom_Posts.php:39
+#: includes/Admin.php:114
+msgid "Whols Registration Page"
+msgstr ""
+
+#: includes/Admin/Custom_Posts.php:38
 msgid "Wholsaler Request"
 msgstr ""
 
-#: includes/Admin/Custom_Posts.php:38 includes/Admin/Custom_Posts.php:67
+#: includes/Admin/Custom_Posts.php:37 includes/Admin/Custom_Posts.php:66
 msgid "Wholsaler Requests"
 msgstr ""
 
-#: includes/Admin/recommended-plugins/recommendations.php:50
+#: includes/Admin/recommended-plugins/recommendations.php:52
 msgid "WishSuite"
 msgstr ""
 
-#: whols.php:232
+#: whols.php:304
 msgid "WooCommerce"
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:118
-msgid "WooCommerce Wholesale Price Settings"
+#: includes/vue-settings/schema-parts/fields-manager.php:129
+msgid "Word Documents (DOC, DOCX)"
 msgstr ""
 
-#: includes/Admin/recommended-plugins/recommendations.php:113
+#: includes/Admin/recommended-plugins/recommendations.php:115
 msgid "WP Plugin Manager Pro"
 msgstr ""
 
-#: includes/Admin/recommended-plugins/recommendations.php:116
+#: includes/Admin/recommended-plugins/recommendations.php:118
 msgid ""
 "WP Plugin Manager Pro is a specialized WordPress Plugin that helps you to "
 "deactivate unnecessary WordPress Plugins page wise and boosts the speed of "
 "your WordPress site to improve the overall site performance."
 msgstr ""
 
-#: includes/woo-config.php:659 includes/Admin/Global_Settings.php:44
-#: includes/Admin/Global_Settings.php:188
-#: includes/Admin/Global_Settings.php:231
-#: includes/Admin/Global_Settings.php:281
-#: includes/Admin/Global_Settings.php:306
-#: includes/Admin/Global_Settings.php:332
-#: includes/Admin/Global_Settings.php:455
-#: includes/Admin/Global_Settings.php:953
-#: includes/Admin/Role_Cat_Metabox.php:48
+#: includes/Frontend/Woo_Config.php:548 includes/Admin/Role_Cat_Metabox.php:48
 #: includes/Admin/Product_Category_Metabox.php:46
+#: includes/Admin/csf-settings/email-notifications.php:154
+#: includes/vue-settings/schema-parts/wallet.php:10
+#: includes/vue-settings/schema-parts/wholesale-only-categories.php:20
+#: includes/vue-settings/schema-parts/wholesale-only-categories.php:30
+#: includes/vue-settings/schema-parts/product-visibility.php:31
+#: includes/vue-settings/schema-parts/product-visibility.php:45
+#: includes/vue-settings/schema-parts/product-visibility.php:54
+#: includes/vue-settings/schema-parts/others.php:10
+#: includes/vue-settings/schema-parts/others.php:33
+#: includes/vue-settings/schema-parts/others.php:41
+#: includes/vue-settings/schema-parts/others.php:62
+#: includes/vue-settings/schema-parts/request-a-quote.php:10
+#: includes/vue-settings/schema-parts/request-a-quote.php:32
+#: includes/vue-settings/schema-parts/dynamic-rules.php:35
+#: includes/vue-settings/schema-parts/conversation.php:10
+#: includes/vue-settings/schema-parts/fields-manager.php:53
+#: includes/vue-settings/schema-parts/fields-manager.php:184
+#: includes/vue-settings/schema-parts/email-notifications.php:21
+#: includes/vue-settings/schema-parts/email-notifications.php:69
+#: includes/vue-settings/schema-parts/email-notifications.php:99
+#: includes/vue-settings/schema-parts/email-notifications.php:131
+#: includes/vue-settings/schema-parts/email-notifications.php:167
+#: includes/vue-settings/schema-parts/email-notifications.php:205
+#: includes/vue-settings/schema-parts/general.php:151
+#: includes/vue-settings/schema-parts/custom-thank-you-message.php:10
 msgid "Yes"
 msgstr ""
 
-#: includes/Admin/Global_Settings.php:961
-msgid "Yes (This option can be overridden for each role individually.)"
+#: includes/Admin/Product_Metabox.php:69
+msgid "Yes, Customers other than <b>Wholesale Role</b> cannot see this product"
 msgstr ""
 
-#: includes/Frontend/Wholesaler_Login_Register.php:71
+#: includes/Frontend/Wholesaler_Login_Register.php:84
 msgid "You are Logged in as: "
 msgstr ""
 
-#: includes/Admin/recommended-plugins/recommendations.php:71
+#: includes/vue-settings/schema-parts/wholesale-only-categories.php:6
+msgid "You can define which categories are visible only to wholesalers."
+msgstr ""
+
+#: includes/vue-settings/class-settings-rest-api.php:134
+msgid "You do not have permissions to manage settings."
+msgstr ""
+
+#: includes/Admin/recommended-plugins/recommendations.php:73
 msgid "You May Also Like"
 msgstr ""
 
-#: includes/functions.php:263
+#: includes/functions.php:471
+#: includes/vue-settings/schema-parts/fields-manager.php:222
 msgid "Your Email"
 msgstr ""
 
-#: includes/functions.php:271
+#: includes/Admin/defaults.php:3
+msgid ""
+"Your message has been submitted successfully. We will get back to you soon."
+msgstr ""
+
+#: includes/vue-settings/schema-parts/fields-manager.php:208
+msgid "Your Name"
+msgstr ""
+
+#: includes/functions.php:479
+#: includes/vue-settings/schema-parts/fields-manager.php:229
 msgid "Your Password"
+msgstr ""
+
+#: includes/request-a-quote/class-request-quote.php:71
+msgid ""
+"Your request has been submitted successfully. We will get back to you soon."
+msgstr ""
+
+#: includes/vue-settings/schema-parts/fields-manager.php:215
+msgid "Your Username"
+msgstr ""
+
+#: includes/Admin/csf-settings/email-notifications.php:81
+msgid "Your Wholesale Application Has Been Received"
+msgstr ""
+
+#: includes/Admin/Diagnostic_Data.php:502
+#, php-format
+msgid "🌟 Enhance Your %1$s Experience as a Valued Contributor!"
 msgstr ""

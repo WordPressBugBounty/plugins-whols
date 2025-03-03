@@ -1439,3 +1439,33 @@ function whols_get_plugin_remote_data($version = null) {
 
     return $remote_banner_data;
 }
+
+/**
+ * Include a plugin file safely
+ *
+ * @param string $path File path relative to plugin directory e.g: 'includes/functions/actions.php'
+ * @return bool True if file was included successfully, false otherwise
+ */
+if( !function_exists('whols_include_plugin_file') ){
+    function whols_include_plugin_file( $path ){
+        // Get plugin directory path
+        $plugin_dir = plugin_dir_path( Whols\PL_FILE );
+        
+        // Clean the path and ensure it's relative
+        $path = ltrim( str_replace('\\', '/', $path), '/' );
+        
+        // Build full path
+        $full_path = $plugin_dir . $path;
+        
+        // Validate path is within plugin directory
+        if( strpos(realpath($full_path), realpath($plugin_dir)) !== 0 ){
+            return false;
+        }
+        
+        if( file_exists($full_path) ){
+            return include $full_path;
+        }
+        
+        return false;
+    }
+}

@@ -5,6 +5,8 @@ use const Whols\PL_PATH;
 use const Whols\PL_VERSION;
 
 class Settings_Page {
+    public $version;
+
     public $plugin_screens = array(
         'toplevel_page_whols-admin'
     );
@@ -24,6 +26,13 @@ class Settings_Page {
      * Constructor
      */
     public function __construct() {
+        // Version with time for cache busting
+		if( defined( 'WP_DEBUG' ) && WP_DEBUG ){
+			$this->version = time();
+		} else {
+			$this->version = PL_VERSION;
+		}
+
         add_action('admin_enqueue_scripts', array($this, 'enqueue_scripts'));
 
         // Add hook to remove admin notices on specific pages
@@ -80,13 +89,16 @@ class Settings_Page {
             wp_enqueue_script(
                 'whols-vue-settings',
                 'http://localhost:5173/src/vue-settings/main.js',
-                array('whols-vue-settings-vite-client'),
-                null,
+                array('whols-vue-settings'),
+                $this->version,
                 true
             );
 
             add_filter('script_loader_tag', function($tag, $handle, $src) {
-                if ($handle === 'whols-vue-settings-vite-client' || $handle === 'whols-vue-settings') {
+                // For cache busting
+                $src = $src . '?v=' . $this->version;
+
+                if ($handle === 'whols-vue-settings' || $handle === 'whols-vue-settings-app') {
                     return '<script type="module" src="' . esc_url($src) . '"></script>';
                 }
                 return $tag;
@@ -98,7 +110,7 @@ class Settings_Page {
                 'whols-vue-settings-style',
                 PL_URL . '/build/vue-settings/style.css',
                 array(),
-                '1.0.0',
+                $this->version,
                 'all'
             );
 
@@ -106,12 +118,17 @@ class Settings_Page {
             $this->enqueue_scripts_from_manifest();
 
             add_filter('script_loader_tag', function($tag, $handle, $src) {
+                // For cache busting
+                $src = $src . '?v=' . $this->version;
+
                 if ($handle === 'whols-vue-settings' || $handle === 'element-plus') {
                     return '<script type="module" src="' . esc_url($src) . '"></script>';
                 }
                 return $tag;
             }, 10, 3);
         }
+
+        $menu = whols_include_plugin_file( 'includes/vue-settings/menu.php' );
 
         // Localize script with nonce and API info
         wp_localize_script('whols-vue-settings', 'wholsSettings', array(
@@ -120,14 +137,25 @@ class Settings_Page {
             'pluginVersion' => PL_VERSION,
             'apiEndpoint' => 'whols/v1/settings',
             'rolesApiEndpoint' => 'whols/v1/wholesaler-roles',
-
-            // There is some dynamic defaults so manage it from one place here
-            'defaultSettings' => Settings_Defaults::get_defaults(),
             'proAdvInfo' => array(
                 'purchaseURL' => 'https://wpwhols.com/pricing/?utm_source=wprepo&utm_medium=freeplugin&utm_campaign=purchasepro',
                 'message' => __('Our free version is great, but it doesn\'t have all our advanced features. The best way to unlock all of the features in our plugin is by purchasing the pro version.', 'whols'),
             ),
+
+            // There is some dynamic defaults so manage it from one place here
+            'defaultSettings' => Settings_Defaults::get_defaults(),
+
+            // Translations
+            'i18n' => array(
+                'save' => esc_html__('General Settings', 'whols'),
+                'loading' => esc_html__('Loading...', 'whols'),
+                'error' => esc_html__('Error', 'whols'),
+            ),
+
+            'menu' => $menu
         ));
+
+        wp_localize_script('whols-vue-settings', 'wholsSettingsSchema', Settings_Schema::get_schema());
     }
 
     /**
