@@ -1,6 +1,6 @@
 {
-  "_element-plus-OABWw8ju.js": {
-    "file": "element-plus-OABWw8ju.js",
+  "_element-plus-DksI4a5L.js": {
+    "file": "element-plus-DksI4a5L.js",
     "name": "element-plus"
   },
   "src/vue-settings/main.js": {
@@ -9,7 +9,7 @@
     "src": "src/vue-settings/main.js",
     "isEntry": true,
     "imports": [
-      "_element-plus-OABWw8ju.js"
+      "_element-plus-DksI4a5L.js"
     ]
   },
   "style.css": {

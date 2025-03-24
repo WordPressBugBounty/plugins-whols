@@ -1441,6 +1441,20 @@ function whols_get_plugin_remote_data($version = null) {
 }
 
 /**
+ * If flush rewrite rules flag is set, then flush the rewrite rules, and remove the flag.
+ *
+ * @return void
+ */
+if(!function_exists('whols_maybe_flush_rewrite_rules')){
+    function whols_maybe_flush_rewrite_rules() {
+        if (get_option('whols_flush_rewrite_rules_flag')) {
+            flush_rewrite_rules(); // Flush the rewrite rules
+            delete_option('whols_flush_rewrite_rules_flag'); // Remove the flag
+        }
+    }
+}
+
+/**
  * Include a plugin file safely
  *
  * @param string $path File path relative to plugin directory e.g: 'includes/functions/actions.php'

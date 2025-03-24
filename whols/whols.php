@@ -3,7 +3,7 @@
  * Plugin Name: Whols - Wholesale Prices and B2B Store Solution for WooCommerce
  * Plugin URI:  https://wpwhols.com/
  * Description: This plugin provides all the necessary features that you will ever need to sell wholesale products from your WooCommerce online store.
- * Version:     2.0.1
+ * Version:     2.0.2
  * Author:      HasThemes
  * Author URI:  https://hasthemes.com
  * License:     GPL v2 or later
@@ -35,7 +35,7 @@ final class Whols_Lite {
      *
      * @since 1.0.0
      */
-    public $version = '2.0.1';
+    public $version = '2.0.2';
 
     /**
      * The single instance of the class
@@ -136,7 +136,7 @@ final class Whols_Lite {
         require_once WHOLS_PATH . '/includes/Admin/install-manager/class-install-manager.php';
         require_once WHOLS_PATH . '/includes/Admin/Diagnostic_Data.php';
         require_once WHOLS_PATH . '/includes/Admin/Trial.php';
-        require_once WHOLS_PATH . '/includes/Admin/Menu_Manager.php';
+        require_once WHOLS_PATH . '/includes/Admin/class-menu-manager.php';
         require_once WHOLS_PATH . '/includes/Admin/Notice_Handler.php';
 
         require_once WHOLS_PATH . '/includes/Frontend.php';
@@ -145,6 +145,9 @@ final class Whols_Lite {
 
         // Quote
         require_once WHOLS_PATH . '/includes/request-a-quote/class-request-quote.php';
+        
+        // Save Order List
+        whols_include_plugin_file('includes/save-order-list/class-save-order-list.php');
         
         require_once WHOLS_PATH . '/includes/Email_Notifications.php';
         require_once WHOLS_PATH . '/includes/Manage_Order.php';

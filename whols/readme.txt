@@ -4,7 +4,7 @@ Tags: wholesale plugin, wholesale pricing, wholesale prices, woocommerce wholesa
 Requires at least: 4.0
 Tested up to: 6.7
 Requires PHP: 5.4
-Stable tag: 2.0.1
+Stable tag: 2.0.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -251,6 +251,10 @@ Needs assistance to use this plugin?
 Feel free to [Contact us](https://hasthemes.com/contact-us/)
 
 == Changelog ==
+= Version: 2.0.2 -Date: 24 Mar 2025 =
+- Added: Save Order List feature
+- Added: Dashboard page for reports and analytics
+
 = Version: 2.0.1 -Date: 03 Mar 2025 =
 - Added: New pot file for translation
 - Fixed: Translations issue for the new settings

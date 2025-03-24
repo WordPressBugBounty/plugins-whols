@@ -9,6 +9,9 @@ class Manage_Order {
      * Constructor
      */
     public function __construct() {
+        // Add order meta to trac wholesale orders
+        add_action( 'woocommerce_checkout_update_order_meta', array( $this, 'add_order_meta' ), 10, 2 );
+
         // Adding a meta data to the order item
         // It will show on the order received page and order edit page for admin
         add_action( 'woocommerce_checkout_create_order_line_item', array( $this, 'add_order_item_meta' ), 10, 4 );
@@ -31,7 +34,12 @@ class Manage_Order {
             // $wholesaler_roles = count($wholesaler_roles) > 1 ? implode(',', $wholesaler_roles) : current($wholesaler_roles);
 
             foreach( $wholesaler_roles as $slug => $role ){
-                add_post_meta($order_id, '_whols_order_type', $role);
+                // Get the order object
+                $order = wc_get_order( $order_id );
+
+                // Update the order meta data
+                $order->update_meta_data( '_whols_order_type', $role );
+                $order->save();
             }
             
         }

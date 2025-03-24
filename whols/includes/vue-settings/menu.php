@@ -1,6 +1,6 @@
 <?php
 return [
-    '/' => [
+    'general' => [
         'title' => __('General Settings', 'whols'),
         'icon' => 'Setting'
     ],
@@ -40,6 +40,9 @@ return [
     ],
     'wallet' => [
         'title' => __('Wallet', 'whols'),
+    ],
+    'save-order-list' => [
+        'title' => __('Save Order List', 'whols'),
     ],
     'notifications' => [
         'title' => __('Message & Email Notifications', 'whols'),

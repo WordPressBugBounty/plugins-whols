@@ -89,7 +89,7 @@ class Settings_Page {
             wp_enqueue_script(
                 'whols-vue-settings',
                 'http://localhost:5173/src/vue-settings/main.js',
-                array('whols-vue-settings'),
+                array('whols-vue-settings-vite-client'),
                 $this->version,
                 true
             );
@@ -141,6 +141,10 @@ class Settings_Page {
                 'purchaseURL' => 'https://wpwhols.com/pricing/?utm_source=wprepo&utm_medium=freeplugin&utm_campaign=purchasepro',
                 'message' => __('Our free version is great, but it doesn\'t have all our advanced features. The best way to unlock all of the features in our plugin is by purchasing the pro version.', 'whols'),
             ),
+            'adminUrl' => admin_url(),
+            'supportUrl' => 'https://hasthemes.com/contact-us/',
+            'docsUrl' => 'https://wpwhols.com/docs/',
+            'proUrl' => 'https://wpwhols.com/pricing/',
 
             // There is some dynamic defaults so manage it from one place here
             'defaultSettings' => Settings_Defaults::get_defaults(),
@@ -150,6 +154,12 @@ class Settings_Page {
                 'save' => esc_html__('General Settings', 'whols'),
                 'loading' => esc_html__('Loading...', 'whols'),
                 'error' => esc_html__('Error', 'whols'),
+            ),
+
+            // Plugins Settings
+            'globalSettings' => array(
+                'show_wholesale_price_for' => whols_get_option('show_wholesale_price_for'),
+                'currency_symbol' => get_woocommerce_currency_symbol()
             ),
 
             'menu' => $menu

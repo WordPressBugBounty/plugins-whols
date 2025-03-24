@@ -37,6 +37,9 @@ class Settings_Schema {
             // Wallet
             require __DIR__ . '/schema-parts/wallet.php',
 
+            // Save Order List
+            require __DIR__ . '/schema-parts/save-order-list.php',
+
             // Email Notifications
             require __DIR__ . '/schema-parts/email-notifications.php',
 

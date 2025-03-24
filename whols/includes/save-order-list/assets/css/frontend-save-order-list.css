@@ -1,0 +1,109 @@
+.whols-save-order-list-wrap {
+    padding: 1em;
+    border: 1px solid #e2e8f0;
+    margin-bottom: 30px;
+}
+
+.whols-save-list-form {
+    margin-top: 1em;
+}
+
+.whols-save-list-form input[name="whols_list_name"] {
+    width: 100%;
+    max-width: 300px;
+    margin-right: 0.5em;
+    margin-bottom: 0.5em;
+}
+
+.whols-save-list-form textarea {
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    resize: vertical;
+}
+
+.whols-save-list-form .whols-cancel-save-list {
+    margin-left: 0.5em;
+}
+
+.whols-saved-lists-table .whols-items-preview {
+    display: block;
+    font-size: 0.9em;
+    color: #666;
+    margin-top: 0.5em;
+}
+
+.whols-saved-lists-table td {
+    vertical-align: middle;
+}
+
+.whols-saved-lists-table td[data-title="Description"] {
+    max-width: 250px;
+    white-space: pre-line;
+    color: #666;
+}
+
+.whols-saved-lists-table td[data-title="Description"] em {
+    color: #999;
+    font-style: italic;
+}
+
+.whols-save-list-max-limit-notice {
+    color: #856404;
+    background-color: #fff3cd;
+    border: 1px solid #ffeeba;
+    padding: 0.75rem 1.25rem;
+    border-radius: 0.25rem;
+    margin: 0;
+}
+
+.whols-save-order-list-product-badge {
+    font-size: 0.9em;
+    display: inline-block;
+    margin: 2px 5px;
+    padding: 3px 10px;
+    background: #e8e8e8;
+    border-radius: 15px;
+    color: #333;
+}
+
+.whols-action-buttons {
+    white-space: nowrap;
+}
+
+.whols-action-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    margin: 0;
+    gap: 5px;
+    padding: 5px;
+    border-radius: 100%;
+    background: #f8f8f8;
+    color: #666;
+    transition: all 0.2s ease;
+}
+
+.whols-action-icon:hover {
+    background: #f0f0f0;
+}
+
+.whols-action-icon .dashicons {
+    width: 20px;
+    height: 20px;
+    font-size: 20px;
+}
+
+.whols-delete-saved-list:hover {
+    background: #fef2f2;
+    color: #dc3232;
+}
+
+.whols-add-list-to-cart:hover {
+    background: #f0f7fc;
+    color: #007cba;
+}
