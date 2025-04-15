@@ -51,6 +51,9 @@ class Settings_Schema {
 
             // Design
             require __DIR__ . '/schema-parts/design.php',
+
+            // Bulk Order Form
+            require __DIR__ . '/schema-parts/bulk-order-form.php',
         );
     }
 }

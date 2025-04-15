@@ -30,6 +30,11 @@ class Assets_Manager {
     }
 
     public function register_all_scripts(){
+        // Styles
+        wp_register_style( 'whols-common', WHOLS_URL . '/assets/css/common.css', '', $this->version );
+        wp_register_style( 'whols-frontend', WHOLS_URL . '/assets/css/frontend.css', null, $this->version );
+        
+        // Scripts
         wp_register_script( 'whols', WHOLS_URL . '/assets/js/whols.js', array( 'jquery' ), $this->version, true );
     }
 
@@ -37,6 +42,11 @@ class Assets_Manager {
      * Enqueue frontend assets.
      */
     public function enqueue_frontend_assets() {
+        // Styles
+        wp_enqueue_style( 'whols-common' );
+        wp_enqueue_style( 'whols-frontend' );
+        
+        // Scripts
         wp_enqueue_script( 'whols' );
         wp_localize_script( 'whols', 'whols_params', $this->get_localized_vars() );
     }

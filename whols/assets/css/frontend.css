@@ -1,0 +1,229 @@
+/*=======================================
+=            Frontend Styles            =
+=======================================*/
+
+.whols_loop_custom_price > div{
+    line-height: 1;
+}
+.whols_loop_custom_price .whols_label{
+	font-size: 13px;
+	font-weight: normal;
+	line-height: 1.5;
+}
+.whols_loop_custom_price > div:last-child{
+    margin-bottom: 10px;
+}
+.whols_minimum_quantity_notice{
+	font-size: 13px;
+	line-height: 1.5;
+	font-weight: 500;
+	margin-bottom: 10px
+}
+.whols_shop_table{
+	margin-bottom: 15px;
+}
+.whols_shop_table tbody td{
+	border-bottom: 0px;
+}
+.woocommerce div.product form.cart .whols_shop_table td{
+	padding-left: 1em;
+	border-left-width: 1px;
+}
+.woocommerce table.shop_table.whols_shop_table thead th{
+    border-left-width: 1px;
+    border-top-width: 1px;
+    border-right-width: 1px;
+}
+.whols_registration_form input{
+	width: 100%;
+	margin-bottom: 0;
+	margin-left: 0;
+}
+.whols_loop_custom_price .whols_label .whols_label_left {
+    font-weight: 700;
+}
+
+/* Registration form */
+.whols_registration_form label{
+	line-height: 2;
+}
+.whols_registration_form .required{
+	color: red;
+}
+.whols_registration_form input[type="submit"]{
+	margin-top: 15px;
+	width: auto;
+}
+.whols-form-row.type--checkbox .whols-input-wrapper{
+	display: flex;
+	align-items: center;
+}
+.whols-form-row.type--checkbox input{
+	width: auto;
+	margin-right: 5px;
+}
+
+/* Modal
+- Supports (full height, adaptive height partial, fixed header, fixed footer, scrollable body)
+================================================== */
+:root {
+    --whols-raq-modal-header-padding: 18px 25px;
+    --whols-raq-wp-color-blue: #3858e9;
+}
+
+/* Stracture */
+.whols-raq-modal-area {
+    position: fixed;
+    z-index: 9999;
+    top: 0;
+    left: 0;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    visibility: hidden;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: center;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    -webkit-transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
+    -o-transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
+    transition: all 0.25s cubic-bezier(0.645, 0.045, 0.355, 1);
+    -webkit-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    transform: scale(1.1);
+    opacity: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.whols-raq-modal-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.whols-raq-modal-inner {
+    position: relative;
+    z-index: 9;
+    width: 100%;
+    max-width: 645px;
+    border-radius: 5px;
+    background-color: #FFFFFF;
+    max-width: 900px;
+    overflow: hidden;
+    display: block;
+}
+
+.whols-raq-modal-full-height .whols-raq-modal-inner{
+    height: calc(100vh - 100px);
+    max-height: calc(100vh - 100px);
+}
+
+/* Open Popup*/
+.whols-raq-modal-open .whols-raq-modal-area {
+    visibility: visible;
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1);
+    opacity: 1;
+}
+.whols-raq-modal-open .whols-raq-modal-overlay {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Header */
+.whols-raq-modal-header {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    padding: var(--whols-raq-modal-header-padding);
+    border-bottom: 1px solid #dfe7f1;
+}
+.whols-raq-modal-title {
+    margin: 0;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    color: #1d2327;
+    font-size: 1.3em;
+    font-weight: 600;
+}
+.whols-raq-modal-icon {
+    height: 40px;
+    width: 40px;
+    line-height: 40px;
+    background-color: #eaf3ff;
+    text-align: center;
+    border-radius: 100%;
+    margin-right: 10px;
+    color: #2d84fb;
+}
+.whols-raq-modal-dismiss {
+    cursor: pointer;
+    color: #999999;
+    transition: 0.4s;
+}
+
+/* Body */
+.whols-raq-modal-body {
+    height: calc(100% - 175px);
+	overflow-y: scroll;
+    padding: var(--whols-raq-modal-header-padding);
+}
+
+/* Form message */
+.whols-raq-form-message {
+    margin-top: 20px;
+}
+
+.whols-raq-form-message .woocommerce-error{
+    margin-bottom: 0;
+}
+
+.whols-raq-form button{
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+.whols-raq-form button i.dashicons,
+.whols-request-a-quote i.dashicons {
+	display: inline-block;
+    animation: dashicons-spin 2s infinite linear;
+}
+@keyframes dashicons-spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Request a quote form */
+.whols-raq-form .type--hidden{
+    display: none;
+}
+/*=====  End of Frontend Styles  ======*/

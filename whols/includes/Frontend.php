@@ -43,8 +43,6 @@ class Frontend {
         // Scripts
         $suffix = \Automattic\Jetpack\Constants::is_true( 'SCRIPT_DEBUG' ) ? '' : '.min';
         wp_enqueue_script( 'serializejson', WC()->plugin_url() . '/assets/js/jquery-serializejson/jquery.serializejson' . $suffix . '.js', array( 'jquery' ), '2.8.1' );
-
-        wp_enqueue_style( 'whols-style', WHOLS_ASSETS . '/css/style.css', null, $this->version );
     }
 
 

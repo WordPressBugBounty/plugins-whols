@@ -4,7 +4,7 @@ Tags: wholesale plugin, wholesale pricing, wholesale prices, woocommerce wholesa
 Requires at least: 4.0
 Tested up to: 6.7
 Requires PHP: 5.4
-Stable tag: 2.0.2
+Stable tag: 2.0.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -39,6 +39,7 @@ Whols plugin reduces the hassle to create multiple stores for both the consumers
 * Option to enable minimum product to buy
 * Shows wholesale pricing info on shop page as well as product detail page
 * Show/Hide the retailer price from wholesale customers
+* Save Order List
 * Customers having wholesale role assigned can buy products at wholesale price
 * Customize the text on the frontend labels (Retailer Price Text, Wholesaler Price Text & Save Amount Text Label)
 * Display the amount that the customer will save after purchase
@@ -78,6 +79,8 @@ Whols plugin reduces the hassle to create multiple stores for both the consumers
 ✓ Whole can access the Entire Website / Shop (Loged In Users/Loged In Users With Wholesale Role)
 ✓ Role wise disable payment method
 ✓ Role wise enable free shipping
+✓ Bulk / Quick Order feature
+✓ Dashboard page for reports and analytics
 ✓ Admin can Place Wholesale Orders
 ✓ Conversation between Admin and Wholesaler
 ✓ Wholesaler can request a quote for products
@@ -251,6 +254,10 @@ Needs assistance to use this plugin?
 Feel free to [Contact us](https://hasthemes.com/contact-us/)
 
 == Changelog ==
+= Version: 2.0.3 -Date: 15 Apr 2025 =
+- Fixed: Save order list settings field badge showing issues
+- Fixed: Column pricing issue in the Products List table by using the new wholeale pricing class
+
 = Version: 2.0.2 -Date: 24 Mar 2025 =
 - Added: Save Order List feature
 - Added: Dashboard page for reports and analytics

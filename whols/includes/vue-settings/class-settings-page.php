@@ -86,23 +86,23 @@ class Settings_Page {
                 true
             );
 
-            wp_enqueue_script(
-                'whols-vue-settings',
-                'http://localhost:5173/src/vue-settings/main.js',
-                array('whols-vue-settings-vite-client'),
-                $this->version,
-                true
-            );
-
             add_filter('script_loader_tag', function($tag, $handle, $src) {
                 // For cache busting
                 $src = $src . '?v=' . $this->version;
 
-                if ($handle === 'whols-vue-settings' || $handle === 'whols-vue-settings-app') {
+                if ($handle === 'whols-vue-settings') {
                     return '<script type="module" src="' . esc_url($src) . '"></script>';
                 }
                 return $tag;
             }, 10, 3);
+
+            wp_enqueue_script(
+                'whols-vue-settings',
+                'http://localhost:5173/src/vue-settings/main.js' . '?v=' . $this->version,
+                array('whols-vue-settings-vite-client'),
+                null,
+                true
+            );
         } else {
             // Production mode - load built files
             // CSS
@@ -114,14 +114,20 @@ class Settings_Page {
                 'all'
             );
 
+            // JS
+            wp_enqueue_script(
+                'whols-vue-settings',
+                PL_URL . '/build/vue-settings/main.js',
+                array(),
+                $this->version,
+                true
+            );
+
             // For cache busting
-            $this->enqueue_scripts_from_manifest();
+            // $this->enqueue_scripts_from_manifest(); // Updated the vite build process, no longer needed
 
             add_filter('script_loader_tag', function($tag, $handle, $src) {
-                // For cache busting
-                $src = $src . '?v=' . $this->version;
-
-                if ($handle === 'whols-vue-settings' || $handle === 'element-plus') {
+                if ($handle === 'whols-vue-settings') {
                     return '<script type="module" src="' . esc_url($src) . '"></script>';
                 }
                 return $tag;
@@ -181,49 +187,6 @@ class Settings_Page {
         curl_close($handle);
 
         return !$error;
-    }
-
-    public function enqueue_scripts_from_manifest() {
-        $manifiest_file = PL_PATH . '/build/vue-settings/.vite/manifest.json';
-        if (!file_exists($manifiest_file)) {
-            return;
-        }
-
-        $manifest = json_decode(file_get_contents($manifiest_file), true);
-
-        $ordered_manifest = array();
-
-        // Prepare the scripts_data
-        foreach ($manifest as $file => $info) {
-            if ( isset($info['isEntry']) && $info['isEntry'] ) {
-                if( !$info['imports'] ){
-                    $ordered_manifest[] = $info;
-                } else {
-                    $ordered_manifest[] = $info;
-
-                    // Loop through imports and add them to the scripts_data
-                    foreach ($info['imports'] as $import) {
-                        if (isset($manifest[$import])) {
-                            $ordered_manifest[] = $manifest[$import];
-                        }
-                    }
-                }
-            }
-        }
-
-        // Now enqueue the scripts
-        foreach ($ordered_manifest as $index => $info) {
-            if( isset($info['name']) && isset($info['src']) ){
-                $handle = $info['name'];
-                if( isset($info['isEntry']) && $info['isEntry'] ){
-                    $handle = 'whols-vue-settings';
-                }
-
-                $src = PL_URL . '/build/vue-settings/' . $info['file'];
-
-                wp_enqueue_script($handle, $src, array(), null, true);
-            }
-        }
     }
 
     /**

@@ -116,40 +116,17 @@ class Custom_Columns {
     public function wholesale_price_column_content( $column, $post_id ) {
         if ( $column == 'wholesale_price' ) {
             $post_id = absint( $post_id );
-            $product = wc_get_product( $post_id );
-
-            // If product price is less than 1 or the product price is not entered
-            if( $product->is_type('simple') && $product->get_regular_price() < 1 ){
-                return;
-            }
-
-            $wholesale_status = whols_is_on_wholesale( $product );
-            $enable           = $wholesale_status['enable_this_pricing'];
-            $price_type       = $wholesale_status['price_type'];
-            $price_value      = $wholesale_status['price_value'];
-
-            if( $enable && $product->is_type('simple') && $price_value ){
-                if($price_type == 'flat_rate'){
-                    echo wp_kses_post( wc_price($price_value) );
-                } elseif($price_type == 'percent'){
-                    echo whols_get_percent_of( $product->get_regular_price(), $price_value );
-                }
-            }
-
-            if( $enable && $product->is_type('variable')  ){
-                $price = explode(':', $price_value);
-
-                if( $price_value && count($price) > 1 ){
-                    $min_price        = $price[0];
-                    $max_price        = $price[1];
-
-                    if( $min_price ==  $max_price ){
-                        echo wc_price( $min_price );
-                    } else {
-                        echo wc_price( $min_price ).' - '. wc_price( $max_price );
-                    }
-                } elseif( $price_value ) {
-                    echo wc_price( $price_value );
+            
+            $pricing = new \Whols\Wholesale_Product_Pricing( $post_id );
+            
+            if( $pricing->has_wholesale_pricing() ){
+                $price = $pricing->get_wholesale_price();
+                
+                if( !is_array( $price ) ){
+                    echo wc_price( $price );
+                } elseif( $price['min'] && $price['max'] ){
+                    // Display price range
+                    echo wc_price( $price['min'] ) . ' - ' . wc_price( $price['max'] );
                 }
             }
         }

@@ -44,6 +44,9 @@ return [
     'save-order-list' => [
         'title' => __('Save Order List', 'whols'),
     ],
+    'bulk-order-form' => [
+        'title' => __('Bulk Order Form', 'whols'),
+    ],
     'notifications' => [
         'title' => __('Message & Email Notifications', 'whols'),
         'items' => [

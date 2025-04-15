@@ -17,13 +17,6 @@ return ['request-a-quote_route' => [
             'title' => __('Request a Quote Label', 'whols'),
             'help' => __('Label of the request a quote button.', 'whols'),
             'default' => '',
-            'condition' => [
-                [
-                    'key' => 'enable_request_a_quote',
-                    'operator' => '==',
-                    'value' => '1'
-                ]
-            ]
         ],
         'create_conversation_when_request_a_quote' => [
             'id' => 'create_conversation_when_request_a_quote',

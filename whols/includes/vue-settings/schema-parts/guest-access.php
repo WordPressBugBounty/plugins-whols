@@ -1,6 +1,6 @@
 <?php
 return [ 'guest-access_route' => [
-    'title ' => __('Guest Access', 'whols'),
+    'title' => __('Guest Access', 'whols'),
     'sections' => [],
 
     'fields' => [
