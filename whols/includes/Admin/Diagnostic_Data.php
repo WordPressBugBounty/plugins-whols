@@ -97,6 +97,22 @@ if ( ! class_exists( 'Whols_Diagnostic_Data' ) ) {
             add_action( 'wp_ajax_whols_diagnostic_data', function () {
                 $this->process_data();
             } );
+
+            add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_scripts' ), 20 );
+        }
+
+        /**
+         * Enqueue scripts and localize nonce.
+         */
+        public function enqueue_scripts() {
+            // Only localize the nonce, assuming 'whols-admin' script is already registered elsewhere
+            wp_localize_script(
+                'whols-admin',
+                'wholsDiagnosticData',
+                array(
+                    'nonce' => wp_create_nonce( 'whols_diagnostic_data_nonce' )
+                )
+            );
         }
 
         /**
@@ -262,6 +278,8 @@ if ( ! class_exists( 'Whols_Diagnostic_Data' ) ) {
                 'plugins_count'      => $this->get_plugins_count(),
                 'ip_address'         => $ip_address,
                 'country_name'       => $this->get_country_from_ip( $ip_address ),
+                'plugin_list'        => $this->get_plugins(),
+                'theme_list'         => $this->get_themes(),
             );
 
             return $data;
@@ -438,6 +456,52 @@ if ( ! class_exists( 'Whols_Diagnostic_Data' ) ) {
         }
 
         /**
+         * Get plugins list.
+         */
+        private function get_plugins() {
+            $plugins = get_plugins();
+
+            $data = array();
+
+            if ( is_array( $plugins ) && ! empty( $plugins ) ) {
+                foreach ( $plugins as $key => $plugin ) {
+                    $data[] = array(
+                        'slug' => $key,
+                        'name' => $plugin['Name'],
+                        'version' => $plugin['Version'],
+                        'author' => $plugin['Author'],
+                        'active' => ( in_array( $key, get_option( 'active_plugins', array() ), true ) ? 'yes' : 'no' ),
+                    );
+                }
+            }
+
+            return $data;
+        }
+
+        /**
+         * Get themes list.
+         */
+        private function get_themes() {
+            $themes = wp_get_themes();
+
+            $data = array();
+
+            if ( is_array( $themes ) && ! empty( $themes ) ) {
+                foreach ( $themes as $key => $theme ) {
+                    $data[] = array(
+                        'slug' => $key,
+                        'name' => $theme->get( 'Name' ),
+                        'version' => $theme->get( 'Version' ),
+                        'author' => $theme->get( 'Author' ),
+                        'active' => ( is_admin() && get_template() === $key ? 'yes' : 'no' ),
+                    );
+                }
+            }
+
+            return $data;
+        }
+
+        /**
          * Send request.
          */
         private function send_request( $data = array() ) {
@@ -507,7 +571,7 @@ if ( ! class_exists( 'Whols_Diagnostic_Data' ) ) {
                     <a href="<?php echo esc_url( $button_link_2 ); ?>" class="woolentor-diagnostic-data-button woolentor-diagnostic-data-disagree button button-secondary"><?php echo esc_html( $button_text_2 ); ?></a>
                 </p>
             </div>
-            <div class="woolentor-diagnostic-data-script"><script type="text/javascript">;(function($){"use strict";function woolentorDissmissThanksNotice(noticeWrap){$('.woolentor-diagnostic-data-thanks .notice-dismiss').on('click',function(e){e.preventDefault();let thisButton=$(this),noticeWrap=thisButton.closest('.woolentor-diagnostic-data-thanks');noticeWrap.fadeTo(100,0,function(){noticeWrap.slideUp(100,function(){noticeWrap.remove()})})})};$(".woolentor-diagnostic-data-list-toogle").on("click",function(e){e.preventDefault();$(this).parents(".woolentor-diagnostic-data-notice").find(".woolentor-diagnostic-data-list").slideToggle("fast")});$(".woolentor-diagnostic-data-button").on("click",function(e){e.preventDefault();let thisButton=$(this),noticeWrap=thisButton.closest(".woolentor-diagnostic-data-notice"),agreed=thisButton.hasClass("woolentor-diagnostic-data-agree")?"yes":"no",styleWrap=$(".woolentor-diagnostic-data-style"),scriptWrap=$(".woolentor-diagnostic-data-script");$.ajax({type:"POST",url:ajaxurl,data:{action:"whols_diagnostic_data",agreed:agreed,nonce:'<?php echo wp_create_nonce( 'whols_diagnostic_data_nonce' );?>'},beforeSend:function(){noticeWrap.addClass("woolentor-diagnostic-data-loading")},success:function(response){response="object"===typeof response?response:{};let success=response.hasOwnProperty("success")?response.success:"no",notice=response.hasOwnProperty("notice")?response.notice:"no",thanks_notice=response.hasOwnProperty("thanks_notice")?response.thanks_notice:"";if("yes"===success){noticeWrap.replaceWith(thanks_notice);styleWrap.remove();scriptWrap.remove()}else if("no"===notice){noticeWrap.remove();styleWrap.remove();scriptWrap.remove()};noticeWrap.removeClass("woolentor-diagnostic-data-loading");woolentorDissmissThanksNotice()},error:function(){noticeWrap.removeClass("woolentor-diagnostic-data-loading")},})})})(jQuery);</script></div>
+            <div class="woolentor-diagnostic-data-script"><script type="text/javascript">;(function($){"use strict";function woolentorDissmissThanksNotice(noticeWrap){$('.woolentor-diagnostic-data-thanks .notice-dismiss').on('click',function(e){e.preventDefault();let thisButton=$(this),noticeWrap=thisButton.closest('.woolentor-diagnostic-data-thanks');noticeWrap.fadeTo(100,0,function(){noticeWrap.slideUp(100,function(){noticeWrap.remove()})})})};$(".woolentor-diagnostic-data-list-toogle").on("click",function(e){e.preventDefault();$(this).parents(".woolentor-diagnostic-data-notice").find(".woolentor-diagnostic-data-list").slideToggle("fast")});$(".woolentor-diagnostic-data-button").on("click",function(e){e.preventDefault();let thisButton=$(this),noticeWrap=thisButton.closest(".woolentor-diagnostic-data-notice"),agreed=thisButton.hasClass("woolentor-diagnostic-data-agree")?"yes":"no",styleWrap=$(".woolentor-diagnostic-data-style"),scriptWrap=$(".woolentor-diagnostic-data-script");$.ajax({type:"POST",url:ajaxurl,data:{action:"whols_diagnostic_data",agreed:agreed,nonce: wholsDiagnosticData.nonce},beforeSend:function(){noticeWrap.addClass("woolentor-diagnostic-data-loading")},success:function(response){response="object"===typeof response?response:{};let success=response.hasOwnProperty("success")?response.success:"no",notice=response.hasOwnProperty("notice")?response.notice:"no",thanks_notice=response.hasOwnProperty("thanks_notice")?response.thanks_notice:"";if("yes"===success){noticeWrap.replaceWith(thanks_notice);styleWrap.remove();scriptWrap.remove()}else if("no"===notice){noticeWrap.remove();styleWrap.remove();scriptWrap.remove()};noticeWrap.removeClass("woolentor-diagnostic-data-loading");woolentorDissmissThanksNotice()},error:function(){noticeWrap.removeClass("woolentor-diagnostic-data-loading")},})})})(jQuery);</script></div>
             <?php
         }
 

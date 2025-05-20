@@ -222,6 +222,11 @@ if( !function_exists('whols_get_wholesaler_price') ){
         } elseif( $product_type = 'variable' ){
     
             if( $price_type == 'flat_rate'){
+                $prices = $product->get_variation_prices( true );
+                $min_price     = current( $prices['price'] );
+                $max_price     = end( $prices['price'] );
+                $variable_has_no_range = $min_price == $max_price;
+                
                 $price = explode(':', $price_value);
                 if( $price_value && count($price) > 1 ){
                     $wholesale_price_info = apply_filters( 'whols_override_wholesale_price', array(
@@ -229,14 +234,14 @@ if( !function_exists('whols_get_wholesaler_price') ){
                         'max_price' => $price[1],
                     ), $product ); // For multicurrency support
     
-                    $min_price        = $wholesale_price_info['min_price'];
-                    $max_price        = $wholesale_price_info['max_price'];
+                    $wholesale_min_price        = $wholesale_price_info['min_price'];
+                    $wholesale_max_price        = $wholesale_price_info['max_price'];
     
                     // When both price is same, show only one price
-                    if( $min_price ==  $max_price ){
-                        $wholesaler_price = wc_price( $min_price );
+                    if( $variable_has_no_range && $wholesale_min_price ==  $wholesale_max_price ){
+                        $wholesaler_price = wc_price( $wholesale_min_price );
                     } else {
-                        $wholesaler_price = wc_price( $min_price ).' - '. wc_price( $max_price );
+                        $wholesaler_price = wc_price( $wholesale_min_price ).' - '. wc_price( $wholesale_max_price );
                     }
                 } else {
                     $wholesaler_price = wc_price( $price_value );
@@ -1482,4 +1487,21 @@ if( !function_exists('whols_include_plugin_file') ){
         
         return false;
     }
+}
+
+/**
+ * Check if the onboarding should be shown
+ * 
+ * @return bool
+ */
+function whols_should_show_onboarding() {
+    $installed_timestamp = get_option( 'whols_installed' );
+    $cutoff_timestamp = strtotime('2025-05-15'); // Show onboarding after this date
+    $onboarding_status = get_option('whols_onboarding');
+
+    if ( $installed_timestamp > $cutoff_timestamp && $onboarding_status != 'complete' ) {
+        return true;
+    }
+
+    return false;
 }

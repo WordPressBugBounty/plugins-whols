@@ -45,6 +45,34 @@ class Settings_REST_API {
             )
         );
 
+        register_rest_route(
+            'whols/v1',
+            '/wp_option',
+            array(
+                'methods'             => \WP_REST_Server::CREATABLE,
+                'callback'            => array($this, 'update_wp_option'),
+                'permission_callback' => array($this, 'check_permission'),
+                'args'                => array(
+                    'option_name' => array(
+                        'required'          => true,
+                        'type'              => 'string',
+                        'description'       => __('Option name', 'whols'),
+                        'validate_callback' => function($param) {
+                            return is_string($param);
+                        }
+                    ),
+                    'value' => array(
+                        'required'          => true,
+                        'type'              => 'string',
+                        'description'       => __('Option value', 'whols'),
+                        'validate_callback' => function($param) {
+                            return is_string($param);
+                        }
+                    ),
+                ),
+            )
+        );
+
         // To expose the roles
         register_rest_route(
             'whols/v1',
@@ -226,6 +254,14 @@ class Settings_REST_API {
         update_option($this->option_name, $current_settings);
 
         return $this->get_settings();
+    }
+
+    public function update_wp_option($request) {
+        $params = $request->get_params();
+
+        update_option($params['option_name'], $params['value']);
+
+        return rest_ensure_response($params);
     }
 
     public function get_roles() {

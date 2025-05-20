@@ -2,9 +2,9 @@
 Contributors: htplugins, alberuni-azad, aslamhasib, zenaulislam, tarekht
 Tags: wholesale plugin, wholesale pricing, wholesale prices, woocommerce wholesale, woocommerce b2b
 Requires at least: 4.0
-Tested up to: 6.7
+Tested up to: 6.8
 Requires PHP: 5.4
-Stable tag: 2.0.3
+Stable tag: 2.1.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -254,6 +254,10 @@ Needs assistance to use this plugin?
 Feel free to [Contact us](https://hasthemes.com/contact-us/)
 
 == Changelog ==
+= Version: 2.1.0 -Date: 20 May 2025 =
+- Tweak: Variable product price range if price is same
+- Fixed: Select field filterable issue
+
 = Version: 2.0.3 -Date: 15 Apr 2025 =
 - Fixed: Save order list settings field badge showing issues
 - Fixed: Column pricing issue in the Products List table by using the new wholeale pricing class

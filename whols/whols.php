@@ -3,7 +3,7 @@
  * Plugin Name: Whols - Wholesale Prices and B2B Store Solution for WooCommerce
  * Plugin URI:  https://wpwhols.com/
  * Description: This plugin provides all the necessary features that you will ever need to sell wholesale products from your WooCommerce online store.
- * Version:     2.0.3
+ * Version:     2.1.0
  * Author:      HasThemes
  * Author URI:  https://hasthemes.com
  * License:     GPL v2 or later
@@ -35,7 +35,7 @@ final class Whols_Lite {
      *
      * @since 1.0.0
      */
-    public $version = '2.0.3';
+    public $version = '2.1.0';
 
     /**
      * The single instance of the class
@@ -185,8 +185,8 @@ final class Whols_Lite {
 			// 	add_action('admin_init', array( $this, 'redirect_after_activate') );
 			// }
 
-            // Redirect to whols settings page
-            add_action('admin_init', array( $this, 'redirect_after_activate') );
+            // Redirect after activation
+            add_action('admin_init', array( $this, 'do_activation_redirect') );
         }
     }
 
@@ -214,10 +214,7 @@ final class Whols_Lite {
         }
 
         update_option( 'whols_version', WHOLS_VERSION );
-
-        // It sets a transient that will be used to redirect the user to the welcome page after
-        // activating the plugin.
-        set_transient( 'whols_do_activation_redirect', true, 30 );
+        update_option( 'whols_do_activation_redirect', 'yes' );
 
         // Save initial settings if not already.
 		$existing_settings = get_option('whols_options');
@@ -228,17 +225,36 @@ final class Whols_Lite {
     }
 
     /**
-     * It checks if a transient exists, if it does, it deletes it and redirects to the welcome page
-     * 
-     * @return the value of the transient.
-     */
-    public function redirect_after_activate(){
-        if ( get_transient('whols_do_activation_redirect') ) {
-            delete_transient( 'whols_do_activation_redirect' );
-            
-            exit( wp_redirect("admin.php?page=whols-admin") );
-        }
-    }
+	 * Maybe redirect to the admin page
+	 * 
+	 * Checks if the activation redirect flag is set and redirects to the admin page if needed
+	 * 
+	 * @return void
+	 */
+	public function do_activation_redirect() {
+		// Only run on admin page load
+		if ( ! is_admin() || wp_doing_ajax() ) {
+			return;
+		}
+
+		// Check if we should redirect
+		$redirect = get_option( 'whols_do_activation_redirect' );
+		
+		if ( 'yes' === $redirect ) {
+			// Delete the redirect option to prevent multiple redirects
+			delete_option( 'whols_do_activation_redirect' );
+
+			$redirect_link = admin_url( 'admin.php?page=whols-admin' );
+
+			if( whols_should_show_onboarding() ){
+				$redirect_link = admin_url( 'admin.php?page=whols-admin#onboarding' );
+			}
+			
+			// Redirect to the admin page
+			wp_safe_redirect( $redirect_link );
+			exit;
+		}
+	}
 
     /**
      * Load the plugin textdomain
