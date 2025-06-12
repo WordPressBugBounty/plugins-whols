@@ -4,7 +4,7 @@ Tags: wholesale plugin, wholesale pricing, wholesale prices, woocommerce wholesa
 Requires at least: 4.0
 Tested up to: 6.8
 Requires PHP: 5.4
-Stable tag: 2.1.0
+Stable tag: 2.2.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -244,7 +244,6 @@ Whols WooCommerce Wholesale is a great plugin for WooCommerce that allows you to
 Whole WooCommerce Wholesale offers many features that can help you manage your shipping needs. First, WooCommerce Wholesale allows you to set up free shipping for your wholesale customers. You can also set different shipping rates for different customer groups, and offer free shipping on orders over a certain amount. WooCommerce Wholesale also offers a number of other shipping options
 
 
-
 == <a href="https://wpwhols.com/pricing/">Purchase Whols Pro</a>==
 
 
@@ -254,6 +253,9 @@ Needs assistance to use this plugin?
 Feel free to [Contact us](https://hasthemes.com/contact-us/)
 
 == Changelog ==
+= Version: 2.2.0 -Date: 12 Jun 2025 =
+- Fixed: Cache busting issue for element-plus
+
 = Version: 2.1.0 -Date: 20 May 2025 =
 - Tweak: Variable product price range if price is same
 - Fixed: Select field filterable issue

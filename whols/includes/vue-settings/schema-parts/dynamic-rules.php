@@ -5,6 +5,10 @@ return ['dynamic-rules_route' => [
         'basic'              => ['title' => __('Basic Settings', 'whols')],
         'discount'           => ['title' => __('Discount Settings', 'whols')],
         'bogo'               => ['title' => __('BOGO Settings', 'whols')],
+        'time_conditions'    => ['title' => __('Time Conditions', 'whols')],
+        'customer_history'   => ['title' => __('Customer History Conditions', 'whols')],
+        'payment_methods'    => ['title' => __('Payment Methods Control Settings', 'whols')],
+        'shipping'           => ['title' => __('Shipping', 'whols')],
         'common_conditions'  => ['title' => __('Common Conditions', 'whols')],
         'product_conditions' => ['title' => __('Product Conditions', 'whols')],
         'user_conditions'    => ['title' => __('User Conditions', 'whols')]
@@ -54,9 +58,11 @@ return ['dynamic-rules_route' => [
                     'type' => 'select',
                     'title' => __('Choose Action', 'whols'),
                     'options' => [
-                        'apply_cart_discount' => __('Cart Discount - Apply discount to entire cart', 'whols'),
-                        'apply_extra_charge' => __('Additional Fee - Add extra charge to cart', 'whols'),
-                        'apply_bogo_discount' => __('BOGO Offer - Create Buy One Get One offer', 'whols'),
+                        'apply_cart_discount' => __('Cart Discount - Apply Discount to Entire Cart', 'whols'),
+                        'apply_extra_charge' => __('Additional Fee - Add Extra Charge to Cart', 'whols'),
+                        'apply_bogo_discount' => __('BOGO Offer - Create Buy one Get one Offer', 'whols'),
+                        'apply_free_shipping' => __('Free Shipping - Remove Shipping Costs', 'whols'),
+                        'control_payment_methods' => __('Payment Control - Control Available Payment Methods', 'whols')
                     ],
                     'default' => 'apply_cart_discount',
                 ],
@@ -82,6 +88,202 @@ return ['dynamic-rules_route' => [
                     ],
                     'default' => '50',
                 ],
+
+                // Payment method control fields
+                'payment_methods_criteria' => [
+                    'id' => 'payment_methods_criteria',
+                    'type' => 'select',
+                    'title' => __('Control Criteria', 'whols'),
+                    'desc' => __('Choose how to control payment methods', 'whols'),
+                    'options' => [
+                        'allow_selected' => __('Allow Selected Methods - Disable all others', 'whols'),
+                        'disallow_selected' => __('Disallow Selected Methods - Allow all others', 'whols'),
+                    ],
+                    'default' => 'allow_selected',
+                    'condition' => [
+                        [
+                            'key' => 'action',
+                            'operator' => '==',
+                            'value' => 'control_payment_methods'
+                        ]
+                    ],
+                ],
+                'payment_methods' => [
+                    'id' => 'payment_methods',
+                    'type' => 'select',
+                    'title' => __('Payment Methods', 'whols'),
+                    'desc' => __('Select payment methods to show or hide based on the control criteria', 'whols'),
+                    'placeholder' => __('Select payment methods', 'whols'),
+                    'options' => [
+                        'bacs' => __('Direct Bank Transfer', 'whols'),
+                        'cheque' => __('Check Payments', 'whols'),
+                        'cod' => __('Cash on Delivery', 'whols'),
+                        'paypal' => __('PayPal', 'whols'),
+                        'stripe' => __('Stripe', 'whols'),
+                    ],
+                    'multiple' => true,
+                    'default' => [],
+                    'condition' => [
+                        [
+                            'key' => 'action',
+                            'operator' => '==',
+                            'value' => 'control_payment_methods'
+                        ]
+                    ],
+                ],
+                
+                // Time-based rule fields
+                'enable_time_restriction' => [
+                    'id' => 'enable_time_restriction',
+                    'type' => 'switch',
+                    'title' => __('Enable', 'whols'),
+                    'label' => __('Yes', 'whols'),
+                    'default' => '',
+                ],
+                'date_range' => [
+                    'id' => 'date_range',
+                    'type' => 'date',
+                    'title' => __('Date Range', 'whols'),
+                    'desc' => __('Set specific start and end dates for this rule', 'whols'),
+                    'range' => true,
+                    'default' => '',
+                    'condition' => [
+                        [
+                            'key' => 'enable_time_restriction',
+                            'operator' => '==',
+                            'value' => '1'
+                        ]
+                    ],
+                ],
+                'days_of_week' => [
+                    'id' => 'days_of_week',
+                    'type' => 'checkbox',
+                    'title' => __('Days of Week', 'whols'),
+                    'desc' => __('Select which days of the week this rule should be active', 'whols'),
+                    'options' => [
+                        '1' => __('Monday', 'whols'),
+                        '2' => __('Tuesday', 'whols'),
+                        '3' => __('Wednesday', 'whols'),
+                        '4' => __('Thursday', 'whols'),
+                        '5' => __('Friday', 'whols'),
+                        '6' => __('Saturday', 'whols'),
+                        '7' => __('Sunday', 'whols'),
+                    ],
+                    'default' => [],
+                    'condition' => [
+                        [
+                            'key' => 'enable_time_restriction',
+                            'operator' => '==',
+                            'value' => '1'
+                        ]
+                    ],
+                ],
+                'enable_time_of_day' => [
+                    'id' => 'enable_time_of_day',
+                    'type' => 'switch',
+                    'title' => __('Enable Time of Day', 'whols'),
+                    'label' => __('Yes', 'whols'),
+                    'default' => '',
+                    'condition' => [
+                        [
+                            'key' => 'enable_time_restriction',
+                            'operator' => '==',
+                            'value' => '1'
+                        ]
+                    ],
+                ],
+                'start_time' => [
+                    'id' => 'start_time',
+                    'type' => 'text',
+                    'title' => __('Start Time', 'whols'),
+                    'desc' => __('Enter time in 24-hour format (HH:MM)', 'whols'),
+                    'placeholder' => '09:00',
+                    'default' => '',
+                    'condition' => [
+                        [
+                            'key' => 'enable_time_restriction|enable_time_of_day',
+                            'operator' => '==|==',
+                            'value' => '1|1'
+                        ]
+                    ],
+                ],
+                'end_time' => [
+                    'id' => 'end_time',
+                    'type' => 'text',
+                    'title' => __('End Time', 'whols'),
+                    'desc' => __('Enter time in 24-hour format (HH:MM)', 'whols'),
+                    'placeholder' => '17:00',
+                    'default' => '',
+                    'condition' => [
+                        [
+                            'key' => 'enable_time_restriction|enable_time_of_day',
+                            'operator' => '==|==',
+                            'value' => '1|1'
+                        ]
+                    ],
+                ],
+                
+                // Customer history fields
+                'enable_customer_history' => [
+                    'id' => 'enable_customer_history',
+                    'type' => 'switch',
+                    'title' => __('Enable', 'whols'),
+                    'label' => __('Yes', 'whols'),
+                    'default' => '',
+                ],
+                'min_order_count' => [
+                    'id' => 'min_order_count',
+                    'type' => 'number',
+                    'title' => __('Minimum Order Count', 'whols'),
+                    'desc' => __('Rule applies only if customer has placed this many previous orders', 'whols'),
+                    'attributes' => [
+                        'min' => 1,
+                    ],
+                    'default' => '',
+                    'condition' => [
+                        [
+                            'key' => 'enable_customer_history',
+                            'operator' => '==',
+                            'value' => '1'
+                        ]
+                    ],
+                ],
+                'min_total_spent' => [
+                    'id' => 'min_total_spent',
+                    'type' => 'number',
+                    'title' => __('Minimum Total Spent', 'whols'),
+                    'desc' => __('Rule applies only if customer has spent at least this amount', 'whols'),
+                    'attributes' => [
+                        'min' => 0,
+                    ],
+                    'default' => '',
+                    'condition' => [
+                        [
+                            'key' => 'enable_customer_history',
+                            'operator' => '==',
+                            'value' => '1'
+                        ]
+                    ],
+                ],
+                'days_since_last_order' => [
+                    'id' => 'days_since_last_order',
+                    'type' => 'number',
+                    'title' => __('Days Since Last Order', 'whols'),
+                    'desc' => __('Rule applies only if this many days have passed since customer\'s last order', 'whols'),
+                    'attributes' => [
+                        'min' => 1,
+                    ],
+                    'default' => '',
+                    'condition' => [
+                        [
+                            'key' => 'enable_customer_history',
+                            'operator' => '==',
+                            'value' => '1'
+                        ]
+                    ],
+                ],
+                
+                // Existing BOGO fields
                 'bogo_based_on' => [
                     'id' => 'bogo_based_on',
                     'type' => 'select',
@@ -91,7 +293,6 @@ return ['dynamic-rules_route' => [
                         '' => __('Any Products', 'whols'),
                         'specific_products' => __('Specific Products', 'whols'),
                     ],
-                    'group' => 'dynamic_rules',
                     'condition' => [
                         [
                             'key' => 'action',
@@ -108,7 +309,6 @@ return ['dynamic-rules_route' => [
                     'options' => [
                         'matches_any_of' => __('Matches any of selected', 'whols'),
                     ],
-                    'group' => 'dynamic_rules',
                     'condition' => [
                         [
                             'key' => 'bogo_based_on',
@@ -128,7 +328,6 @@ return ['dynamic-rules_route' => [
                     'multiple' => true,
                     'options' => 'products',
                     'filterable' => true,
-                    'group' => 'dynamic_rules',
                     'condition' => [
                         [
                             'key' => 'action|bogo_based_on',
@@ -147,7 +346,6 @@ return ['dynamic-rules_route' => [
                         'type' => 'number',
                         'min' => 1,
                     ],
-                    'group' => 'dynamic_rules',
                     'condition' => [
                         [
                             'key' => 'action',
@@ -167,7 +365,6 @@ return ['dynamic-rules_route' => [
                         'min' => 1,
                         'readonly' => true,
                     ],
-                    'group' => 'dynamic_rules',
                     'condition' => [
                         [
                             'key' => 'action',
@@ -192,7 +389,6 @@ return ['dynamic-rules_route' => [
                     'query_args' => [
                         'post_type' => 'product'
                     ],
-                    'group' => 'dynamic_rules',
                     'condition' => [
                         [
                             'key' => 'action',
@@ -212,12 +408,11 @@ return ['dynamic-rules_route' => [
                         'specific_products' => __('Specific Products', 'whols'),
                         'product_category' => __('All Products of given category', 'whols'),
                     ],
-                    'group' => 'dynamic_rules',
                     'condition' => [
                         [
                             'key' => 'action',
-                            'operator' => 'any',
-                            'value' => 'apply_cart_discount,apply_extra_charge'
+                            'operator' => '!=',
+                            'value' => 'apply_bogo_discount'
                         ]
                     ],
                     'default' => '',
@@ -232,12 +427,11 @@ return ['dynamic-rules_route' => [
                         'matches_all_of' => __('Matches all of selected', 'whols'),
                         'matches_none_of' => __('Matches none of selected', 'whols'),
                     ],
-                    'group' => 'dynamic_rules',
                     'condition' => [
                         [
                             'key' => 'action|target_item_based_on',
-                            'operator' => 'any|any',
-                            'value' => 'apply_cart_discount,apply_extra_charge|specific_products,product_category'
+                            'operator' => '!=|any',
+                            'value' => 'apply_bogo_discount|specific_products,product_category'
                         ]
                     ],
                     'default' => 'matches_any_of',
@@ -256,12 +450,11 @@ return ['dynamic-rules_route' => [
                     'query_args' => [
                         'post_type' => 'product'
                     ],
-                    'group' => 'dynamic_rules',
                     'condition' => [
                         [
                             'key' => 'action|target_item_based_on',
-                            'operator' => 'any|==',
-                            'value' => 'apply_cart_discount,apply_extra_charge|specific_products'
+                            'operator' => '!=|==',
+                            'value' => 'apply_bogo_discount|specific_products'
                         ]
                     ],
                     'default' => [],
@@ -280,12 +473,11 @@ return ['dynamic-rules_route' => [
                     'query_args' => [
                         'taxonomy' => 'product_cat'
                     ],
-                    'group' => 'dynamic_rules',
                     'condition' => [
                         [
                             'key' => 'action|target_item_based_on',
-                            'operator' => 'any|==',
-                            'value' => 'apply_cart_discount,apply_extra_charge|product_category'
+                            'operator' => '!=|==',
+                            'value' => 'apply_bogo_discount|product_category'
                         ]
                     ],
                     'default' => [],
@@ -312,7 +504,6 @@ return ['dynamic-rules_route' => [
                     'ajax' => false,
                     'multiple' => true,
                     'options' => 'whols_roles',
-                    'group' => 'dynamic_rules',
                     'condition' => [
                         [
                             'key' => 'user_condition_name',
@@ -332,7 +523,6 @@ return ['dynamic-rules_route' => [
                     'multiple' => true,
                     'options' => 'users',
                     'filterable' => true,
-                    'group' => 'dynamic_rules',
                     'condition' => [
                         [
                             'key' => 'user_condition_name',
