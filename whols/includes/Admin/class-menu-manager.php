@@ -31,7 +31,7 @@ class Menu_Manager {
             'whols-admin',
             [ $this, 'plugin_page' ],
             'dashicons-money-alt',
-            56
+            '58.5'
         );
     }
 
@@ -66,7 +66,7 @@ class Menu_Manager {
         
         // Add pending request count to menu
         if($pending_request_count > 0){
-            $menu[56][0] = 'Whols <span class="update-plugins whols_request_count"><span>'. $pending_request_count .'</span></span>';
+            $menu['58.5'][0] = 'Whols <span class="update-plugins whols_request_count"><span>'. $pending_request_count .'</span></span>';
         }
 
         // Dashboard
