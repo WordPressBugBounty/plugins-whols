@@ -46,7 +46,7 @@ class Email_Notifications {
             // send the mail
             $to = get_option('admin_email');
             if( $custom_emails ){
-                $to = implode(',', $custom_emails);
+                $to = explode(',', $custom_emails);
             }
             
             $headers[] = 'Content-Type: text/html; charset=UTF-8';
@@ -199,9 +199,9 @@ class Email_Notifications {
 
     public function replace_placeholders($content, $posted_data) {
         $placeholders = [
-            '{name}' => $posted_data['name'],
-            '{email}' => $posted_data['email'],
-            '{message}' => $posted_data['message'],
+            '{name}' => $posted_data['name'] ?? '',
+            '{email}' => $posted_data['email'] ?? '',
+            '{message}' => $posted_data['message'] ?? '', // For Raq
             '{date}' => date_i18n( get_option( 'date_format' ) ),
             '{time}' => date_i18n( get_option( 'time_format' ) ),
             '{subject}' => !empty($posted_data['subject']) ? $posted_data['subject'] : '', // For conversation
