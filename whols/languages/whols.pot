@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: Whols - Wholesale Prices and B2B Store Solution for "
 "WooCommerce\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-03-03 05:33+0000\n"
+"POT-Creation-Date: 2025-06-24 11:45+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Loco https://localise.biz/\n"
-"X-Loco-Version: 2.7.1; wp-6.7.2\n"
+"X-Loco-Version: 2.8.0; wp-6.8.1; php-8.0.30\n"
 "X-Domain: whols"
 
 #: includes/Email_Notifications.php:124
@@ -57,7 +57,7 @@ msgstr ""
 
 #. 1: Whols.
 #. 2: WooCommerce.
-#: whols.php:302
+#: whols.php:326
 #, php-format
 msgid ""
 "%1$s plugin requires the %2$s plugin to be installed and activated in order "
@@ -68,6 +68,13 @@ msgstr ""
 #, php-format
 msgid "%1$s Rejected %2$s"
 msgstr ""
+
+#. %d: number of items
+#: includes/save-order-list/templates/my-account/whols-saved-lists.php:47
+msgid "%d item"
+msgid_plural "%d items"
+msgstr[0] ""
+msgstr[1] ""
 
 #: includes/vue-settings/schema-parts/general.php:108
 #: includes/vue-settings/schema-parts/general.php:144
@@ -88,7 +95,7 @@ msgstr ""
 msgid "---Search a page---"
 msgstr ""
 
-#: includes/vue-settings/schema-parts/dynamic-rules.php:78
+#: includes/vue-settings/schema-parts/dynamic-rules.php:84
 msgid "50"
 msgstr ""
 
@@ -145,6 +152,11 @@ msgstr ""
 msgid "Account Rejection"
 msgstr ""
 
+#: includes/save-order-list/templates/my-account/whols-saved-lists.php:26
+#: includes/save-order-list/templates/my-account/whols-saved-lists.php:77
+msgid "Actions"
+msgstr ""
+
 #: includes/Admin/recommended-plugins/class.recommended-plugins.php:241
 msgid "Activate"
 msgstr ""
@@ -160,14 +172,22 @@ msgstr ""
 msgid "Activating.."
 msgstr ""
 
-#: includes/vue-settings/schema-parts/dynamic-rules.php:49
+#: includes/save-order-list/class-save-order-list.php:125
+msgid "Add a note (optional)"
+msgstr ""
+
+#: includes/vue-settings/schema-parts/dynamic-rules.php:53
 msgid "Add internal notes about this rule (only visible to administrators)"
+msgstr ""
+
+#: includes/save-order-list/class-save-order-list.php:167
+msgid "Add List to Cart"
 msgstr ""
 
 #: includes/Admin/Custom_Posts.php:44
 #: includes/vue-settings/schema-parts/wholesale-only-categories.php:5
 #: includes/vue-settings/schema-parts/wholesale-only-categories.php:64
-#: includes/vue-settings/schema-parts/dynamic-rules.php:16
+#: includes/vue-settings/schema-parts/dynamic-rules.php:20
 #: includes/vue-settings/schema-parts/fields-manager.php:7
 msgid "Add New"
 msgstr ""
@@ -184,12 +204,16 @@ msgstr ""
 msgid "Add or remove roles"
 msgstr ""
 
-#: includes/vue-settings/schema-parts/dynamic-rules.php:27
+#: includes/vue-settings/schema-parts/dynamic-rules.php:31
 msgid "Add Rule"
 msgstr ""
 
-#: includes/vue-settings/schema-parts/dynamic-rules.php:58
-msgid "Additional Fee - Add extra charge to cart"
+#: includes/save-order-list/templates/my-account/whols-saved-lists.php:81
+msgid "Add to Cart"
+msgstr ""
+
+#: includes/vue-settings/schema-parts/dynamic-rules.php:62
+msgid "Additional Fee - Add Extra Charge to Cart"
 msgstr ""
 
 #: includes/vue-settings/schema-parts/fields-manager.php:9
@@ -221,11 +245,11 @@ msgstr ""
 msgid "All Logged in Users"
 msgstr ""
 
-#: includes/vue-settings/schema-parts/dynamic-rules.php:274
+#: includes/vue-settings/schema-parts/dynamic-rules.php:467
 msgid "All of the products of the given categories will be selected."
 msgstr ""
 
-#: includes/vue-settings/schema-parts/dynamic-rules.php:213
+#: includes/vue-settings/schema-parts/dynamic-rules.php:409
 msgid "All Products of given category"
 msgstr ""
 
@@ -233,7 +257,7 @@ msgstr ""
 msgid "All Roles"
 msgstr ""
 
-#: includes/vue-settings/schema-parts/dynamic-rules.php:26
+#: includes/vue-settings/schema-parts/dynamic-rules.php:30
 msgid "All Rules"
 msgstr ""
 
@@ -242,24 +266,28 @@ msgstr ""
 msgid "Allow Free Shipping"
 msgstr ""
 
+#: includes/vue-settings/schema-parts/dynamic-rules.php:99
+msgid "Allow Selected Methods - Disable all others"
+msgstr ""
+
 #: includes/vue-settings/schema-parts/fields-manager.php:125
 msgid "Allowed File Types"
 msgstr ""
 
-#: includes/vue-settings/schema-parts/dynamic-rules.php:77
+#: includes/vue-settings/schema-parts/dynamic-rules.php:83
 msgid "Amount"
 msgstr ""
 
-#: includes/vue-settings/schema-parts/dynamic-rules.php:66
+#: includes/vue-settings/schema-parts/dynamic-rules.php:72
 msgid "Amount Type"
 msgstr ""
 
-#: includes/vue-settings/schema-parts/dynamic-rules.php:298
+#: includes/vue-settings/schema-parts/dynamic-rules.php:490
 msgid "Any Customers"
 msgstr ""
 
-#: includes/vue-settings/schema-parts/dynamic-rules.php:91
-#: includes/vue-settings/schema-parts/dynamic-rules.php:211
+#: includes/vue-settings/schema-parts/dynamic-rules.php:293
+#: includes/vue-settings/schema-parts/dynamic-rules.php:407
 msgid "Any Products"
 msgstr ""
 
@@ -275,6 +303,10 @@ msgstr ""
 msgid "Approve / Reject"
 msgstr ""
 
+#: includes/save-order-list/class-save-order-list.php:94
+msgid "Are you sure you want to delete this list?"
+msgstr ""
+
 #: includes/Admin/Wholesaler_Request_Metabox.php:99
 msgid "Assign A Role"
 msgstr ""
@@ -283,7 +315,7 @@ msgstr ""
 msgid "Assign Role(s)"
 msgstr ""
 
-#: includes/Admin/Diagnostic_Data.php:490
+#: includes/Admin/Diagnostic_Data.php:554
 #, php-format
 msgid ""
 "At %2$s%1$s%3$s, we prioritize continuous improvement and compatibility. To "
@@ -297,7 +329,7 @@ msgid ""
 "guaranteed. %4$sPrivacy Policy%5$s"
 msgstr ""
 
-#: includes/vue-settings/schema-parts/dynamic-rules.php:371
+#: includes/vue-settings/schema-parts/dynamic-rules.php:561
 msgid "At least"
 msgstr ""
 
@@ -322,7 +354,7 @@ msgid ""
 "Automatically notify customers when their wholesale application is approved."
 msgstr ""
 
-#: includes/vue-settings/schema-parts/dynamic-rules.php:300
+#: includes/vue-settings/schema-parts/dynamic-rules.php:492
 msgid "B2B customers only"
 msgstr ""
 
@@ -363,12 +395,16 @@ msgstr ""
 msgid "Billing State"
 msgstr ""
 
-#: includes/vue-settings/schema-parts/dynamic-rules.php:59
-msgid "BOGO Offer - Create Buy One Get One offer"
+#: includes/vue-settings/schema-parts/dynamic-rules.php:63
+msgid "BOGO Offer - Create Buy one Get one Offer"
 msgstr ""
 
 #: includes/vue-settings/schema-parts/dynamic-rules.php:7
 msgid "BOGO Settings"
+msgstr ""
+
+#: includes/vue-settings/menu.php:48
+msgid "Bulk Order Form"
 msgstr ""
 
 #: includes/Admin/recommended-plugins/class.recommended-plugins.php:120
@@ -378,7 +414,7 @@ msgstr ""
 msgid "Buy Now"
 msgstr ""
 
-#: includes/vue-settings/schema-parts/dynamic-rules.php:88
+#: includes/vue-settings/schema-parts/dynamic-rules.php:290
 msgid "Buy Products"
 msgstr ""
 
@@ -386,29 +422,31 @@ msgstr ""
 msgid "By "
 msgstr ""
 
+#: includes/save-order-list/class-save-order-list.php:127
 #: includes/vue-settings/schema-parts/wholesale-only-categories.php:9
-#: includes/vue-settings/schema-parts/dynamic-rules.php:19
+#: includes/vue-settings/schema-parts/dynamic-rules.php:23
 #: includes/vue-settings/schema-parts/fields-manager.php:11
 msgid "Cancel"
 msgstr ""
 
-#: includes/vue-settings/schema-parts/dynamic-rules.php:361
+#: includes/vue-settings/schema-parts/dynamic-rules.php:551
 msgid "Cart - item count"
 msgstr ""
 
-#: includes/vue-settings/schema-parts/dynamic-rules.php:359
+#: includes/vue-settings/schema-parts/dynamic-rules.php:549
 msgid "Cart - subtotal"
 msgstr ""
 
-#: includes/vue-settings/schema-parts/dynamic-rules.php:360
+#: includes/vue-settings/schema-parts/dynamic-rules.php:550
 msgid "Cart - total quantity"
 msgstr ""
 
-#: includes/vue-settings/schema-parts/dynamic-rules.php:57
-msgid "Cart Discount - Apply discount to entire cart"
+#: includes/vue-settings/schema-parts/dynamic-rules.php:61
+msgid "Cart Discount - Apply Discount to Entire Cart"
 msgstr ""
 
 #: includes/functions.php:65
+#: includes/vue-settings/schema-parts/dynamic-rules.php:120
 msgid "Cash on Delivery"
 msgstr ""
 
@@ -416,11 +454,15 @@ msgstr ""
 msgid "Category(s)"
 msgstr ""
 
+#: includes/vue-settings/schema-parts/dynamic-rules.php:119
+msgid "Check Payments"
+msgstr ""
+
 #: includes/vue-settings/schema-parts/fields-manager.php:71
 msgid "Checkbox"
 msgstr ""
 
-#: includes/vue-settings/schema-parts/dynamic-rules.php:362
+#: includes/vue-settings/schema-parts/dynamic-rules.php:552
 msgid "Checkout - shipping country"
 msgstr ""
 
@@ -428,15 +470,15 @@ msgstr ""
 msgid "Cheque Payment"
 msgstr ""
 
-#: includes/vue-settings/schema-parts/dynamic-rules.php:55
+#: includes/vue-settings/schema-parts/dynamic-rules.php:59
 msgid "Choose Action"
 msgstr ""
 
-#: includes/functions.php:647
+#: includes/functions.php:652
 msgid "Choose an option"
 msgstr ""
 
-#: includes/vue-settings/schema-parts/dynamic-rules.php:296
+#: includes/vue-settings/schema-parts/dynamic-rules.php:488
 msgid "Choose Condition"
 msgstr ""
 
@@ -459,11 +501,15 @@ msgid ""
 "percentage of retail price"
 msgstr ""
 
-#: includes/vue-settings/schema-parts/dynamic-rules.php:67
+#: includes/vue-settings/schema-parts/dynamic-rules.php:97
+msgid "Choose how to control payment methods"
+msgstr ""
+
+#: includes/vue-settings/schema-parts/dynamic-rules.php:73
 msgid "Choose how you want to apply the amount"
 msgstr ""
 
-#: includes/vue-settings/schema-parts/dynamic-rules.php:208
+#: includes/vue-settings/schema-parts/dynamic-rules.php:404
 msgid "Choose Products"
 msgstr ""
 
@@ -488,18 +534,18 @@ msgstr ""
 msgid "Color"
 msgstr ""
 
-#: includes/vue-settings/schema-parts/dynamic-rules.php:8
+#: includes/vue-settings/schema-parts/dynamic-rules.php:12
 msgid "Common Conditions"
 msgstr ""
 
-#: includes/vue-settings/schema-parts/dynamic-rules.php:107
-#: includes/vue-settings/schema-parts/dynamic-rules.php:228
-#: includes/vue-settings/schema-parts/dynamic-rules.php:369
-#: includes/vue-settings/schema-parts/dynamic-rules.php:388
+#: includes/vue-settings/schema-parts/dynamic-rules.php:308
+#: includes/vue-settings/schema-parts/dynamic-rules.php:423
+#: includes/vue-settings/schema-parts/dynamic-rules.php:559
+#: includes/vue-settings/schema-parts/dynamic-rules.php:578
 msgid "Compare Operator"
 msgstr ""
 
-#: includes/vue-settings/schema-parts/dynamic-rules.php:357
+#: includes/vue-settings/schema-parts/dynamic-rules.php:547
 msgid "Condition Name"
 msgstr ""
 
@@ -523,6 +569,10 @@ msgid ""
 "Control coupon usage for wholesalers:<br>• ON: Prevent wholesalers from "
 "using any coupons<br>• OFF: Allow normal coupon usage<br>• Can be configured "
 "per wholesale role"
+msgstr ""
+
+#: includes/vue-settings/schema-parts/dynamic-rules.php:96
+msgid "Control Criteria"
 msgstr ""
 
 #: includes/vue-settings/schema-parts/general.php:258
@@ -587,19 +637,19 @@ msgstr ""
 msgid "Count"
 msgstr ""
 
-#: includes/Admin/Diagnostic_Data.php:494
+#: includes/Admin/Diagnostic_Data.php:558
 msgid "Count Me In"
 msgstr ""
 
-#: includes/vue-settings/schema-parts/dynamic-rules.php:424
+#: includes/vue-settings/schema-parts/dynamic-rules.php:614
 msgid "Country"
 msgstr ""
 
-#: includes/vue-settings/schema-parts/request-a-quote.php:31
+#: includes/vue-settings/schema-parts/request-a-quote.php:24
 msgid "Create Conversation When Request a Quote"
 msgstr ""
 
-#: includes/vue-settings/schema-parts/dynamic-rules.php:13
+#: includes/vue-settings/schema-parts/dynamic-rules.php:17
 msgid ""
 "Create powerful pricing rules including discounts, fees, and buy-one-get-one "
 "offers. Rules can be triggered by cart total, product quantities, specific "
@@ -610,7 +660,7 @@ msgstr ""
 msgid "Custom Field"
 msgstr ""
 
-#: includes/vue-settings/menu.php:51
+#: includes/vue-settings/menu.php:57
 #: includes/vue-settings/schema-parts/custom-thank-you-message.php:3
 msgid "Custom Thank You Message"
 msgstr ""
@@ -625,6 +675,10 @@ msgstr ""
 
 #: includes/Admin/csf-settings/email-notifications.php:80
 msgid "Customer Email Subject"
+msgstr ""
+
+#: includes/vue-settings/schema-parts/dynamic-rules.php:9
+msgid "Customer History Conditions"
 msgstr ""
 
 #: includes/Admin/csf-settings/email-notifications.php:64
@@ -651,17 +705,42 @@ msgid ""
 "Shows on both product lists and detail pages"
 msgstr ""
 
+#: includes/vue-settings/schema-parts/save-order-list.php:20
+msgid "Customize the text displayed on the save list button."
+msgstr ""
+
 #: includes/vue-settings/schema-parts/general.php:237
 msgid ""
 "Customize the wholesale price label:<br>• Displays before the wholesale "
 "price<br>• Shows on both product lists and detail pages"
 msgstr ""
 
+#: includes/Admin/class-menu-manager.php:73
+msgid "Dashboard"
+msgstr ""
+
+#: includes/save-order-list/templates/my-account/whols-saved-lists.php:25
+#: includes/save-order-list/templates/my-account/whols-saved-lists.php:70
+msgid "Date"
+msgstr ""
+
+#: includes/vue-settings/schema-parts/dynamic-rules.php:146
+msgid "Date Range"
+msgstr ""
+
+#: includes/vue-settings/schema-parts/dynamic-rules.php:161
+msgid "Days of Week"
+msgstr ""
+
+#: includes/vue-settings/schema-parts/dynamic-rules.php:271
+msgid "Days Since Last Order"
+msgstr ""
+
 #: includes/vue-settings/schema-parts/general.php:66
 msgid "Default Price Tier Selection"
 msgstr ""
 
-#: whols.php:320
+#: whols.php:344
 msgid "Default Role"
 msgstr ""
 
@@ -669,7 +748,7 @@ msgstr ""
 msgid "Default Value"
 msgstr ""
 
-#: whols.php:323
+#: whols.php:347
 msgid "Default Wholesale Role"
 msgstr ""
 
@@ -711,16 +790,23 @@ msgid "Define who can access the shop."
 msgstr ""
 
 #: includes/vue-settings/schema-parts/fields-manager.php:6
+#: includes/save-order-list/templates/my-account/whols-saved-lists.php:88
 msgid "Delete"
 msgstr ""
 
 #: includes/vue-settings/schema-parts/fields-manager.php:171
+#: includes/save-order-list/templates/my-account/whols-saved-lists.php:23
+#: includes/save-order-list/templates/my-account/whols-saved-lists.php:39
 msgid "Description"
 msgstr ""
 
-#: includes/vue-settings/menu.php:59
+#: includes/vue-settings/menu.php:65
 #: includes/vue-settings/schema-parts/design.php:3
 msgid "Design"
+msgstr ""
+
+#: includes/vue-settings/schema-parts/dynamic-rules.php:118
+msgid "Direct Bank Transfer"
 msgstr ""
 
 #: includes/Admin/Role_Cat_Metabox.php:44
@@ -740,6 +826,10 @@ msgstr ""
 msgid "Disable Recaptcha Badge"
 msgstr ""
 
+#: includes/vue-settings/schema-parts/dynamic-rules.php:100
+msgid "Disallow Selected Methods - Allow all others"
+msgstr ""
+
 #: includes/vue-settings/schema-parts/general.php:27
 #: includes/vue-settings/schema-parts/general.php:253
 msgid "Discount Label"
@@ -753,11 +843,11 @@ msgstr ""
 msgid "Discount Settings"
 msgstr ""
 
-#: includes/vue-settings/schema-parts/dynamic-rules.php:185
+#: includes/vue-settings/schema-parts/dynamic-rules.php:382
 msgid "Discounted / Free products"
 msgstr ""
 
-#: includes/vue-settings/schema-parts/dynamic-rules.php:184
+#: includes/vue-settings/schema-parts/dynamic-rules.php:381
 msgid "Discounted Product"
 msgstr ""
 
@@ -787,11 +877,11 @@ msgstr ""
 msgid "Edit Role"
 msgstr ""
 
-#: includes/vue-settings/schema-parts/dynamic-rules.php:17
+#: includes/vue-settings/schema-parts/dynamic-rules.php:21
 msgid "Edit Rule"
 msgstr ""
 
-#: includes/functions.php:468
+#: includes/functions.php:473 includes/Admin/defaults.php:28
 #: includes/Admin/csf-fields/CSF_Field_registration_details.php:43
 #: includes/vue-settings/schema-parts/wallet.php:41
 #: includes/vue-settings/schema-parts/fields-manager.php:43
@@ -820,7 +910,7 @@ msgstr ""
 msgid "Email is not valid"
 msgstr ""
 
-#: includes/vue-settings/menu.php:48
+#: includes/vue-settings/menu.php:54
 #: includes/vue-settings/schema-parts/email-notifications.php:3
 msgid "Email Notifications"
 msgstr ""
@@ -845,7 +935,10 @@ msgstr ""
 #: includes/vue-settings/schema-parts/wallet.php:9
 #: includes/vue-settings/schema-parts/wholesale-only-categories.php:18
 #: includes/vue-settings/schema-parts/request-a-quote.php:9
-#: includes/vue-settings/schema-parts/dynamic-rules.php:34
+#: includes/vue-settings/schema-parts/dynamic-rules.php:38
+#: includes/vue-settings/schema-parts/dynamic-rules.php:139
+#: includes/vue-settings/schema-parts/dynamic-rules.php:230
+#: includes/vue-settings/schema-parts/save-order-list.php:9
 #: includes/vue-settings/schema-parts/conversation.php:9
 #: includes/vue-settings/schema-parts/fields-manager.php:52
 #: includes/vue-settings/schema-parts/email-notifications.php:20
@@ -868,8 +961,19 @@ msgstr ""
 msgid "Enable Google reCAPTCHA (V3)"
 msgstr ""
 
+#: includes/vue-settings/schema-parts/save-order-list.php:12
+msgid ""
+"Enable this feature to allow wholesale customers to save their cart items as "
+"reusable lists. <br> They can manage multiple lists and quickly reorder "
+"items."
+msgstr ""
+
 #: includes/Admin/Product_Category_Metabox.php:45
 msgid "Enable This Pricing"
+msgstr ""
+
+#: includes/vue-settings/schema-parts/dynamic-rules.php:184
+msgid "Enable Time of Day"
 msgstr ""
 
 #: includes/vue-settings/schema-parts/wallet.php:11
@@ -886,7 +990,7 @@ msgid ""
 "the my account page."
 msgstr ""
 
-#: includes/vue-settings/schema-parts/request-a-quote.php:33
+#: includes/vue-settings/schema-parts/request-a-quote.php:26
 msgid ""
 "Enable to create a new conversation when a request a quote is submitted. <br>"
 " Conversation feature should be enabled to use this option."
@@ -904,7 +1008,15 @@ msgstr ""
 msgid "Enable Website Restriction Type"
 msgstr ""
 
-#: includes/vue-settings/schema-parts/dynamic-rules.php:42
+#: includes/vue-settings/class-settings-rest-api.php:173
+msgid "End date for filtering orders (YYYY-MM-DD format)"
+msgstr ""
+
+#: includes/vue-settings/schema-parts/dynamic-rules.php:213
+msgid "End Time"
+msgstr ""
+
+#: includes/vue-settings/schema-parts/dynamic-rules.php:46
 msgid "Enter a name to help you identify this rule in your admin panel"
 msgstr ""
 
@@ -922,7 +1034,32 @@ msgid ""
 "will be used."
 msgstr ""
 
-#: includes/vue-settings/class-settings-page.php:137
+#: includes/save-order-list/class-save-order-list.php:124
+msgid "Enter list name"
+msgstr ""
+
+#: includes/vue-settings/schema-parts/dynamic-rules.php:199
+#: includes/vue-settings/schema-parts/dynamic-rules.php:214
+msgid "Enter time in 24-hour format (HH:MM)"
+msgstr ""
+
+#: includes/Admin/defaults.php:29
+msgid "Enter your email"
+msgstr ""
+
+#: includes/Admin/defaults.php:59
+msgid "Enter your message"
+msgstr ""
+
+#: includes/Admin/defaults.php:19
+msgid "Enter your name"
+msgstr ""
+
+#: includes/Admin/defaults.php:42
+msgid "Enter your subject"
+msgstr ""
+
+#: includes/vue-settings/class-settings-page.php:162
 msgid "Error"
 msgstr ""
 
@@ -935,7 +1072,7 @@ msgstr ""
 msgid "Everyone"
 msgstr ""
 
-#: includes/vue-settings/schema-parts/dynamic-rules.php:373
+#: includes/vue-settings/schema-parts/dynamic-rules.php:563
 msgid "Exactly equals"
 msgstr ""
 
@@ -992,7 +1129,7 @@ msgstr ""
 msgid "Filter requests list"
 msgstr ""
 
-#: includes/vue-settings/schema-parts/dynamic-rules.php:70
+#: includes/vue-settings/schema-parts/dynamic-rules.php:76
 msgid "Fixed"
 msgstr ""
 
@@ -1026,7 +1163,7 @@ msgstr ""
 msgid "For Auto Approval"
 msgstr ""
 
-#: includes/vue-settings/schema-parts/dynamic-rules.php:79
+#: includes/vue-settings/schema-parts/dynamic-rules.php:85
 msgid ""
 "For Cart Discount: Amount to reduce from cart total <br>For Additional Fee: "
 "Amount to add to cart total <br>For BOGO: Discount on Get/Discounted product"
@@ -1057,8 +1194,16 @@ msgstr ""
 msgid "Force Applying Minimum Quantity"
 msgstr ""
 
+#: includes/vue-settings/class-settings-rest-api.php:181
+msgid "Force refresh data by clearing transient cache"
+msgstr ""
+
 #: includes/vue-settings/schema-parts/registration.php:11
 msgid "Form Settings"
+msgstr ""
+
+#: includes/vue-settings/schema-parts/dynamic-rules.php:64
+msgid "Free Shipping - Remove Shipping Costs"
 msgstr ""
 
 #: includes/Admin/Role_Cat_Metabox.php:69
@@ -1067,7 +1212,11 @@ msgid ""
 "shipping into the \"WooCommerce > Settings > Shipping Zones\""
 msgstr ""
 
-#: includes/vue-settings/class-settings-page.php:135
+#: includes/vue-settings/schema-parts/dynamic-rules.php:168
+msgid "Friday"
+msgstr ""
+
+#: includes/vue-settings/class-settings-page.php:160
 #: includes/vue-settings/menu.php:4
 #: includes/vue-settings/schema-parts/general.php:3
 #: includes/vue-settings/schema-parts/registration.php:7
@@ -1211,7 +1360,7 @@ msgstr ""
 msgid "Hide Wholesaler Price"
 msgstr ""
 
-#: includes/vue-settings/schema-parts/dynamic-rules.php:145
+#: includes/vue-settings/schema-parts/dynamic-rules.php:344
 msgid "How many items customer must buy to qualify for the BOGO offer"
 msgstr ""
 
@@ -1306,6 +1455,11 @@ msgid ""
 "It will be used to save the field value in the database. It must be unique."
 msgstr ""
 
+#: includes/save-order-list/templates/my-account/whols-saved-lists.php:24
+#: includes/save-order-list/templates/my-account/whols-saved-lists.php:43
+msgid "Items"
+msgstr ""
+
 #: includes/Admin/recommended-plugins/recommendations.php:62
 msgid "JustTables"
 msgstr ""
@@ -1324,7 +1478,7 @@ msgstr ""
 msgid "JustTables Pro"
 msgstr ""
 
-#: includes/vue-settings/schema-parts/dynamic-rules.php:41
+#: includes/vue-settings/schema-parts/dynamic-rules.php:45
 #: includes/vue-settings/schema-parts/fields-manager.php:104
 msgid "Label"
 msgstr ""
@@ -1345,7 +1499,7 @@ msgstr ""
 msgid "Leave it empty, to assign all roles."
 msgstr ""
 
-#: includes/vue-settings/schema-parts/dynamic-rules.php:372
+#: includes/vue-settings/schema-parts/dynamic-rules.php:562
 msgid "Less than"
 msgstr ""
 
@@ -1359,7 +1513,25 @@ msgstr ""
 msgid "Line Height"
 msgstr ""
 
-#: includes/vue-settings/class-settings-page.php:136
+#: includes/save-order-list/class-save-order-list.php:96
+msgid "List added to cart!"
+msgstr ""
+
+#: includes/save-order-list/class-save-order-list.php:95
+msgid "List deleted successfully!"
+msgstr ""
+
+#: includes/save-order-list/templates/my-account/whols-saved-lists.php:22
+#: includes/save-order-list/templates/my-account/whols-saved-lists.php:35
+msgid "List Name"
+msgstr ""
+
+#: includes/save-order-list/class-save-order-list.php:93
+#: includes/save-order-list/class-save-order-list.php:223
+msgid "List saved successfully!"
+msgstr ""
+
+#: includes/vue-settings/class-settings-page.php:161
 msgid "Loading..."
 msgstr ""
 
@@ -1397,18 +1569,18 @@ msgid ""
 "formatting"
 msgstr ""
 
-#: includes/vue-settings/schema-parts/dynamic-rules.php:232
+#: includes/vue-settings/schema-parts/dynamic-rules.php:427
 msgid "Matches all of selected"
 msgstr ""
 
-#: includes/vue-settings/schema-parts/dynamic-rules.php:109
-#: includes/vue-settings/schema-parts/dynamic-rules.php:231
-#: includes/vue-settings/schema-parts/dynamic-rules.php:390
+#: includes/vue-settings/schema-parts/dynamic-rules.php:310
+#: includes/vue-settings/schema-parts/dynamic-rules.php:426
+#: includes/vue-settings/schema-parts/dynamic-rules.php:580
 msgid "Matches any of selected"
 msgstr ""
 
-#: includes/vue-settings/schema-parts/dynamic-rules.php:233
-#: includes/vue-settings/schema-parts/dynamic-rules.php:391
+#: includes/vue-settings/schema-parts/dynamic-rules.php:428
+#: includes/vue-settings/schema-parts/dynamic-rules.php:581
 msgid "Matches none of selected"
 msgstr ""
 
@@ -1426,6 +1598,15 @@ msgstr ""
 msgid "Maximum File Size"
 msgstr ""
 
+#: includes/save-order-list/class-save-order-list.php:197
+msgid "Maximum list limit reached."
+msgstr ""
+
+#: includes/vue-settings/schema-parts/save-order-list.php:27
+msgid "Maximum Lists Per User"
+msgstr ""
+
+#: includes/Admin/defaults.php:58
 #: includes/vue-settings/schema-parts/email-notifications.php:43
 #: includes/vue-settings/schema-parts/email-notifications.php:86
 #: includes/vue-settings/schema-parts/email-notifications.php:115
@@ -1435,11 +1616,11 @@ msgstr ""
 msgid "Message"
 msgstr ""
 
-#: includes/vue-settings/menu.php:45
+#: includes/vue-settings/menu.php:51
 msgid "Message & Email Notifications"
 msgstr ""
 
-#: includes/vue-settings/schema-parts/dynamic-rules.php:144
+#: includes/vue-settings/schema-parts/dynamic-rules.php:343
 msgid "Min Quantity to Buy"
 msgstr ""
 
@@ -1458,6 +1639,10 @@ msgid ""
 "limit."
 msgstr ""
 
+#: includes/vue-settings/schema-parts/dynamic-rules.php:237
+msgid "Minimum Order Count"
+msgstr ""
+
 #: includes/Frontend/Woo_Config.php:301
 #: includes/Admin/Product_Category_Metabox.php:76
 #: includes/vue-settings/schema-parts/general.php:133
@@ -1472,6 +1657,14 @@ msgstr ""
 
 #: includes/vue-settings/schema-parts/general.php:282
 msgid "Minimum Quantity Notice Custom Text"
+msgstr ""
+
+#: includes/vue-settings/schema-parts/dynamic-rules.php:254
+msgid "Minimum Total Spent"
+msgstr ""
+
+#: includes/vue-settings/schema-parts/dynamic-rules.php:164
+msgid "Monday"
 msgstr ""
 
 #: includes/Admin/recommended-plugins/class.recommended-plugins.php:291
@@ -1501,7 +1694,8 @@ msgstr ""
 msgid "Multiple Role Based"
 msgstr ""
 
-#: includes/functions.php:452 includes/functions.php:455
+#: includes/functions.php:457 includes/functions.php:460
+#: includes/Admin/defaults.php:18
 #: includes/Admin/csf-fields/CSF_Field_registration_details.php:35
 #: includes/vue-settings/schema-parts/fields-manager.php:41
 #: includes/vue-settings/schema-parts/fields-manager.php:207
@@ -1528,10 +1722,11 @@ msgstr ""
 #: includes/Admin/Role_Cat_Metabox.php:49
 #: includes/Admin/Product_Category_Metabox.php:47
 #: includes/vue-settings/schema-parts/wholesale-only-categories.php:21
+#: includes/vue-settings/schema-parts/save-order-list.php:11
 msgid "No"
 msgstr ""
 
-#: includes/vue-settings/schema-parts/dynamic-rules.php:15
+#: includes/vue-settings/schema-parts/dynamic-rules.php:19
 msgid "No additional conditions added yet"
 msgstr ""
 
@@ -1543,13 +1738,21 @@ msgstr ""
 msgid "No category rules added yet."
 msgstr ""
 
-#: includes/vue-settings/schema-parts/dynamic-rules.php:14
+#: includes/save-order-list/templates/my-account/whols-saved-lists.php:40
+msgid "No description"
+msgstr ""
+
+#: includes/vue-settings/schema-parts/dynamic-rules.php:18
 msgid "No dynamic rules added yet"
 msgstr ""
 
 #: includes/vue-settings/schema-parts/wallet.php:19
 #: includes/vue-settings/schema-parts/wallet.php:29
 msgid "No Limit"
+msgstr ""
+
+#: includes/save-order-list/class-save-order-list.php:97
+msgid "No lists found"
 msgstr ""
 
 #: includes/ajax-actions.php:27
@@ -1568,15 +1771,15 @@ msgstr ""
 msgid "No rules added yet."
 msgstr ""
 
-#: includes/Admin/Diagnostic_Data.php:497
+#: includes/Admin/Diagnostic_Data.php:561
 msgid "No, Thanks"
 msgstr ""
 
-#: includes/Admin/Diagnostic_Data.php:168
+#: includes/Admin/Diagnostic_Data.php:184
 msgid "Nonce Varification fail"
 msgstr ""
 
-#: includes/vue-settings/class-settings-rest-api.php:146
+#: includes/vue-settings/class-settings-rest-api.php:211
 msgid "Nonce verification failed."
 msgstr ""
 
@@ -1604,7 +1807,7 @@ msgstr ""
 msgid "Notify Admin of Quote Requests"
 msgstr ""
 
-#: includes/vue-settings/schema-parts/dynamic-rules.php:164
+#: includes/vue-settings/schema-parts/dynamic-rules.php:362
 msgid ""
 "Number of items customer will receive at the discounted price or free. <br> "
 "<i>This value will be customizable in future updates.</i>"
@@ -1628,15 +1831,27 @@ msgid ""
 "again or refresh the page, and if the issue persists, get in touch with us!"
 msgstr ""
 
+#: includes/popup/class-whols-popup.php:208
+msgid "Open"
+msgstr ""
+
 #: includes/vue-settings/schema-parts/general.php:84
 msgid "Open Purchase - Everyone Can Buy"
 msgstr ""
 
-#: includes/functions.php:566
+#: includes/vue-settings/class-settings-rest-api.php:59
+msgid "Option name"
+msgstr ""
+
+#: includes/vue-settings/class-settings-rest-api.php:67
+msgid "Option value"
+msgstr ""
+
+#: includes/functions.php:571
 msgid "optional"
 msgstr ""
 
-#: includes/vue-settings/menu.php:56
+#: includes/vue-settings/menu.php:62
 msgid "Other Settings"
 msgstr ""
 
@@ -1649,7 +1864,7 @@ msgstr ""
 msgid "OTP Verification Method"
 msgstr ""
 
-#: includes/vue-settings/class-settings-page.php:127
+#: includes/vue-settings/class-settings-page.php:148
 msgid ""
 "Our free version is great, but it doesn't have all our advanced features. "
 "The best way to unlock all of the features in our plugin is by purchasing "
@@ -1668,7 +1883,7 @@ msgstr ""
 msgid "Parent Role:"
 msgstr ""
 
-#: includes/functions.php:476
+#: includes/functions.php:481
 #: includes/vue-settings/schema-parts/fields-manager.php:44
 #: includes/vue-settings/schema-parts/fields-manager.php:228
 msgid "Password"
@@ -1678,7 +1893,20 @@ msgstr ""
 msgid "Password length must be greater than 5"
 msgstr ""
 
+#: includes/vue-settings/schema-parts/dynamic-rules.php:65
+msgid "Payment Control - Control Available Payment Methods"
+msgstr ""
+
+#: includes/vue-settings/schema-parts/dynamic-rules.php:114
+msgid "Payment Methods"
+msgstr ""
+
+#: includes/vue-settings/schema-parts/dynamic-rules.php:10
+msgid "Payment Methods Control Settings"
+msgstr ""
+
 #: includes/functions.php:67
+#: includes/vue-settings/schema-parts/dynamic-rules.php:121
 msgid "PayPal"
 msgstr ""
 
@@ -1686,7 +1914,7 @@ msgstr ""
 msgid "Percent"
 msgstr ""
 
-#: includes/vue-settings/schema-parts/dynamic-rules.php:69
+#: includes/vue-settings/schema-parts/dynamic-rules.php:75
 #: includes/vue-settings/schema-parts/general.php:121
 #: includes/vue-settings/schema-parts/general.php:161
 msgid "Percentage"
@@ -1700,8 +1928,16 @@ msgstr ""
 msgid "Placement"
 msgstr ""
 
+#: includes/save-order-list/class-save-order-list.php:184
+msgid "Please enter a list name."
+msgstr ""
+
 #: includes/request-a-quote/class-request-quote.php:111
 msgid "Please fill it up."
+msgstr ""
+
+#: includes/save-order-list/class-save-order-list.php:178
+msgid "Please login to save lists."
 msgstr ""
 
 #: includes/Frontend/Wholesaler_Login_Register.php:95
@@ -1786,7 +2022,7 @@ msgstr ""
 msgid "Private Mode (Wholesalers Only)"
 msgstr ""
 
-#: includes/vue-settings/schema-parts/dynamic-rules.php:48
+#: includes/vue-settings/schema-parts/dynamic-rules.php:52
 msgid "Private Note"
 msgstr ""
 
@@ -1798,11 +2034,11 @@ msgstr ""
 msgid "Product"
 msgstr ""
 
-#: includes/vue-settings/schema-parts/dynamic-rules.php:9
+#: includes/vue-settings/schema-parts/dynamic-rules.php:13
 msgid "Product Conditions"
 msgstr ""
 
-#: includes/vue-settings/schema-parts/dynamic-rules.php:229
+#: includes/vue-settings/schema-parts/dynamic-rules.php:424
 msgid "Product matching criterias"
 msgstr ""
 
@@ -1813,6 +2049,10 @@ msgstr ""
 #: includes/Admin/Product_Metabox.php:65 includes/vue-settings/menu.php:22
 #: includes/vue-settings/schema-parts/product-visibility.php:3
 msgid "Product Visibility"
+msgstr ""
+
+#: includes/Admin/defaults.php:51
+msgid "Products"
 msgstr ""
 
 #: includes/vue-settings/schema-parts/general.php:56
@@ -1827,7 +2067,7 @@ msgstr ""
 msgid "Quantity"
 msgstr ""
 
-#: includes/vue-settings/schema-parts/dynamic-rules.php:163
+#: includes/vue-settings/schema-parts/dynamic-rules.php:361
 msgid "Quantity will Get"
 msgstr ""
 
@@ -1889,7 +2129,7 @@ msgstr ""
 msgid "Register As Wholesaler"
 msgstr ""
 
-#: includes/vue-settings/schema-parts/dynamic-rules.php:299
+#: includes/vue-settings/schema-parts/dynamic-rules.php:491
 msgid "Registered customers only"
 msgstr ""
 
@@ -1970,7 +2210,7 @@ msgstr ""
 msgid "Requests list navigation"
 msgstr ""
 
-#: includes/functions.php:564
+#: includes/functions.php:569
 msgid "required"
 msgstr ""
 
@@ -2013,6 +2253,8 @@ msgstr ""
 msgid "Retailer Price Label"
 msgstr ""
 
+#: includes/class-wholesale-product-pricing.php:1033
+#: includes/class-wholesale-product-pricing.php:1105
 #: includes/Frontend/Woo_Config.php:199
 #: includes/vue-settings/schema-parts/general.php:218
 msgid "Retailer Price:"
@@ -2032,7 +2274,7 @@ msgctxt "Role Singular Name"
 msgid "Role"
 msgstr ""
 
-#: includes/Manage_Order.php:63
+#: includes/Manage_Order.php:71
 msgid "Roles"
 msgstr ""
 
@@ -2044,6 +2286,24 @@ msgstr ""
 msgid "Roles list navigation"
 msgstr ""
 
+#: includes/vue-settings/schema-parts/dynamic-rules.php:238
+msgid "Rule applies only if customer has placed this many previous orders"
+msgstr ""
+
+#: includes/vue-settings/schema-parts/dynamic-rules.php:255
+msgid "Rule applies only if customer has spent at least this amount"
+msgstr ""
+
+#: includes/vue-settings/schema-parts/dynamic-rules.php:272
+msgid ""
+"Rule applies only if this many days have passed since customer's last order"
+msgstr ""
+
+#: includes/vue-settings/schema-parts/dynamic-rules.php:169
+msgid "Saturday"
+msgstr ""
+
+#: includes/save-order-list/class-save-order-list.php:126
 #: includes/vue-settings/schema-parts/fields-manager.php:12
 msgid "Save"
 msgstr ""
@@ -2064,20 +2324,39 @@ msgstr ""
 msgid "Save Amount - Price"
 msgstr ""
 
+#: includes/save-order-list/class-save-order-list.php:111
+#: includes/vue-settings/schema-parts/save-order-list.php:21
+msgid "Save as List"
+msgstr ""
+
 #: includes/vue-settings/schema-parts/wholesale-only-categories.php:10
-#: includes/vue-settings/schema-parts/dynamic-rules.php:18
+#: includes/vue-settings/schema-parts/dynamic-rules.php:22
 msgid "Save Changes"
 msgstr ""
 
+#: includes/vue-settings/schema-parts/save-order-list.php:19
+msgid "Save List Button Text"
+msgstr ""
+
+#: includes/vue-settings/menu.php:45
+#: includes/vue-settings/schema-parts/save-order-list.php:3
+msgid "Save Order List"
+msgstr ""
+
+#: includes/class-wholesale-product-pricing.php:865
 #: includes/vue-settings/schema-parts/general.php:274
 msgid "Save:"
 msgstr ""
 
-#: includes/functions.php:402
+#: includes/functions.php:407
 msgid "Save: "
 msgstr ""
 
-#: includes/vue-settings/schema-parts/dynamic-rules.php:186
+#: includes/save-order-list/class-save-order-list.php:150
+msgid "Saved Lists"
+msgstr ""
+
+#: includes/vue-settings/schema-parts/dynamic-rules.php:383
 msgid "Search a product"
 msgstr ""
 
@@ -2094,28 +2373,28 @@ msgstr ""
 msgid "Select"
 msgstr ""
 
-#: includes/vue-settings/schema-parts/dynamic-rules.php:273
+#: includes/vue-settings/schema-parts/dynamic-rules.php:466
 msgid "Select a category"
 msgstr ""
 
-#: includes/vue-settings/schema-parts/dynamic-rules.php:125
-#: includes/vue-settings/schema-parts/dynamic-rules.php:249
+#: includes/vue-settings/schema-parts/dynamic-rules.php:325
+#: includes/vue-settings/schema-parts/dynamic-rules.php:443
 msgid "Select a Product(s)"
 msgstr ""
 
-#: includes/vue-settings/schema-parts/dynamic-rules.php:310
+#: includes/vue-settings/schema-parts/dynamic-rules.php:502
 msgid "Select a Role(s)"
 msgstr ""
 
-#: includes/vue-settings/schema-parts/dynamic-rules.php:329
+#: includes/vue-settings/schema-parts/dynamic-rules.php:520
 msgid "Select a User(s)"
 msgstr ""
 
-#: includes/vue-settings/schema-parts/dynamic-rules.php:272
+#: includes/vue-settings/schema-parts/dynamic-rules.php:465
 msgid "Select category(s)"
 msgstr ""
 
-#: includes/vue-settings/schema-parts/dynamic-rules.php:425
+#: includes/vue-settings/schema-parts/dynamic-rules.php:615
 msgid "Select Country(s)"
 msgstr ""
 
@@ -2123,16 +2402,24 @@ msgstr ""
 msgid "Select Gateways"
 msgstr ""
 
+#: includes/vue-settings/schema-parts/dynamic-rules.php:116
+msgid "Select payment methods"
+msgstr ""
+
 #: includes/Admin/Role_Cat_Metabox.php:59
 msgid "Select payment methods to disable for this role"
 msgstr ""
 
-#: includes/vue-settings/schema-parts/dynamic-rules.php:124
-#: includes/vue-settings/schema-parts/dynamic-rules.php:248
+#: includes/vue-settings/schema-parts/dynamic-rules.php:115
+msgid "Select payment methods to show or hide based on the control criteria"
+msgstr ""
+
+#: includes/vue-settings/schema-parts/dynamic-rules.php:324
+#: includes/vue-settings/schema-parts/dynamic-rules.php:442
 msgid "Select Product(s)"
 msgstr ""
 
-#: includes/vue-settings/schema-parts/dynamic-rules.php:250
+#: includes/vue-settings/schema-parts/dynamic-rules.php:444
 msgid "Select Products"
 msgstr ""
 
@@ -2140,7 +2427,7 @@ msgstr ""
 msgid "Select role"
 msgstr ""
 
-#: includes/vue-settings/schema-parts/dynamic-rules.php:309
+#: includes/vue-settings/schema-parts/dynamic-rules.php:501
 msgid "Select Role(s)"
 msgstr ""
 
@@ -2148,15 +2435,19 @@ msgstr ""
 msgid "Select the OTP verification method for wallet transactions."
 msgstr ""
 
-#: includes/vue-settings/schema-parts/dynamic-rules.php:328
+#: includes/vue-settings/schema-parts/dynamic-rules.php:519
 msgid "Select User(s)"
 msgstr ""
 
-#: includes/vue-settings/schema-parts/dynamic-rules.php:302
+#: includes/vue-settings/schema-parts/dynamic-rules.php:162
+msgid "Select which days of the week this rule should be active"
+msgstr ""
+
+#: includes/vue-settings/schema-parts/dynamic-rules.php:494
 msgid "Selected customers only"
 msgstr ""
 
-#: includes/vue-settings/schema-parts/dynamic-rules.php:301
+#: includes/vue-settings/schema-parts/dynamic-rules.php:493
 msgid "Selected user roles only"
 msgstr ""
 
@@ -2194,7 +2485,7 @@ msgstr ""
 msgid "Separate roles with commas"
 msgstr ""
 
-#: includes/Admin/Diagnostic_Data.php:492
+#: includes/Admin/Diagnostic_Data.php:556
 #, php-format
 msgid ""
 "Server information (Web server, PHP version, MySQL version), WordPress "
@@ -2205,6 +2496,16 @@ msgstr ""
 
 #: includes/Admin/Custom_Posts.php:54
 msgid "Set featured image"
+msgstr ""
+
+#: includes/vue-settings/schema-parts/dynamic-rules.php:147
+msgid "Set specific start and end dates for this rule"
+msgstr ""
+
+#: includes/vue-settings/schema-parts/save-order-list.php:28
+msgid ""
+"Set the maximum number of lists a wholesale customer can save. By default, 5 "
+"lists are allowed."
 msgstr ""
 
 #: includes/vue-settings/schema-parts/registration.php:31
@@ -2219,8 +2520,13 @@ msgid "Set up The Registration Page"
 msgstr ""
 
 #. 1: Settings label
-#: includes/Admin.php:64 includes/Admin/Menu_Manager.php:37
+#: includes/Admin.php:64 includes/Admin/class-menu-manager.php:76
+#: includes/Admin/Menu_Manager.php:37
 msgid "Settings"
+msgstr ""
+
+#: includes/vue-settings/schema-parts/dynamic-rules.php:11
+msgid "Shipping"
 msgstr ""
 
 #: includes/vue-settings/schema-parts/product-visibility.php:44
@@ -2247,6 +2553,10 @@ msgstr ""
 msgid "Something is wrong please check again!"
 msgstr ""
 
+#: includes/save-order-list/class-save-order-list.php:98
+msgid "Something went wrong!"
+msgstr ""
+
 #: includes/functions.php:144
 msgid "Sorry, that username already exists!"
 msgstr ""
@@ -2255,8 +2565,8 @@ msgstr ""
 msgid "Sorry, the username you entered is not valid"
 msgstr ""
 
-#: includes/vue-settings/schema-parts/dynamic-rules.php:92
-#: includes/vue-settings/schema-parts/dynamic-rules.php:212
+#: includes/vue-settings/schema-parts/dynamic-rules.php:294
+#: includes/vue-settings/schema-parts/dynamic-rules.php:408
 msgid "Specific Products"
 msgstr ""
 
@@ -2283,8 +2593,24 @@ msgstr ""
 msgid "Start Conversation Label"
 msgstr ""
 
+#: includes/vue-settings/class-settings-rest-api.php:165
+msgid "Start date for filtering orders (YYYY-MM-DD format)"
+msgstr ""
+
+#: includes/vue-settings/schema-parts/dynamic-rules.php:198
+msgid "Start Time"
+msgstr ""
+
 #: includes/Admin/Custom_Columns.php:46
 msgid "Status"
+msgstr ""
+
+#: includes/vue-settings/schema-parts/dynamic-rules.php:122
+msgid "Stripe"
+msgstr ""
+
+#: includes/Admin/defaults.php:41
+msgid "Subject"
 msgstr ""
 
 #: includes/Admin/csf-settings/email-notifications.php:82
@@ -2303,6 +2629,10 @@ msgstr ""
 #: includes/vue-settings/schema-parts/registration.php:74
 #: includes/vue-settings/schema-parts/registration.php:90
 msgid "Successful Registration Message"
+msgstr ""
+
+#: includes/vue-settings/schema-parts/dynamic-rules.php:170
+msgid "Sunday"
 msgstr ""
 
 #: includes/vue-settings/schema-parts/general.php:55
@@ -2341,17 +2671,21 @@ msgid ""
 "reviewed by us & approved manually. Please wait for a while."
 msgstr ""
 
-#: includes/Admin/Diagnostic_Data.php:518
+#: includes/Admin/Diagnostic_Data.php:582
 #, php-format
 msgid "Thank you very much for supporting %2$s%1$s%3$s."
 msgstr ""
 
-#: includes/vue-settings/schema-parts/dynamic-rules.php:209
+#: includes/vue-settings/schema-parts/dynamic-rules.php:405
 msgid "The cart should have these products to qualify this rule"
 msgstr ""
 
-#: includes/vue-settings/schema-parts/dynamic-rules.php:89
+#: includes/vue-settings/schema-parts/dynamic-rules.php:291
 msgid "The products to buy to qualify BOGO discount"
+msgstr ""
+
+#: includes/vue-settings/schema-parts/save-order-list.php:29
+msgid "This helps manage storage and ensures optimal performance."
 msgstr ""
 
 #: includes/vue-settings/schema-parts/guest-access.php:18
@@ -2366,12 +2700,29 @@ msgid ""
 "sell wholesale products from your WooCommerce online store."
 msgstr ""
 
+#: includes/vue-settings/schema-parts/dynamic-rules.php:167
+msgid "Thursday"
+msgstr ""
+
+#: includes/vue-settings/schema-parts/dynamic-rules.php:8
+msgid "Time Conditions"
+msgstr ""
+
 #: includes/Admin/csf-settings/email-notifications.php:47
 msgid "Time: {time}"
 msgstr ""
 
-#: includes/Manage_Order.php:53
+#: includes/vue-settings/schema-parts/dynamic-rules.php:165
+msgid "Tuesday"
+msgstr ""
+
+#: includes/Manage_Order.php:61
 msgid "Types"
+msgstr ""
+
+#: includes/class-wholesale-product-pricing.php:877
+#: includes/class-wholesale-product-pricing.php:933
+msgid "Up to"
 msgstr ""
 
 #: includes/Admin/Custom_Posts.php:47
@@ -2386,7 +2737,7 @@ msgstr ""
 msgid "Uploaded to this request"
 msgstr ""
 
-#: includes/functions.php:367
+#: includes/functions.php:372
 msgid "Upto "
 msgstr ""
 
@@ -2443,7 +2794,7 @@ msgid ""
 "Use these {name}, {email}, {subject} placeholder tags to get dynamic content."
 msgstr ""
 
-#: includes/vue-settings/schema-parts/dynamic-rules.php:10
+#: includes/vue-settings/schema-parts/dynamic-rules.php:14
 msgid "User Conditions"
 msgstr ""
 
@@ -2451,7 +2802,7 @@ msgstr ""
 msgid "User ID"
 msgstr ""
 
-#: includes/functions.php:460 includes/functions.php:463
+#: includes/functions.php:465 includes/functions.php:468
 #: includes/Admin/Wholesaler_Request_Metabox.php:88
 #: includes/Admin/csf-fields/CSF_Field_registration_details.php:39
 #: includes/vue-settings/schema-parts/fields-manager.php:42
@@ -2463,8 +2814,12 @@ msgstr ""
 msgid "Username too short. At least 4 characters is required"
 msgstr ""
 
-#: includes/vue-settings/schema-parts/dynamic-rules.php:406
+#: includes/vue-settings/schema-parts/dynamic-rules.php:596
 msgid "Value"
+msgstr ""
+
+#: includes/save-order-list/class-save-order-list.php:223
+msgid "View Lists"
 msgstr ""
 
 #: includes/Admin/Custom_Posts.php:48
@@ -2482,6 +2837,10 @@ msgstr ""
 #: includes/vue-settings/menu.php:42
 #: includes/vue-settings/schema-parts/wallet.php:3
 msgid "Wallet"
+msgstr ""
+
+#: includes/vue-settings/schema-parts/dynamic-rules.php:166
+msgid "Wednesday"
 msgstr ""
 
 #: includes/vue-settings/schema-parts/guest-access.php:70
@@ -2509,6 +2868,7 @@ msgstr ""
 msgid "Wholesale Price Visibility"
 msgstr ""
 
+#: includes/class-wholesale-product-pricing.php:1081
 #: includes/Frontend/Woo_Config.php:256
 #: includes/vue-settings/schema-parts/general.php:284
 msgid "Wholesale price will apply for minimum quantity of {qty} products."
@@ -2547,6 +2907,8 @@ msgstr ""
 msgid "Wholesaler Price Label"
 msgstr ""
 
+#: includes/class-wholesale-product-pricing.php:1054
+#: includes/class-wholesale-product-pricing.php:1108
 #: includes/Frontend/Woo_Config.php:240
 #: includes/vue-settings/schema-parts/general.php:245
 msgid "Wholesaler Price:"
@@ -2560,6 +2922,7 @@ msgstr ""
 msgid "Wholesaler Requests"
 msgstr ""
 
+#: includes/Admin/class-menu-manager.php:81 includes/Admin/Menu_Manager.php:60
 #: includes/Admin/Menu_Manager.php:60
 #: includes/vue-settings/schema-parts/fields-manager.php:29
 msgid "Wholesaler Roles"
@@ -2569,7 +2932,9 @@ msgstr ""
 msgid "Wholesaler Type Setup"
 msgstr ""
 
-#: whols.php:303 includes/Admin/Product_Metabox.php:48
+#: whols.php:327 includes/Admin/class-menu-manager.php:28
+#: includes/Admin/class-menu-manager.php:29
+#: includes/Admin/Product_Metabox.php:48
 msgid "Whols"
 msgstr ""
 
@@ -2616,7 +2981,7 @@ msgstr ""
 msgid "WishSuite"
 msgstr ""
 
-#: whols.php:304
+#: whols.php:328
 msgid "WooCommerce"
 msgstr ""
 
@@ -2649,8 +3014,12 @@ msgstr ""
 #: includes/vue-settings/schema-parts/others.php:41
 #: includes/vue-settings/schema-parts/others.php:62
 #: includes/vue-settings/schema-parts/request-a-quote.php:10
-#: includes/vue-settings/schema-parts/request-a-quote.php:32
-#: includes/vue-settings/schema-parts/dynamic-rules.php:35
+#: includes/vue-settings/schema-parts/request-a-quote.php:25
+#: includes/vue-settings/schema-parts/dynamic-rules.php:39
+#: includes/vue-settings/schema-parts/dynamic-rules.php:140
+#: includes/vue-settings/schema-parts/dynamic-rules.php:185
+#: includes/vue-settings/schema-parts/dynamic-rules.php:231
+#: includes/vue-settings/schema-parts/save-order-list.php:10
 #: includes/vue-settings/schema-parts/conversation.php:10
 #: includes/vue-settings/schema-parts/fields-manager.php:53
 #: includes/vue-settings/schema-parts/fields-manager.php:184
@@ -2677,15 +3046,23 @@ msgstr ""
 msgid "You can define which categories are visible only to wholesalers."
 msgstr ""
 
-#: includes/vue-settings/class-settings-rest-api.php:134
+#: includes/vue-settings/class-settings-rest-api.php:199
 msgid "You do not have permissions to manage settings."
+msgstr ""
+
+#: includes/save-order-list/templates/my-account/whols-saved-lists.php:15
+msgid "You have no saved lists."
+msgstr ""
+
+#: includes/save-order-list/class-save-order-list.php:130
+msgid "You have reached the maximum number of saved lists."
 msgstr ""
 
 #: includes/Admin/recommended-plugins/recommendations.php:73
 msgid "You May Also Like"
 msgstr ""
 
-#: includes/functions.php:471
+#: includes/functions.php:476
 #: includes/vue-settings/schema-parts/fields-manager.php:222
 msgid "Your Email"
 msgstr ""
@@ -2699,7 +3076,7 @@ msgstr ""
 msgid "Your Name"
 msgstr ""
 
-#: includes/functions.php:479
+#: includes/functions.php:484
 #: includes/vue-settings/schema-parts/fields-manager.php:229
 msgid "Your Password"
 msgstr ""
@@ -2717,7 +3094,7 @@ msgstr ""
 msgid "Your Wholesale Application Has Been Received"
 msgstr ""
 
-#: includes/Admin/Diagnostic_Data.php:502
+#: includes/Admin/Diagnostic_Data.php:566
 #, php-format
 msgid "🌟 Enhance Your %1$s Experience as a Valued Contributor!"
 msgstr ""

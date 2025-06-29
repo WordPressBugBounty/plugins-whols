@@ -23,8 +23,8 @@ class Menu_Manager {
      */
     public function admin_menu() {
         add_menu_page(
-            __( 'Whols', 'whols-pro' ),
-            __( 'Whols', 'whols-pro' ),
+            __( 'Whols', 'whols' ),
+            __( 'Whols', 'whols' ),
             'manage_options',
             'whols-admin',
             [ $this, 'plugin_page' ],

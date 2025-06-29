@@ -15,8 +15,8 @@ return array(
     'raq_fields' => array(
         'name' => array(
             'type'       => 'text',
-            'label'       => esc_html__( 'Name', 'whols_pro' ),
-            'placeholder' => esc_html__( 'Enter your name', 'whols_pro' ),
+            'label'       => esc_html__( 'Name', 'whols' ),
+            'placeholder' => esc_html__( 'Enter your name', 'whols' ),
             'required'    => true,
             'class'             => array('whols-form-row'),
             'label_class'       => array('label_classs'),
@@ -25,8 +25,8 @@ return array(
         ),
         'email' => array(
             'type'       => 'email',
-            'label'       => esc_html__( 'Email', 'whols_pro' ),
-            'placeholder' => esc_html__( 'Enter your email', 'whols_pro' ),
+            'label'       => esc_html__( 'Email', 'whols' ),
+            'placeholder' => esc_html__( 'Enter your email', 'whols' ),
             'required'    => true,
             'class'             => array('whols-form-row'),
             'label_class'       => array('label_classs'),
@@ -38,8 +38,8 @@ return array(
         ),
         'subject' => array(
             'type'       => 'text',
-            'label'       => esc_html__( 'Subject', 'whols_pro' ),
-            'placeholder' => esc_html__( 'Enter your subject', 'whols_pro' ),
+            'label'       => esc_html__( 'Subject', 'whols' ),
+            'placeholder' => esc_html__( 'Enter your subject', 'whols' ),
             'required'    => true,
             'class'             => array('whols-form-row'),
             'label_class'       => array('label_classs'),
@@ -48,15 +48,15 @@ return array(
         ),
         'products_data' => array(
             'type'              => 'hidden',
-            'label'             => esc_html__( 'Products', 'whols_pro' ),
+            'label'             => esc_html__( 'Products', 'whols' ),
             'class'             => array('whols-form-row type--hidden'),
             'label_class'       => array('label_classs'),
             'input_class'       => array('input_classs'),
         ),
         'message' => array(
             'type'        => 'textarea',
-            'label'       => esc_html__( 'Message', 'whols_pro' ),
-            'placeholder' => esc_html__( 'Enter your message', 'whols_pro' ),
+            'label'       => esc_html__( 'Message', 'whols' ),
+            'placeholder' => esc_html__( 'Enter your message', 'whols' ),
             'required'    => true,
             'class'             => array('whols-form-row'),
             'label_class'       => array('label_classs'),
