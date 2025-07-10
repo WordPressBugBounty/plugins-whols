@@ -37,6 +37,7 @@ class Admin {
         new Admin\Role_Manager();
         new Admin\Custom_Columns();
         new Admin\Install_Manager();
+        new Admin\Product_Quick_Edit_Fields();
 
         // Bind admin page link to the plugin action link.
         add_filter( 'plugin_action_links_whols/whols.php', array($this, 'action_links_add'), 10, 4 );

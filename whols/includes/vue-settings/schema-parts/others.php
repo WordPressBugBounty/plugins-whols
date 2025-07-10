@@ -63,6 +63,15 @@ return ['others_route' => [
             'help' => __('Configure wholesale shipping options:<br>• ON: Enable free shipping for wholesale orders<br>• OFF: Apply normal shipping rates<br>• Note: Requires free shipping method setup in WooCommerce Shipping Zones<br>• Can be configured per wholesale role', 'whols'),
             'desc' => __('(This option can be overridden for role individually)', 'whols'),
             'default' => '0'
-        ]
+        ],
+        'enable_wholesale_price_quick_edit' => [
+            'id' => 'enable_wholesale_price_quick_edit',
+            'type' => 'switch',
+            'title' => __('Enable Quick & Bulk Edit Products', 'whols'),
+            'label' => __('Yes', 'whols'),
+            'help' => __('Enabling this option will allow you to edit wholesale price from product quick edit screen', 'whols'),
+            'desc' => __('Enable/Disable Quick and Bulk Edit for Products', 'whols'),
+            'default' => '1'
+        ],
     ]
 ]];

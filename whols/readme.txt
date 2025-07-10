@@ -4,7 +4,7 @@ Tags: wholesale plugin, wholesale pricing, wholesale prices, woocommerce wholesa
 Requires at least: 4.0
 Tested up to: 6.8
 Requires PHP: 5.4
-Stable tag: 2.2.3
+Stable tag: 2.3.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -44,6 +44,7 @@ Whols plugin reduces the hassle to create multiple stores for both the consumers
 * Customize the text on the frontend labels (Retailer Price Text, Wholesaler Price Text & Save Amount Text Label)
 * Display the amount that the customer will save after purchase
 * Allow free shipping for wholesalers
+* Update wholesale product price from quick edit and bulk edit interface
 * Disable coupon codes for wholesale customers so only retailers can use them
 * Hide wholesale prices for guest user
 * Hide "Wholesale Only" Products From Other Customers
@@ -69,6 +70,7 @@ Whols plugin reduces the hassle to create multiple stores for both the consumers
 ✓ Create & manage unlimited user role
 ✓ Wholesaler request management (Approve / Reject)
 ✓ Give different pricing to different wholesaler role
+✓ Update wholesale product price from quick edit and bulk edit interface (Compatible with tier based pricing)
 ✓ Payment methods (gateway) control
 ✓ Different prices for different users
 ✓ Category wise product price set
@@ -90,7 +92,7 @@ Whols plugin reduces the hassle to create multiple stores for both the consumers
 ✓ Enable Google reCAPTCHA (v3) for the wholesaler registration form spam protection
 
 == Video Overview: ==
-[youtube https://www.youtube.com/watch?v=OArnKMljqWs]
+[youtube https://www.youtube.com/watch?v=YMN8kgKCYrE]
 
 == Video Tutorial: ==
 #### How to install Whols plugin and complete the basic setup
@@ -253,6 +255,9 @@ Needs assistance to use this plugin?
 Feel free to [Contact us](https://hasthemes.com/contact-us/)
 
 == Changelog ==
+= Version: 2.3.0 -Date: 09 Jul 2025 =
+- Added: Wholesale price quick edit and bulk edit functionality for products
+
 = Version: 2.2.3 -Date: 29 Jun 2025 =
 - Added: Updated pot file for translation
 

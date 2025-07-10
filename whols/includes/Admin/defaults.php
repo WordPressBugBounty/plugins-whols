@@ -113,10 +113,12 @@ return array(
         'exclude_tax_for_wholesale_customers' => '',
         'enable_wholesale_store'              => '1',
         'registration_notification_recipients' => '',
+        'enable_wholesale_price_quick_edit' => true,
 
         // Request a quote
         'enable_request_a_quote' => false,
         'request_a_quote_label' => '',
         'create_conversation_when_request_a_quote' => false,
+        
     )
 );
