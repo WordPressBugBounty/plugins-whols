@@ -45,6 +45,17 @@ class Settings_REST_API {
             )
         );
 
+        // Reset section endpoint
+        register_rest_route(
+            'whols/v1',
+            '/reset-section',
+            array(
+                'methods'             => \WP_REST_Server::CREATABLE,
+                'callback'            => array($this, 'reset_section'),
+                'permission_callback' => array($this, 'check_permission'),
+            )
+        );
+
         register_rest_route(
             'whols/v1',
             '/wp_option',
@@ -262,6 +273,40 @@ class Settings_REST_API {
         update_option($params['option_name'], $params['value']);
 
         return rest_ensure_response($params);
+    }
+
+    /**
+     * Reset section to default values
+     * 
+     * @param WP_REST_Request $request The REST API request containing field names to reset
+     * @return WP_REST_Response The response with updated settings
+     */
+    public function reset_section($request) {
+        $params = $request->get_params();
+        $current_settings = get_option($this->option_name, []);
+        $default_settings = Settings_Defaults::get_defaults();
+        
+        // Check if field names to reset are provided
+        if (empty($params['fields']) || !is_array($params['fields'])) {
+            return new \WP_Error(
+                'invalid_fields',
+                esc_html__('No fields specified for reset.', 'whols'),
+                array('status' => 400)
+            );
+        }
+        
+        // Reset each specified field to its default value
+        foreach ($params['fields'] as $field) {
+            if (array_key_exists($field, $default_settings)) {
+                $current_settings[$field] = $default_settings[$field];
+            }
+        }
+        
+        // Update options with reset values
+        update_option($this->option_name, $current_settings);
+        
+        // Return updated settings
+        return rest_ensure_response($current_settings);
     }
 
     public function get_roles() {
