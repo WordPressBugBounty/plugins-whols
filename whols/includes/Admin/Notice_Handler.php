@@ -57,7 +57,7 @@ if ( ! class_exists( 'Notice_Handler' ) ){
             // User Capability check
 			if ( ! apply_filters( 'whols_notice_user_cap_check', current_user_can( $capability ) ) ) {
                 $error_message = [
-                    'message'  => __('You are not authorized.', 'woolentor')
+                    'message'  => __('You are not authorized.', 'whols')
                 ];
                 wp_send_json_error( $error_message );
 			}
@@ -65,7 +65,7 @@ if ( ! class_exists( 'Notice_Handler' ) ){
             // Nonce verification check
             if( !wp_verify_nonce( $nonce, 'whols_notices_nonce') ) {
                 $error_message = [
-                    'message'  => __('Are you cheating?', 'woolentor')
+                    'message'  => __('Are you cheating?', 'whols')
                 ];
                 wp_send_json_error( $error_message );
             }
@@ -253,7 +253,7 @@ if ( ! class_exists( 'Notice_Handler' ) ){
                 if( $notice['type'] !== 'custom'){
                     $classes[] = 'notice';
                 }else{
-                    $notice['dismissible_btn'] = '<button type="button" class="notice-dismiss"><span class="screen-reader-text">'.esc_html__('Dismiss this notice.','woolentor').'</span></button>';
+                    $notice['dismissible_btn'] = '<button type="button" class="notice-dismiss"><span class="screen-reader-text">'.esc_html__('Dismiss this notice.','whols').'</span></button>';
                 }
             }
 
@@ -360,14 +360,14 @@ if ( ! class_exists( 'Notice_Handler' ) ){
 
                         // Notice Message
                         if( $notice_arg['message_type'] === 'text'){
-                            printf('<p>%1$s</p>', __( $notice_arg['message'] ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+                            printf('<p>%1$s</p>', $notice_arg['message'] ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
                         }else{
                             echo wp_kses_post( $notice_arg['message'] ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
                         }
 
                         // If notice type custom and dismissible true
                         if ( true === $notice_arg['dismissible'] ) {
-                            printf('%1$s', __( $notice_arg['dismissible_btn'] ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+                            printf('%1$s', $notice_arg['dismissible_btn'] ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
                         }
 
                         // Notice Action Button

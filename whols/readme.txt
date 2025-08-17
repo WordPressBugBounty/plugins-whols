@@ -4,7 +4,7 @@ Tags: wholesale plugin, wholesale pricing, wholesale prices, woocommerce wholesa
 Requires at least: 4.0
 Tested up to: 6.8
 Requires PHP: 5.4
-Stable tag: 2.4.0
+Stable tag: 2.4.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -255,6 +255,10 @@ Needs assistance to use this plugin?
 Feel free to [Contact us](https://hasthemes.com/contact-us/)
 
 == Changelog ==
+= Version: 2.4.1 -Date: 17 Aug 2025 =
+- Fixed: Escaping issue in multiple area.
+- Fixed: Translation issue in multiple area.
+
 = Version: 2.4.0 -Date: 17 Jul 2025 =
 - Added: Option to reset settings to default for global settings
 

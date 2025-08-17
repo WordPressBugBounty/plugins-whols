@@ -51,14 +51,14 @@ class Manage_Order {
     public function add_filter(){
         global $typenow;
         
-        $order_type = isset( $_GET['whols_order_type'] ) ? wc_clean($_GET['whols_order_type']) : '';
+        $order_type = isset( $_GET['whols_order_type'] ) ? wc_clean(wp_unslash($_GET['whols_order_type'])) : '';
 
         if( $typenow === 'shop_order' ){
             $roles = whols_roles_dropdown_options();
             ?>
             <select name="whols_order_type" id="whols_order_type">
                 <?php
-                    echo '<optgroup label="'. __('Types', 'whols') .'">';
+                    echo '<optgroup label="'. esc_attr__('Types', 'whols') .'">';
                         foreach( $this->filter_default_options as $option_name => $option_label ){
                             printf( '<option value="%s" %s>%s</option>',
                                 esc_attr( $option_name ),
@@ -68,7 +68,7 @@ class Manage_Order {
                         }
                     echo '</optgroup>';
 
-                    echo '<optgroup label="'. __('Roles', 'whols') .'">';
+                    echo '<optgroup label="'. esc_attr__('Roles', 'whols') .'">';
                         foreach( $roles as $option_name => $option_label ){
                             printf( '<option value="%s" %s>%s</option>',
                                 esc_attr( $option_name ),
@@ -98,7 +98,7 @@ class Manage_Order {
 			return;
 		}
 
-        $order_type = wp_unslash($_GET['whols_order_type']);
+        $order_type = sanitize_text_field(wp_unslash($_GET['whols_order_type']));
 
         switch ($order_type) {
             case 'all':

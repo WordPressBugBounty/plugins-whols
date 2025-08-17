@@ -71,7 +71,7 @@ class Wholesaler_Login_Register{
                             $submit_button_label        = $submit_button_label ? $submit_button_label : $submit_button_label_filter;
                         ?>
 
-                        <button type="submit" name="reg_submit" id="whols_reg_submit" class="" value="<?php echo apply_filters( 'whols_registration_submit_label', __( 'Register As Wholesaler', 'whols' ) ); ?>"><?php echo wp_kses_post($submit_button_label); ?></button>
+                        <button type="submit" name="reg_submit" id="whols_reg_submit" class="" value="<?php echo esc_attr(apply_filters( 'whols_registration_submit_label', __( 'Register As Wholesaler', 'whols' ) )); ?>"><?php echo wp_kses_post($submit_button_label); ?></button>
                     </form>
                 </div>
 
@@ -81,7 +81,7 @@ class Wholesaler_Login_Register{
                 $current_url = home_url( add_query_arg( array(), $wp->request ) );
             ?>
                 <div class="whols_reg_logged_in">
-                    <?php echo esc_html__( 'You are Logged in as: ', 'whols' ) . $current_user->display_name. ' (<a href="'. esc_url( wp_logout_url( $current_url )  ) .'">'. esc_html__( 'Logout', 'whols' ) .'</a>)';
+                    <?php echo esc_html__( 'You are Logged in as: ', 'whols' ) . wp_kses_post($current_user->display_name). ' (<a href="'. esc_url( wp_logout_url( $current_url )  ) .'">'. esc_html__( 'Logout', 'whols' ) .'</a>)';
                     ?>
                 </div>
             <?php endif; ?>
@@ -91,7 +91,7 @@ class Wholesaler_Login_Register{
                     "use strict";
 
                     var button_id       = '#whols_reg_submit',
-                        nonce           = '<?php echo wp_create_nonce( 'whols_register_nonce' ) ?>',
+                        nonce           = '<?php echo esc_html(wp_create_nonce( 'whols_register_nonce' )) ?>',
                         loading_message = '<?php echo esc_html__( 'Please Wait...','whols' ); ?>';
 
                     $( 'body' ).on('click', '#whols_reg_submit', function( event ){

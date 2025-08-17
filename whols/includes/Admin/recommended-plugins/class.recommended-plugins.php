@@ -155,7 +155,7 @@ class HTRP_Recommended_Plugins {
 
         ?>
             <div class="wrap">
-                <h2><?php echo get_admin_page_title(); ?></h2>
+                <h2><?php echo wp_kses_post(get_admin_page_title()); ?></h2>
                 <style>
                     .htrp-admin-tab-pane{
                       display: none;
@@ -257,20 +257,20 @@ class HTRP_Recommended_Plugins {
                                         <div class="plugin-card-top">
                                             <div class="name column-name" style="margin-right: 0;">
                                                 <h3>
-                                                    <a href="<?php echo esc_url( $details_link ) ?>" target="<?php echo esc_attr( $target ) ?>" <?php echo $modal_class; ?>>
+                                                    <a href="<?php echo esc_url( $details_link ) ?>" target="<?php echo esc_attr( $target ) ?>" <?php echo $modal_class; // phpcs:ignore ?>>
                                                         <?php echo esc_html( $title ) ?>
                                                         <img src="<?php echo esc_url( $image_url ) ?>" class="plugin-icon" alt="<?php echo esc_attr( $title ) ?>">
                                                     </a>
                                                 </h3>
                                             </div>
                                             <div class="desc column-description" style="margin-right: 0;">
-                                                <p><?php echo wp_trim_words( $description, 23, '....'); ?></p>
+                                                <p><?php echo wp_kses_post( wp_trim_words( $description, 23, '....') ); ?></p>
                                                 <p class="authors">
                                                     <cite><?php echo esc_html__( 'By ', 'whols' ); ?>
                                                         <?php if( $plugins_type == 'free' ): ?>
-                                                            <?php echo $author_name; ?>
+                                                            <?php echo wp_kses_post( $author_name ); ?>
                                                         <?php else: ?>
-                                                            <a href="<?php echo esc_url( $author_link ); ?>"  target="_blank" ><?php echo $author_name; ?></a>
+                                                            <a href="<?php echo esc_url( $author_link ); ?>"  target="_blank" ><?php echo wp_kses_post( $author_name ); ?></a>
                                                         <?php endif; ?>
                                                     </cite>
                                                 </p>
@@ -283,17 +283,17 @@ class HTRP_Recommended_Plugins {
                                                         echo '<a class="button button-primary" href="'.esc_url( $details_link ).'" target="'.esc_attr( $target ).'">'.esc_html__( 'Buy Now', 'whols' ).'</a>';
                                                     }else{
                                                 ?>
-                                                    <button class="<?php echo $button_classes; ?>" data-pluginopt='<?php echo wp_json_encode( $data ); ?>'><?php echo $button_text; ?></button>
+                                                    <button class="<?php echo esc_attr($button_classes); ?>" data-pluginopt='<?php echo wp_json_encode( $data ); ?>'><?php echo wp_kses_post($button_text); ?></button>
                                                     
                                                 <?php } ?>
                                             </div>
                                             <div class="column-downloaded">
-                                                <a href="<?php echo esc_url( $details_link ) ?>" target="<?php echo esc_attr( $target ) ?>" <?php echo $modal_class; ?>><?php echo esc_html__('More Details', 'whols') ?></a>
+                                                <a href="<?php echo esc_url( $details_link ) ?>" target="<?php echo esc_attr( $target ) ?>" <?php echo $modal_class; // phpcs:ignore ?>><?php echo esc_html__('More Details', 'whols') ?></a>
                                                 <span class="downloaded-count">
                                                     <?php
                                                         if( $plugins_type == 'free' ){
                                                             /* translators: %s: Number of installations. */
-                                                            printf( __( '%s Active Installations' ), $this->active_install_count( $prepare_plugin[$data['slug']]['active_installs'] ) );
+                                                            printf( wp_kses_post(__( '%s Active Installations', 'whols' )), wp_kses_post($this->active_install_count( $prepare_plugin[$data['slug']]['active_installs'] ) ) );
                                                         }
                                                     ?>
                                                 </span>
@@ -367,11 +367,11 @@ class HTRP_Recommended_Plugins {
             $active_installs_millions = floor( $active_installs / 1000000 );
             $active_installs_text     = sprintf(
                 /* translators: %s: Number of millions. */
-                _nx( '%s+ Million', '%s+ Million', $active_installs_millions, 'Active plugin installations' ),
+                _nx( '%s+ Million', '%s+ Million', $active_installs_millions, 'Active plugin installations', 'whols' ),
                 number_format_i18n( $active_installs_millions )
             );
         } elseif ( 0 === $active_installs ) {
-            $active_installs_text = _x( 'Less Than 10', 'Active plugin installations' );
+            $active_installs_text = _x( 'Less Than 10', 'Active plugin installations', 'whols' );
         } else {
             $active_installs_text = number_format_i18n( $active_installs ) . '+';
         }

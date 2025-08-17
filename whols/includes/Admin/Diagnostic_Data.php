@@ -551,9 +551,20 @@ if ( ! class_exists( 'Whols_Diagnostic_Data' ) ) {
         private function show_core_notice() {
             return;
             
-            $message_l1 = sprintf( esc_html__( 'At %2$s%1$s%3$s, we prioritize continuous improvement and compatibility. To achieve this, we gather non-sensitive diagnostic information and details about plugin usage. This includes your site\'s URL, the versions of WordPress and PHP you\'re using, and a list of your installed plugins and themes. We also require your email address to provide you with exclusive discount coupons and updates. This data collection is crucial for ensuring that %2$s%1$s%3$s remains up-to-date and compatible with the most widely-used plugins and themes. Rest assured, your privacy is our priority – no spam, guaranteed. %4$sPrivacy Policy%5$s', 'whols' ), esc_html( $this->project_name ), '<strong>', '</strong>', '<a target="_blank" href="' . esc_url( $this->privacy_policy ) . '">', '</a>', '<h4 class="woolentor-diagnostic-data-title">', '</h4>' );
+            $message_l1 = sprintf( 
+                /* translators: %1$s: Project name, %2$s: Strong tag, %3$s: Strong tag, %4$s: Privacy Policy link, %5$s: Privacy Policy link */
+                esc_html__( 'At %2$s%1$s%3$s, we prioritize continuous improvement and compatibility. To achieve this, we gather non-sensitive diagnostic information and details about plugin usage. This includes your site\'s URL, the versions of WordPress and PHP you\'re using, and a list of your installed plugins and themes. We also require your email address to provide you with exclusive discount coupons and updates. This data collection is crucial for ensuring that %2$s%1$s%3$s remains up-to-date and compatible with the most widely-used plugins and themes. Rest assured, your privacy is our priority – no spam, guaranteed. %4$sPrivacy Policy%5$s', 'whols' ), esc_html( $this->project_name ),
+                '<strong>',
+                '</strong>',
+                '<a target="_blank" href="' . esc_url( $this->privacy_policy ) . '">',
+                '</a>',
+                '<h4 class="woolentor-diagnostic-data-title">',
+                '</h4>'
+            );
 
-            $message_l2 = sprintf( esc_html__( 'Server information (Web server, PHP version, MySQL version), WordPress information, site name, site URL, number of plugins, number of users, your name, and email address. You can rest assured that no sensitive data will be collected or tracked. %1$sLearn more%2$s.', 'whols' ), '<a target="_blank" href="' . esc_url( $this->privacy_policy ) . '">', '</a>' );
+            $message_l2 = sprintf(
+                /* translators: %1$s: Learn more link, %2$s: Learn more link */
+                esc_html__( 'Server information (Web server, PHP version, MySQL version), WordPress information, site name, site URL, number of plugins, number of users, your name, and email address. You can rest assured that no sensitive data will be collected or tracked. %1$sLearn more%2$s.', 'whols' ), '<a target="_blank" href="' . esc_url( $this->privacy_policy ) . '">', '</a>' );
 
             $button_text_1 = esc_html__( 'Count Me In', 'whols' );
             $button_link_1 = add_query_arg( array( 'woolentor-diagnostic-data-agreed' => 1 ) );
@@ -563,7 +574,7 @@ if ( ! class_exists( 'Whols_Diagnostic_Data' ) ) {
             ?>
             <div class="woolentor-diagnostic-data-style"><style>.woolentor-diagnostic-data-notice,.woocommerce-embed-page .woolentor-diagnostic-data-notice{padding-top:.75em;padding-bottom:.75em;}.woolentor-diagnostic-data-notice .woolentor-diagnostic-data-buttons,.woolentor-diagnostic-data-notice .woolentor-diagnostic-data-list,.woolentor-diagnostic-data-notice .woolentor-diagnostic-data-message{padding:.25em 2px;margin:0;}.woolentor-diagnostic-data-notice .woolentor-diagnostic-data-list{display:none;color:#646970;}.woolentor-diagnostic-data-notice .woolentor-diagnostic-data-buttons{padding-top:.75em;}.woolentor-diagnostic-data-notice .woolentor-diagnostic-data-buttons .button{margin-right:5px;box-shadow:none;}.woolentor-diagnostic-data-loading{position:relative;}.woolentor-diagnostic-data-loading::before{position:absolute;content:"";width:100%;height:100%;top:0;left:0;background-color:rgba(255,255,255,.5);z-index:999;}.woolentor-diagnostic-data-disagree{border-width:0px !important;background-color: transparent!important; padding: 0!important;}h4.woolentor-diagnostic-data-title {margin: 0 0 10px 0;font-size: 1.04em;font-weight: 600;}</style></div>
             <div class="woolentor-diagnostic-data-notice notice notice-success">
-                <h4 class="woolentor-diagnostic-data-title"><?php echo sprintf( esc_html__('🌟 Enhance Your %1$s Experience as a Valued Contributor!','whols'), esc_html( $this->project_name )); ?></h4>
+                <h4 class="woolentor-diagnostic-data-title"><?php echo sprintf( /* translators: %1$s: Project name */ esc_html__('🌟 Enhance Your %1$s Experience as a Valued Contributor!','whols'), esc_html( $this->project_name )); ?></h4>
                 <p class="woolentor-diagnostic-data-message"><?php echo wp_kses_post( $message_l1 ); ?></p>
                 <p class="woolentor-diagnostic-data-list"><?php echo wp_kses_post( $message_l2 ); ?></p>
                 <p class="woolentor-diagnostic-data-buttons">
@@ -579,7 +590,9 @@ if ( ! class_exists( 'Whols_Diagnostic_Data' ) ) {
          * Get thanks notice.
          */
         private function get_thanks_notice() {
-            $message = sprintf( esc_html__( 'Thank you very much for supporting %2$s%1$s%3$s.', 'whols' ), $this->project_name, '<strong>', '</strong>' );
+            $message = sprintf(
+                /* translators: %1$s: Project name, %2$s: Strong tag, %3$s: Strong tag */
+                esc_html__( 'Thank you very much for supporting %2$s%1$s%3$s.', 'whols' ), $this->project_name, '<strong>', '</strong>' );
             $notice = sprintf( '<div class="woolentor-diagnostic-data-thanks notice notice-success is-dismissible"><p>%1$s</p><button type="button" class="notice-dismiss"><span class="screen-reader-text"></span></button></div>', wp_kses_post( $message ) );
 
             return $notice;

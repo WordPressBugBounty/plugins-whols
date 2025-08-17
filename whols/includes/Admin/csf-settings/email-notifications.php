@@ -45,7 +45,7 @@ return array(
         'title'    => esc_html__( 'Successful Registration Message', 'whols'),
         'desc'     => esc_html__( 'Use these  {name}, {email}, {date}, {time} placeholder tags to get dynamic content.', 'whols'  ),
         'default'  => esc_html__(
-            "A new wholesale application has been received.\n\n" .
+            "A new wholesale application has been received.\n\n" . // phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText
             "Applicant Details:\n" .
             "Name: {name}\n" .
             "Email: {email}\n" .
@@ -92,7 +92,7 @@ return array(
         'title'    => esc_html__( 'Customer Confirmation Message', 'whols'),
         'desc'     => esc_html__( 'Use these  {name}, {email}, {date}, {time} placeholder tags to get dynamic content.', 'whols'  ),
         'default'  => __(
-            "Dear {name},\n\n" .
+            "Dear {name},\n\n" . // phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText
             "Thank you for applying for a wholesale account with us. We have received your application and it is currently under review.\n\n" .
             "Application Details:\n" .
             "Date Submitted: {date}\n" .
@@ -176,7 +176,7 @@ return array(
         'title'    => esc_html__('Quote Request Notification Message', 'whols'),
         'desc'     => esc_html__('Use these {name}, {email}, {date}, {time}, {products}, {message} placeholder tags to get dynamic content.', 'whols'),
         'default'  => esc_html__(
-            "New Quote Request Details:\n\n" .
+            "New Quote Request Details:\n\n" . // phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText
             "Customer Name: {name}\n" .
             "Email: {email}\n" .
             "Subject: {subject}\n" .

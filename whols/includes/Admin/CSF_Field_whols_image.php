@@ -10,7 +10,7 @@ if( ! class_exists( 'CSF_Field_whols_image' ) ) {
         }
 
         public function render() {
-            echo $this->field_before();
+            echo wp_kses_post($this->field_before());
             ?>
 
             <div class="whols_image_wrapper">
@@ -19,7 +19,7 @@ if( ! class_exists( 'CSF_Field_whols_image' ) ) {
             </div>
 
             <?php
-            echo $this->field_after();
+            echo wp_kses_post($this->field_after());
         }
 
         // Usage
@@ -29,4 +29,4 @@ if( ! class_exists( 'CSF_Field_whols_image' ) ) {
         //     'url'        => WHOLS_ASSETS. '/images/wholesale-only-categories.jpg'
         // ),
     }
-  }
+}

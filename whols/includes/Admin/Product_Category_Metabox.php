@@ -45,7 +45,7 @@ class Product_Category_Metabox {
                           'title'      => esc_html__( 'Enable This Pricing', 'whols'),
                           'text_on'    => esc_html__( 'Yes', 'whols' ),
                           'text_off'   => esc_html__( 'No', 'whols' ),
-                          'label'      => esc_html__( '(If not enabled global options will be used)' ),
+                          'label'      => esc_html__( '(If not enabled global options will be used)', 'whols' ),
                         ),
 
                         // price type

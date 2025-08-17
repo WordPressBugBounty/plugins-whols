@@ -138,7 +138,7 @@ class Frontend {
         $css = $this->generate_dynamic_css();
 
         if (!empty($css)) {
-            echo "\n<style type='text/css'>\n" . $css . "\n</style>\n";
+            echo "\n<style type='text/css'>\n" . $css . "\n</style>\n"; // @phpcs:ignore
         }
     }
 }

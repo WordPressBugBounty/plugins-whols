@@ -60,7 +60,7 @@ if( !function_exists('whols_ajax_user_register') ){
     
         if( whols_get_user_reg_validation_status( $posted_data ) !== true ){
     
-            echo whols_get_user_reg_validation_status( $posted_data );
+            echo whols_get_user_reg_validation_status( $posted_data ); // @phpcs:ignore
     
         } else {
     

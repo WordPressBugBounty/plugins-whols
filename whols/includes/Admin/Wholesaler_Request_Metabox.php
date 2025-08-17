@@ -62,7 +62,11 @@ class Wholesaler_Request_Metabox {
 				array(
 					'type'    => 'notice',
 					'style'   => 'info',
-					'content' => __( '<a href="'. $profile_edit_url .'">Click Here</a> to edit/update profile informations like (Shipping Address, Billing Address etc) of this user', 'whols'),
+					'content' => sprintf(
+						/* translators: %s: Profile edit URL */
+						__( '<a href="%s">Click Here</a> to edit/update profile information\'s like (Shipping Address, Billing Address etc) of this user', 'whols' ),
+						esc_url_raw($profile_edit_url)
+					),
 				),
 
 				array(

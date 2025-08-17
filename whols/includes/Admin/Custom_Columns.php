@@ -61,19 +61,22 @@ class Custom_Columns {
 
         if( !empty($meta['status']) && $meta['status'] == 'approve' ){
             printf( 
-                __( '%1$s Approved %2$s', 'whols' ),
+                /* translators: %1$s: Approved, %2$s: Approved, %3$s: Approved */
+                wp_kses_post(__( '%1$s Approved %2$s', 'whols' )),
                 '<span class="whols_approved">',
                 '</span>' 
             );
         } else if( !empty($meta['status']) && $meta['status'] == 'reject' ){
             printf( 
-                __( '%1$s Rejected %2$s', 'whols' ),
+                /* translators: %1$s: Rejected, %2$s: Rejected, %3$s: Rejected */
+                wp_kses_post(__( '%1$s Rejected %2$s', 'whols' )),
                 '<span class="whols_rejected">',
                 '</span>' 
             );
         } else {
             printf( 
-                __( '%1$s Pending %2$s', 'whols' ),
+                /* translators: %1$s: Pending, %2$s: Pending, %3$s: Pending */
+                wp_kses_post(__( '%1$s Pending %2$s', 'whols' )),
                 '<span class="whols_pending">',
                 '</span>' 
             );
@@ -123,10 +126,10 @@ class Custom_Columns {
                 $price = $pricing->get_wholesale_price();
                 
                 if( !is_array( $price ) ){
-                    echo wc_price( $price );
+                    echo wp_kses_post(wc_price( $price ));
                 } elseif( $price['min'] && $price['max'] ){
                     // Display price range
-                    echo wc_price( $price['min'] ) . ' - ' . wc_price( $price['max'] );
+                    echo wp_kses_post(wc_price( $price['min'] )) . ' - ' . wp_kses_post(wc_price( $price['max'] ));
                 }
             }
         }

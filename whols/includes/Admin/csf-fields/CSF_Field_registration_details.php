@@ -12,7 +12,7 @@ if( ! class_exists( 'CSF_Field_registration_details' ) ) {
         }
 
         public function render() {
-            echo $this->field_before();
+            echo wp_kses_post( $this->field_before() );
             $fields = whols_get_option('registration_fields');
 
             $name       = '';
@@ -32,15 +32,15 @@ if( ! class_exists( 'CSF_Field_registration_details' ) ) {
             ?>
             <table>
                 <tr>
-                    <td><strong><?php echo __('Name', 'whols') ?></strong></td>
+                    <td><strong><?php echo esc_html__('Name', 'whols') ?></strong></td>
                     <td><?php echo esc_html($name) ?></td>
                 </tr>
                 <tr>
-                    <td><strong><?php echo __('Username', 'whols') ?></strong></td>
+                    <td><strong><?php echo esc_html__('Username', 'whols') ?></strong></td>
                     <td><?php echo esc_html($username) ?></td>
                 </tr>
                 <tr>
-                    <td><strong><?php echo __('Email', 'whols') ?></strong></td>
+                    <td><strong><?php echo esc_html__('Email', 'whols') ?></strong></td>
                     <td>
                         <a href="mailto:<?php echo esc_attr($email) ?>"><?php echo esc_html($email) ?></a>
                     </td>
@@ -93,7 +93,7 @@ if( ! class_exists( 'CSF_Field_registration_details' ) ) {
                 <?php endforeach; ?>
             </table>
             <?php
-            echo $this->field_after();
+            echo wp_kses_post($this->field_after());
 
         }
 

@@ -44,8 +44,8 @@ if (empty($saved_lists)) : ?>
                     <?php 
                     printf(
                         /* translators: %d: number of items */
-                        _n('%d item', '%d items', $item_count, 'whols'), 
-                        $item_count
+                        wp_kses_post(_n('%d item', '%d items', $item_count, 'whols')),
+                        esc_html($item_count)
                     ); 
                     ?>
                     <span class="whols-items-preview">

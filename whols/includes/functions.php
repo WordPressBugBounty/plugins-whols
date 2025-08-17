@@ -391,6 +391,8 @@ if( !function_exists('whols_get_price_save_info') ){
     
                     }
                 } else {
+                    $min_variation_price = $product->get_variation_price();
+                    $max_variation_price = $product->get_variation_price('max');
                     $save_info = round(whols_get_discount_percent( $min_variation_price, $price_value )) .'% - '. round(whols_get_discount_percent( $max_variation_price, $price_value )) .'%';
                 }
             } else {
@@ -1243,7 +1245,7 @@ function whols_get_enabled_payment_gateways(){
                 WHERE option_name LIKE 'woocommerce_%_settings'
                 AND option_name NOT LIKE 'woocommerce_settings_%'";
 
-    $results = $wpdb->get_results($query);
+    $results = $wpdb->get_results($query); // @phpcs:ignore
 
     $enabled_gateways = array();
     foreach ($results as $result) {

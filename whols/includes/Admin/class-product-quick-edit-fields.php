@@ -128,15 +128,15 @@ class Product_Quick_Edit_Fields {
         ?>
         <div class="inline-edit-group whols-quick-edit-section">
             <fieldset>
-            <legend><?php _e( 'Whols', 'whols' ); ?></legend>
+            <legend><?php echo esc_html__('Whols', 'whols') ?></legend>
             
             <!-- Product Visibility -->
             <div class="whols-product-visibility-field">
-                <span class="title"><?php _e( 'Product Visibility', 'whols' ); ?></span>
+                <span class="title"><?php echo esc_html__('Product Visibility', 'whols') ?></span>
                 <span class="input-text-wrap">
                     <select name="whols_product_visibility" class="whols_product_visibility">
-                        <option value=""><?php _e( 'Everyone', 'whols' ); ?></option>
-                        <option value="wholesaler_only"><?php _e( 'Wholesalers Only', 'whols' ); ?></option>
+                        <option value=""><?php echo esc_html__('Everyone', 'whols') ?></option>
+                        <option value="wholesaler_only"><?php echo esc_html__('Wholesalers Only', 'whols') ?></option>
                     </select>
                 </span>
             </div>
@@ -144,16 +144,16 @@ class Product_Quick_Edit_Fields {
             <?php if ( $pricing_model == 'single_role' ): ?>
             <!-- Single Role Pricing -->
             <div>
-                <span class="title"><?php _e( 'Wholesale Price', 'whols' ); ?> (<?php echo get_woocommerce_currency_symbol(); ?>)</span>
+                <span class="title"><?php echo esc_html__('Wholesale Price', 'whols') ?> (<?php echo wp_kses_post(get_woocommerce_currency_symbol()); ?>)</span>
                 <span class="input-text-wrap">
-                    <input type="text" name="whols_price_type_1_price" class="text wc_input_price whols_price_type_1_price" value="" placeholder="<?php _e( 'Price', 'whols' ); ?>">
+                    <input type="text" name="whols_price_type_1_price" class="text wc_input_price whols_price_type_1_price" value="" placeholder="<?php echo esc_html__('Price', 'whols') ?>">
                 </span>
             </div>
             
             <div>
-                <span class="title"><?php _e( 'Wholesale Min. Qty', 'whols' ); ?></span>
+                <span class="title"><?php echo esc_html__('Wholesale Min. Qty', 'whols') ?></span>
                 <span class="input-text-wrap">
-                    <input type="number" name="whols_price_type_1_min_quantity" class="text whols_price_type_1_min_quantity" value="" placeholder="<?php _e( 'Min. Quantity', 'whols' ); ?>" step="1" min="0">
+                    <input type="number" name="whols_price_type_1_min_quantity" class="text whols_price_type_1_min_quantity" value="" placeholder="<?php echo esc_html__('Min. Quantity', 'whols') ?>" step="1" min="0">
                 </span>
             </div>
             <?php endif; ?>
@@ -210,28 +210,28 @@ class Product_Quick_Edit_Fields {
         ?>
         <div class="inline-edit-group whols-bulk-edit-section">
             <fieldset>
-            <h4 class="whols-section-heading"><?php _e( 'Whols', 'whols' ); ?></h4>
+            <h4 class="whols-section-heading"><?php esc_html_e( 'Whols', 'whols' ); ?></h4>
             
             <!-- Product Visibility -->
             <div>
-                <span class="title"><?php _e( 'Product Visibility', 'whols' ); ?></span>
+                <span class="title"><?php esc_html_e( 'Product Visibility', 'whols' ); ?></span>
                 <span class="input-text-wrap">
                     <select name="whols_product_visibility_bulk" class="whols_product_visibility_bulk">
-                        <option value="no_change"><?php _e( '— No change —', 'woocommerce' ); ?></option>
-                        <option value=""><?php _e( 'Everyone', 'whols' ); ?></option>
-                        <option value="wholesaler_only"><?php _e( 'Wholesalers Only', 'whols' ); ?></option>
+                        <option value="no_change"><?php esc_html_e( '— No change —', 'whols' ); ?></option>
+                        <option value=""><?php esc_html_e( 'Everyone', 'whols' ); ?></option>
+                        <option value="wholesaler_only"><?php esc_html_e( 'Wholesalers Only', 'whols' ); ?></option>
                     </select>
                 </span>
             </div>
 
             <!-- Pricing Update Control -->
             <div>
-                <span class="title"><?php _e( 'Wholesale Pricing', 'whols' ); ?></span>
+                <span class="title"><?php esc_html_e( 'Wholesale Pricing', 'whols' ); ?></span>
                 <span class="input-text-wrap">
                     <select name="whols_pricing_action" class="whols_pricing_action" onchange="toggleWholsPricingFields(this)">
-                        <option value="no_change"><?php _e( '— No change —', 'woocommerce' ); ?></option>
-                        <option value="update"><?php _e( 'Update pricing', 'whols' ); ?></option>
-                        <option value="clear"><?php _e( 'Clear all pricing', 'whols' ); ?></option>
+                        <option value="no_change"><?php esc_html_e( '— No change —', 'whols' ); ?></option>
+                        <option value="update"><?php esc_html_e( 'Update pricing', 'whols' ); ?></option>
+                        <option value="clear"><?php esc_html_e( 'Clear all pricing', 'whols' ); ?></option>
                     </select>
                 </span>
             </div>
@@ -241,16 +241,16 @@ class Product_Quick_Edit_Fields {
                 <?php if ( $pricing_model == 'single_role' ): ?>
                 <!-- Single Role Pricing -->
                 <div class="whols-bulk-pricing-row">
-                    <span class="title"><?php _e( 'Wholesale Price', 'whols' ); ?> (<?php echo get_woocommerce_currency_symbol(); ?>)</span>
+                    <span class="title"><?php esc_html_e( 'Wholesale Price', 'whols' ); ?> (<?php echo wp_kses_post(get_woocommerce_currency_symbol()); ?>)</span>
                     <span class="input-text-wrap">
-                        <input type="text" name="whols_price_type_1_price_bulk" class="text wc_input_price whols_price_type_1_price_bulk" value="" placeholder="<?php _e( 'Price', 'whols' ); ?>">
+                        <input type="text" name="whols_price_type_1_price_bulk" class="text wc_input_price whols_price_type_1_price_bulk" value="" placeholder="<?php esc_html_e( 'Price', 'whols' ); ?>">
                     </span>
                 </div>
                 
                 <div class="whols-bulk-pricing-row">
-                    <span class="title"><?php _e( 'Wholesale Min. Qty', 'whols' ); ?></span>
+                    <span class="title"><?php esc_html_e( 'Wholesale Min. Qty', 'whols' ); ?></span>
                     <span class="input-text-wrap">
-                        <input type="number" name="whols_price_type_1_min_quantity_bulk" class="text whols_price_type_1_min_quantity_bulk" value="" placeholder="<?php _e( 'Min. Quantity', 'whols' ); ?>" step="1" min="0">
+                        <input type="number" name="whols_price_type_1_min_quantity_bulk" class="text whols_price_type_1_min_quantity_bulk" value="" placeholder="<?php esc_attr_e( 'Min. Quantity', 'whols' ); ?>" step="1" min="0">
                     </span>
                 </div>
                 
@@ -359,12 +359,12 @@ class Product_Quick_Edit_Fields {
     public function add_hidden_whols_for_quick_edit( $column, $post_id ) {
         if ( $column === 'name' ) {
             // Product Visibility
-            $visibility = esc_attr( get_post_meta( $post_id, '_whols_product_visibility', true ) );
-            echo "<div class='hidden whols-visibility-value whols-hidden' id='whols_visibility_{$post_id}'>{$visibility}</div>";
+            $visibility = get_post_meta( $post_id, '_whols_product_visibility', true );
+            echo "<div class='hidden whols-visibility-value whols-hidden' id='whols_visibility_".esc_attr($post_id)."'>".esc_html($visibility)."</div>";
             
             // Pricing Type 1 Properties
-            $price_type_1 = esc_attr( get_post_meta( $post_id, '_whols_price_type_1_properties', true ) );
-            echo "<div class='hidden whols-price-type-1-value whols-hidden' id='whols_price_type_1_{$post_id}'>{$price_type_1}</div>";
+            $price_type_1 = get_post_meta( $post_id, '_whols_price_type_1_properties', true );
+            echo "<div class='hidden whols-price-type-1-value whols-hidden' id='whols_price_type_1_".esc_attr($post_id)."'>".esc_html($price_type_1)."</div>";
         }
     }
 

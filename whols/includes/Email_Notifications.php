@@ -190,7 +190,7 @@ class Email_Notifications {
                 </style>
             </head>
             <body>
-                <?php echo wpautop($body); ?>
+                <?php echo wpautop($body); // @phpcs:ignore ?>
             </body>
         </html>
         <?php

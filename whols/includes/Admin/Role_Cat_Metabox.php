@@ -58,7 +58,7 @@ class Role_Cat_Metabox {
                     'multiple'    => true,
                     'placeholder' => esc_html__( 'Select payment methods to disable for this role', 'whols' ),
                     'options'     => whols_get_payment_gateways(),
-                    'after'       => esc_html__( 'Leave it empty to use the global option. If you disable any payment method from here. The Global option will not be used.' ),
+                    'after'       => esc_html__( 'Leave it empty to use the global option. If you disable any payment method from here. The Global option will not be used.', 'whols' ),
                     'class'       => 'whols_pro whols_disable_gateway'
                 ),
                 

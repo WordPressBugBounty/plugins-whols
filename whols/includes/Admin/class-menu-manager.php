@@ -143,7 +143,7 @@ class Menu_Manager {
         ?>
         <script>
             jQuery(document).ready(function($) {
-                const $subMenuItems = $('<?php echo $submenu_items; ?>');
+                const $subMenuItems = $('<?php echo wp_kses_post($submenu_items); ?>');
             
                 // Function to handle menu activation
                 const activateMenuItem = (hash) => {

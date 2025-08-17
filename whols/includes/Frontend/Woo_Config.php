@@ -205,18 +205,18 @@ class Woo_Config {
                         }
                         ?>
                             <?php if( $product_type == 'simple' ): ?>
-                                <?php echo wc_price( $retailer_price ); ?>
+                                <?php echo wp_kses_post(wc_price( $retailer_price )); ?>
                             <?php elseif( $product_type == 'variable' ):
                                     $min_variation_price = $product->get_variation_price();
                                     $max_variation_price = $product->get_variation_price( 'max' );
                                 ?>
                                 <span class="whols_price">
                                     <?php
-                                        echo wc_price($min_variation_price);
+                                        echo wp_kses_post(wc_price($min_variation_price));
     
                                         if( $min_variation_price != $max_variation_price ){
                                             echo '–';
-                                            echo wc_price($max_variation_price);
+                                            echo wp_kses_post(wc_price($max_variation_price));
                                         }
                                     ?>
                                 </span>
@@ -239,7 +239,7 @@ class Woo_Config {
                         <?php else: ?>
                             <span class="whols_label_left"><?php echo esc_html__( 'Wholesaler Price:', 'whols' ); ?></span>
                         <?php endif; ?>
-                        <span class="whols_label_right"><?php echo whols_get_wholesaler_price( $price_type, $price_value, $product ); ?></span>
+                        <span class="whols_label_right"><?php echo wp_kses_post(whols_get_wholesaler_price( $price_type, $price_value, $product )); ?></span>
                     </span>
                 </div>
                 <?php endif; ?>
@@ -247,7 +247,7 @@ class Woo_Config {
                 <!-- price save info -->
                 <?php if( !$hide_discount_percent ): ?>
                 <div class="whols_save_amount">
-                    <?php echo whols_get_price_save_info( $price_type, $price_value, $product ); ?>
+                    <?php echo wp_kses_post(whols_get_price_save_info( $price_type, $price_value, $product )); ?>
                 </div>
                 <?php endif; ?>
             </div> <!-- .whols_loop_custom_price -->
@@ -305,7 +305,7 @@ class Woo_Config {
             <tbody>
                 <tr>
                     <td><?php echo esc_html($minimum_quantity); ?></td>
-                    <td><?php echo wc_price( $price_per_unit ); ?></td>
+                    <td><?php echo wp_kses_post(wc_price( $price_per_unit )); ?></td>
                 </tr>
             </tbody>
         </table>

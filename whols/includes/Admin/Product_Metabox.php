@@ -94,7 +94,7 @@ class Product_Metabox {
             ?>
 
             <p class="form-field whols_product_meta_type_1_pricing">
-                <label><?php echo esc_html__( 'Wholesale Price', 'whols' ).' ('.get_woocommerce_currency_symbol().')'; ?></label>
+                <label><?php echo esc_html__( 'Wholesale Price', 'whols' ).' ('.wp_kses_post(get_woocommerce_currency_symbol()).')'; ?></label>
                 <?php 
                 $price_type_1_properties = get_post_meta( $post->ID, '_whols_price_type_1_properties', true);
                 $price_type_1_properties_arr = explode(':', $price_type_1_properties);
@@ -104,7 +104,7 @@ class Product_Metabox {
                 <span class="wrap whols_product_meta_wrap">
 
                     <span class="whols_field_wrap">
-                        <input name="whols_price_type_1_price" placeholder="<?php echo esc_html__('Price', 'whols') ?>" class="wc_input_price" type="text" step="any" min="0" value="<?php echo wc_format_localized_price( $price_type_1_price ); ?>" />
+                        <input name="whols_price_type_1_price" placeholder="<?php echo esc_html__('Price', 'whols') ?>" class="wc_input_price" type="text" step="any" min="0" value="<?php echo esc_attr(wc_format_localized_price( $price_type_1_price )); ?>" />
                     </span>
 
                     <span class="whols_field_wrap">
@@ -169,8 +169,8 @@ class Product_Metabox {
                 <span class="wrap whols_product_meta_wrap">
 
                     <span class="form-row form-field whols_field_wrap">
-                        <span class="whols_lbl"><?php echo esc_html__( 'Wholesale Price', 'whols' ).' ('.get_woocommerce_currency_symbol().')'; ?></span>
-                        <input name="whols_price_type_1_price_<?php echo esc_attr($variation->ID); ?>" placeholder="<?php echo esc_attr__( 'Price', 'whols' ); ?>" class="wc_input_price" type="text" step="any" min="0" value="<?php echo wc_format_localized_price( $price_type_1_price ); ?>" />
+                        <span class="whols_lbl"><?php echo esc_html__( 'Wholesale Price', 'whols' ).' ('.wp_kses_post(get_woocommerce_currency_symbol()).')'; ?></span>
+                        <input name="whols_price_type_1_price_<?php echo esc_attr($variation->ID); ?>" placeholder="<?php echo esc_attr__( 'Price', 'whols' ); ?>" class="wc_input_price" type="text" step="any" min="0" value="<?php echo esc_attr(wc_format_localized_price( $price_type_1_price )); ?>" />
                     </span>
 
                     <span class="form-row form-field whols_field_wrap">

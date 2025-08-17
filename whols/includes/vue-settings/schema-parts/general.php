@@ -4,7 +4,7 @@ return ['root_route' => [
 
     'sections' => [
         'general' => [
-            'title' => __('', 'whols'),
+            'title' => '',
         ],
 
         'single_role_pricing' => [

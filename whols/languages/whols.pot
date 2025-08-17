@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: Whols - Wholesale Prices and B2B Store Solution for "
 "WooCommerce\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-06-24 11:45+0000\n"
+"POT-Creation-Date: 2025-08-17 06:25+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
@@ -39,32 +39,29 @@ msgstr ""
 msgid " Message"
 msgstr ""
 
-#: includes/Admin/Wholesaler_Request_Metabox.php:65
-msgid ""
-"\">Click Here</a> to edit/update profile informations like (Shipping Address,"
-" Billing Address etc) of this user"
-msgstr ""
-
-#: includes/Admin/Custom_Columns.php:64
+#. %1$s: Approved, %2$s: Approved, %3$s: Approved
+#: includes/Admin/Custom_Columns.php:65
 #, php-format
 msgid "%1$s Approved %2$s"
 msgstr ""
 
-#: includes/Admin/Custom_Columns.php:76
+#. %1$s: Pending, %2$s: Pending, %3$s: Pending
+#: includes/Admin/Custom_Columns.php:79
 #, php-format
 msgid "%1$s Pending %2$s"
 msgstr ""
 
 #. 1: Whols.
 #. 2: WooCommerce.
-#: whols.php:326
+#: whols.php:329
 #, php-format
 msgid ""
 "%1$s plugin requires the %2$s plugin to be installed and activated in order "
 "to work."
 msgstr ""
 
-#: includes/Admin/Custom_Columns.php:70
+#. %1$s: Rejected, %2$s: Rejected, %3$s: Rejected
+#: includes/Admin/Custom_Columns.php:72
 #, php-format
 msgid "%1$s Rejected %2$s"
 msgstr ""
@@ -75,6 +72,16 @@ msgid "%d item"
 msgid_plural "%d items"
 msgstr[0] ""
 msgstr[1] ""
+
+#. %s: Number of installations.
+#: includes/Admin/recommended-plugins/class.recommended-plugins.php:296
+#, php-format
+msgid "%s Active Installations"
+msgstr ""
+
+#: includes/Admin/Product_Category_Metabox.php:48
+msgid "(If not enabled global options will be used)"
+msgstr ""
 
 #: includes/vue-settings/schema-parts/general.php:108
 #: includes/vue-settings/schema-parts/general.php:144
@@ -97,6 +104,14 @@ msgstr ""
 
 #: includes/vue-settings/schema-parts/dynamic-rules.php:84
 msgid "50"
+msgstr ""
+
+#. %s: Profile edit URL
+#: includes/Admin/Wholesaler_Request_Metabox.php:67
+#, php-format
+msgid ""
+"<a href=\"%s\">Click Here</a> to edit/update profile information's like "
+"(Shipping Address, Billing Address etc) of this user"
 msgstr ""
 
 #: includes/vue-settings/schema-parts/general.php:128
@@ -172,6 +187,20 @@ msgstr ""
 msgid "Activating.."
 msgstr ""
 
+#. %s: Number of millions.
+#: includes/Admin/recommended-plugins/class.recommended-plugins.php:370
+#, php-format
+msgctxt "Active plugin installations"
+msgid "%s+ Million"
+msgid_plural "%s+ Million"
+msgstr[0] ""
+msgstr[1] ""
+
+#: includes/Admin/recommended-plugins/class.recommended-plugins.php:374
+msgctxt "Active plugin installations"
+msgid "Less Than 10"
+msgstr ""
+
 #: includes/save-order-list/class-save-order-list.php:125
 msgid "Add a note (optional)"
 msgstr ""
@@ -186,7 +215,7 @@ msgstr ""
 
 #: includes/Admin/Custom_Posts.php:44
 #: includes/vue-settings/schema-parts/wholesale-only-categories.php:5
-#: includes/vue-settings/schema-parts/wholesale-only-categories.php:64
+#: includes/vue-settings/schema-parts/wholesale-only-categories.php:63
 #: includes/vue-settings/schema-parts/dynamic-rules.php:20
 #: includes/vue-settings/schema-parts/fields-manager.php:7
 msgid "Add New"
@@ -295,27 +324,32 @@ msgstr ""
 msgid "Approval Notification"
 msgstr ""
 
-#: includes/Admin/Wholesaler_Request_Metabox.php:109
+#: includes/Admin/Wholesaler_Request_Metabox.php:113
 msgid "Approve"
 msgstr ""
 
-#: includes/Admin/Wholesaler_Request_Metabox.php:107
+#: includes/Admin/Wholesaler_Request_Metabox.php:111
 msgid "Approve / Reject"
+msgstr ""
+
+#: includes/Admin/Notice_Handler.php:68
+msgid "Are you cheating?"
 msgstr ""
 
 #: includes/save-order-list/class-save-order-list.php:94
 msgid "Are you sure you want to delete this list?"
 msgstr ""
 
-#: includes/Admin/Wholesaler_Request_Metabox.php:99
+#: includes/Admin/Wholesaler_Request_Metabox.php:103
 msgid "Assign A Role"
 msgstr ""
 
-#: includes/vue-settings/schema-parts/wholesale-only-categories.php:55
+#: includes/vue-settings/schema-parts/wholesale-only-categories.php:54
 msgid "Assign Role(s)"
 msgstr ""
 
-#: includes/Admin/Diagnostic_Data.php:554
+#. %1$s: Project name, %2$s: Strong tag, %3$s: Strong tag, %4$s: Privacy Policy link, %5$s: Privacy Policy link
+#: includes/Admin/Diagnostic_Data.php:556
 #, php-format
 msgid ""
 "At %2$s%1$s%3$s, we prioritize continuous improvement and compatibility. To "
@@ -404,6 +438,7 @@ msgid "BOGO Settings"
 msgstr ""
 
 #: includes/vue-settings/menu.php:48
+#: includes/vue-settings/schema-parts/bulk-order-form.php:8
 msgid "Bulk Order Form"
 msgstr ""
 
@@ -450,7 +485,7 @@ msgstr ""
 msgid "Cash on Delivery"
 msgstr ""
 
-#: includes/vue-settings/schema-parts/wholesale-only-categories.php:44
+#: includes/vue-settings/schema-parts/wholesale-only-categories.php:43
 msgid "Category(s)"
 msgstr ""
 
@@ -474,7 +509,7 @@ msgstr ""
 msgid "Choose Action"
 msgstr ""
 
-#: includes/functions.php:652
+#: includes/functions.php:654
 msgid "Choose an option"
 msgstr ""
 
@@ -522,6 +557,10 @@ msgstr ""
 
 #: includes/vue-settings/schema-parts/fields-manager.php:197
 msgid "Class"
+msgstr ""
+
+#: includes/Admin/class-product-quick-edit-fields.php:234
+msgid "Clear all pricing"
 msgstr ""
 
 #: includes/vue-settings/schema-parts/design.php:28
@@ -633,11 +672,15 @@ msgstr ""
 msgid "Conversation"
 msgstr ""
 
-#: includes/Admin/Custom_Columns.php:88
+#: includes/vue-settings/schema-parts/bulk-order-form.php:21
+msgid "Copy this shortcode to add the bulk order form to any page or post."
+msgstr ""
+
+#: includes/Admin/Custom_Columns.php:91
 msgid "Count"
 msgstr ""
 
-#: includes/Admin/Diagnostic_Data.php:558
+#: includes/Admin/Diagnostic_Data.php:569
 msgid "Count Me In"
 msgstr ""
 
@@ -663,6 +706,14 @@ msgstr ""
 #: includes/vue-settings/menu.php:57
 #: includes/vue-settings/schema-parts/custom-thank-you-message.php:3
 msgid "Custom Thank You Message"
+msgstr ""
+
+#: includes/vue-settings/schema-parts/bulk-order-form.php:28
+msgid "Custom title for the Bulk Order Form menu item in My Account page."
+msgstr ""
+
+#: includes/vue-settings/schema-parts/bulk-order-form.php:42
+msgid "Custom title for the Bulk Order Form."
 msgstr ""
 
 #: includes/vue-settings/schema-parts/email-notifications.php:6
@@ -740,7 +791,7 @@ msgstr ""
 msgid "Default Price Tier Selection"
 msgstr ""
 
-#: whols.php:344
+#: whols.php:347
 msgid "Default Role"
 msgstr ""
 
@@ -748,7 +799,7 @@ msgstr ""
 msgid "Default Value"
 msgstr ""
 
-#: whols.php:347
+#: whols.php:350
 msgid "Default Wholesale Role"
 msgstr ""
 
@@ -851,6 +902,10 @@ msgstr ""
 msgid "Discounted Product"
 msgstr ""
 
+#: includes/Admin/Notice_Handler.php:256
+msgid "Dismiss this notice."
+msgstr ""
+
 #: includes/vue-settings/schema-parts/fields-manager.php:128
 msgid "Documents (PDF)"
 msgstr ""
@@ -881,7 +936,7 @@ msgstr ""
 msgid "Edit Rule"
 msgstr ""
 
-#: includes/functions.php:473 includes/Admin/defaults.php:28
+#: includes/functions.php:475 includes/Admin/defaults.php:28
 #: includes/Admin/csf-fields/CSF_Field_registration_details.php:43
 #: includes/vue-settings/schema-parts/wallet.php:41
 #: includes/vue-settings/schema-parts/fields-manager.php:43
@@ -935,6 +990,7 @@ msgstr ""
 #: includes/vue-settings/schema-parts/wallet.php:9
 #: includes/vue-settings/schema-parts/wholesale-only-categories.php:18
 #: includes/vue-settings/schema-parts/request-a-quote.php:9
+#: includes/vue-settings/schema-parts/bulk-order-form.php:13
 #: includes/vue-settings/schema-parts/dynamic-rules.php:38
 #: includes/vue-settings/schema-parts/dynamic-rules.php:139
 #: includes/vue-settings/schema-parts/dynamic-rules.php:230
@@ -959,6 +1015,10 @@ msgstr ""
 
 #: includes/vue-settings/schema-parts/registration.php:122
 msgid "Enable Google reCAPTCHA (V3)"
+msgstr ""
+
+#: includes/vue-settings/schema-parts/others.php:70
+msgid "Enable Quick & Bulk Edit Products"
 msgstr ""
 
 #: includes/vue-settings/schema-parts/save-order-list.php:12
@@ -1008,7 +1068,17 @@ msgstr ""
 msgid "Enable Website Restriction Type"
 msgstr ""
 
-#: includes/vue-settings/class-settings-rest-api.php:173
+#: includes/vue-settings/schema-parts/others.php:73
+msgid "Enable/Disable Quick and Bulk Edit for Products"
+msgstr ""
+
+#: includes/vue-settings/schema-parts/others.php:72
+msgid ""
+"Enabling this option will allow you to edit wholesale price from product "
+"quick edit screen"
+msgstr ""
+
+#: includes/vue-settings/class-settings-rest-api.php:184
 msgid "End date for filtering orders (YYYY-MM-DD format)"
 msgstr ""
 
@@ -1067,6 +1137,8 @@ msgstr ""
 msgid "EverCompare"
 msgstr ""
 
+#: includes/Admin/class-product-quick-edit-fields.php:138
+#: includes/Admin/class-product-quick-edit-fields.php:221
 #: includes/vue-settings/schema-parts/guest-access.php:59
 #: includes/vue-settings/schema-parts/guest-access.php:72
 msgid "Everyone"
@@ -1194,12 +1266,16 @@ msgstr ""
 msgid "Force Applying Minimum Quantity"
 msgstr ""
 
-#: includes/vue-settings/class-settings-rest-api.php:181
+#: includes/vue-settings/class-settings-rest-api.php:192
 msgid "Force refresh data by clearing transient cache"
 msgstr ""
 
 #: includes/vue-settings/schema-parts/registration.php:11
 msgid "Form Settings"
+msgstr ""
+
+#: includes/vue-settings/schema-parts/bulk-order-form.php:41
+msgid "Form Title"
 msgstr ""
 
 #: includes/vue-settings/schema-parts/dynamic-rules.php:64
@@ -1233,6 +1309,14 @@ msgstr ""
 
 #: includes/vue-settings/schema-parts/general.php:100
 msgid "Global Wholesale Pricing - Single Role Setup"
+msgstr ""
+
+#: includes/vue-settings/schema-parts/bulk-order-form.php:53
+msgid "Go to cart"
+msgstr ""
+
+#: includes/vue-settings/schema-parts/bulk-order-form.php:54
+msgid "Go to checkout"
 msgstr ""
 
 #: includes/vue-settings/schema-parts/guest-access.php:3
@@ -1495,7 +1579,13 @@ msgstr ""
 msgid "Leave it empty for default. Default: 2MB"
 msgstr ""
 
-#: includes/vue-settings/schema-parts/wholesale-only-categories.php:56
+#: includes/Admin/Role_Cat_Metabox.php:61
+msgid ""
+"Leave it empty to use the global option. If you disable any payment method "
+"from here. The Global option will not be used."
+msgstr ""
+
+#: includes/vue-settings/schema-parts/wholesale-only-categories.php:55
 msgid "Leave it empty, to assign all roles."
 msgstr ""
 
@@ -1606,6 +1696,10 @@ msgstr ""
 msgid "Maximum Lists Per User"
 msgstr ""
 
+#: includes/vue-settings/schema-parts/bulk-order-form.php:27
+msgid "Menu Title"
+msgstr ""
+
 #: includes/Admin/defaults.php:58
 #: includes/vue-settings/schema-parts/email-notifications.php:43
 #: includes/vue-settings/schema-parts/email-notifications.php:86
@@ -1624,6 +1718,8 @@ msgstr ""
 msgid "Min Quantity to Buy"
 msgstr ""
 
+#: includes/Admin/class-product-quick-edit-fields.php:156
+#: includes/Admin/class-product-quick-edit-fields.php:253
 #: includes/Admin/Product_Metabox.php:111
 #: includes/Admin/Product_Metabox.php:178
 msgid "Min. Quantity"
@@ -1694,7 +1790,7 @@ msgstr ""
 msgid "Multiple Role Based"
 msgstr ""
 
-#: includes/functions.php:457 includes/functions.php:460
+#: includes/functions.php:459 includes/functions.php:462
 #: includes/Admin/defaults.php:18
 #: includes/Admin/csf-fields/CSF_Field_registration_details.php:35
 #: includes/vue-settings/schema-parts/fields-manager.php:41
@@ -1746,6 +1842,10 @@ msgstr ""
 msgid "No dynamic rules added yet"
 msgstr ""
 
+#: includes/vue-settings/class-settings-rest-api.php:293
+msgid "No fields specified for reset."
+msgstr ""
+
 #: includes/vue-settings/schema-parts/wallet.php:19
 #: includes/vue-settings/schema-parts/wallet.php:29
 msgid "No Limit"
@@ -1771,7 +1871,7 @@ msgstr ""
 msgid "No rules added yet."
 msgstr ""
 
-#: includes/Admin/Diagnostic_Data.php:561
+#: includes/Admin/Diagnostic_Data.php:572
 msgid "No, Thanks"
 msgstr ""
 
@@ -1779,7 +1879,7 @@ msgstr ""
 msgid "Nonce Varification fail"
 msgstr ""
 
-#: includes/vue-settings/class-settings-rest-api.php:211
+#: includes/vue-settings/class-settings-rest-api.php:222
 msgid "Nonce verification failed."
 msgstr ""
 
@@ -1813,8 +1913,8 @@ msgid ""
 "<i>This value will be customizable in future updates.</i>"
 msgstr ""
 
-#: includes/vue-settings/schema-parts/wholesale-only-categories.php:46
-#: includes/vue-settings/schema-parts/wholesale-only-categories.php:57
+#: includes/vue-settings/schema-parts/wholesale-only-categories.php:45
+#: includes/vue-settings/schema-parts/wholesale-only-categories.php:56
 msgid ""
 "Only users with the assigned roles can access products in these selected "
 "categories."
@@ -1839,15 +1939,15 @@ msgstr ""
 msgid "Open Purchase - Everyone Can Buy"
 msgstr ""
 
-#: includes/vue-settings/class-settings-rest-api.php:59
+#: includes/vue-settings/class-settings-rest-api.php:70
 msgid "Option name"
 msgstr ""
 
-#: includes/vue-settings/class-settings-rest-api.php:67
+#: includes/vue-settings/class-settings-rest-api.php:78
 msgid "Option value"
 msgstr ""
 
-#: includes/functions.php:571
+#: includes/functions.php:573
 msgid "optional"
 msgstr ""
 
@@ -1883,7 +1983,7 @@ msgstr ""
 msgid "Parent Role:"
 msgstr ""
 
-#: includes/functions.php:481
+#: includes/functions.php:483
 #: includes/vue-settings/schema-parts/fields-manager.php:44
 #: includes/vue-settings/schema-parts/fields-manager.php:228
 msgid "Password"
@@ -1986,6 +2086,8 @@ msgstr ""
 msgid "Preview"
 msgstr ""
 
+#: includes/Admin/class-product-quick-edit-fields.php:149
+#: includes/Admin/class-product-quick-edit-fields.php:246
 #: includes/Admin/Product_Metabox.php:107
 #: includes/Admin/Product_Metabox.php:173
 #: includes/request-a-quote/html-product-data.php:12
@@ -2046,6 +2148,8 @@ msgstr ""
 msgid "Product Settings"
 msgstr ""
 
+#: includes/Admin/class-product-quick-edit-fields.php:135
+#: includes/Admin/class-product-quick-edit-fields.php:217
 #: includes/Admin/Product_Metabox.php:65 includes/vue-settings/menu.php:22
 #: includes/vue-settings/schema-parts/product-visibility.php:3
 msgid "Product Visibility"
@@ -2111,6 +2215,10 @@ msgstr ""
 msgid "Recommended Plugins"
 msgstr ""
 
+#: includes/vue-settings/schema-parts/bulk-order-form.php:48
+msgid "Redirect After Add to Cart"
+msgstr ""
+
 #: includes/vue-settings/schema-parts/registration.php:114
 msgid "Redirect Page URL (After Login)"
 msgstr ""
@@ -2141,7 +2249,7 @@ msgstr ""
 msgid "Registration Confirmation"
 msgstr ""
 
-#: includes/Admin/Wholesaler_Request_Metabox.php:71
+#: includes/Admin/Wholesaler_Request_Metabox.php:75
 msgid "Registration Details"
 msgstr ""
 
@@ -2161,7 +2269,7 @@ msgstr ""
 msgid "Registration Settings"
 msgstr ""
 
-#: includes/Admin/Wholesaler_Request_Metabox.php:110
+#: includes/Admin/Wholesaler_Request_Metabox.php:114
 msgid "Reject"
 msgstr ""
 
@@ -2210,7 +2318,7 @@ msgstr ""
 msgid "Requests list navigation"
 msgstr ""
 
-#: includes/functions.php:569
+#: includes/functions.php:571
 msgid "required"
 msgstr ""
 
@@ -2348,7 +2456,7 @@ msgstr ""
 msgid "Save:"
 msgstr ""
 
-#: includes/functions.php:407
+#: includes/functions.php:409
 msgid "Save: "
 msgstr ""
 
@@ -2364,11 +2472,15 @@ msgstr ""
 msgid "Search Request"
 msgstr ""
 
+#: includes/vue-settings/schema-parts/bulk-order-form.php:34
+msgid "Search Results Limit"
+msgstr ""
+
 #: includes/Admin/Custom_Taxonomies.php:50
 msgid "Search Roles"
 msgstr ""
 
-#: includes/vue-settings/schema-parts/wholesale-only-categories.php:45
+#: includes/vue-settings/schema-parts/wholesale-only-categories.php:44
 #: includes/vue-settings/schema-parts/fields-manager.php:70
 msgid "Select"
 msgstr ""
@@ -2423,7 +2535,7 @@ msgstr ""
 msgid "Select Products"
 msgstr ""
 
-#: includes/Admin/Wholesaler_Request_Metabox.php:100
+#: includes/Admin/Wholesaler_Request_Metabox.php:104
 msgid "Select role"
 msgstr ""
 
@@ -2485,7 +2597,8 @@ msgstr ""
 msgid "Separate roles with commas"
 msgstr ""
 
-#: includes/Admin/Diagnostic_Data.php:556
+#. %1$s: Learn more link, %2$s: Learn more link
+#: includes/Admin/Diagnostic_Data.php:567
 #, php-format
 msgid ""
 "Server information (Web server, PHP version, MySQL version), WordPress "
@@ -2520,13 +2633,17 @@ msgid "Set up The Registration Page"
 msgstr ""
 
 #. 1: Settings label
-#: includes/Admin.php:64 includes/Admin/class-menu-manager.php:76
+#: includes/Admin.php:65 includes/Admin/class-menu-manager.php:76
 #: includes/Admin/Menu_Manager.php:37
 msgid "Settings"
 msgstr ""
 
 #: includes/vue-settings/schema-parts/dynamic-rules.php:11
 msgid "Shipping"
+msgstr ""
+
+#: includes/vue-settings/schema-parts/bulk-order-form.php:20
+msgid "Shortcode"
 msgstr ""
 
 #: includes/vue-settings/schema-parts/product-visibility.php:44
@@ -2593,7 +2710,7 @@ msgstr ""
 msgid "Start Conversation Label"
 msgstr ""
 
-#: includes/vue-settings/class-settings-rest-api.php:165
+#: includes/vue-settings/class-settings-rest-api.php:176
 msgid "Start date for filtering orders (YYYY-MM-DD format)"
 msgstr ""
 
@@ -2603,6 +2720,10 @@ msgstr ""
 
 #: includes/Admin/Custom_Columns.php:46
 msgid "Status"
+msgstr ""
+
+#: includes/vue-settings/schema-parts/bulk-order-form.php:52
+msgid "Stay on page"
 msgstr ""
 
 #: includes/vue-settings/schema-parts/dynamic-rules.php:122
@@ -2671,7 +2792,8 @@ msgid ""
 "reviewed by us & approved manually. Please wait for a while."
 msgstr ""
 
-#: includes/Admin/Diagnostic_Data.php:582
+#. %1$s: Project name, %2$s: Strong tag, %3$s: Strong tag
+#: includes/Admin/Diagnostic_Data.php:595
 #, php-format
 msgid "Thank you very much for supporting %2$s%1$s%3$s."
 msgstr ""
@@ -2723,6 +2845,10 @@ msgstr ""
 #: includes/class-wholesale-product-pricing.php:877
 #: includes/class-wholesale-product-pricing.php:933
 msgid "Up to"
+msgstr ""
+
+#: includes/Admin/class-product-quick-edit-fields.php:233
+msgid "Update pricing"
 msgstr ""
 
 #: includes/Admin/Custom_Posts.php:47
@@ -2798,12 +2924,12 @@ msgstr ""
 msgid "User Conditions"
 msgstr ""
 
-#: includes/Admin/Wholesaler_Request_Metabox.php:77
+#: includes/Admin/Wholesaler_Request_Metabox.php:81
 msgid "User ID"
 msgstr ""
 
-#: includes/functions.php:465 includes/functions.php:468
-#: includes/Admin/Wholesaler_Request_Metabox.php:88
+#: includes/functions.php:467 includes/functions.php:470
+#: includes/Admin/Wholesaler_Request_Metabox.php:92
 #: includes/Admin/csf-fields/CSF_Field_registration_details.php:39
 #: includes/vue-settings/schema-parts/fields-manager.php:42
 #: includes/vue-settings/schema-parts/fields-manager.php:214
@@ -2843,6 +2969,10 @@ msgstr ""
 msgid "Wednesday"
 msgstr ""
 
+#: includes/vue-settings/schema-parts/bulk-order-form.php:49
+msgid "Where to redirect users after adding products to cart."
+msgstr ""
+
 #: includes/vue-settings/schema-parts/guest-access.php:70
 msgid "Who Can Access Entire Website"
 msgstr ""
@@ -2851,12 +2981,19 @@ msgstr ""
 msgid "Who Can Access Shop"
 msgstr ""
 
+#: includes/Admin/class-product-quick-edit-fields.php:154
+#: includes/Admin/class-product-quick-edit-fields.php:251
+msgid "Wholesale Min. Qty"
+msgstr ""
+
 #: includes/Admin/Product_Metabox.php:177
 msgid "Wholesale Min. Quantity"
 msgstr ""
 
+#: includes/Admin/class-product-quick-edit-fields.php:147
+#: includes/Admin/class-product-quick-edit-fields.php:244
 #: includes/Admin/Product_Metabox.php:97 includes/Admin/Product_Metabox.php:172
-#: includes/Admin/Custom_Columns.php:108
+#: includes/Admin/Custom_Columns.php:111
 msgid "Wholesale Price"
 msgstr ""
 
@@ -2872,6 +3009,10 @@ msgstr ""
 #: includes/Frontend/Woo_Config.php:256
 #: includes/vue-settings/schema-parts/general.php:284
 msgid "Wholesale price will apply for minimum quantity of {qty} products."
+msgstr ""
+
+#: includes/Admin/class-product-quick-edit-fields.php:229
+msgid "Wholesale Pricing"
 msgstr ""
 
 #: includes/Admin/Product_Metabox.php:68
@@ -2932,8 +3073,16 @@ msgstr ""
 msgid "Wholesaler Type Setup"
 msgstr ""
 
-#: whols.php:327 includes/Admin/class-menu-manager.php:28
-#: includes/Admin/class-menu-manager.php:29
+#: includes/Admin/class-product-quick-edit-fields.php:139
+#: includes/Admin/class-product-quick-edit-fields.php:222
+msgid "Wholesalers Only"
+msgstr ""
+
+#: whols.php:330 includes/Admin/class-menu-manager.php:28
+#: includes/Admin/class-menu-manager.php:29 includes/Admin/Menu_Manager.php:26
+#: includes/Admin/Menu_Manager.php:27
+#: includes/Admin/class-product-quick-edit-fields.php:131
+#: includes/Admin/class-product-quick-edit-fields.php:213
 #: includes/Admin/Product_Metabox.php:48
 msgid "Whols"
 msgstr ""
@@ -2965,7 +3114,7 @@ msgstr ""
 msgid "Whols Pro – WooCommerce Wholesale Prices"
 msgstr ""
 
-#: includes/Admin.php:114
+#: includes/Admin.php:115
 msgid "Whols Registration Page"
 msgstr ""
 
@@ -2981,7 +3130,7 @@ msgstr ""
 msgid "WishSuite"
 msgstr ""
 
-#: whols.php:328
+#: whols.php:331
 msgid "WooCommerce"
 msgstr ""
 
@@ -3013,6 +3162,7 @@ msgstr ""
 #: includes/vue-settings/schema-parts/others.php:33
 #: includes/vue-settings/schema-parts/others.php:41
 #: includes/vue-settings/schema-parts/others.php:62
+#: includes/vue-settings/schema-parts/others.php:71
 #: includes/vue-settings/schema-parts/request-a-quote.php:10
 #: includes/vue-settings/schema-parts/request-a-quote.php:25
 #: includes/vue-settings/schema-parts/dynamic-rules.php:39
@@ -3042,11 +3192,15 @@ msgstr ""
 msgid "You are Logged in as: "
 msgstr ""
 
+#: includes/Admin/Notice_Handler.php:60
+msgid "You are not authorized."
+msgstr ""
+
 #: includes/vue-settings/schema-parts/wholesale-only-categories.php:6
 msgid "You can define which categories are visible only to wholesalers."
 msgstr ""
 
-#: includes/vue-settings/class-settings-rest-api.php:199
+#: includes/vue-settings/class-settings-rest-api.php:210
 msgid "You do not have permissions to manage settings."
 msgstr ""
 
@@ -3062,7 +3216,7 @@ msgstr ""
 msgid "You May Also Like"
 msgstr ""
 
-#: includes/functions.php:476
+#: includes/functions.php:478
 #: includes/vue-settings/schema-parts/fields-manager.php:222
 msgid "Your Email"
 msgstr ""
@@ -3076,7 +3230,7 @@ msgstr ""
 msgid "Your Name"
 msgstr ""
 
-#: includes/functions.php:484
+#: includes/functions.php:486
 #: includes/vue-settings/schema-parts/fields-manager.php:229
 msgid "Your Password"
 msgstr ""
@@ -3094,7 +3248,27 @@ msgstr ""
 msgid "Your Wholesale Application Has Been Received"
 msgstr ""
 
-#: includes/Admin/Diagnostic_Data.php:566
+#: includes/Admin/class-product-quick-edit-fields.php:220
+#: includes/Admin/class-product-quick-edit-fields.php:232
+msgid "— No change —"
+msgstr ""
+
+#: includes/vue-settings/schema-parts/bulk-order-form.php:14
+msgid ""
+"• Adds a bulk order form to the My Account page.<br>• Use shortcode "
+"[whols_bulk_order_form] to add it to other pages.<br>• Provides wholesalers "
+"with a quick way to order multiple products at once."
+msgstr ""
+
+#: includes/vue-settings/schema-parts/bulk-order-form.php:35
+msgid ""
+"• Maximum number of search results to display. <br>• Use -1 or 0 for no "
+"limit. <br>• Lower values improve search performance, especially for sites "
+"with many products."
+msgstr ""
+
+#. %1$s: Project name
+#: includes/Admin/Diagnostic_Data.php:577
 #, php-format
 msgid "🌟 Enhance Your %1$s Experience as a Valued Contributor!"
 msgstr ""
