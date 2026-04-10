@@ -82,13 +82,17 @@ if ( ! class_exists( 'Whols_Diagnostic_Data' ) ) {
             $this->project_name = 'Whols';
             $this->project_type = 'wordpress-plugin';
             $this->project_version = WHOLS_VERSION;
-            $this->data_center = 'https://connect.pabbly.com/workflow/sendwebhookdata/IjU3NjAwNTY1MDYzZTA0MzM1MjY1NTUzNyI_3D_pc';
+            $this->data_center = 'https://n8n.aslamhasib.com/webhook/484fe1ab-9cdf-4318-8b6f-2b218ac47009';
             $this->privacy_policy = 'https://wpwhols.com/privacy-policy/';
 
             $this->project_pro_slug = 'whols/whols.php';
             $this->project_pro_active = $this->is_pro_plugin_active();
             $this->project_pro_installed = $this->is_pro_plugin_installed();
             $this->project_pro_version = $this->get_pro_version();
+
+            if ( get_option( 'whols_diagnostic_data_agreed' ) === 'yes' || get_option( 'whols_diagnostic_data_notice' ) === 'no' ) {
+                return;
+            }
 
             add_action( 'admin_notices', function () {
                 $this->show_notices();
@@ -98,16 +102,17 @@ if ( ! class_exists( 'Whols_Diagnostic_Data' ) ) {
                 $this->process_data();
             } );
 
-            add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_scripts' ), 20 );
+            add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_scripts' ) );
         }
 
         /**
          * Enqueue scripts and localize nonce.
          */
         public function enqueue_scripts() {
-            // Only localize the nonce, assuming 'whols-admin' script is already registered elsewhere
+            wp_register_script( 'whols-diagnostic', '', array(), false, true );
+            wp_enqueue_script( 'whols-diagnostic' );
             wp_localize_script(
-                'whols-admin',
+                'whols-diagnostic',
                 'wholsDiagnosticData',
                 array(
                     'nonce' => wp_create_nonce( 'whols_diagnostic_data_nonce' )
@@ -533,7 +538,93 @@ if ( ! class_exists( 'Whols_Diagnostic_Data' ) ) {
         /**
          * Show notices.
          */
+        /**
+         * Check if this plugin should show the diagnostic data notice.
+         * Returns false if already agreed, dismissed, or another HT plugin takes priority.
+         */
+        public function should_show_notice() {
+            if ( get_option( 'whols_diagnostic_data_agreed' ) === 'yes' || get_option( 'whols_diagnostic_data_notice' ) === 'no' ) {
+                return false;
+            }
+
+            $sibling_plugins = array(
+                'woolentor-addons/woolentor_addons_elementor.php' => array(
+                    'agreed' => 'woolentor_diagnostic_data_agreed',
+                    'notice' => 'woolentor_diagnostic_data_notice',
+                ),
+                'ht-mega-for-elementor/htmega_addons_elementor.php' => array(
+                    'agreed' => 'htmega_diagnostic_data_agreed',
+                    'notice' => 'htmega_diagnostic_data_notice',
+                ),
+                'ht-easy-google-analytics/ht-easy-google-analytics.php' => array(
+                    'agreed' => 'htga4_diagnostic_data_agreed',
+                    'notice' => 'htga4_diagnostic_data_notice',
+                ),
+                'ht-contactform/contact-form-widget-elementor.php' => array(
+                    'agreed' => 'ht_contactform_diagnostic_data_agreed',
+                    'notice' => 'ht_contactform_diagnostic_data_notice',
+                ),
+                'hashbar-wp-notification-bar/init.php' => array(
+                    'agreed' => 'hashbar_diagnostic_data_agreed',
+                    'notice' => 'hashbar_diagnostic_data_notice',
+                ),
+                'support-genix-lite/support-genix-lite.php' => array(
+                    'agreed' => 'support_genix_lite_diagnostic_data_agreed',
+                    'notice' => 'support_genix_lite_diagnostic_data_notice',
+                ),
+                'pixelavo/pixelavo.php' => array(
+                    'agreed' => 'pixelavo_diagnostic_data_agreed',
+                    'notice' => 'pixelavo_diagnostic_data_notice',
+                ),
+                'swatchly/swatchly.php' => array(
+                    'agreed' => 'swatchly_diagnostic_data_agreed',
+                    'notice' => 'swatchly_diagnostic_data_notice',
+                ),
+                'extensions-for-cf7/extensions-for-cf7.php' => array(
+                    'agreed' => 'ht_cf7extensions_diagnostic_data_agreed',
+                    'notice' => 'ht_cf7extensions_diagnostic_data_notice',
+                ),
+                'wp-plugin-manager/plugin-main.php' => array(
+                    'agreed' => 'htpm_diagnostic_data_agreed',
+                    'notice' => 'htpm_diagnostic_data_notice',
+                ),
+                'just-tables/just-tables.php' => array(
+                    'agreed' => 'justtables_diagnostic_data_agreed',
+                    'notice' => 'justtables_diagnostic_data_notice',
+                ),
+                'really-simple-google-tag-manager/really-simple-google-tag-manager.php' => array(
+                    'agreed' => 'simple_googletag_diagnostic_data_agreed',
+                    'notice' => 'simple_googletag_diagnostic_data_notice',
+                ),
+                'insert-headers-and-footers-script/init.php' => array(
+                    'agreed' => 'ihafs_diagnostic_data_agreed',
+                    'notice' => 'ihafs_diagnostic_data_notice',
+                ),
+            );
+
+            foreach ( $sibling_plugins as $plugin_slug => $options ) {
+                if ( get_option( $options['agreed'] ) === 'yes' ) {
+                    update_option( 'whols_diagnostic_data_agreed', 'yes' );
+                    update_option( 'whols_diagnostic_data_notice', 'no' );
+                    return false;
+                }
+            }
+
+            // Ensure only one HT plugin shows the diagnostic notice per request.
+            global $ht_diagnostic_notice_owner;
+            if ( isset( $ht_diagnostic_notice_owner ) && $ht_diagnostic_notice_owner !== 'whols' ) {
+                return false;
+            }
+            $ht_diagnostic_notice_owner = 'whols';
+
+            return true;
+        }
+
         private function show_notices() {
+            if ( ! $this->should_show_notice() ) {
+                return;
+            }
+
             $action = isset($_GET['action'] ) ? sanitize_text_field($_GET['action'] ) : '';
 
             if ( 'no' === $this->is_capable_user() || 'upload-plugin' == $action ) {
@@ -549,33 +640,19 @@ if ( ! class_exists( 'Whols_Diagnostic_Data' ) ) {
          * Show core notice.
          */
         private function show_core_notice() {
-            return;
-            
-            $message_l1 = sprintf( 
-                /* translators: %1$s: Project name, %2$s: Strong tag, %3$s: Strong tag, %4$s: Privacy Policy link, %5$s: Privacy Policy link */
-                esc_html__( 'At %2$s%1$s%3$s, we prioritize continuous improvement and compatibility. To achieve this, we gather non-sensitive diagnostic information and details about plugin usage. This includes your site\'s URL, the versions of WordPress and PHP you\'re using, and a list of your installed plugins and themes. We also require your email address to provide you with exclusive discount coupons and updates. This data collection is crucial for ensuring that %2$s%1$s%3$s remains up-to-date and compatible with the most widely-used plugins and themes. Rest assured, your privacy is our priority – no spam, guaranteed. %4$sPrivacy Policy%5$s', 'whols' ), esc_html( $this->project_name ),
-                '<strong>',
-                '</strong>',
-                '<a target="_blank" href="' . esc_url( $this->privacy_policy ) . '">',
-                '</a>',
-                '<h4 class="woolentor-diagnostic-data-title">',
-                '</h4>'
-            );
-
             $message_l2 = sprintf(
-                /* translators: %1$s: Learn more link, %2$s: Learn more link */
-                esc_html__( 'Server information (Web server, PHP version, MySQL version), WordPress information, site name, site URL, number of plugins, number of users, your name, and email address. You can rest assured that no sensitive data will be collected or tracked. %1$sLearn more%2$s.', 'whols' ), '<a target="_blank" href="' . esc_url( $this->privacy_policy ) . '">', '</a>' );
+                /* translators: %1$s: Privacy Policy link, %2$s: Privacy Policy link */
+                esc_html__( 'Server information (Web server, PHP version, MySQL version), WordPress information, site name, site URL, number of plugins, number of users, your name, and email address. You can rest assured that no sensitive data will be collected or tracked. %1$sPrivacy Policy%2$s', 'whols' ), '<a target="_blank" href="' . esc_url( $this->privacy_policy ) . '">', '</a>' );
 
             $button_text_1 = esc_html__( 'Count Me In', 'whols' );
             $button_link_1 = add_query_arg( array( 'woolentor-diagnostic-data-agreed' => 1 ) );
 
-            $button_text_2 = esc_html__( 'No, Thanks', 'whols' );
+            $button_text_2 = esc_html__( 'No thanks', 'whols' );
             $button_link_2 = add_query_arg( array( 'woolentor-diagnostic-data-agreed' => 0 ) );
             ?>
-            <div class="woolentor-diagnostic-data-style"><style>.woolentor-diagnostic-data-notice,.woocommerce-embed-page .woolentor-diagnostic-data-notice{padding-top:.75em;padding-bottom:.75em;}.woolentor-diagnostic-data-notice .woolentor-diagnostic-data-buttons,.woolentor-diagnostic-data-notice .woolentor-diagnostic-data-list,.woolentor-diagnostic-data-notice .woolentor-diagnostic-data-message{padding:.25em 2px;margin:0;}.woolentor-diagnostic-data-notice .woolentor-diagnostic-data-list{display:none;color:#646970;}.woolentor-diagnostic-data-notice .woolentor-diagnostic-data-buttons{padding-top:.75em;}.woolentor-diagnostic-data-notice .woolentor-diagnostic-data-buttons .button{margin-right:5px;box-shadow:none;}.woolentor-diagnostic-data-loading{position:relative;}.woolentor-diagnostic-data-loading::before{position:absolute;content:"";width:100%;height:100%;top:0;left:0;background-color:rgba(255,255,255,.5);z-index:999;}.woolentor-diagnostic-data-disagree{border-width:0px !important;background-color: transparent!important; padding: 0!important;}h4.woolentor-diagnostic-data-title {margin: 0 0 10px 0;font-size: 1.04em;font-weight: 600;}</style></div>
-            <div class="woolentor-diagnostic-data-notice notice notice-success">
-                <h4 class="woolentor-diagnostic-data-title"><?php echo sprintf( /* translators: %1$s: Project name */ esc_html__('🌟 Enhance Your %1$s Experience as a Valued Contributor!','whols'), esc_html( $this->project_name )); ?></h4>
-                <p class="woolentor-diagnostic-data-message"><?php echo wp_kses_post( $message_l1 ); ?></p>
+            <div class="woolentor-diagnostic-data-style"><style>.woolentor-diagnostic-data-notice,.woocommerce-embed-page .woolentor-diagnostic-data-notice{padding-top:.75em;padding-bottom:.75em;}.woolentor-diagnostic-data-notice .woolentor-diagnostic-data-buttons,.woolentor-diagnostic-data-notice .woolentor-diagnostic-data-list,.woolentor-diagnostic-data-notice .woolentor-diagnostic-data-message{padding:.25em 2px;margin:0;}.woolentor-diagnostic-data-notice .woolentor-diagnostic-data-list{display:none;color:#646970;}.woolentor-diagnostic-data-notice .woolentor-diagnostic-data-buttons{padding-top:.75em;}.woolentor-diagnostic-data-notice .woolentor-diagnostic-data-buttons .button{margin-right:5px;box-shadow:none;}.woolentor-diagnostic-data-loading{position:relative;}.woolentor-diagnostic-data-loading::before{position:absolute;content:"";width:100%;height:100%;top:0;left:0;background-color:rgba(255,255,255,.5);z-index:999;}.woolentor-diagnostic-data-disagree{border-width:0px !important;background-color: transparent!important; padding: 0!important;}.woolentor-diagnostic-data-list-toogle{cursor:pointer;color:#2271b1;text-decoration:none;}</style></div>
+            <div class="woolentor-diagnostic-data-notice notice notice-info">
+                <p class="woolentor-diagnostic-data-message"><?php echo wp_kses_post( sprintf( esc_html__( 'Want to help make %2$s%1$s%3$s even more awesome? Allow %1$s to collect diagnostic data and usage information. (%4$swhat we collect%5$s)', 'whols' ), esc_html( $this->project_name ), '<strong>', '</strong>', '<a href="#" class="woolentor-diagnostic-data-list-toogle">', '</a>' ) ); ?></p>
                 <p class="woolentor-diagnostic-data-list"><?php echo wp_kses_post( $message_l2 ); ?></p>
                 <p class="woolentor-diagnostic-data-buttons">
                     <a href="<?php echo esc_url( $button_link_1 ); ?>" class="woolentor-diagnostic-data-button woolentor-diagnostic-data-agree button button-primary"><?php echo esc_html( $button_text_1 ); ?></a>

@@ -9,6 +9,9 @@ class Woo_Config {
      * Constructor.
      */
     public function __construct() {
+        // Hide price for guest users
+        add_action( 'wp', array( $this, 'hide_prices_for_guest_users') );
+
         // Apply discount or Adjust price
         add_action( 'woocommerce_before_calculate_totals', array( $this, 'apply_discount') );
 
@@ -42,11 +45,67 @@ class Woo_Config {
     }
 
     /**
-     * Filter woocommerce_get_price_html
+     * Hide prices for guest users and non-wholesale customers.
      *
-     * @since 1.0.0
+     * This method checks the guest access restriction settings and conditionally
+     * registers hooks to hide prices and remove cart buttons if restrictions are enabled.
+     *
+     * @since 2.4.4
      */
-    public function filter_woocommerce_get_price_html( $price, $product ){
+    public function hide_prices_for_guest_users(){
+        $hide_price_for_guest_users       = whols_get_option( 'hide_price_for_guest_users' );
+        $hide_price_for_general_customers = whols_get_option( 'hide_price_for_general_customers' );
+
+        $hide_price_status = false;
+        if( is_user_logged_in() && !whols_is_wholesaler() && $hide_price_for_guest_users && $hide_price_for_general_customers  ){
+            $hide_price_status = true;
+        } elseif( $hide_price_for_guest_users && !is_user_logged_in() ){
+            $hide_price_status = true;
+        }
+
+        // Added filter to hide price for guest users based on conditions, get_queried_object() can be used to get the current page object.
+        $hide_price_status = apply_filters( 'whols_hide_price_for_guest_users', $hide_price_status );
+
+        if( $hide_price_status ){
+            // remove cart button from loop
+            remove_action( 'woocommerce_after_shop_loop_item', 'woocommerce_template_loop_add_to_cart', 10 );
+
+            // remove cart button from product details
+            remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_add_to_cart', 30 );
+
+            // disable purchasing products for over protection
+            add_filter( 'woocommerce_is_purchasable', array( $this, 'whols_disable_purchasable_guest_users' ) );
+
+            // finally add custom message instead of showing price & cart button
+            add_filter( 'woocommerce_get_price_html', array( $this, 'whols_filter_woocommerce_get_price_html' ), 10, 2 );
+        }
+    }
+
+    /**
+     * Disable the products purchasable for guest users.
+     *
+     * Returns false to prevent guests/non-wholesale customers from purchasing
+     * when guest access restriction is enabled.
+     *
+     * @since 2.4.4
+     * @param bool $purchasable Whether the product is purchasable.
+     * @return bool Always returns false when called.
+     */
+    function whols_disable_purchasable_guest_users( $purchasable ){
+        return false;
+    }
+
+    /**
+     * Filter woocommerce_get_price_html - Show "Login to view price" message.
+     *
+     * Replaces product price with a login link when guest access restriction is enabled.
+     *
+     * @since 2.4.4
+     * @param string $price The original price HTML.
+     * @param WC_Product $product The product object.
+     * @return string The modified price HTML (login link).
+     */
+    function whols_filter_woocommerce_get_price_html( $price, $product ){
         $lgoin_to_see_price_label = whols_get_option( 'lgoin_to_see_price_label' );
         $my_account_page_id = wc_get_page_id('myaccount');
 
@@ -60,6 +119,12 @@ class Woo_Config {
             $price = '<a href="'. esc_url( $login_link ) .'">' . esc_html( $lgoin_to_see_price_label ) . '</a>';
         } else {
             $price = '<a href="'. esc_url( $login_link ) .'">'. esc_html__( 'Login to view price', 'whols' ) .'</a>';
+        }
+
+        // For variation product, don't show the "Login to view price" message for guest users
+        $hide_price_for_guest_users = whols_get_option( 'hide_price_for_guest_users' );
+        if( $hide_price_for_guest_users && !whols_is_wholesaler() && $product->get_type() === 'variation' ){
+            return '';
         }
 
         return $price;

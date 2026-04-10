@@ -1,10 +1,10 @@
 === Whols - Wholesale Prices and B2B Store Solution for WooCommerce  ===
-Contributors: htplugins, alberuni-azad, aslamhasib, zenaulislam, tarekht
+Contributors: htplugins, aslamhasib, zenaulislam, yeasinrony
 Tags: wholesale plugin, wholesale pricing, wholesale prices, woocommerce wholesale, woocommerce b2b
 Requires at least: 4.0
-Tested up to: 6.8
+Tested up to: 6.9
 Requires PHP: 5.4
-Stable tag: 2.4.1
+Stable tag: 2.4.9
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -95,6 +95,30 @@ Whols plugin reduces the hassle to create multiple stores for both the consumers
 [youtube https://www.youtube.com/watch?v=YMN8kgKCYrE]
 
 == Video Tutorial: ==
+#### How to Add Extra Fees to Cart in Whols Using Dynamic Rules| Whols
+[youtube https://www.youtube.com/watch?v=wwIFshW5XOI]
+
+#### How to Apply Cart Discount in Whols Using Dynamic Rules| Whols
+[youtube https://www.youtube.com/watch?v=dtc2QmoXpv0]
+
+#### How to Control Payment Methods in Whols Step-by-Step Guide| Whols
+[youtube https://www.youtube.com/watch?v=SQ6S-3uu938]
+
+#### How to Create Wholesaler Roles and Assign to Your Existing Customers| Whols
+[youtube https://www.youtube.com/watch?v=YLDupOexwIA]
+
+#### How to Hide Wholesale Products from Guests or Retail Customers| Whols
+[youtube https://www.youtube.com/watch?v=N0bDwtPLz54]
+
+#### Hide Wholesale Prices from Guests or Retail Customers| Whols
+[youtube https://www.youtube.com/watch?v=11EHQCCFNSs]
+
+#### How to Set Wholesale Prices for Individual Products or Variations
+[youtube https://www.youtube.com/watch?v=a1NagCtGoTo]
+
+#### How to Add Tiered Pricing for Wholesalers in WooCommerce| Whols
+[youtube https://www.youtube.com/watch?v=WaatMhZWYUc]
+
 #### How to install Whols plugin and complete the basic setup
 [youtube https://youtu.be/4tUrWsNz3TE]
 
@@ -255,6 +279,33 @@ Needs assistance to use this plugin?
 Feel free to [Contact us](https://hasthemes.com/contact-us/)
 
 == Changelog ==
+
+= Version: 2.4.9 - Date: 16 Mar 2026 =
+- Improved: Caching mechanism for external API requests in admin.
+
+= Version: 2.4.8 -Date: 26 Feb 2026 =
+- Improved: Admin notice display.
+- Fixed: Admin page redirect issue for invalid URLs.
+
+= Version: 2.4.7 - Date: 25 Feb 2026 =
+- Fixed: Undefined variable $variation_id in wholesale pricing calculation function
+
+= Version: 2.4.6 - Date: 11 Dec 2025 =
+- Fixed: Empty quantity in wholesale pricing meta during WooCommerce product export
+
+= Version: 2.4.5 -Date: 13 Nov 2025 =
+- Fixed: Minor issue with notice manager.
+
+= Version: 2.4.4 -Date: 26 Oct 2025 =
+- Fixed: Guest Access Restriction feature not working properly.
+
+= Version: 2.4.3 -Date: 22 Oct 2025 =
+- Improved: Minor UI update and optimizations.
+
+= Version: 2.4.2 -Date: 29 Sep 2025 =
+- Enhanced: Wholesale product metadata synchronization with Polylang for WooCommerce plugin
+- Fixed: Fields Manager immediately adding field to list when clicking "Add New" button
+
 = Version: 2.4.1 -Date: 17 Aug 2025 =
 - Fixed: Escaping issue in multiple area.
 - Fixed: Translation issue in multiple area.

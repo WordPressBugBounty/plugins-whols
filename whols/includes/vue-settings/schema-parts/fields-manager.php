@@ -31,17 +31,12 @@ return ['fields-manager_route' => [
                         'WooCommerce' => [
                             'billing_company' => __('Billing Company', 'whols'),
                             'billing_address_1' => __('Billing Address', 'whols'),
+                            'billing_address_2' => __('Billing Address 2', 'whols'),
                             'billing_city' => __('Billing City', 'whols'),
                             'billing_postcode' => __('Billing Postcode', 'whols'),
                             'billing_country' => __('Billing Country', 'whols'),
                             'billing_state' => __('Billing State', 'whols'),
                             'billing_phone' => __('Billing Phone', 'whols'),
-                        ],
-                        'Default' => [
-                            'reg_name' => __('Name', 'whols'),
-                            'reg_username' => __('Username', 'whols'),
-                            'reg_email' => __('Email', 'whols'),
-                            'reg_password' => __('Password', 'whols'),
                         ],
                     ],
                     'default' => '',

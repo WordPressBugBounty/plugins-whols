@@ -70,7 +70,7 @@ if ( ! class_exists( 'Notice_Handler' ) ){
                 wp_send_json_error( $error_message );
             }
 
-            if ( ! empty( $notice_id ) && (strpos( $notice_id, 'hastech-notice' ) !== false) ) {
+            if ( ! empty( $notice_id ) && (strpos( $notice_id, 'whols-notice' ) !== false) ) {
 
                 if( !empty( $alreadydid ) ) {
                     update_option( $notice_id , true );
@@ -95,45 +95,86 @@ if ( ! class_exists( 'Notice_Handler' ) ){
          */
         public function enqueue_scripts() {
 
-            $styles = ".hastech-admin-notice.promo-banner {
-                position: relative;
-                padding-top: 20px !important;
-                padding-right: 40px;
+            $styles = ".whols-admin-notice {
+                width: 100%;
+                box-sizing: border-box;
             }
-            .hastech-admin-notice.notice img, .hastech-review-notice-wrap img{
+            
+            .whols-admin-notice.promo-banner {
+                position: relative;
+                padding: 12px !important;
+                border: 1px solid #c3c4c7;
+            }
+            .whols-admin-notice.promo-banner a {
+                display: flex;
+            }
+            .whols-admin-notice.promo-banner img {
                 width: 100%;
             }
-            .hastech-review-notice-wrap{
+            .whols-admin-notice.promo-banner *:empty:not(img) {
+                display: none;
+            }
+            .whols-admin-notice.promo-banner .notice-dismiss {
+                top: -10px;
+                right: -10px;
+                background-color: white;
+                padding: 2px;
+                border-radius: 50px;
+                border: 1px solid #ddd;
+            }
+
+            .toplevel_page_whols-admin #whols-notice-id-halloween-notice {
+                padding-right: 0;
+                display: block;
+                margin: 20px;
+            }
+            .whols-admin-notice.notice img, .whols-review-notice-wrap img{
+                width: 100%;
+            }
+
+            #whols-notice-id-halloween-notice {
+                padding: 12px;
+                border-left-width: 1px;
+            }
+            #whols-notice-id-halloween-notice .notice-dismiss {
+                top: -10px;
+                right: -10px;
+                background-color: white;
+                padding: 2px;
+                border-radius: 50px;
+                border: 1px solid #ddd;
+            }
+            .whols-review-notice-wrap{
                 border-left-color: #2271b1 !important;
                 display: flex;
                 justify-content: left;
                 align-items: center;
                 padding: 10px 0;
             }
-            .hastech-review-notice-content {
+            .whols-review-notice-content {
                 margin-left: 15px;
             }
-            .hastech-review-notice-action {
+            .whols-review-notice-action {
                 display: flex;
                 align-items: center;
                 padding-top: 10px;
             }
-            .hastech-review-notice-action span.dashicons {
+            .whols-review-notice-action span.dashicons {
                 font-size: 1.4em;
                 padding-left: 10px;
             }
-            .hastech-review-notice-action a {
+            .whols-review-notice-action a {
                 padding-left: 5px;
                 text-decoration: none;
             }
-            .hastech-review-notice-content h3 {
+            .whols-review-notice-content h3 {
                 margin: 0;
             }";
 
             $scripts = "jQuery(document).ready( function($) {
-                $( '.hastech-admin-notice.is-dismissible' ).on( 'click', '.notice-dismiss,.hastech-notice-close', function(e) {
+                $( '.whols-admin-notice.is-dismissible' ).on( 'click', '.notice-dismiss,.whols-notice-close', function(e) {
                     e.preventDefault();
-                    let noticeWrap = $( this ).parents( '.hastech-admin-notice' ),
+                    let noticeWrap = $( this ).parents( '.whols-admin-notice' ),
                         noticeId = noticeWrap.attr( 'id' ) || '',
                         expireTime = noticeWrap.attr( 'expire-time' ) || '',
                         closeBy = noticeWrap.attr( 'close-by' ) || '',
@@ -246,7 +287,7 @@ if ( ! class_exists( 'Notice_Handler' ) ){
             ];
             $notice = wp_parse_args( $notice_data, $defaults );
 
-            $classes = [ 'hastech-admin-notice' ];
+            $classes = [ 'whols-admin-notice' ];
 
             if ( isset( $notice['type'] ) ) {
                 $classes[] = 'notice-' . $notice['type'];
@@ -267,7 +308,7 @@ if ( ! class_exists( 'Notice_Handler' ) ){
                 $notice['data'] = ' expire-time=' . esc_attr( $notice['expire_time'] ) . ' ';
             }
 
-            $notice['id'] = 'hastech-notice-id-' . $notice['id'];
+            $notice['id'] = 'whols-notice-id-' . $notice['id'];
             $notice['classes'] = implode( ' ', $classes );
             $notice['data'] .= ' close-by=' . esc_attr( $notice['close_by'] ) . ' ';
 

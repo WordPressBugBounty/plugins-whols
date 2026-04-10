@@ -3,7 +3,7 @@
  * Plugin Name: Whols - Wholesale Prices and B2B Store Solution for WooCommerce
  * Plugin URI:  https://wpwhols.com/
  * Description: This plugin provides all the necessary features that you will ever need to sell wholesale products from your WooCommerce online store.
- * Version:     2.4.1
+ * Version:     2.4.9
  * Author:      HasThemes
  * Author URI:  https://hasthemes.com
  * License:     GPL v2 or later
@@ -35,7 +35,7 @@ final class Whols_Lite {
      *
      * @since 1.0.0
      */
-    public $version = '2.4.1';
+    public $version = '2.4.9';
 
     /**
      * The single instance of the class
@@ -130,12 +130,13 @@ final class Whols_Lite {
         require_once WHOLS_PATH . '/includes/Admin/Product_Category_Metabox.php';
         require_once WHOLS_PATH . '/includes/Admin/Role_Manager.php';
         require_once WHOLS_PATH . '/includes/Admin/Custom_Columns.php';
+        require_once WHOLS_PATH . '/includes/Admin/class-polylang-integration.php';
         require_once WHOLS_PATH . '/includes/Admin/CSF_Field_whols_image.php';
         require_once WHOLS_PATH . '/includes/Admin/recommended-plugins/class.recommended-plugins.php';
         require_once WHOLS_PATH . '/includes/Admin/recommended-plugins/recommendations.php';
         require_once WHOLS_PATH . '/includes/Admin/install-manager/class-install-manager.php';
         require_once WHOLS_PATH . '/includes/Admin/Diagnostic_Data.php';
-        require_once WHOLS_PATH . '/includes/Admin/Trial.php';
+        // require_once WHOLS_PATH . '/includes/Admin/Trial.php';
         require_once WHOLS_PATH . '/includes/Admin/class-menu-manager.php';
         require_once WHOLS_PATH . '/includes/Admin/Notice_Handler.php';
 

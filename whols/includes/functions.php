@@ -1275,10 +1275,10 @@ if( !function_exists('whols_is_wholesale_priced') ){
      */
     function whols_is_wholesale_priced( $product_id, $qty ){
         $product_data = wc_get_product($product_id);
+        $variation_id = '';
     
         if($product_data->is_type('simple')){
             $product_id     = $product_data->get_id();
-            $variation_id   = '';
         } elseif( $product_data->is_type('variation') ){
             $product_id     = $product_data->get_parent_id();
             $variation_id   = $product_data->get_id();
@@ -1419,7 +1419,7 @@ function whols_get_conversation_count( $status = 'pending' ) {
  */
 function whols_get_plugin_remote_data($version = null) {
     $transient_key = 'whols_remote_data_v' . $version;
-    $feequency_to_update = 2 * DAY_IN_SECONDS; // N Days later fetch data again
+    $frequency_to_update = 2 * DAY_IN_SECONDS; // N Days later fetch data again
     $remote_url = 'https://feed.hasthemes.com/notices/whols.json';
     // $remote_url = WHOLS_URL . '/remote.json';
     
@@ -1438,9 +1438,12 @@ function whols_get_plugin_remote_data($version = null) {
         // If request success, set data to transient
         if ( !is_wp_error($remote_banner_req) && $remote_banner_req['response']['code'] == 200 ) {
             $remote_banner_data = json_decode($remote_banner_req['body'], true);
-            
+
             // Store in version-specific transient if force update, otherwise use regular transient
-            set_transient($transient_key, $remote_banner_data, $feequency_to_update);
+            set_transient($transient_key, $remote_banner_data, $frequency_to_update);
+        } else {
+            // Cache failure to avoid retrying on every page load
+            set_transient($transient_key, [], 6 * HOUR_IN_SECONDS);
         }
     }
 
