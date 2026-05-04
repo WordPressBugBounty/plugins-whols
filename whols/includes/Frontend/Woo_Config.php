@@ -9,7 +9,9 @@ class Woo_Config {
      * Constructor.
      */
     public function __construct() {
-        // Hide price for guest users
+        // Hide price for guest users - registered unconditionally so AJAX/quickview requests also apply
+        add_filter( 'woocommerce_is_purchasable', array( $this, 'whols_disable_purchasable_guest_users' ) );
+        // Remove cart buttons on standard page loads (remove_action must run after wp hook)
         add_action( 'wp', array( $this, 'hide_prices_for_guest_users') );
 
         // Apply discount or Adjust price
@@ -17,6 +19,9 @@ class Woo_Config {
 
         // Alter price html for loop/details to display wholesale price
         add_filter( 'woocommerce_get_price_html', array( $this, 'alter_price_html' ), 10, 2 );
+
+        // Must run after alter_price_html (priority 10) so it has final say on hiding price for guests
+        add_filter( 'woocommerce_get_price_html', array( $this, 'whols_filter_woocommerce_get_price_html' ), 20, 2 );
 
         // Implement Variable product price tier
         add_filter( 'woocommerce_available_variation', array( $this, 'variable_product_price_tier' ), 10, 3 );
@@ -72,13 +77,27 @@ class Woo_Config {
 
             // remove cart button from product details
             remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_add_to_cart', 30 );
-
-            // disable purchasing products for over protection
-            add_filter( 'woocommerce_is_purchasable', array( $this, 'whols_disable_purchasable_guest_users' ) );
-
-            // finally add custom message instead of showing price & cart button
-            add_filter( 'woocommerce_get_price_html', array( $this, 'whols_filter_woocommerce_get_price_html' ), 10, 2 );
         }
+    }
+
+    /**
+     * Check whether price should be hidden for the current user.
+     * Extracted so filters registered unconditionally can evaluate the condition at call time.
+     *
+     * @return bool
+     */
+    function should_hide_price_for_current_user() {
+        $hide_price_for_guest_users       = whols_get_option( 'hide_price_for_guest_users' );
+        $hide_price_for_general_customers = whols_get_option( 'hide_price_for_general_customers' );
+
+        $hide = false;
+        if ( is_user_logged_in() && ! whols_is_wholesaler() && $hide_price_for_guest_users && $hide_price_for_general_customers ) {
+            $hide = true;
+        } elseif ( $hide_price_for_guest_users && ! is_user_logged_in() ) {
+            $hide = true;
+        }
+
+        return (bool) apply_filters( 'whols_hide_price_for_guest_users', $hide );
     }
 
     /**
@@ -92,6 +111,9 @@ class Woo_Config {
      * @return bool Always returns false when called.
      */
     function whols_disable_purchasable_guest_users( $purchasable ){
+        if ( ! $this->should_hide_price_for_current_user() ) {
+            return $purchasable;
+        }
         return false;
     }
 
@@ -106,6 +128,10 @@ class Woo_Config {
      * @return string The modified price HTML (login link).
      */
     function whols_filter_woocommerce_get_price_html( $price, $product ){
+        if ( ! $this->should_hide_price_for_current_user() ) {
+            return $price;
+        }
+
         $lgoin_to_see_price_label = whols_get_option( 'lgoin_to_see_price_label' );
         $my_account_page_id = wc_get_page_id('myaccount');
 

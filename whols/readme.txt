@@ -1,284 +1,344 @@
-=== Whols - Wholesale Prices and B2B Store Solution for WooCommerce  ===
+=== Whols – Wholesale Prices and B2B Store Solution for WooCommerce ===
 Contributors: htplugins, aslamhasib, zenaulislam, yeasinrony
-Tags: wholesale plugin, wholesale pricing, wholesale prices, woocommerce wholesale, woocommerce b2b
+Tags: wholesale, wholesale pricing, b2b, woocommerce wholesale, woocommerce b2b
 Requires at least: 4.0
 Tested up to: 6.9
+Stable tag: 2.4.10
 Requires PHP: 5.4
-Stable tag: 2.4.9
 License: GPLv2 or later
-License URI: http://www.gnu.org/licenses/gpl-2.0.html
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-WooCommerce Wholesale plugin for WooCommerce wholesale pricing. It is a b2b plugin for WooCommerce. WooCommerce B2B or B2B + B2C hybrid Store Solution
+Run wholesale and retail from one WooCommerce store. Set wholesale prices, manage roles, and approve B2B customers — no coding required.
 
 == Description ==
-Whols - WooCommerce Wholesale plugin is a powerful solution for WooCommerce B2B Store. It is a b2b WordPress plugin that helps you turn your WooCommerce store into a fully functioning B2B or B2B + B2C hybrid store. WooCommerce Wholesale plugin comes with all the features and functionalities you need to run a successful WooCommerce B2B store. Easily manage your products, pricing, orders, and shipping with WooCommerce Wholesale plugin.
 
-WooCommerce Wholesale plugin is a powerful solution for WooCommerce B2B Store. It is a b2b WordPress plugin that helps you turn your WooCommerce store (wholesale products WooCommerce) into a fully functioning B2B or B2B + B2C hybrid store. WooCommerce Wholesale plugin comes with all the features and functionalities you need to run a successful WooCommerce B2B store, like Bulk Buyer Discount etc.. Easily manage your products, pricing, orders, and shipping with WooCommerce Wholesale plugin. It is the best alternative for Wholesale Suite and B2BKing. Try WooCommerce Wholesale plugin today and see how easy it is to run a successful WooCommerce B2B store.
+#### Whols is the complete wholesale solution for WooCommerce — set role-based pricing, manage wholesaler registration, and automate your B2B order rules, all from your existing store.
 
-Whols is an outstanding WordPress plugin for WooCommerce that allows store owners to set wholesale prices WooCommerce (wholesale WooCommerce) for the products of their online stores. This plugin enables you to show special wholesale prices to the wholesaler. Users can easily request to become a wholesale customer by filling out a simple online registration form. Once the registration is complete, the owner of the store will be able to review the request and approve the request either manually or automatically.
+🔥 Trusted by **1,000+ businesses** worldwide. Add a complete wholesale layer to your existing WooCommerce store without building a second site. Set role-based pricing, create a custom wholesaler registration form, control who sees which products, and automate order rules with smart dynamic conditions.
 
-Whols plugin reduces the hassle to create multiple stores for both the consumers and the wholesalers. By utilizing the functionality of this amazing plugin, you can easily maintain both the consumers and the wholesalers from a single store.
+🖥️ [Try Free Demo](https://theplugindemo.com/whols/demo/create-sandbox/) | 🚀 [Try Pro Demo](https://theplugindemo.com/whols-pro/demo/create-sandbox/)
 
-🖥️ [Live Demo](https://theplugindemo.com/whols/demo/create-sandbox/) 
-🖥️ [Live Demo 2 (Pro Version)](https://theplugindemo.com/whols-pro/demo/create-sandbox/) 
+🌐 [Website](https://wpwhols.com/?utm_source=wprepo&utm_medium=freeplugin&utm_campaign=website) | 💰 [Purchase Pro](https://wpwhols.com/pricing/?utm_source=wprepo&utm_medium=freeplugin&utm_campaign=purchasepro) | 📖 [Documentation](https://wpwhols.com/docs/?utm_source=wprepo&utm_medium=freeplugin&utm_campaign=documentation) | 💬 [Contact & Support](https://wpwhols.com/contact-us/?utm_source=wprepo&utm_medium=freeplugin&utm_campaign=support)
 
-[Purchase Pro](https://wpwhols.com/pricing/) | [Documentation](https://wpwhols.com/docs/) | [Contact Us](https://hasthemes.com/contact-us/)
+---
 
-== Whols - WooCommerce Wholesale Prices and WooCommerce B2B Store Plugin Free Features: ==
-* Admin can assign a wholesaler registration form (New)
-* Wholesaler registration form shortcode can also be cused instead of assigning a page
-* Customize registration form fields without coding / Visually (New )
-* Ability to adding custom / additional field into the registration form using filter hook
-* Customer can request to become a wholesale customer
-* Admin can manage the wholesaler request manually OR Auto approve can be set
-* Asign wholesale role for existing customers
-* Apply wholesale prices globally
-* Add flat/percent amount price on wholesale products
-* Easily set wholesale prices on Simple or Variable products
-* Add wholesale prices to each variation of a variable products
-* Option to enable minimum product to buy
-* Shows wholesale pricing info on shop page as well as product detail page
-* Show/Hide the retailer price from wholesale customers
-* Save Order List
-* Customers having wholesale role assigned can buy products at wholesale price
-* Customize the text on the frontend labels (Retailer Price Text, Wholesaler Price Text & Save Amount Text Label)
-* Display the amount that the customer will save after purchase
+### 🗺️ Overview
+
+Whols turns any WooCommerce store into a fully functioning B2B or hybrid B2B+B2C store — without creating a second site or duplicating your product catalog:
+
+* **Set wholesale pricing** — globally, per product, per variation, or per category
+* **Manage wholesale customers** — with a registration form, approval workflow, and unlimited user roles
+* **Control visibility** — show or hide products and prices based on customer role or login status
+* **Automate order rules** — apply discounts, fees, BOGO offers, and shipping conditions dynamically
+* **Run B2B, B2C, or both** — one dashboard, one product catalog, zero duplication
+
+### 👥 Who Is Whols For?
+
+* **B2B store owners** who want to sell exclusively to approved wholesale customers
+* **Hybrid store owners** who serve both retail and wholesale customers from one site
+* **Agencies and developers** building wholesale stores for clients
+
+---
+
+### 📺 Watch the Plugin Overview
+
+Prefer video over text? This short overview covers everything Whols can do — watch it before diving into the details below:
+
+https://www.youtube.com/watch?v=YMN8kgKCYrE
+
+---
+
+### 🆓 Free Features
+
+**Wholesale Pricing**
+
+* Set wholesale prices on simple and variable products (per variation supported)
+* Apply flat or percentage discounts globally across the store
+* Set a minimum product quantity to buy
+* Update wholesale prices via quick edit and bulk edit
+* Show wholesale pricing on shop and product detail pages
+* Display the amount customers save after purchase
+
+**Registration & Roles**
+
+* Assign a wholesaler registration form to any page
+* Use the registration form shortcode `[whols_registration_form]` on any page or post
+* Customize registration form fields visually — no coding required
+* Add custom or additional fields via filter hook
+* Customers can request to become wholesalers
+* Approve requests manually
+* Assign the wholesale role to existing customers
+* Customize the registration success message
+* Email notification on every new registration
+
+**Visibility & Access**
+
+* Show or hide retailer price from wholesale customers
+* Hide wholesale prices from guests (login to see price)
+* Hide "Wholesale Only" products from regular customers
+* Hide general products from wholesalers
+* Wholesale prices visible only to users with the Wholesaler role
+
+**Checkout, Shipping & Tax**
+
 * Allow free shipping for wholesalers
-* Update wholesale product price from quick edit and bulk edit interface
-* Disable coupon codes for wholesale customers so only retailers can use them
-* Hide wholesale prices for guest user
-* Hide "Wholesale Only" Products From Other Customers
-* Hide General Products From Wholesalers
-* Wholesale prices are only visible to customers with “Wholesaler” role
-* Registration successful message customization
-* Redirect to specific page after completed registration
-* Redirect to specific page when customer login as a wholesaler
-* Hide price for guest users (Login to see price)
-* Email Notification (Registration)
-* Design Customizations
-* Exclude Tax for Wholesale users
-* Easy to use backend interface
-* Compatible with WPML
-* Compatible with Polylang
-* No coding required
+* Disable coupon codes for wholesale customers
+* Exclude tax for wholesale users
+* Save Order List for quick repeat purchases
+* Request a quote for products (wholesalers can request quotes directly)
 
-== Whols Premium Features: ==
-✓ Registered form fields manager,editor
-✓ Ability to adding custom / additional field into the registration form Visually / Without coding
-✓ Option to use the WooCommerce billing fields into the Wholesaler registration form
-✓ Add upload field into the Wholesaler registration form
-✓ Create & manage unlimited user role
-✓ Wholesaler request management (Approve / Reject)
-✓ Give different pricing to different wholesaler role
-✓ Update wholesale product price from quick edit and bulk edit interface (Compatible with tier based pricing)
-✓ Payment methods (gateway) control
-✓ Different prices for different users
-✓ Category wise product price set
-✓ Category wise product price set for different roles
+**Customization & Compatibility**
+
+* Customize frontend labels (Retailer Price, Wholesaler Price, Save Amount)
+* Redirect to a specific page after registration or login
+* Design customization options for wholesale price display
+* Custom Thank You page message for wholesale orders
+* Reset all settings to default with one click
+* Compatible with WPML, Polylang, and CURCY Multi Currency
+* Easy-to-use dashboard — no coding required
+
+---
+
+### 💎 Premium Features
+
+**Advanced Pricing & Roles**
+
+✓ Create and manage unlimited wholesale user roles
+✓ Set different prices for different wholesaler roles
+✓ Set different prices for individual users
+✓ Category-wise product pricing (flat or percentage)
+✓ Category-wise pricing for different roles
+✓ Tiered pricing based on quantity (with quick edit and bulk edit support)
+
+**Registration & Forms**
+
+✓ Visual registration fields manager and editor
+✓ Add custom fields without coding
+✓ Use WooCommerce billing fields in the registration form
+✓ Add file upload fields to the registration form
+✓ Google reCAPTCHA v3 spam protection
+✓ Approve or reject wholesalers directly via email
+✓ Set a default wholesaler role for new registrations
+✓ Auto-approve new wholesaler registrations
+
+**Store Access & Control**
+
 ✓ Restrict wholesale store access
-✓ Set default wholesaler role for wholesale registration
-✓ Enable website access restriction (Entire Website / Only Shop)
-✓ Whole can access the Entire Website / Shop (Loged In Users/Loged In Users With Wholesale Role)
-✓ Role wise disable payment method
-✓ Role wise enable free shipping
-✓ Bulk / Quick Order feature
-✓ Dashboard page for reports and analytics
-✓ Admin can Place Wholesale Orders
-✓ Conversation between Admin and Wholesaler
-✓ Wholesaler can request a quote for products
-✓ Create dynamic rules - Use dynamic rules to create discounts, fees, and BOGO offers based on cart subtotal, quantity, specific products, user roles, or combinations of these conditions
-✓ Pay using wallet
-✓ Email Notification (Registration, Wholesaler Approve & Rejection)
-✓ Enable Google reCAPTCHA (v3) for the wholesaler registration form spam protection
+✓ Restrict access to the entire website or only the Shop page
+✓ Allow access to logged-in users or only wholesale-role users
+✓ Role-based payment method control
+✓ Role-based free shipping
 
-== Video Overview: ==
-[youtube https://www.youtube.com/watch?v=YMN8kgKCYrE]
+**Dynamic Rules**
 
-== Video Tutorial: ==
-#### How to Add Extra Fees to Cart in Whols Using Dynamic Rules| Whols
-[youtube https://www.youtube.com/watch?v=wwIFshW5XOI]
+✓ Create smart checkout rules based on cart value, item count, product, user role, or promo code
+✓ Apply cart-wide discounts automatically
+✓ Add extra fees (e.g., customs charges or documentation fees)
+✓ Enable Buy One Get One (BOGO) offers
+✓ Grant free shipping based on conditions
+✓ Schedule rules to run during specific date ranges
+✓ Inspect all active rules with the built-in Rules Inspector tool
 
-#### How to Apply Cart Discount in Whols Using Dynamic Rules| Whols
-[youtube https://www.youtube.com/watch?v=dtc2QmoXpv0]
+**Sales & Order Tools**
 
-#### How to Control Payment Methods in Whols Step-by-Step Guide| Whols
-[youtube https://www.youtube.com/watch?v=SQ6S-3uu938]
+✓ Bulk Order Form for fast, high-volume purchasing
+✓ Admin can place wholesale orders on behalf of any customer
+✓ Pay using digital Wallet
+✓ Unlimited saved order lists per customer (Free version supports one list)
+✓ Advanced WooCommerce sales reports (by customer, by role, by product)
 
-#### How to Create Wholesaler Roles and Assign to Your Existing Customers| Whols
-[youtube https://www.youtube.com/watch?v=YLDupOexwIA]
+**Communication**
 
-#### How to Hide Wholesale Products from Guests or Retail Customers| Whols
-[youtube https://www.youtube.com/watch?v=N0bDwtPLz54]
+✓ Conversation feature — message customers directly from the admin
+✓ Email notifications for registration, approval, and rejection
 
-#### Hide Wholesale Prices from Guests or Retail Customers| Whols
-[youtube https://www.youtube.com/watch?v=11EHQCCFNSs]
+[Purchase Whols Pro →](https://wpwhols.com/pricing/)
 
-#### How to Set Wholesale Prices for Individual Products or Variations
-[youtube https://www.youtube.com/watch?v=a1NagCtGoTo]
+---
 
-#### How to Add Tiered Pricing for Wholesalers in WooCommerce| Whols
-[youtube https://www.youtube.com/watch?v=WaatMhZWYUc]
+### 🔌 Integrations
 
-#### How to install Whols plugin and complete the basic setup
-[youtube https://youtu.be/4tUrWsNz3TE]
+* **WooCommerce Packing Slips** — Auto-attach PDF invoices and packing slips to order emails
+* **FiboSearch** — Advanced AJAX product search for wholesale stores
+* **WPML** — Build a multilingual wholesale store
+* **Polylang** — Additional multilingual support
+* **CURCY Multi Currency** — Sell in multiple currencies
 
-#### How to add a wholesaler registration form & approve role for wholesaler
-[youtube https://youtu.be/8eI5k3xgok4]
+---
+
+### 🎬 Video Tutorials
+
+#### How to install Whols and complete the basic setup
+https://youtu.be/4tUrWsNz3TE
+
+#### How to add a wholesaler registration form and approve wholesale roles
+https://youtu.be/8eI5k3xgok4
+
+#### How to set wholesale prices for individual products or variations
+https://www.youtube.com/watch?v=a1NagCtGoTo
 
 #### How to set wholesale prices for different categories
-[youtube https://youtu.be/inzemTs1SCY]
+https://youtu.be/inzemTs1SCY
 
-#### How to hide wholesale prices for guest users
-[youtube https://youtu.be/aywuQpKFdF4]
+#### How to add tiered pricing for wholesalers in WooCommerce
+https://www.youtube.com/watch?v=WaatMhZWYUc
 
-#### How to Enable Free Shipping For Wholesale Customers
-[youtube https://youtu.be/e4P9nCNGDJQ]
+#### How to create wholesaler roles and assign to existing customers
+https://www.youtube.com/watch?v=YLDupOexwIA
 
-#### How To Set Different Price For Different Wholesale Customers
-[youtube https://youtu.be/cDw4GGuHYyw]
+#### How to set different prices for different wholesale customers
+https://youtu.be/cDw4GGuHYyw
 
-== Feature Details: ==
-#### Wholesaler registration form shortcode ####
-The Wholesaler Registration Form shortcode allows you to add a form to your WooCommerce wholesale site. This form is dedicated to B2B customers who want to register for an account. The shortcode provides an easy way for customers to fill out their information and submit it for approval. The wholesaler registration form includes fields for the customer's name, company, email, phone number, and website. It also has a field for the customer's desired username and password. After the customer submits the form, they will receive an email about their registration. Once their account is confirmed, they will be able to log in and eligible for buying wholesale products. By using the Wholesaler Registration Form shortcode, you can make it easy for B2B customers to create an account on your wholesale site.
+#### How to hide wholesale prices from guests or retail customers
+https://youtu.be/aywuQpKFdF4
 
-#### Ability to add custom / additional field into the registration form ####
-Whols WooCommerce Wholesale plugin provides the ability to add custom / additional fields to the registration form. This helps to ensure that all essential information is captured when a new wholesale customer registers on your site. This flexibility ensures that you can capture all the information you need from your wholesale customers, without making the registration process overly complex.
+#### How to hide wholesale products from guests or retail customers
+https://www.youtube.com/watch?v=N0bDwtPLz54
 
-#### Customers can request to become a wholesale customer ####
-WooCommerce Wholesale is a great way to get started with wholesaling. Customers can create an account and then browse through the products available. Once they find a product they're interested in, they can contact you and request to become a wholesale customer. And because WooCommerce is such a popular platform, you'll be able to easily find buyers who are willing to work with you. So if you're interested in starting a wholesale business, WooCommerce Wholesale is a great option.
+#### How to enable free shipping for wholesale customers
+https://youtu.be/e4P9nCNGDJQ
 
-#### Admin can manage the wholesaler request manually OR Auto approve can be set #### 
-WooCommerce Wholesale is a powerful plugin that allows admins to manage wholesale requests manually or set them to auto-approve. This can be a great time-saver for busy admins, and it ensures that all wholesale requests are handled in a timely and professional manner.
+#### How to apply cart discounts using Dynamic Rules
+https://www.youtube.com/watch?v=dtc2QmoXpv0
 
-#### Assign wholesale role for existing customers ####
-This WooCommerce Wholesale is a great way to assign existing customers a wholesale role. By doing this, you'll be able to give them access to special pricing, products, and ordering features that are only available to wholesalers. Once you've done this, they'll be able to log in and access all of the features that are available to WooCommerce wholesalers. So if you're looking for a way to give your existing customers access to special pricing and ordering features, Whols WooCommerce Wholesale is the perfect solution.
+#### How to add extra fees to cart using Dynamic Rules
+https://www.youtube.com/watch?v=wwIFshW5XOI
 
-#### Apply wholesale prices globally ####
-Whols WooCommerce Wholesale plugin is a great way to get started with selling online. It's an easy, fast, and secure way to set up an online store. And because WooCommerce is built on WordPress, it's easy to scale as your business grows. WooCommerce Wholesale makes it easy to apply wholesale prices globally. Simply install WooCommerce and Whols WooCommerce Wholesale plugin, add your products, and set your prices. That's it! Whols WooCommerce Wholesale takes care of the rest. With WooCommerce Wholesale, you can sell online with confidence knowing that your prices are fair and competitive. So why wait? Get started today! Whols WooCommerce Wholesale - Apply wholesale prices globally!
+#### How to control payment methods — step-by-step guide
+https://www.youtube.com/watch?v=SQ6S-3uu938
 
-#### Add flat/percent amount price on wholesale products ####
-Whols WooCommerce Wholesale plugin will add a flat or percent amount price to wholesale products. You can either set up WooCommerce Wholesale to charge a flat rate for all wholesale products, or you can add a percent markup over the cost of the product. WooCommerce Wholesale is a powerful tool that gives you the ability to easily add price markups to your wholesale products. With WooCommerce Wholesale, there is no need to manually adjust prices for each product; WooCommerce Wholesale does the work for you. With WooCommerce Wholesale, you can focus on running your business, not on adjusting prices.
+#### Community Tutorial — Full Whols walkthrough
+https://www.youtube.com/watch?v=ChK2vDOVFO4
 
-#### Easily set wholesale prices on Simple or Variable products ####
-WooCommerce Wholesale is a great way to sell products at wholesale prices. It allows you to easily set wholesale prices on Simple or Variable products. You can also use WooCommerce Wholesale to manage your inventory, set minimum order quantities, and offer discounts to your wholesale customers. WooCommerce Wholesale is a powerful tool that can help you increase sales and grow your business.
+---
 
-#### Add wholesale prices to each variation of a variable products ####
-Whols WooCommerce Wholesale plugin offers the ability to add wholesale prices to each variation of a variable product. This ensures that your wholesale customers always see the correct pricing for their orders, and it makes it easy for you to manage your inventory. WooCommerce Wholesale makes it easy to manage your inventory and ensure that your wholesale customers always see the correct pricing.
+### 💬 What Our Users Say
 
-#### Option to enable minimum product to buy ####
-WooCommerce Wholesale is a great way to sell products in bulk. One of the great features of WooCommerce Wholesale is the ability to enable a minimum product to buy. This setting is located in the settings area. By default, the minimum product to buy is set to 1. This means that customers can only buy 1 of each product. However, you can change this setting to any number you like. For example, you could set the minimum product to buy to 10. This would mean that customers would need to buy 10 of each product. WooCommerce Wholesale is a great way to sell products in bulk. The ability to enable a minimum product to buy is a great feature that can help you sell more products.
+> **Perfect for Wholesalers & B2B**
+> I had tried several other Wholesaler plugins and found either drawbacks or issues with all of them. The Whols plugin works perfectly for my needs with plenty of options going forward. Its excellent.
+> — @mark666
 
-#### Shows wholesale pricing info on shop page as well as product detail page ####
-If you're running a WooCommerce store, you might be interested in WooCommerce Wholesale, which allows you to show wholesale pricing information on your shop page as well as your product detail page. This can be a great way to attract new customers and get them interested in buying from you. Whols WooCommerce Wholesale plugin is easy to set up and use, and it's a great way to take advantage of WooCommerce's powerful features. If you're looking for a way to show wholesale pricing information on your WooCommerce store, this WooCommerce Wholesale plugin is a great option.
+> **The BEST Wholesale plugin!**
+> I absolutely love this Wholesale plugin, it's easy to setup and has everything you need in order to create a good wholesale website. I am deeply grateful for the exceptional support provided.
+> — @nicola-tweed
 
-#### Show/Hide the retailer price from wholesale customers ####
-WooCommerce Wholesale is a great way to sell products at a discounted price to wholesale customers. By default, WooCommerce will show the regular retail price to all customers, regardless of whether they are wholesale customers or not. However, you can choose to hide the retail price from wholesale customers if you wish. To do this, simply go to the Whols WooCommerce Wholesale Settings page and check the box next to "Hide retail pricing from wholesale customers." Once you have done this, wholesale customers will only see the discounted price when they are logged in to their account. This is a great way to ensure that only wholesale customers are able to see the discounted prices.
+> **Amazing Support**
+> The service of the Whols Team was one of the best so far. They were very patient, but efficient and solved all the issues very professionally. I love this plugin and appreciated the kind support a lot!
+> — @cedricbaguilar
 
-#### Customers having wholesale role assigned can buy products at wholesale price ####
-WooCommerce Wholesale customers can buy products at wholesale price if they have the WooCommerce Wholesale role assigned. WooCommerce Wholesale is an eCommerce plugin for WordPress that allows customers to buy products at wholesale prices. The WooCommerce Wholesale plugin is available for free from the WordPress Plugin Directory. WooCommerce Wholesale customers can also buy products from WooCommerce Wholesale dealers. WooCommerce Wholesale dealers are businesses that sell WooCommerce Wholesale products to WooCommerce Wholesale customers. 
+> **AWESOME PLUGIN!!**
+> Really thank you! I wasted so many hours trying to find a suitable solution for my site. It's easy to setup and has everything you need.
+> — @bobbymenas
 
-#### Customize the text on the frontend labels (Retailer Price Text, Wholesaler Price Text & Save Amount Text Label) ####
-WooCommerce Wholesale allows you to customize the text on the frontend labels for Retailer Price, Wholesaler Price, and Save Amount. This can be useful if you want to change the wording to better suit your specific products or target audience. For example, you could change the Retailer Price label to "MSRP" or "Recommended Retail Price" to make it clearer to customers what the price represents. Alternatively, you could change the Wholesaler Price label to "Bulk Price" or "Discounted Price" to emphasize the savings that are available. Whatever text you choose, WooCommerce Wholesale makes it easy to update the frontend labels to match your desired branding.
+[See All Reviews](https://wordpress.org/support/plugin/whols/reviews/?filter=5)
 
-#### Display the amount that the customer will save after the purchase ####
-Whole WooCommerce Wholesale plugin will display the amount that the customer will save after the purchase in the WooCommerce Cart and Checkout pages. The customer will see the WooCommerce Wholesale "Your Savings" message and the total savings amount. The WooCommerce Wholesale message and savings amount will be displayed in the same format as other WooCommerce messages. Whole WooCommerce Wholesale plugin is a great way to increase customer loyalty and satisfaction.
+---
 
-#### Allow free shipping for wholesalers ####
-Whole WooCommerce Wholesale plugin offers a suite of powerful tools to help you run your wholesale business. With WooCommerce Wholesale, you can offer free shipping to your wholesale customers. This can help you attract new customers and encourage existing customers to place larger orders. Whols WooCommerce Wholesale plugin also offers discounts and bulk pricing options, so you can offer your wholesale customers even more savings. By offering free shipping and other benefits, WooCommerce Wholesale makes it easy to build a successful wholesale business.
+### 🔥 Other Popular Plugins by HasThemes
 
-#### Disable coupon codes for wholesale customers so only retailers can use them ####
-Whols WooCommerce Wholesale is a great plugin for WooCommerce that allows you to set up a wholesale store. One of the features of the plugin is the ability to create coupon codes that can be used by wholesale customers. However, there is an option to disable this feature so that only retail customers can use the coupon codes. This can be useful if you want to restrict the use of coupons to only retail customers. By disabling the coupons for wholesale customers, you can help ensure that your retail customers are the only ones using them. This can help to prevent abuse of the coupons and ensure that they are used properly. 
+* **[ShopLentor (formerly WooLentor)](https://wordpress.org/plugins/woolentor-addons/)** – WooCommerce page builder plugin with 120+ free Elementor widgets, 110+ WooCommerce templates, and Gutenberg Blocks.
+* **[SupportGenix](https://wordpress.org/plugins/support-genix-lite/)** – Customer support ticket plugin for WordPress. Manage support tickets, assign agents, and resolve issues efficiently from your dashboard.
+* **[HT Mega For Elementor](https://wordpress.org/plugins/ht-mega-for-elementor/)** – Elementor Addons with 135+ professional widgets, AI-powered content writer, theme builder, and 790+ ready-made blocks.
+* **[HashBar](https://wordpress.org/plugins/hashbar-wp-notification-bar/)** – WordPress notification bar plugin to display announcements, promotions, and CTAs at the top or bottom of your site.
+* **[WP Plugin Manager](https://wordpress.org/plugins/wp-plugin-manager/)** – Disable certain plugins on specific pages or posts for better performance. Activate or deactivate plugins on a per-page basis.
+* **[Swatchly](https://wordpress.org/plugins/swatchly/)** – WooCommerce product variation swatches with color, label, and image swatch types.
+* **[Pixelavo](https://wordpress.org/plugins/pixelavo/)** – Facebook Pixel integration for WordPress and WooCommerce. Track events, optimize ads, and build custom audiences with ease.
+* **[HT Easy GA4](https://wordpress.org/plugins/ht-easy-google-analytics/)** – Connect Google Analytics 4 to your WordPress site without coding. Track pageviews, events, and eCommerce data effortlessly.
 
-#### Hide wholesale prices for guest user ####
-Whols WooCommerce Wholesale plugin offers a great solution for businesses that want to offer their products at wholesale prices to their guests. The plugin allows you to hide the wholesale prices for guest users, so that only registered users can see the discounted prices. This is a great way to encourage customers to register for an account on your website, which can help you build a database of potential customers. In addition, WooCommerce Wholesale offers a variety of other features, such as the ability to create different pricing tiers for different customer groups, and the ability to offer discounts and coupons. If you're looking for a way to offer wholesale pricing on your WooCommerce website, WooCommerce Wholesale is definitely worth considering.
+Wanna see the pro version? [Check it out now!](https://wpwhols.com/pricing/)
 
-#### Hide "Wholesale Only" Products From Other Customers ####
-WooCommerce Wholesale allows you to easily hide "wholesale only" products from other customers. This is a great way to keep your inventory organized and prevent customers from accidentally purchasing products that are meant for wholesalers only. To hide "wholesale only" products from other customers, simply go to the WooCommerce Wholesale Settings page and check the "Hide wholesale only products from other customers" checkbox. Once you've done that, all of your "wholesale only" products will be hidden from other customers on your website. WooCommerce Wholesale makes it easy to manage your inventory and prevent accidental sales to retail customers.
+== Installation ==
 
-#### Hide General Products From Wholesalers ####
-WooCommerce Wholesale is a great way to sell products online. By selling products online, you can reach a larger audience and sell more products. However, when you sell products online, you also open yourself up to wholesalers. Wholesalers are businesses that buy products in bulk and resell them to retailers. When wholesalers find your products, they may try to contact you and purchase your products in bulk. If you do not want to sell your products to wholesalers, you can hide your products from them. Whole WooCommerce Wholesale plugin allows you to hide certain products from wholesalers. When you hide a product from a wholesaler, they will not be able to see the product on your website or purchase the product from you. Hiding your products from wholesalers is a great way to protect your margins and sell your products only to retailers.
+= Option 1: Install via WordPress Dashboard (Recommended) =
 
-#### Wholesale prices are only visible to customers with “Wholesaler” role ####
-Whols WooCommerce Wholesale plugin is a powerful extension that allows store owners to offer special pricing to their wholesale customers. By default, WooCommerce only displays regular prices to all customers, regardless of their user role. However, with WooCommerce Wholesale enabled, store owners, can choose to display wholesale prices only to customers with the "Wholesaler" role. This ensures that only authorized wholesalers have access to the special pricing, and helps to prevent retail customers from taking advantage of the lower prices. In order to take advantage of this functionality, store owners simply need to install and activate Whols WooCommerce Wholesale plugin, and then configure the extension to suit their needs. WooCommerce Wholesale is an essential tool for any store owner who wants to offer special pricing to their wholesale customers.
+1. Go to **Plugins → Add New Plugin** in your WordPress dashboard.
+2. Search for **"Whols"**.
+3. Click **Install Now**, then **Activate**.
 
-#### Registration successful message customization ####
-Whols WooCommerce Wholesale plugin makes it easy to set up a wholesale store on WordPress. As part of the WooCommerce ecosystem, WooCommerce Wholesale inherits WooCommerce's strong eCommerce functionality and extends it with powerful wholesale features. One of these features is the ability to customize the registration successful message. Whols WooCommerce Wholesale plugin allows you to override this message and customize it for your wholesale customers. This is a valuable feature if you want to communicate special offers or terms to your wholesale customers. WooCommerce Wholesale makes it easy to create a custom registration successful message that will help you build strong relationships with your wholesale customers.
+= Option 2: Upload via Dashboard =
 
-#### Redirect to specific page after completed registration ####
-WooCommerce Wholesale makes it easy to redirect customers to a specific page after they've completed registration. Simply go to Whols > Settings and select the page you want customers to be redirected to from the "Registration Redirect Page" drop-down menu. You can also specify whether you want customers to be redirected immediately after registration or after they've confirmed their email address. However, you may want to redirect them to a specific wholesale product page or a page with more information about your wholesale program. By specifying a redirect page, you can ensure that customers are directed to the most relevant page for their needs.
+1. Download the plugin ZIP from WordPress.org.
+2. Go to **Plugins → Add New Plugin → Upload Plugin**.
+3. Upload the ZIP and click **Install Now**, then **Activate**.
 
-#### Redirect to specific page when customer login as a wholesaler ####
-WooCommerce Wholesale is a fantastic plugin that allows customers to login and shop as a wholesaler. This is great for businesses that want to offer special pricing or promotions to their wholesale customers. However, WooCommerce does not automatically redirect wholesale customers to a specific page. This can be a problem if you want wholesale customers to be able to see your wholesale catalog or if you want to offer them a unique shopping experience. Luckily, there is a simple workaround. By adding a short code to your WooCommerce Wholesale settings, you can ensure that wholesale customers are redirected to the page of your choice when they log in. This is a great way to make sure that your wholesale customers are getting the best possible experience on your site.
+= Option 3: Manual FTP Upload =
 
-#### Hide price for guest users / Hide Price Until Login (Login to see price) ####
-Whole WooCommerce Wholesale plugin offers the option to hide product prices until a user logs in. This can be useful if you want to create a sense of exclusivity or keep pricing information private. Once a user logs in, they will be able to see the prices for all products. This feature can be enabled in the Whols WooCommerce Wholesale settings page.
+1. Unzip the downloaded file.
+2. Upload the `whols` folder to `/wp-content/plugins/`.
+3. Activate the plugin from the **Plugins** menu in WordPress.
 
-#### Email Notification (Registration) ####
-WooCommerce Wholesale is a great plugin for those who want to run a wholesale business through their WooCommerce-powered website. One of the great features of the WooCommerce Wholesale plugin is the ability to send an email notification when any user registers for an account. This way, you can keep them up-to-date on their account status, whether it is approved or not.
+= After Activation =
 
-#### Design Customizations ####
-WooCommerce Wholesale is a great plugin that allows you to customize the design of your WooCommerce store. You can use it to change the colors, font size, and layout of your store. WooCommerce Wholesale also allows you to add custom CSS to your store. This CSS will be used to style the WooCommerce wholesale products. WooCommerce Wholesale is a great plugin for anyone who wants to change the look of their WooCommerce store.
+1. If WooCommerce is not already installed, a notice will prompt you to install it.
+2. A new **Whols** menu will appear in your dashboard below the Products menu.
+3. Go to **Whols → Settings** to configure pricing, roles, and registration.
+4. Use the shortcode `[whols_registration_form]` to embed the registration form on any page.
 
-#### Exclude Tax for Wholesale users ####
-Whols WooCommerce Wholesale is a powerful, yet easy-to-use plugin that allows shop owners to set up a WooCommerce-powered wholesale store. one of WooCommerce's most popular features is the ability to offer exclusive pricing to wholesale customers. WooCommerce Wholesale customers can now enjoy an additional benefit: the exclusion of tax from their orders. This means that WooCommerce Wholesale customers will no longer be charged tax on their orders, providing a significant advantage for those who sell in large quantities. As always, Whols team remains committed to providing the best possible shopping experience for all of its users, and this latest update is just one more way that we're doing so. Thanks for choosing Whols - WooCommerce WholeSale plugin!
+== Frequently Asked Questions ==
 
-#### Easy to use backend interface ####
-Whols WooCommerce Wholesale is a great plugin for store owners who want to manage their WooCommerce store easily. It provides an easy-to-use backend interface so that store owners can manage their WooCommerce store easily. Whols WooCommerce Wholesale also provides great customer support so that store owners can get help when they need it.
+= Will Whols affect my existing retail customers or retail prices? =
+No. Wholesale pricing and features only apply to users with a wholesale role assigned. Retail customers continue to see standard WooCommerce prices with zero changes to their experience.
 
-#### No coding required ####
-Whols WooCommerce Wholesale plugin has all of the options to manage his wholesale store easily. No coding knowledge is required. Whols WooCommerce Wholesale offers a great user interface that is easy to use and navigate. Whols WooCommerce Wholesale also offers a wide range of features that are essential for managing a wholesale store. 
+= Can I run both B2B and B2C from the same WooCommerce store? =
+Yes. You can run a B2B-only store, a retail store, or a hybrid B2B+B2C store — all from one WooCommerce installation with one set of products.
 
+= Is there a free version? Can I test it before buying? =
+Yes to both. The free version includes wholesale pricing (global, per-product, per-variation, per-category), a customizable registration form, access control, Request a Quote, Save Order List, CURCY compatibility, and a dashboard. Live demos are also available: [Free Demo](https://theplugindemo.com/whols/demo/create-sandbox/) and [Pro Demo](https://theplugindemo.com/whols-pro/demo/create-sandbox/).
 
-== Premium Features: ==
-#### Create & manage unlimited user role ####
-Whols WooCommerce Wholesale plugin is a great solution for businesses that need to create and manage unlimited user roles for B2B wholesale stores. With the WooCommerce Wholesale plugin, you can easily create and manage different user roles, such as wholesale customers, retail customers, and VIP customers. Also, you can create an unlimited number of user roles, each with its own set of permissions and capabilities. For example, you can give wholesale customers the ability to access your wholesale price list, while giving retail customers the ability to purchase items at the retail price. WooCommerce Wholesale is the perfect solution for businesses that need to create and manage unlimited user roles.
+= Can I offer different prices to different types of wholesalers? =
+Yes (Pro). Create unlimited wholesale user roles and assign a unique price to each role — at the product level, per variation, or per category.
 
-#### Wholesaler request management (Approve / Reject) ####
-Whols WooCommerce Wholesale is a powerful plugin that allows WooCommerce store owners to sell products at wholesale prices. The plugin offers a convenient way for customers to request approval to purchase products at wholesale prices, and for store owners to manage those requests. WooCommerce Wholesale makes it easy to approve or reject requests, allowing store owners to control who has access to wholesale pricing. As a result, the plugin provides a powerful tool for managing wholesale sales and ensuring that only authorized customers have access to discounted prices.
+= Can I set minimum order quantities for wholesale customers? =
+Yes. You can set a minimum product quantity that wholesale customers must meet before purchasing. Whols can also auto-apply this minimum when customers add a product to their cart.
 
-#### Give different pricing to different wholesaler role ####
-Whols WooCommerce Wholesale is a powerful tool that allows store owners to give different pricing to different wholesaler roles. This flexibility is essential for businesses that want to offer volume discounts or create tiered pricing structures. As a result, it is an essential tool for any business that wants to sell products in bulk.
+= Can I hide prices from visitors who are not logged in? =
+Yes. You can hide all prices from guests and display a "Login to see price" message, keeping wholesale pricing private from the general public.
 
-#### Payment methods (gateway) control ####
-WooCommerce Wholesale is a great plugin for wholesalers who need to take control of their payment methods. With WooCommerce Wholesale, you can choose which payment methods are available to your customers
+= What are Dynamic Rules? =
+Dynamic Rules (Pro) let you automate checkout behavior without code — based on conditions like cart subtotal, item count, user role, or promo code. Create discounts, add fees, enable BOGO offers, grant free shipping, or restrict payment methods.
 
-#### Different prices for different users ####
-Whole WooCommerce Wholesale plugin is a great way to offer different prices to different users. You can create multiple user groups, each with its own pricing rules. This is an ideal solution for businesses that sell to both retail and wholesale customers. WooCommerce Wholesale makes it easy to manage your inventory and pricing, and it offers a wide range of features to help you run your business smoothly. If you're looking for a flexible, powerful solution for selling at different price points, WooCommerce Wholesale is the right choice for you.
+= Can I restrict my entire website to wholesale customers only? =
+Yes (Pro). Restrict access to the entire website or just the Shop page, limited to logged-in users or users with a specific wholesale role.
 
-#### Category wise product price set ####
-Whole WooCommerce Wholesale plugin is a great solution for those who want to offer category-based pricing for their products. With WooCommerce Wholesale, you can easily set different prices for different product categories. For example, you could set a higher price for products in the "Clothing" category than products in the "Electronics" category. WooCommerce Wholesale makes it easy to offer category-based pricing to your customers, and it's a great way to encourage customers to purchase more items from your store.
+= Does Whols support multiple languages and currencies? =
+Yes. Whols is compatible with WPML and Polylang for multilingual stores, and with the CURCY Multi Currency plugin by VillaTheme for selling in multiple currencies.
 
-#### Category wise product price set for different roles ####
-WooCommerce Wholesale helps you offer category-based pricing to your WooCommerce customers. Simply set a WooCommerce wholesale price for each product category, and your customers will see the WooCommerce wholesale price when they browse products in that category. You can also set WooCommerce wholesale prices for specific products, regardless of category. WooCommerce Wholesale is a great way to offer volume discounts or special pricing to your WooCommerce customers.
+= Does Whols conflict with other WooCommerce plugins? =
+No. Whols has been tested with 30+ popular WooCommerce plugins including WooCommerce Stripe / PayPal / Payments, WooCommerce PDF Invoices & Packing Slips, Mailchimp for WooCommerce, Facebook for WooCommerce, Variation Swatches for WooCommerce, FiboSearch, CartFlows, YITH WooCommerce Wishlist, ShipStation, Booster, Advanced Order Export, WooCommerce Blocks, Kadence WooCommerce Email Designer, Mollie Payments, WOOF Products Filter, and more. If you run into an issue, contact support.
 
-#### Restrict wholesale store access ####
-Whols WooCommerce Wholesale plugin is a powerful, flexible wholesale plugin that gives WooCommerce stores the ability to offer products at wholesale prices to approved users. Wholesale customers can be given access to a separate WooCommerce store, or they can be given access to specific products and categories within the main WooCommerce store. Whols WooCommerce Wholesale also offers the ability to set up minimum order requirements and restrict payment methods for wholesale orders. By restricting access to WooCommerce Wholesale, store owners can ensure that only approved users can view and purchase wholesale products. This helps to protect margins and keep inventory levels under control.
+= Is there a money-back guarantee? =
+Yes. Yearly plans include a 30-day money-back guarantee, and you can cancel at any time.
 
-#### Set default wholesaler role for wholesale registration ####
-WooCommerce Wholesale provides an easy way for you to sell products at wholesale prices. By default, WooCommerce Wholesale will give all customers who register for an account the "Wholesaler" role. However, you may want to change the default WooCommerce Wholesale settings so that only certain customers have access to wholesale prices. For example, you may want to create a separate customer group for wholesalers and set the default role for that group to "Wholesaler." Alternatively, you may want to set the default WooCommerce Wholesale role to "Customer" and then manually adjust the roles of individual users as needed. Whatever approach you choose, WooCommerce Wholesale makes it easy to sell products at wholesale prices.
+== Screenshots ==
 
-#### Enable website access restriction (Entire Website / Only Shop) ####
-Whols WooCommerce Wholesale is a powerful tool that allows you to easily restrict access to your website or only certain areas of your site, such as your shop. This can be useful if you want to sell products only to wholesale customers or if you want to keep certain areas of your site private. Whols WooCommerce Wholesale makes it easy to set up access restrictions, and you can even customize the message that visitors will see when they try to access a restricted area. Whether you're selling products to wholesalers or keeping certain areas of your site private, WooCommerce Wholesale can help you achieve your goals.
-
-#### Allow Access the Entire Website / Shop (Loged In Users/Loged In Users With Wholesale Role) ####
-Whols WooCommerce Wholesale plugin is a powerful WooCommerce plugin that makes it easy for wholesale customers to access your WooCommerce store. With WooCommerce Wholesale, you can easily create a wholesale store that is separate from your main WooCommerce store. WooCommerce Wholesale makes it easy to manage both your wholesale and retail customers in one place. WooCommerce Wholesale also includes a powerful set of features for managing inventory, orders, and pricing. WooCommerce Wholesale is the perfect solution for any business that sells both to retail and wholesale customers.
-
-#### Role wise disable payment method ####
-Whols WooCommerce Wholesale is a great plugin for WooCommerce that allows you to sell your products at wholesale prices. However, there may be times when you want to disable the payment methods for certain roles. For example, you may want to allow only administrators to see and use the payment methods.
-
-#### Role wise enable free shipping ####
-Whole WooCommerce Wholesale offers many features that can help you manage your shipping needs. First, WooCommerce Wholesale allows you to set up free shipping for your wholesale customers. You can also set different shipping rates for different customer groups, and offer free shipping on orders over a certain amount. WooCommerce Wholesale also offers a number of other shipping options
-
-
-== <a href="https://wpwhols.com/pricing/">Purchase Whols Pro</a>==
-
-
-== Need Help? ==
-Is there any feature that you want to get in this plugin? 
-Needs assistance to use this plugin? 
-Feel free to [Contact us](https://hasthemes.com/contact-us/)
+1. Quick access to all plugin settings from the dashboard.
+2. Setting and displaying wholesale prices on shop and product pages.
+3. Setting different prices for multiple wholesaler roles (Pro).
+4. Price tiers displayed on the product page (Pro).
+5. Registration field setup and front-end form output overview.
+6. Embedding the wholesaler registration form with a shortcode.
+7. Error handling and validation on form submission.
+8. Customer view of registration pending approval message.
+9. Admin panel view of pending wholesaler approval requests.
+10. Admin editing and approving a wholesaler registration request.
+11. Registration and login settings overview.
+12. Managing default and custom registration form fields (Pro).
+13. General plugin settings configuration.
+14. Product visibility settings panel.
+15. Restricting a product category to specific wholesaler roles (Pro).
+16. Guest access restriction settings.
+17. Enabling and configuring the Request a Quote feature.
+18. Wallet feature setup and configuration (Pro).
+19. Customizing email notification templates.
+20. Setting a custom Thank You message for wholesale orders.
+21. Additional settings and configuration options.
+22. Design customization options for wholesale price display.
+23. Fixed and percentage category pricing setup (Pro).
 
 == Changelog ==
+
+= Version: 2.4.10 - Date: 04 May 2026 =
+- Fixed: "Hide Price For Guest Users" not applying in product quick view modal.
 
 = Version: 2.4.9 - Date: 16 Mar 2026 =
 - Improved: Caching mechanism for external API requests in admin.
@@ -521,134 +581,3 @@ Feel free to [Contact us](https://hasthemes.com/contact-us/)
 
 = Version: 1.0.0 =
 * Initial Release
-
-== Installation ==
-This section describes how to install the "Whols" plugin and get it working.
-
-= 1) Install =
-
-i. Go to the WordPress Dashboard "Add New Plugin" section.
-
-ii. Search For "Whols".
-
-iii. Install, then Activate it.
-
-= OR: =
-
-i. Unzip (if it is zipped) and Upload `whols` folder to the `/wp-content/plugins/` directory
-
-ii. Activate the plugin through the 'Plugins' menu in WordPress
-
-= 2) Configure =
-i. After install and activate the plugin you will get a notice to install WooCommerce Plugin ( If allready have it then do not show any notice. ).
-
-ii. A new menu called "Whols" will be appear in your dashboard below the "Products" menu
-
-iv. Use the options & configure as your need and that's all!
-
-
-== Frequently Asked Questions ==
-
-= If a B2C site adds Whols, will it negatively impact its current customers? = 
-
-No, not at all. You can offer separate pricing to your wholesale customers without affecting the retail prices of your products.
-
-
-
-= How much do Whols cost? = 
-
-Whols is a free WooCommerce plugin. However, if you need more features, we offer a premium version, which can be checked on our website [wpwhols.com](https://wpwhols.com/)
-
-= Can it support sites that are both B2B and B2C? = 
-
-Yes, Whols is perfect for both types of businesses. You can offer separate pricing to your wholesale customers without affecting the retail prices of your products.
-
-
-
-= What if I need help? = 
-We offer excellent support for all our users. You can contact us through our website or directly through the plugin's support forum. We'll be more than happy to help you out!
-
-
-
-= Can I hide prices for logged out users? = 
-
-Yes, you can hide prices for logged out users if you wish. Whols gives you full control over who sees your wholesale prices.
-
-
-
-= Do I need to create a separate account for my wholesale customers? = 
-
-No, you don't need to create separate accounts for your wholesale customers. They can use the same account they use for your retail store. However, if you want, you can create separate accounts for them.
-
-
-
-= Can I offer discounts to my wholesale customers? = 
-Yes, you can offer discounts to your wholesale customers. Whols gives you full control over your pricing, so you can offer discounts as you see fit.
-
-
-= Can I set a minimum order? = 
-
-Yes, you can set a minimum order amount in Whols. This is a great way to ensure that your wholesale customers are serious about buying from you.
-
-
-
-= Can I offer different shipping rates for my wholesale customers? = 
-
-Yes, you can offer different shipping rates for your wholesale customers. Whols gives you full control over your shipping
-
-
-
-= Can I set customer-specific pricing? = 
-
-Yes, you can set customer-specific pricing in Whols. This is a great way to offer discounts to your best customers.
-
-
-
-= Do I need to install any other plugins? = 
-
-No, you don't need to install any other plugins. Whols is a complete solution for setting up a WooCommerce wholesale store. However, if you need additional features, we offer a premium version of the plugin.
-
-
-
-= I'm having problems with the plugin. What can I do? = 
-
-If you're having problems with the plugin, first check the documentation. If you can't find a solution there, contact us and we'll be happy to help you out.
-
-
-
-= Can I hide some products completely for some users? = 
-
-Yes, you can hide products completely for certain users. This is a great way to keep your catalog tidy and organized.
-
-= Does the plugin conflict with other WooCommerce Plugins? = 
-No, We have run a compatibility test with the most popular WooCommerce plugins and found that it does not conflict. However, if you stiill encounter any difficulty, feel free to contact us. We checked the compatibility with a number of popular plugins like: WooCommerce Stripe Payment Gateway, WooCommerce PayPal Payments, WooCommerce Payments, WooCommerce PDF Invoices & Packing Slips, WooCommerce Shipping & Tax, Mailchimp for WooCommerce, Facebook for WooCommerce, WooCommerce Google Analytics Integration, Variation Swatches for WooCommerce, Customer Reviews for WooCommerce, Payment Plugins for Stripe WooCommerce, WooCommerce ShipStation Integration, Booster for WooCommerce, Checkout Field Editor (Checkout Manager) for WooCommerce, Advanced Shipment Tracking for WooCommerce, Royal Elementor Addons (Header Footer Builder, Popups, Post Grid, Woocommerce Product Grid, Slider, Parallax Image, Free Elementor Widgets & Elementor Templates. Elementor WooCommerce Builder), Premium Addons for Elementor (Blog Post Grid, Mega Menu Builder, WooCommerce Products Grid, Carousel, Free Elementor Templates), TI WooCommerce Wishlist, FiboSearch – Ajax Search for WooCommerce, WooCommerce Cart Abandonment Recovery, WooCommerce Checkout & Funnel Builder by CartFlows – Create High Converting Stores For WooCommerce, Checkout Field Manager (Checkout Manager) for WooCommerce, Advanced Order Export For WooCommerce, WooCommerce Blocks, WooCommerce Admin, YITH WooCommerce Wishlist, Table Rate Shipping Method for WooCommerce by Flexible Shipping, Variation Swatches for WooCommerce by CartFlows, Product Import Export for WooCommerce, WOOF – Products Filter for WooCommerce, Kadence WooCommerce Email Designer, Creative Mail – Easier WordPress & WooCommerce Email Marketing, Pixel Manager for WooCommerce – Track Google Analytics, Google Ads, Facebook and more, Mollie Payments for WooCommerce, WooCommerce PayPal Checkout Payment Gateway.
-
-= My question isn't listed here. Where can I get help? = 
-
-If you can't find an answer to your question here, contact us and we'll be happy to help you out.
-
-
-== Screenshots ==
-1. Quick access to plugin settings.  
-2. Setting & displaying prices on shop & product pages.  
-3. Setting prices for multiple roles(Pro).  
-4. Price tiers displayed on the product page (Pro).  
-5. Registration field setup & output overview.  
-6. Embedding the registration form with shortcode.  
-7. Error handling after form submission.  
-8. Customer registration pending approval.  
-9. Admin panel view of pending approvals.  
-10. Admin editing/approval of wholesaler requests.  
-11. Registration & login settings overview.  
-12. Managing default & custom fields(Pro).  
-13. General settings configuration.  
-14. Product visibility settings.  
-15. Restrict category to specific wholesalers (Pro).  
-16. Guest restriction settings.  
-17. Enabling & configuring "Request a Quote".  
-18. Wallet feature setup (Pro).  
-19. Customizing email notifications.  
-20. Setting a custom "Thank You" message.  
-21. Additional settings configurations.  
-22. Design customization options.  
-23. Fixed/percentage price for product categories (Pro).
