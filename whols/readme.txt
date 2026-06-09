@@ -2,7 +2,7 @@
 Contributors: htplugins, aslamhasib, zenaulislam, yeasinrony
 Tags: wholesale, wholesale pricing, b2b, woocommerce wholesale, woocommerce b2b
 Requires at least: 4.0
-Tested up to: 6.9
+Tested up to: 7.0
 Stable tag: 2.4.10
 Requires PHP: 5.4
 License: GPLv2 or later
