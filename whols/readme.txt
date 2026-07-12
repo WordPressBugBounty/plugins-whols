@@ -14,7 +14,7 @@ Run wholesale and retail from one WooCommerce store. Set wholesale prices, manag
 
 #### Whols is the complete wholesale solution for WooCommerce — set role-based pricing, manage wholesaler registration, and automate your B2B order rules, all from your existing store.
 
-🔥 Trusted by **1,000+ businesses** worldwide. Add a complete wholesale layer to your existing WooCommerce store without building a second site. Set role-based pricing, create a custom wholesaler registration form, control who sees which products, and automate order rules with smart dynamic conditions.
+🔥 Trusted by **2,000+ businesses** worldwide. Add a complete wholesale layer to your existing WooCommerce store without building a second site. Set role-based pricing, create a custom wholesaler registration form, control who sees which products, and automate order rules with smart dynamic conditions.
 
 🖥️ [Try Free Demo](https://theplugindemo.com/whols/demo/create-sandbox/) | 🚀 [Try Pro Demo](https://theplugindemo.com/whols-pro/demo/create-sandbox/)
 
