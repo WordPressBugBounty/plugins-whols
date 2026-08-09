@@ -34,6 +34,38 @@ if( !function_exists('whols_get_option') ){
 }
 
 /**
+ * Resolve a redirect setting to a URL.
+ *
+ * These settings store a page ID. Installs created before the field became a
+ * page selector stored a full URL instead, so non-numeric values are passed
+ * through unchanged.
+ *
+ * @since 2.4.11
+ *
+ * @param string $option_name Option name holding the page ID or legacy URL.
+ *
+ * @return string Resolved URL, or an empty string when unset or the page is gone.
+ */
+if( !function_exists('whols_get_redirect_url') ){
+    function whols_get_redirect_url( $option_name ){
+        $value = whols_get_option( $option_name );
+
+        if( empty($value) ){
+            return '';
+        }
+
+        // Legacy value: the field used to accept a raw URL.
+        if( !is_numeric($value) ){
+            return esc_url_raw( $value );
+        }
+
+        $permalink = get_permalink( (int) $value );
+
+        return $permalink ? $permalink : '';
+    }
+}
+
+/**
 * Get term meta value.
 *
 * @since 1.0.0

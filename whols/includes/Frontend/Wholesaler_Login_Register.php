@@ -66,12 +66,12 @@ class Wholesaler_Login_Register{
                                 ), $value );
                             }
 
-                            $submit_button_label_filter = apply_filters( 'whols_registration_submit_label', __( 'Register As Wholesaler', 'whols' ) );
+                            $submit_button_label_filter = apply_filters( 'whols_registration_submit_label', __( 'Register as a Wholesaler', 'whols' ) );
                             $submit_button_label        = whols_get_option('registration_form_submit_button_label');
                             $submit_button_label        = $submit_button_label ? $submit_button_label : $submit_button_label_filter;
                         ?>
 
-                        <button type="submit" name="reg_submit" id="whols_reg_submit" class="" value="<?php echo esc_attr(apply_filters( 'whols_registration_submit_label', __( 'Register As Wholesaler', 'whols' ) )); ?>"><?php echo wp_kses_post($submit_button_label); ?></button>
+                        <button type="submit" name="reg_submit" id="whols_reg_submit" class="" value="<?php echo esc_attr($submit_button_label); ?>"><?php echo wp_kses_post($submit_button_label); ?></button>
                     </form>
                 </div>
 
@@ -143,7 +143,7 @@ class Wholesaler_Login_Register{
     public function wholesaler_wc_login_redirect( $redirect, $user ) {
         $current_user_id = $user->ID;
         if ( whols_is_wholesaler( $current_user_id ) ) {
-            $redirect_page_customer_login = whols_get_option('redirect_page_customer_login');
+            $redirect_page_customer_login = whols_get_redirect_url('redirect_page_customer_login');
             if( $redirect_page_customer_login ){
                 $redirect = $redirect_page_customer_login;
             }
@@ -159,7 +159,7 @@ class Wholesaler_Login_Register{
      */
     public function wholesaler_wp_login_redirect( $redirect_to, $requested_redirect_to, $user ){
         if ( !is_wp_error($user) &&  whols_is_wholesaler( $user->ID ) ) {
-            $redirect_page_customer_login = whols_get_option('redirect_page_customer_login');
+            $redirect_page_customer_login = whols_get_redirect_url('redirect_page_customer_login');
             if( $redirect_page_customer_login ){
                 $redirect_to = $redirect_page_customer_login;
             }

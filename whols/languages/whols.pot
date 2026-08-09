@@ -746,7 +746,7 @@ msgstr ""
 #: includes/vue-settings/schema-parts/registration.php:66
 msgid ""
 "Customize registration button:<br>• Change the text on submit button<br>• "
-"Make it clear and action-oriented<br>• Default: \"Register As Wholesaler\""
+"Make it clear and action-oriented<br>• Default: \"Register as a Wholesaler\""
 msgstr ""
 
 #: includes/vue-settings/schema-parts/general.php:210
@@ -2232,9 +2232,8 @@ msgid "Redirect Settings"
 msgstr ""
 
 #: includes/Frontend/Wholesaler_Login_Register.php:69
-#: includes/Frontend/Wholesaler_Login_Register.php:74
 #: includes/vue-settings/schema-parts/registration.php:67
-msgid "Register As Wholesaler"
+msgid "Register as a Wholesaler"
 msgstr ""
 
 #: includes/vue-settings/schema-parts/dynamic-rules.php:491

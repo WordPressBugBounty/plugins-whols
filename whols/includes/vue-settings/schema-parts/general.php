@@ -57,7 +57,7 @@ return ['root_route' => [
                 'only_wholesalers' => __('Private Mode (Wholesalers Only)', 'whols')
             ],
             'default' => 'administrator',
-            'help' => __('If you select "Test Mode", Admin & Wholesalers will be able to access pricing.', 'whols')
+            'help' => __('Controls who can see wholesale prices:<br>• <strong>Testing Mode</strong>: admins and wholesalers only — use while setting prices up<br>• <strong>Public Mode</strong>: everyone, including logged-out visitors<br>• <strong>Private Mode</strong>: logged-in wholesalers only', 'whols')
         ],
         'select_role_for_all_users_price' => [
             'id' => 'select_role_for_all_users_price',
@@ -207,6 +207,7 @@ return ['root_route' => [
                 'retailer_price_custom_label' => [
                     'type' => 'text',
                     'title' => __('Retailer Price Custom Label', 'whols'),
+                    'placeholder' => __('e.g: Retailer Price:', 'whols'),
                     'help' => __('Customize the retail price label:<br>• Displays before the retail price<br>• Shows on both product lists and detail pages', 'whols'),
                     'condition' => [
                         [
@@ -234,6 +235,7 @@ return ['root_route' => [
                 'wholesaler_price_custom_label' => [
                     'type' => 'text',
                     'title' => __('Wholesaler Price Custom Label', 'whols'),
+                    'placeholder' => __('e.g: Wholesale Price:', 'whols'),
                     'help' => __('Customize the wholesale price label:<br>• Displays before the wholesale price<br>• Shows on both product lists and detail pages', 'whols'),
                     'condition' => [
                         [
@@ -261,8 +263,8 @@ return ['root_route' => [
                 'discount_percent_custom_label' => [
                     'type' => 'text',
                     'title' => __('Discount Percentage Custom Label', 'whols'),
-                    'help' => __('Customize the retail price label:<br>• Displays before the retail price<br>• Shows on both product lists and detail pages', 'whols'),
-                    'default' => '',
+                    'placeholder' => __('e.g: Save:', 'whols'),
+                    'help' => __('Customize the discount label:<br>• Displays before the savings percentage<br>• Shows on both product lists and detail pages', 'whols'),
                     'group' => 'discount_label_options',
                     'condition' => [
                         [

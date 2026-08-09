@@ -3,12 +3,15 @@
  * Plugin Name: Whols - Wholesale Prices and B2B Store Solution for WooCommerce
  * Plugin URI:  https://wpwhols.com/
  * Description: This plugin provides all the necessary features that you will ever need to sell wholesale products from your WooCommerce online store.
- * Version:     2.4.10
+ * Version:     2.4.11
  * Author:      HasThemes
  * Author URI:  https://hasthemes.com
  * License:     GPL v2 or later
  * License URI: https://www.gnu.org/licenses/gpl-2.0.html
  * Text Domain: whols
+ * Requires at least: 5.0
+ * Requires PHP: 7.4
+ * Requires Plugins:  woocommerce
  * Domain Path: /languages
  */
 
@@ -35,7 +38,7 @@ final class Whols_Lite {
      *
      * @since 1.0.0
      */
-    public $version = '2.4.10';
+    public $version = '2.4.11';
 
     /**
      * The single instance of the class
@@ -73,6 +76,18 @@ final class Whols_Lite {
      * Define the required constants
      *
      * @since 1.0.0
+     */
+    /**
+     * Two constant sets are defined on purpose, and both are in use:
+     *
+     * - WHOLS_*     global, consumed by the older files that sit outside a
+     *               namespace (this bootstrap, includes/functions.php, and the
+     *               Admin/ classes that predate the namespace migration).
+     * - Whols\PL_*  namespaced, consumed unqualified by the files declaring
+     *               `namespace Whols;` — the newer modules.
+     *
+     * Removing either set breaks live callers. Pro does not read these; it
+     * defines its own Whols_Pro\PL_* set in whols-pro.php.
      */
     private function define_constants() {
         define( 'WHOLS_VERSION', $this->version );
@@ -136,7 +151,6 @@ final class Whols_Lite {
         require_once WHOLS_PATH . '/includes/Admin/recommended-plugins/recommendations.php';
         require_once WHOLS_PATH . '/includes/Admin/install-manager/class-install-manager.php';
         require_once WHOLS_PATH . '/includes/Admin/Diagnostic_Data.php';
-        // require_once WHOLS_PATH . '/includes/Admin/Trial.php';
         require_once WHOLS_PATH . '/includes/Admin/class-menu-manager.php';
         require_once WHOLS_PATH . '/includes/Admin/Notice_Handler.php';
 
@@ -144,19 +158,19 @@ final class Whols_Lite {
         require_once WHOLS_PATH . '/includes/Frontend/Wholesaler_Login_Register.php';
         require_once WHOLS_PATH . '/includes/Frontend/Woo_Config.php';
 
-        whols_include_plugin_file('includes/class-wholesale-product-pricing.php');
+        require_once WHOLS_PATH . '/includes/class-wholesale-product-pricing.php';
 
         // Popup
-        whols_include_plugin_file('includes/popup/class-whols-popup.php');
+        require_once WHOLS_PATH . '/includes/popup/class-whols-popup.php';
 
         // Quote
         require_once WHOLS_PATH . '/includes/request-a-quote/class-request-quote.php';
         
         // Save Order List
-        whols_include_plugin_file('includes/save-order-list/class-save-order-list.php');
+        require_once WHOLS_PATH . '/includes/save-order-list/class-save-order-list.php';
         
         // Product Quick Edit Fields
-        whols_include_plugin_file('includes/Admin/class-product-quick-edit-fields.php');
+        require_once WHOLS_PATH . '/includes/Admin/class-product-quick-edit-fields.php';
         
         require_once WHOLS_PATH . '/includes/Email_Notifications.php';
         require_once WHOLS_PATH . '/includes/Manage_Order.php';
@@ -182,12 +196,6 @@ final class Whols_Lite {
 
             // Finally initialize this plugin
             add_action( 'plugins_loaded', array( $this, 'plugins_loaded_cb' ) );
-
-            // Redirect to welcome page after activate the plugin
-            // $plugin_file = 'woolentor-addons/woolentor_addons_elementor.php';
-			// if ( file_exists( WP_PLUGIN_DIR . '/' . $plugin_file ) && is_plugin_inactive( $plugin_file ) ) {
-			// 	add_action('admin_init', array( $this, 'redirect_after_activate') );
-			// }
 
             // Redirect after activation
             add_action('admin_init', array( $this, 'do_activation_redirect') );
@@ -226,6 +234,62 @@ final class Whols_Lite {
 			$defaults = Whols\Vue_Settings\Settings_Defaults::get_defaults();
 			update_option( 'whols_options', $defaults );
 		}
+
+        $this->maybe_create_registration_page();
+    }
+
+    /**
+     * Create the registration page on first activation and select it.
+     *
+     * Runs at most once per site: the `whols_registration_page_created` flag is
+     * set even when nothing is created, so a merchant who later deletes the page
+     * or clears the setting does not get one forced back on them.
+     *
+     * @since 2.4.11
+     */
+    private function maybe_create_registration_page() {
+        if ( get_option( 'whols_registration_page_created' ) ) {
+            return;
+        }
+
+        // Flag first: whatever happens below, this should never run again.
+        update_option( 'whols_registration_page_created', 'yes' );
+
+        $options = get_option( 'whols_options' );
+        $options = is_array( $options ) ? $options : array();
+
+        // Never overwrite a page the merchant already chose.
+        if ( ! empty( $options['registration_page'] ) ) {
+            return;
+        }
+
+        // Adopt a matching page instead of creating a duplicate slug. Only a
+        // published one: get_page_by_path() ignores post status, and selecting a
+        // trashed or draft page would 404 the registration form.
+        $existing = get_page_by_path( 'wholesale-registration' );
+
+        if ( $existing && 'publish' === get_post_status( $existing ) ) {
+            $page_id = $existing->ID;
+        } else {
+            $page_id = wp_insert_post( array(
+                'post_title'   => __( 'Wholesale Registration', 'whols' ),
+                'post_name'    => 'wholesale-registration',
+                'post_content' => '<!-- wp:shortcode -->[whols_registration_form]<!-- /wp:shortcode -->',
+                'post_status'  => 'publish',
+                'post_type'    => 'page',
+                'post_author'  => get_current_user_id(),
+            ) );
+        }
+
+        if ( is_wp_error( $page_id ) || ! $page_id ) {
+            return;
+        }
+
+        // Cast to string: whols_pages_dropdown_options() emits string IDs, and the
+        // settings UI matches option values strictly. An int here stores correctly
+        // but leaves the dropdown looking empty.
+        $options['registration_page'] = (string) $page_id;
+        update_option( 'whols_options', $options );
     }
 
     /**
@@ -392,12 +456,97 @@ final class Whols_Lite {
 }
 
 /**
+ * Minimum PHP version this plugin can run on.
+ *
+ * Note: the `use const` statements at the top of this file are PHP 5.6+, so on
+ * PHP 5.5 and below this file fails to compile and the guard below is never
+ * reached. WordPress 5.1+ blocks activation via the `Requires PHP` header, so
+ * this guard covers the remaining cases: an existing install whose host
+ * downgrades PHP, or WordPress older than 5.1.
+ *
+ * @since 2.4.11
+ */
+define( 'WHOLS_MINIMUM_PHP_VERSION', '7.4' );
+
+/**
+ * Whether the current PHP version meets the plugin requirement
+ *
+ * @since 2.4.11
+ *
+ * @return bool
+ */
+function whols_is_php_version_supported() {
+    return version_compare( PHP_VERSION, WHOLS_MINIMUM_PHP_VERSION, '>=' );
+}
+
+/**
+ * Admin notice shown when the PHP requirement is not met
+ *
+ * The plugin text domain is never loaded in this state, so the string stays in
+ * English regardless of locale.
+ *
+ * @since 2.4.11
+ */
+function whols_php_version_notice() {
+    if ( ! current_user_can( 'activate_plugins' ) ) {
+        return;
+    }
+
+    printf(
+        '<div class="notice notice-error"><p>%s</p></div>',
+        esc_html(
+            sprintf(
+                /* translators: 1: required PHP version, 2: PHP version running on the server */
+                __( 'Whols requires PHP %1$s or higher. This site is running PHP %2$s, so the plugin has not been loaded. Ask your host to upgrade PHP.', 'whols' ),
+                WHOLS_MINIMUM_PHP_VERSION,
+                PHP_VERSION
+            )
+        )
+    );
+}
+
+/**
+ * Block activation outright on an unsupported PHP version
+ *
+ * Registered before Whols_Lite registers its own activation callback so this
+ * runs first and stops the rest of the activation routine.
+ *
+ * @since 2.4.11
+ */
+function whols_php_version_activation_check() {
+    if ( whols_is_php_version_supported() ) {
+        return;
+    }
+
+    wp_die(
+        esc_html(
+            sprintf(
+                /* translators: 1: required PHP version, 2: PHP version running on the server */
+                __( 'Whols requires PHP %1$s or higher. This site is running PHP %2$s.', 'whols' ),
+                WHOLS_MINIMUM_PHP_VERSION,
+                PHP_VERSION
+            )
+        ),
+        esc_html__( 'Plugin Activation Error', 'whols' ),
+        array( 'back_link' => true )
+    );
+}
+register_activation_hook( __FILE__, 'whols_php_version_activation_check' );
+
+/**
  * Returns the main instance of Whols
  *
  * @since 1.0.0
  */
 
 function whols_lite() { // phpcs:ignore WordPress.NamingConventions.ValidFunctionName.FunctionNameInvalid
+    // Never build the object on an unsupported PHP version: the constructor
+    // includes files that use PHP 7.4+ syntax and would fatal at compile time.
+    if ( ! whols_is_php_version_supported() ) {
+        add_action( 'admin_notices', 'whols_php_version_notice' );
+        return null;
+    }
+
     return Whols_Lite::instance();
 }
 

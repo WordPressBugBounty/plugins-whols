@@ -63,8 +63,8 @@ return ['registration_route' => [
             'section' => 'form',
             'type' => 'text',
             'title' => __('Submit Button Label', 'whols'),
-            'help' => __('Customize registration button:<br>• Change the text on submit button<br>• Make it clear and action-oriented<br>• Default: "Register As Wholesaler"', 'whols'),
-            'default' => __('Register As Wholesaler', 'whols')
+            'help' => __('Customize registration button:<br>• Change the text on submit button<br>• Make it clear and action-oriented<br>• Default: "Register as a Wholesaler"', 'whols'),
+            'default' => __('Register as a Wholesaler', 'whols')
         ],
         // @todo: add default message
         'registration_successful_message_for_auto_approve' => [
@@ -102,17 +102,23 @@ return ['registration_route' => [
         'redirect_page_customer_registration' => [
             'section' => 'redirect',
             'id' => 'redirect_page_customer_registration',
-            'type' => 'text',
-            'title' => __('Redirect Page URL (After Registration)', 'whols'),
-            'help' => __('Post-registration redirect:<br>• Enter full URL for redirect page<br>• Redirects after successful registration<br>• Leave empty to stay on registration page', 'whols'),
+            'type' => 'select',
+            'options' => 'page',
+            'allow_empty' => true,
+            'empty_label' => __('— None —', 'whols'),
+            'title' => __('Redirect Page (After Registration)', 'whols'),
+            'help' => __('Post-registration redirect:<br>• Select the page to redirect to<br>• Redirects after successful registration<br>• Choose "— None —" to stay on the registration page', 'whols'),
             'default' => ''
         ],
         'redirect_page_customer_login' => [
             'section' => 'redirect',
             'id' => 'redirect_page_customer_login',
-            'type' => 'text',
-            'title' => __('Redirect Page URL (After Login)', 'whols'),
-            'help' => __('Post-login redirect:<br>• Enter full URL for redirect page<br>• Must be same-domain URL<br>• Leave empty for default dashboard', 'whols'),
+            'type' => 'select',
+            'options' => 'page',
+            'allow_empty' => true,
+            'empty_label' => __('— None —', 'whols'),
+            'title' => __('Redirect Page (After Login)', 'whols'),
+            'help' => __('Post-login redirect:<br>• Select the page to redirect to<br>• Choose "— None —" for the default dashboard', 'whols'),
             'default' => ''
         ],
         'enable_recaptcha' => [

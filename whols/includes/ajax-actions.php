@@ -42,7 +42,7 @@ if( !function_exists('whols_ajax_user_register') ){
         $pricing_model                       = 'single_role';
         $default_wholesale_role              = 'whols_default_role';
         $enable_auto_approve                 = false;
-        $redirect_page_customer_registration = whols_get_option('redirect_page_customer_registration');
+        $redirect_page_customer_registration = whols_get_redirect_url('redirect_page_customer_registration');
     
         $successful_message_for_auto_approve   = whols_get_option('registration_successful_message_for_auto_approve');
         $successful_message_for_manual_approve = whols_get_option('registration_successful_message_for_manual_approve');

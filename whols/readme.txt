@@ -1,10 +1,10 @@
 === Whols – Wholesale Prices and B2B Store Solution for WooCommerce ===
 Contributors: htplugins, aslamhasib, zenaulislam, yeasinrony
 Tags: wholesale, wholesale pricing, b2b, woocommerce wholesale, woocommerce b2b
-Requires at least: 4.0
+Requires at least: 5.0
 Tested up to: 7.0
-Stable tag: 2.4.10
-Requires PHP: 5.4
+Stable tag: 2.4.11
+Requires PHP: 7.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -21,6 +21,8 @@ Run wholesale and retail from one WooCommerce store. Set wholesale prices, manag
 🌐 [Website](https://wpwhols.com/?utm_source=wprepo&utm_medium=freeplugin&utm_campaign=website) | 💰 [Purchase Pro](https://wpwhols.com/pricing/?utm_source=wprepo&utm_medium=freeplugin&utm_campaign=purchasepro) | 📖 [Documentation](https://wpwhols.com/docs/?utm_source=wprepo&utm_medium=freeplugin&utm_campaign=documentation) | 💬 [Contact & Support](https://wpwhols.com/contact-us/?utm_source=wprepo&utm_medium=freeplugin&utm_campaign=support)
 
 ---
+
+https://www.youtube.com/watch?v=EhDtW-lQavc
 
 ### 🗺️ Overview
 
@@ -337,13 +339,23 @@ Yes. Yearly plans include a 30-day money-back guarantee, and you can cancel at a
 
 == Changelog ==
 
+= Version: 2.4.11 - Date: 09 Aug 2026 =
+- Added: A Wholesale Registration page is created and selected automatically on first activation.
+- Added: Registration and login redirect settings are now page dropdowns instead of URL text fields. Existing saved URLs keep working.
+- Changed: Default registration submit button label is now "Register as a Wholesaler".
+- Improved: Wholesale Price Visibility help now explains all three modes, not just Testing Mode.
+- Improved: Price label fields show example placeholders.
+- Fixed: Registration submit button ignored a custom label in its value attribute.
+- Fixed: Discount label field showed help text describing the retailer price label.
+- Changed: Requires PHP 7.4 and WordPress 5.0. The plugin now stops with a notice instead of a fatal error on older PHP.
+
 = Version: 2.4.10 - Date: 04 May 2026 =
 - Fixed: "Hide Price For Guest Users" not applying in product quick view modal.
 
 = Version: 2.4.9 - Date: 16 Mar 2026 =
 - Improved: Caching mechanism for external API requests in admin.
 
-= Version: 2.4.8 -Date: 26 Feb 2026 =
+= Version: 2.4.8 - Date: 26 Feb 2026 =
 - Improved: Admin notice display.
 - Fixed: Admin page redirect issue for invalid URLs.
 
@@ -353,72 +365,72 @@ Yes. Yearly plans include a 30-day money-back guarantee, and you can cancel at a
 = Version: 2.4.6 - Date: 11 Dec 2025 =
 - Fixed: Empty quantity in wholesale pricing meta during WooCommerce product export
 
-= Version: 2.4.5 -Date: 13 Nov 2025 =
+= Version: 2.4.5 - Date: 13 Nov 2025 =
 - Fixed: Minor issue with notice manager.
 
-= Version: 2.4.4 -Date: 26 Oct 2025 =
+= Version: 2.4.4 - Date: 26 Oct 2025 =
 - Fixed: Guest Access Restriction feature not working properly.
 
-= Version: 2.4.3 -Date: 22 Oct 2025 =
+= Version: 2.4.3 - Date: 22 Oct 2025 =
 - Improved: Minor UI update and optimizations.
 
-= Version: 2.4.2 -Date: 29 Sep 2025 =
+= Version: 2.4.2 - Date: 29 Sep 2025 =
 - Enhanced: Wholesale product metadata synchronization with Polylang for WooCommerce plugin
 - Fixed: Fields Manager immediately adding field to list when clicking "Add New" button
 
-= Version: 2.4.1 -Date: 17 Aug 2025 =
+= Version: 2.4.1 - Date: 17 Aug 2025 =
 - Fixed: Escaping issue in multiple area.
 - Fixed: Translation issue in multiple area.
 
-= Version: 2.4.0 -Date: 17 Jul 2025 =
+= Version: 2.4.0 - Date: 17 Jul 2025 =
 - Added: Option to reset settings to default for global settings
 
-= Version: 2.3.0 -Date: 09 Jul 2025 =
+= Version: 2.3.0 - Date: 09 Jul 2025 =
 - Added: Wholesale price quick edit and bulk edit functionality for products
 
-= Version: 2.2.3 -Date: 29 Jun 2025 =
+= Version: 2.2.3 - Date: 29 Jun 2025 =
 - Added: Updated pot file for translation
 
-= Version: 2.2.2 -Date: 23 Jun 2025 =
+= Version: 2.2.2 - Date: 23 Jun 2025 =
 - Fixed: PHP notice "Undefined index" when custom admin email is set for user registration notification
 
-= Version: 2.2.1 -Date: 17 Jun 2025 =
+= Version: 2.2.1 - Date: 17 Jun 2025 =
 - Fixed: Duplicate menu item issue
 
-= Version: 2.2.0 -Date: 12 Jun 2025 =
+= Version: 2.2.0 - Date: 12 Jun 2025 =
 - Fixed: Cache busting issue for element-plus
 
-= Version: 2.1.0 -Date: 20 May 2025 =
+= Version: 2.1.0 - Date: 20 May 2025 =
 - Tweak: Variable product price range if price is same
 - Fixed: Select field filterable issue
 
-= Version: 2.0.3 -Date: 15 Apr 2025 =
+= Version: 2.0.3 - Date: 15 Apr 2025 =
 - Fixed: Save order list settings field badge showing issues
 - Fixed: Column pricing issue in the Products List table by using the new wholeale pricing class
 
-= Version: 2.0.2 -Date: 24 Mar 2025 =
+= Version: 2.0.2 - Date: 24 Mar 2025 =
 - Added: Save Order List feature
 - Added: Dashboard page for reports and analytics
 
-= Version: 2.0.1 -Date: 03 Mar 2025 =
+= Version: 2.0.1 - Date: 03 Mar 2025 =
 - Added: New pot file for translation
 - Fixed: Translations issue for the new settings
 - Fixed: Minimum quantity field notice field was not showing
 - Fixed: Text domain warning issue
 - Fixed: Drawer lagging issue
 
-= Version: 2.0.0 -Date: 16 Feb 2025 =
+= Version: 2.0.0 - Date: 16 Feb 2025 =
 - Enhanced: The dashboard settings with new design
 - Added: Compatibility with CURCY – Multi Currency plugin by VillaTheme Free and Pro
 - Added: Default messages & placeholder supports for all the email notifications
 
-= Version: 1.4.3 -Date: 18 Dec 2024 =
+= Version: 1.4.3 - Date: 18 Dec 2024 =
 - Fixed: Conflict with windcave payment gateway
 
-= Version: 1.4.2 -Date: 15 Dec 2024 =
+= Version: 1.4.2 - Date: 15 Dec 2024 =
 - Fixed: Error "Cannot access offset of type string on string" due to default value
 
-= Version: 1.4.1 -Date: 09 Dec 2024 =
+= Version: 1.4.1 - Date: 09 Dec 2024 =
 - Added: Request a quote feature
 - Added: Auto Input Minimum Quantity
 - Added: Option to change the registration form submit button text
@@ -426,67 +438,67 @@ Yes. Yearly plans include a 30-day money-back guarantee, and you can cancel at a
 - Fixed: Wholesale label was showing in the order review list
 - Updated: Plugin settings screenshots
 
-= Version: 1.4.0 -Date: 25 Nov 2024 =
+= Version: 1.4.0 - Date: 25 Nov 2024 =
 - Fixed: Textdomain loading warning with WP 6.9 version
 
-= Version: 1.3.9 -Date: 12 Nov 2024 =
+= Version: 1.3.9 - Date: 12 Nov 2024 =
 - Fixed: Number input field design issue
 - Tested: With latest WordPress version
 
-= Version: 1.3.8 -Date: 10 Oct 2024 =
+= Version: 1.3.8 - Date: 10 Oct 2024 =
 - Fixed: Menu active issue and refractored the code
 - Added: Multiple recipient email option for email notification
 
-= Version: 1.3.7 -Date: 22 Aug 2024 =
+= Version: 1.3.7 - Date: 22 Aug 2024 =
 - Fixed: Price ranges for variable products showed the dummy maximum price
 
-= Version: 1.3.6 -Date: 11 Aug 2024 =
+= Version: 1.3.6 - Date: 11 Aug 2024 =
 - Added: Compatibility with Fibosearch plugin
 - Updated: 3rd party libraries for latest PHP version compatibility
 
-= Version: 1.3.5 -Date: 14 Jul 2024 =
+= Version: 1.3.5 - Date: 14 Jul 2024 =
 * Fixed: Variation price issue in the admin Column
 * Compatibility: Test With latest WordPress version
 
-= Version: 1.3.4 -Date: 13 Jun 2024 =
+= Version: 1.3.4 - Date: 13 Jun 2024 =
 * Fixed: undefined property of ID into the_content hook issue
 
-= Version: 1.3.3 -Date: 09 Jun 2024 =
+= Version: 1.3.3 - Date: 09 Jun 2024 =
 * Fixed: undefined array key issue for minimum quantity
 
-= Version: 1.3.2 -Date: 28 May 2024 =
+= Version: 1.3.2 - Date: 28 May 2024 =
 * Fixed: Registration form submission doesn't work with FSE theme
 
-= Version: 1.3.1 --Date:  24 Mar 2024 =
+= Version: 1.3.1 - Date: 24 Mar 2024 =
 * Added: Data from the registration form can be viewed from the approve/reject wholesaler screen
 * Tweak: Redirect to the plugins settings after activate the plugin
 * Tweak: Product visibility settings improved
 
-= Version: 1.3.0 --Date:  18 Jan 2024 =
+= Version: 1.3.0 - Date: 18 Jan 2024 =
 * Fixed: Variation product's price doesn't update on cart page while qty is set to 0/1
 
-= Version: 1.2.9 --Date:  14 Dec 2023 =
+= Version: 1.2.9 - Date: 14 Dec 2023 =
 * Added: Compatibility with WPML and Polylang
 
-= Version: 1.2.8 --Date:  6 Nov 2023 =
+= Version: 1.2.8 - Date: 06 Nov 2023 =
 * Tweak: wholesale_priced meta key name changed to _wholesale_priced
 * Added: whols_show_wholesale_status_in_item_data filter hook 
 
-= Version: 1.2.7 --Date:  19 Jun 2023 =
+= Version: 1.2.7 - Date: 19 Jun 2023 =
 * Fixed: Fatal error issue on the cart page
 
-= Version: 1.2.6 --Date: 29 Apr 2023 =
+= Version: 1.2.6 - Date: 29 Apr 2023 =
 * Added: Option to change minimum quantity notice text
 
-= Version: 1.2.5 --Date: 22 Mar 2023 =
+= Version: 1.2.5 - Date: 22 Mar 2023 =
 * Fixed: Decimal pricing issue when product has a price less than 1
 
-= Version: 1.2.4 --Date: 12 Mar 2023 =
+= Version: 1.2.4 - Date: 12 Mar 2023 =
 * Tweak: Added scroll to notice for registration form
 * Fixed: Warning on wholesaler request page
 * Added: wpautop support for sending emails
 
-= Version: 1.2.3 --Date: 13 Dec 2022 =
+= Version: 1.2.3 - Date: 13 Dec 2022 =
 * Fixed: Admin Column price were showing wrong for percentage price.
 * Fixed: Wholesaler price were shwoing 00 for free product or the product that doesn't have any price.
 * Fixed: Conflict with Justtables plugin.
@@ -495,85 +507,85 @@ Yes. Yearly plans include a 30-day money-back guarantee, and you can cancel at a
 * Added: Option to customize thank you message for wholesalers.
 * Added: Show wholesale_priced meta in order edit / details page.
 
-= Version: 1.2.2 --Date:  02 Nov 2022 =
+= Version: 1.2.2 - Date: 02 Nov 2022 =
 * Fixed: Undefined variable $fields
 * Fixed: Price shows 0 for variable product while price value is empty from the global pricing.
 
-= Version: 1.2.1 --Date: 10 Oct 2022 =
+= Version: 1.2.1 - Date: 10 Oct 2022 =
 * Added: Option to assign wholesale registration form
 * Added: Registration page state label into the page list table
 * Added: The registration form shortcode conditionally into the assigned page
 * Added: Wholesale price column
 * Added: Registration fields manager
 
-= Version: 1.2.0 --Date: 18 Sep 2022 =
+= Version: 1.2.0 - Date: 18 Sep 2022 =
 * Tweak: Whholesale label show on cart page for variation product
 * Added: filter hide whols_hide_price_for_guest_users
 * Tweak: Compatibility with WooCommerce's tax display settings for simple product
 
-= Version: 1.1.9 --Date: 10 Sep 2022 =
+= Version: 1.1.9 - Date: 10 Sep 2022 =
 * Tweak: Removed some unused variables
 * Updated: The language file & Pro notice text
 * Fixed: php 7.4 user metabox warning
 
-= Version: 1.1.8 --Date: 16 Jul 2022 =
+= Version: 1.1.8 - Date: 16 Jul 2022 =
 * Tweak: Compatibility with the WooCommerce's price decimal settings
 * Improved: is_wholesaler function
 * Fixed: Price display issue
 * Updated: The language file
 * Added: Quick recommended plugin
 
-= Version: 1.1.7 --Date: 9 May 2022 =
+= Version: 1.1.7 - Date: 09 May 2022 =
 * Added: Filter hook whols_label_upto
 * Added: Filter hook whols_disable_del_tag
 * Fixed: Discount range show 0% for Multiple role
 
-= Version: 1.1.6 --Date: 9 Apr 2022 =
+= Version: 1.1.6 - Date: 09 Apr 2022 =
 * Fixed: Variable product price decimal issue
 * Fixed: When min & max both price is same for variable product, don't show the price range
 
-= Version: 1.1.5 --Date: 12 Mar 2022 =
+= Version: 1.1.5 - Date: 12 Mar 2022 =
 * Added: Checkbox field support for registration form
 * Added: Filter hook to manage capabilities
 
-= Version: 1.1.4 --Date: 13 Feb 2022 =
+= Version: 1.1.4 - Date: 13 Feb 2022 =
 * Improved: Registration form input fields
 * Fixed: Warning on product metabox
 * Fixed: Showing price decimal properly
 * Added: Wholesale label on cart page
 * Fixed: Pricing issue
 
-= Version: 1.1.3 --Date: 12 Jan 2022 =
+= Version: 1.1.3 - Date: 12 Jan 2022 =
 * Introduced: whols_registration_fields filter hook
 * Added: Additional field support for registration form
 
-= Version: 1.1.2 --Date: 27 Nov 2021 =
+= Version: 1.1.2 - Date: 27 Nov 2021 =
 * Fixed: Decimal pricing for variation product
 
-= Version: 1.1.1 --Date: 24 Nov 2021 =
+= Version: 1.1.1 - Date: 24 Nov 2021 =
 * Fixed: Price doesn't show in decimal format problem
 
-= Version: 1.1.0 --Date: 4 Oct 2021 =
+= Version: 1.1.0 - Date: 04 Oct 2021 =
 * Improved: Enqueueing CSS/JS files considering caching problem 
 
-= Version: 1.0.9 --Date: 13 Sep 2021 =
+= Version: 1.0.9 - Date: 13 Sep 2021 =
 * Fixed: Plugin does not activate when whols plugin is active
 * Added: hook_suffix to load the extension manager js file conditionally
 
-= Version: 1.0.8 --Date: 28 Aug 2021 =
+= Version: 1.0.8 - Date: 28 Aug 2021 =
 * Fixed: Wholesaler Price Custom Label option doesn't work properly
 * Fixed: Wholesaler Price design options doesn't work properly
 
-= Version: 1.0.7 --Date: 1 Aug 2021 =
+= Version: 1.0.7 - Date: 01 Aug 2021 =
 * Fixed: is wholesale function condition fixed
 
-= Version: 1.0.6 --Date: 24 Jul 2021 =
+= Version: 1.0.6 - Date: 24 Jul 2021 =
 * Fixed: Role assigning problem
 * Fixed: User count column
 * Added: Option to disable the wholesale feature
 * Fixed: Some other minor issues
 
-= Version: 1.0.4 --Date: 26 may 2021 =
+= Version: 1.0.4 - Date: 26 May 2021 =
 * Added: Pending user count notification into the Whols menu
 * Added: Delete wholesaler request when an user deleted manually
 * Fixed: Price color does not change issue
