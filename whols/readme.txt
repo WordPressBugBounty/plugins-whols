@@ -2,8 +2,8 @@
 Contributors: htplugins, aslamhasib, zenaulislam, yeasinrony
 Tags: wholesale, wholesale pricing, b2b, woocommerce wholesale, woocommerce b2b
 Requires at least: 5.0
-Tested up to: 7.0
-Stable tag: 2.4.11
+Tested up to: 7.1
+Stable tag: 2.4.12
 Requires PHP: 7.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -338,6 +338,11 @@ Yes. Yearly plans include a 30-day money-back guarantee, and you can cancel at a
 23. Fixed and percentage category pricing setup (Pro).
 
 == Changelog ==
+
+= Version: 2.4.12 - Date: 27 Aug 2026 =
+- Fixed: Recommended Plugins page grid collapsed to a single column on newer WordPress versions.
+- Fixed: A few minor issues.
+- Tested: Compatibility with the latest version of WordPress.
 
 = Version: 2.4.11 - Date: 09 Aug 2026 =
 - Added: A Wholesale Registration page is created and selected automatically on first activation.
