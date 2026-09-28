@@ -68,6 +68,14 @@ class Admin {
 
         array_unshift( $actions, $settings_page_link );
 
+        // The Plugins screen is where merchants decide what to keep — worth an
+        // upgrade entry point.
+        $actions['whols_go_pro'] = sprintf(
+            '<a href="%1$s" target="_blank" rel="noopener noreferrer" style="color:#2271b1;font-weight:600;">%2$s</a>',
+            esc_url( 'https://wpwhols.com/pricing/?utm_source=wprepo&utm_medium=freeplugin&utm_campaign=pluginrow' ),
+            esc_html__( 'Upgrade to Pro', 'whols' )
+        );
+
         return $actions;
     }
 

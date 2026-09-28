@@ -882,6 +882,14 @@ class Wholesale_Product_Pricing {
             $retail_price = $this->product->get_regular_price();
             
             if ($this->is_flat_rate()) {
+                // has_wholesale_pricing() only checks that a wholesale price is
+                // set, never the retail price. A product with an empty regular
+                // price reaches this line with 0 as the divisor, which is a
+                // fatal DivisionByZeroError on PHP 8.
+                if ((float)$retail_price <= 0) {
+                    return '';
+                }
+
                 $wholesale_price = $this->get_wholesale_price();
                 $save_amount = (float)$retail_price - (float)$wholesale_price;
                 $discount_percent = round(($save_amount / (float)$retail_price) * 100);
@@ -1049,10 +1057,11 @@ class Wholesale_Product_Pricing {
         
         // Show wholesaler price if not hidden
         if (!$hide_wholesaler_price) {
-            $wholesaler_label = !empty($wholesaler_price_options['wholesaler_price_custom_label']) ? 
-                $wholesaler_price_options['wholesaler_price_custom_label'] : 
+            $wholesaler_label = !empty($wholesaler_price_options['wholesaler_price_custom_label']) ?
+                $wholesaler_price_options['wholesaler_price_custom_label'] :
                 __('Wholesaler Price:', 'whols');
-            
+            $wholesaler_label = whols_translate_label( $wholesaler_label );
+
             $html .= '<div class="whols_wholesaler_price">';
             $html .= '<span class="whols_label">';
             $html .= '<span class="whols_label_left">' . esc_html($wholesaler_label) . '</span>';

@@ -197,6 +197,28 @@ class Settings_REST_API {
                 ),
             )
         );
+
+        // First-Pro-click offer countdown
+        register_rest_route(
+            'whols/v1',
+            '/pro-offer',
+            array(
+                array(
+                    'methods'             => \WP_REST_Server::CREATABLE,
+                    'callback'            => array($this, 'get_or_start_pro_offer'),
+                    'permission_callback' => array($this, 'check_permission'),
+                ),
+                // Read-only peek — never starts the clock. Used by the
+                // sidebar "Upgrade to Pro" card, which must only ever show
+                // the countdown after it was started elsewhere (a Pro-field
+                // click), never trigger it just by rendering the sidebar.
+                array(
+                    'methods'             => \WP_REST_Server::READABLE,
+                    'callback'            => array($this, 'peek_pro_offer'),
+                    'permission_callback' => array($this, 'check_permission'),
+                ),
+            )
+        );
     }
 
     /**
@@ -267,10 +289,32 @@ class Settings_REST_API {
         return $this->get_settings();
     }
 
-    public function update_wp_option($request) {
-        $params = $request->get_params();
+    /**
+     * Option names this endpoint is allowed to write.
+     *
+     * Without this the route writes any WP option by name. On multisite that is
+     * privilege escalation: site administrators hold `manage_options` but are
+     * deliberately denied unfiltered option access.
+     *
+     * @return array
+     */
+    private function get_writable_options() {
+        return apply_filters( 'whols_rest_writable_options', array( 'whols_onboarding' ) );
+    }
 
-        update_option($params['option_name'], $params['value']);
+    public function update_wp_option($request) {
+        $params      = $request->get_params();
+        $option_name = isset($params['option_name']) ? sanitize_key($params['option_name']) : '';
+
+        if ( ! in_array( $option_name, $this->get_writable_options(), true ) ) {
+            return new \WP_Error(
+                'rest_option_not_allowed',
+                esc_html__('That option cannot be updated from here.', 'whols'),
+                array('status' => 403)
+            );
+        }
+
+        update_option($option_name, sanitize_text_field($params['value']));
 
         return rest_ensure_response($params);
     }
@@ -335,6 +379,68 @@ class Settings_REST_API {
 
     public function get_payment_gateways() {
         return rest_ensure_response(whols_get_enabled_payment_gateways());
+    }
+
+    /**
+     * Idempotent start-or-read for the first-Pro-click countdown offer.
+     *
+     * The first time this is ever called on a site, it stamps
+     * `whols_pro_offer_started_at` with the current time. Every call after
+     * that — from any click, on any reload, days later — reads the same
+     * stored timestamp back unchanged; it never restarts the clock. Remaining
+     * time is computed here, server-side, so the client never has to
+     * reconcile its own clock against a stored timestamp — it only needs to
+     * count down locally from the number this returns.
+     *
+     * @since 2.4.13
+     *
+     * @return \WP_REST_Response
+     */
+    public function get_or_start_pro_offer() {
+        $started_at = get_option('whols_pro_offer_started_at');
+
+        if (!$started_at) {
+            $started_at = time();
+            update_option('whols_pro_offer_started_at', $started_at, false);
+        }
+
+        $offer_duration = DAY_IN_SECONDS; // 24 hours, per spec
+        $elapsed        = time() - (int) $started_at;
+        $remaining      = max(0, $offer_duration - $elapsed);
+
+        return rest_ensure_response(array(
+            'remaining_seconds' => (int) $remaining,
+            'expired'           => $remaining <= 0,
+        ));
+    }
+
+    /**
+     * Read-only peek at the same countdown — never starts it.
+     *
+     * Used by the persistent sidebar "Upgrade to Pro" card, which is visible
+     * on every Settings screen and must never itself trigger the offer just
+     * because a merchant opened a Settings page. Returns `started: false`
+     * when the option doesn't exist yet, with no side effects at all.
+     *
+     * @since 2.4.13
+     *
+     * @return \WP_REST_Response
+     */
+    public function peek_pro_offer() {
+        $started_at = get_option('whols_pro_offer_started_at');
+
+        if (!$started_at) {
+            return rest_ensure_response(array('started' => false));
+        }
+
+        $elapsed   = time() - (int) $started_at;
+        $remaining = max(0, DAY_IN_SECONDS - $elapsed);
+
+        return rest_ensure_response(array(
+            'started'           => true,
+            'remaining_seconds' => (int) $remaining,
+            'expired'           => $remaining <= 0,
+        ));
     }
 
     /**

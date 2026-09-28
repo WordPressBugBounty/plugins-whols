@@ -34,6 +34,50 @@ if( !function_exists('whols_get_option') ){
 }
 
 /**
+ * Register Whols's customizable label strings with Polylang so each one can be
+ * translated per language via Polylang -> Translations. Without this, these
+ * labels are a single global value stored in whols_options and show the same
+ * text on every language.
+ *
+ * @since 2.4.13
+ */
+if( !function_exists('whols_register_polylang_strings') ){
+    function whols_register_polylang_strings() {
+        if( !function_exists('pll_register_string') ){
+            return;
+        }
+
+        $registration_label = whols_get_option('registration_form_submit_button_label');
+        $registration_label = $registration_label ? $registration_label : __('Register as a Wholesaler', 'whols');
+        pll_register_string( 'Registration Button Label', $registration_label, 'Whols' );
+
+        $wholesaler_price_options = whols_get_option('wholesaler_price_options');
+        $wholesaler_price_label   = !empty($wholesaler_price_options['wholesaler_price_custom_label'])
+            ? $wholesaler_price_options['wholesaler_price_custom_label']
+            : __('Wholesaler Price:', 'whols');
+        pll_register_string( 'Wholesaler Price Label', $wholesaler_price_label, 'Whols' );
+    }
+    add_action( 'init', 'whols_register_polylang_strings', 5 );
+}
+
+/**
+ * Translate a Whols label string via Polylang's string translations, if Polylang
+ * is active. The string passed in must exactly match what was registered in
+ * whols_register_polylang_strings() for the translation lookup to match.
+ *
+ * @since 2.4.13
+ *
+ * @param string $string The default/source string.
+ *
+ * @return string
+ */
+if( !function_exists('whols_translate_label') ){
+    function whols_translate_label( $string ) {
+        return function_exists('pll__') ? pll__( $string ) : $string;
+    }
+}
+
+/**
  * Resolve a redirect setting to a URL.
  *
  * These settings store a page ID. Installs created before the field became a
@@ -116,6 +160,10 @@ if( !function_exists('whols_get_taxonomy_terms') ){
             $term_query = new WP_Term_Query(array(
                 'taxonomy' => $taxonomy,
                 'hide_empty' => false,
+                // Wholesale role terms map to WP user roles and must be visible regardless of
+                // the current front-end language, even if a multilingual plugin (e.g. Polylang)
+                // has this taxonomy registered as translatable.
+                'lang' => '',
             ));
     
             $term_list = array();
@@ -315,14 +363,22 @@ if( !function_exists('whols_is_wholesaler') ){
         }
     
         if( $user_id ){
-            $user_obj   = get_user_by( 'id', $user_id );
+            $user_obj = get_user_by( 'id', $user_id );
+
+            // get_user_by() returns false for a deleted user. Historic orders are
+            // routinely processed with an ID whose account no longer exists, and
+            // array_flip( null ) is a fatal TypeError on PHP 8.
+            if( ! $user_obj ){
+                return false;
+            }
+
             $user_roles = array_flip( $user_obj->roles );
-    
+
             if( array_intersect_key( $user_roles, whols_get_taxonomy_terms()) ){
                 return true;
             }
         }
-    
+
         return false;
     }
 }
@@ -344,10 +400,15 @@ if( !function_exists('whols_get_current_user_roles') ){
         }
     
         if( $user_id ){
-            $user_obj   = get_user_by( 'id', $user_id );
-            $user_roles = $user_obj->roles;
+            $user_obj = get_user_by( 'id', $user_id );
+
+            // Deleted user: return an empty role list rather than reading a
+            // property on false.
+            if( $user_obj ){
+                $user_roles = $user_obj->roles;
+            }
         }
-    
+
         return $user_roles;
     }
 }
@@ -667,7 +728,11 @@ if ( !function_exists( 'whols_form_field' ) ) {
             case 'email':
             case 'url':
             case 'tel':
-                $field .= '<input type="' . esc_attr( $args['type'] ) . '" class="input-text ' . esc_attr( implode( ' ', $args['input_class'] ) ) . '" name="' . esc_attr( $key ) . '" id="' . esc_attr( $args['id'] ) . '" placeholder="' . esc_attr( $args['placeholder'] ) . '"  value="' . esc_attr( $value ) . '"   required="' . esc_attr( $args['required'] ) . '"  ' . implode( ' ', $custom_attributes ) . ' />';
+                // `required` is a boolean attribute: emitting required="" still
+                // marks the field required, which made every optional field
+                // mandatory while the label said "(optional)". Only print it when
+                // the field really is required.
+                $field .= '<input type="' . esc_attr( $args['type'] ) . '" class="input-text ' . esc_attr( implode( ' ', $args['input_class'] ) ) . '" name="' . esc_attr( $key ) . '" id="' . esc_attr( $args['id'] ) . '" placeholder="' . esc_attr( $args['placeholder'] ) . '"  value="' . esc_attr( $value ) . '"' . ( $args['required'] ? ' required' : '' ) . '  ' . implode( ' ', $custom_attributes ) . ' />';
 
                 break;
             case 'hidden':
@@ -928,6 +993,12 @@ if( !function_exists('whols_get_product_status') ){
         $pricing_model  = whols_get_option( 'pricing_model' );
         $term_meta      = '';
 
+        // Read these here rather than only inside the category loop below. A
+        // product with no product category never enters that loop, which left
+        // both undefined at the point they are compared further down.
+        $show_wholesale_price_for        = whols_get_option( 'show_wholesale_price_for' );
+        $select_role_for_all_users_price = whols_get_option( 'select_role_for_all_users_price' );
+
         $price_type_1_properties = whols_get_option( 'price_type_1_properties' );
         $enable_this_pricing     = $price_type_1_properties['enable_this_pricing'];
         $price_type              = $price_type_1_properties['price_type'];
@@ -1129,29 +1200,31 @@ if( !function_exists('whols_insert_element_after_specific_array_key') ){
  *
  * @return array Array of pages with id as key and title as value
  */
-function whols_pages_dropdown_options( $post_type = 'page' ) {
-    $query = new WP_Query(array(
-        'post_type' => $post_type,
-        'post_status' => 'publish',
-        'posts_per_page' => 200, // @todo apply_filter
-        'orderby' => 'title',
-        'order' => 'ASC',
-    ));
+if( !function_exists('whols_pages_dropdown_options') ){
+    function whols_pages_dropdown_options( $post_type = 'page' ) {
+        $query = new WP_Query(array(
+            'post_type' => $post_type,
+            'post_status' => 'publish',
+            'posts_per_page' => 200, // @todo apply_filter
+            'orderby' => 'title',
+            'order' => 'ASC',
+        ));
 
-    $options = array();
+        $options = array();
 
-    if ($query->have_posts()) {
-        while ($query->have_posts()) {
-            $query->the_post();
-            $options[] = array(
-                'id' => (string) get_the_ID(),
-                'title' => get_the_title()
-            );
+        if ($query->have_posts()) {
+            while ($query->have_posts()) {
+                $query->the_post();
+                $options[] = array(
+                    'id' => (string) get_the_ID(),
+                    'title' => get_the_title()
+                );
+            }
+            wp_reset_postdata();
         }
-        wp_reset_postdata();
-    }
 
-    return $options;
+        return $options;
+    }
 }
 
 if( !function_exists('whols_product_category_dropdown_options') ){
@@ -1427,16 +1500,12 @@ function whols_is_request( $type ) {
  * @return int
  */
 function whols_get_conversation_count( $status = 'pending' ) {
-    $args = array(
-        'post_type'      => 'whols_conversation',
-        'post_status'    => 'pending',
-        'numberposts'    => -1,
-        'fields'         => 'ids',
-    );
+    // The $status argument was accepted but ignored, and the old query loaded
+    // every matching ID just to count them. wp_count_posts() is a single
+    // cached query.
+    $counts = wp_count_posts( 'whols_conversation' );
 
-    $conversations = get_posts( $args );
-
-    return count( $conversations );
+    return isset( $counts->$status ) ? (int) $counts->$status : 0;
 }
 
 /**
@@ -1462,9 +1531,11 @@ function whols_get_plugin_remote_data($version = null) {
     if ( $transient_data ) {
         $remote_banner_data = $transient_data;
     } elseif( false === $transient_data ) {
+        // Certificate verification stays on. This response is rendered into the
+        // admin dashboard, so an unverified connection would let anyone on the
+        // network inject markup into every administrator's screen.
         $remote_banner_req = wp_remote_get($remote_url, array(
             'timeout' => 10,
-            'sslverify' => false,
         ));
 
         // If request success, set data to transient

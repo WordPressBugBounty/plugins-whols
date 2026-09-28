@@ -87,8 +87,9 @@
                     url: htim_params.ajaxurl,
                     type: 'POST',
                     data: {
-                        action   : 'htim_activate_plugin',
+                        action   : 'whols_htim_activate_plugin',
                         location : plugin_file,
+                        nonce    : htim_params.nonce,
                     },
                 } ).done( function( result ) {
                     if ( result.success ) {
@@ -148,8 +149,9 @@
                 url: htim_params.ajaxurl,
                 type: 'POST',
                 data: {
-                    action   : 'htim_activate_plugin',
+                    action   : 'whols_htim_activate_plugin',
                     location : plugin_file,
+                    nonce    : htim_params.nonce,
                 },
             }).done( function( response ) {
                 if ( response.success ) {

@@ -1,9 +1,9 @@
 === Whols – Wholesale Prices and B2B Store Solution for WooCommerce ===
-Contributors: htplugins, aslamhasib, zenaulislam, yeasinrony
+Contributors: htplugins, aslamhasib, zenaulislam, yeasinrony, madhusudandev
 Tags: wholesale, wholesale pricing, b2b, woocommerce wholesale, woocommerce b2b
 Requires at least: 5.0
 Tested up to: 7.1
-Stable tag: 2.4.12
+Stable tag: 2.4.13
 Requires PHP: 7.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -14,7 +14,7 @@ Run wholesale and retail from one WooCommerce store. Set wholesale prices, manag
 
 #### Whols is the complete wholesale solution for WooCommerce — set role-based pricing, manage wholesaler registration, and automate your B2B order rules, all from your existing store.
 
-🔥 Trusted by **2,000+ businesses** worldwide. Add a complete wholesale layer to your existing WooCommerce store without building a second site. Set role-based pricing, create a custom wholesaler registration form, control who sees which products, and automate order rules with smart dynamic conditions.
+🔥 Trusted by **3,000+ businesses** worldwide. Add a complete wholesale layer to your existing WooCommerce store without building a second site. Set role-based pricing, create a custom wholesaler registration form, control who sees which products, and automate order rules with smart dynamic conditions.
 
 🖥️ [Try Free Demo](https://theplugindemo.com/whols/demo/create-sandbox/) | 🚀 [Try Pro Demo](https://theplugindemo.com/whols-pro/demo/create-sandbox/)
 
@@ -338,6 +338,20 @@ Yes. Yearly plans include a 30-day money-back guarantee, and you can cancel at a
 23. Fixed and percentage category pricing setup (Pro).
 
 == Changelog ==
+
+= Version: 2.4.13 - Date: 28 Sep 2026 =
+- Security: General security hardening across several admin and settings actions.
+- Improved: The setup wizard now includes a wholesale pricing step, keeps your feature selections between steps, and has better keyboard accessibility and clearer data-collection consent.
+- Fixed: Wholesale pricing and labels not working correctly on multilingual (Polylang) sites.
+- Fixed: Registration password issue that could prevent a customer from logging in with the password they set.
+- Fixed: Approving a wholesale request could remove the customer's existing roles instead of adding to them.
+- Fixed: Wholesale tax exemption setting could conflict with tax-exemption logic from other plugins.
+- Fixed: Registration fields marked "optional" were still enforced as required.
+- Fixed: Orders placed through the WooCommerce block-based checkout were missing from wholesale dashboard reporting.
+- Fixed: A product with no regular price, or a deleted user account, could cause a fatal error.
+- Fixed: {billing_last_name} placeholder in the custom thank-you message showed the wrong value.
+- Fixed: The "Upgrade to Pro" sidebar box could appear squeezed or fail to display on tablet and laptop screens; it now displays correctly at every screen size.
+- Tested: Compatibility with the latest version of WordPress.
 
 = Version: 2.4.12 - Date: 27 Aug 2026 =
 - Fixed: Recommended Plugins page grid collapsed to a single column on newer WordPress versions.

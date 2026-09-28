@@ -53,7 +53,11 @@ if( !function_exists('whols_ajax_user_register') ){
             'first_name' => !empty( $posted_data['reg_name'] ) ? sanitize_text_field( $posted_data['reg_name'] ) : "",
             'user_login' => !empty( $posted_data['reg_username'] ) ? sanitize_text_field( $posted_data['reg_username'] ) : "",
             'user_email' => !empty( $posted_data['reg_email'] ) ? sanitize_email( $posted_data['reg_email'] ) : "",
-            'user_pass'  => !empty( $posted_data['reg_password'] ) ? sanitize_user( $posted_data['reg_password'] ) : "",
+            // Never sanitize a password. sanitize_user() strips tags, %-encoded
+            // octets, HTML entities and accents, so the account ends up with a
+            // different password than the one the customer typed and they can
+            // never log in. wp_insert_user() hashes this value as-is.
+            'user_pass'  => !empty( $posted_data['reg_password'] ) ? (string) $posted_data['reg_password'] : "",
             'role'       => $role
     
         );
@@ -115,3 +119,32 @@ if( !function_exists('whols_ajax_user_register') ){
 
 add_action( 'wp_ajax_nopriv_whols_ajax_user_register', 'whols_ajax_user_register' );
 add_action( 'wp_ajax_whols_ajax_user_register', 'whols_ajax_user_register' );
+
+/**
+ * Hand out a fresh registration nonce.
+ *
+ * The registration form used to embed its nonce directly in the page HTML,
+ * which a full-page cache stores along with everything else. Once the cache
+ * outlives the nonce (WordPress nonces expire after 12-24 hours), every
+ * registration attempt on that cached page fails with "No naughty business
+ * please!" until the cache is cleared.
+ *
+ * The form's inline script now calls this on page load to replace the
+ * embedded value with a fresh one. This endpoint hands out a token scoped to
+ * the `whols_register_nonce` action and nothing else — it performs no
+ * action and reads no input, so it needs neither a nonce of its own (that
+ * would be circular) nor a capability check; anonymous visitors are exactly
+ * who is meant to call it.
+ *
+ * @since 2.4.13
+ */
+if( !function_exists('whols_ajax_get_registration_nonce') ){
+    function whols_ajax_get_registration_nonce(){
+        wp_send_json_success(array(
+            'nonce' => wp_create_nonce( 'whols_register_nonce' ),
+        ));
+    }
+}
+
+add_action( 'wp_ajax_nopriv_whols_get_registration_nonce', 'whols_ajax_get_registration_nonce' );
+add_action( 'wp_ajax_whols_get_registration_nonce', 'whols_ajax_get_registration_nonce' );

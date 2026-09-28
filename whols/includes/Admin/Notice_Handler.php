@@ -395,15 +395,20 @@ if ( ! class_exists( 'Notice_Handler' ) ){
                 <div id="<?php echo esc_attr( $notice_arg['id'] ); ?>" class="<?php echo esc_attr( $notice_arg['classes'] ); ?>" <?php self::render_attribute($notice_arg['data']); ?>>
                     <?php
                         // Notice Image
+                        //
+                        // Notices can originate from the remote feed, so the markup
+                        // is never trusted. wp_kses_post() keeps ordinary formatting
+                        // and images working while stripping script, iframes and
+                        // event-handler attributes.
                         if( !empty( $notice_arg['banner'] ) ){
-                            printf( '<a href="%1$s" target="_blank">%2$s</a>', esc_url( $notice_arg['banner']['url'] ), $notice_arg['banner']['image'] ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+                            printf( '<a href="%1$s" target="_blank">%2$s</a>', esc_url( $notice_arg['banner']['url'] ), wp_kses_post( $notice_arg['banner']['image'] ) );
                         }
 
                         // Notice Message
                         if( $notice_arg['message_type'] === 'text'){
-                            printf('<p>%1$s</p>', $notice_arg['message'] ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+                            printf('<p>%1$s</p>', wp_kses_post( $notice_arg['message'] ) );
                         }else{
-                            echo wp_kses_post( $notice_arg['message'] ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+                            echo wp_kses_post( $notice_arg['message'] );
                         }
 
                         // If notice type custom and dismissible true

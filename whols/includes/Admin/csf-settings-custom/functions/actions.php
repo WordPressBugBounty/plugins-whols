@@ -68,6 +68,12 @@ if ( ! function_exists( 'csf_export' ) ) {
       die( esc_html__( 'Error: Invalid nonce verification.', 'csf' ) );
     }
 
+    // This reads an arbitrary option by name, so it needs a capability check and
+    // not just a nonce. `csf-chosen` below already follows this pattern.
+    if ( ! current_user_can( apply_filters( 'csf_capability', 'manage_options' ) ) ) {
+      die( esc_html__( 'Error: You do not have permission to do that.', 'csf' ) );
+    }
+
     if ( empty( $unique ) ) {
       die( esc_html__( 'Error: Invalid key.', 'csf' ) );
     }
@@ -106,6 +112,11 @@ if ( ! function_exists( 'csf_import_ajax' ) ) {
       wp_send_json_error( array( 'error' => esc_html__( 'Error: Invalid nonce verification.', 'csf' ) ) );
     }
 
+    // This writes an arbitrary option by name — capability check required.
+    if ( ! current_user_can( apply_filters( 'csf_capability', 'manage_options' ) ) ) {
+      wp_send_json_error( array( 'error' => esc_html__( 'Error: You do not have permission to do that.', 'csf' ) ) );
+    }
+
     if ( empty( $unique ) ) {
       wp_send_json_error( array( 'error' => esc_html__( 'Error: Invalid key.', 'csf' ) ) );
     }
@@ -139,6 +150,15 @@ if ( ! function_exists( 'csf_reset_ajax' ) ) {
 
     if ( ! wp_verify_nonce( $nonce, 'csf_backup_nonce' ) ) {
       wp_send_json_error( array( 'error' => esc_html__( 'Error: Invalid nonce verification.', 'csf' ) ) );
+    }
+
+    // This deletes an arbitrary option by name — capability check required.
+    if ( ! current_user_can( apply_filters( 'csf_capability', 'manage_options' ) ) ) {
+      wp_send_json_error( array( 'error' => esc_html__( 'Error: You do not have permission to do that.', 'csf' ) ) );
+    }
+
+    if ( empty( $unique ) ) {
+      wp_send_json_error( array( 'error' => esc_html__( 'Error: Invalid key.', 'csf' ) ) );
     }
 
     // Success

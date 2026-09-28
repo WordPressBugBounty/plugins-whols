@@ -69,6 +69,7 @@ class Wholesaler_Login_Register{
                             $submit_button_label_filter = apply_filters( 'whols_registration_submit_label', __( 'Register as a Wholesaler', 'whols' ) );
                             $submit_button_label        = whols_get_option('registration_form_submit_button_label');
                             $submit_button_label        = $submit_button_label ? $submit_button_label : $submit_button_label_filter;
+                            $submit_button_label        = whols_translate_label( $submit_button_label );
                         ?>
 
                         <button type="submit" name="reg_submit" id="whols_reg_submit" class="" value="<?php echo esc_attr($submit_button_label); ?>"><?php echo wp_kses_post($submit_button_label); ?></button>
@@ -91,8 +92,29 @@ class Wholesaler_Login_Register{
                     "use strict";
 
                     var button_id       = '#whols_reg_submit',
+                        // Embedded fallback. On a page served from a full-page cache
+                        // this can be stale, which is exactly the bug the refresh
+                        // below fixes. Kept as-is so a failed refresh degrades to
+                        // today's behaviour rather than breaking the form outright.
                         nonce           = '<?php echo esc_html(wp_create_nonce( 'whols_register_nonce' )) ?>',
                         loading_message = '<?php echo esc_html__( 'Please Wait...','whols' ); ?>';
+
+                    // Replace the embedded nonce with a fresh one. admin-ajax.php
+                    // requests are excluded from full-page caching by every major
+                    // caching plugin, so this response is never stale. If it fails
+                    // for any reason, `nonce` simply keeps its embedded value.
+                    $.ajax({
+                        type: 'POST',
+                        dataType: 'json',
+                        url: woocommerce_params.ajax_url,
+                        data: {
+                            action: 'whols_get_registration_nonce',
+                        },
+                    }).done(function( response ){
+                        if ( response && response.success && response.data && response.data.nonce ) {
+                            nonce = response.data.nonce;
+                        }
+                    });
 
                     $( 'body' ).on('click', '#whols_reg_submit', function( event ){
                         event.preventDefault();

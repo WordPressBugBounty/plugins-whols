@@ -266,7 +266,10 @@ class Woo_Config {
     
             $wholesaler_price_options      = whols_get_option( 'wholesaler_price_options' );
             $hide_wholesaler_price         = $wholesaler_price_options['hide_wholesaler_price'];
-            $wholesaler_price_custom_label = $wholesaler_price_options['wholesaler_price_custom_label'];
+            $wholesaler_price_custom_label = !empty( $wholesaler_price_options['wholesaler_price_custom_label'] )
+                ? $wholesaler_price_options['wholesaler_price_custom_label']
+                : __( 'Wholesaler Price:', 'whols' );
+            $wholesaler_price_custom_label = whols_translate_label( $wholesaler_price_custom_label );
     
             $discount_label_options        = whols_get_option( 'discount_label_options' );
             $hide_discount_percent         = $discount_label_options['hide_discount_percent'];
@@ -325,11 +328,7 @@ class Woo_Config {
                 <?php if( !$hide_wholesaler_price ): ?>
                 <div class="whols_wholesaler_price">
                     <span class="whols_label">
-                        <?php if( $wholesaler_price_custom_label ): ?>
-                            <span class="whols_label_left"><?php echo esc_html( $wholesaler_price_custom_label ); ?></span>
-                        <?php else: ?>
-                            <span class="whols_label_left"><?php echo esc_html__( 'Wholesaler Price:', 'whols' ); ?></span>
-                        <?php endif; ?>
+                        <span class="whols_label_left"><?php echo esc_html( $wholesaler_price_custom_label ); ?></span>
                         <span class="whols_label_right"><?php echo wp_kses_post(whols_get_wholesaler_price( $price_type, $price_value, $product )); ?></span>
                     </span>
                 </div>
@@ -603,14 +602,20 @@ class Woo_Config {
     }
 
     public function tax_extempt_for_wholesalers(){
-        global $woocommerce;
+        if ( ! WC()->customer ) {
+            return;
+        }
+
         $new_tax_exempt_status = (bool) whols_get_option('exclude_tax_for_wholesale_customers');
-    
+
+        // Only ever set the flag, never clear it.
+        //
+        // The previous `else` branch called set_is_vat_exempt(false) for every
+        // customer on every totals calculation, which silently overrode
+        // WooCommerce itself and any tax-exemption plugin on the site. Whols has
+        // no business deciding that a non-wholesale customer is taxable.
         if( $new_tax_exempt_status && whols_is_wholesaler() ){
-            $woocommerce->customer->set_is_vat_exempt(true);
-    
-        } else {
-            $woocommerce->customer->set_is_vat_exempt(false);
+            WC()->customer->set_is_vat_exempt(true);
         }
     }
 

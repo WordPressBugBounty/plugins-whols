@@ -35,7 +35,14 @@ class Install_Manager {
         add_action( 'admin_enqueue_scripts', [ $this, 'enqueue_assets' ] );
 
          // Ajax Action
-        add_action( 'wp_ajax_htim_activate_plugin', [ $this, 'activate_plugin' ] );
+         //
+         // Namespaced to this plugin on purpose. `htim_activate_plugin` is a
+         // shared action name used by sibling HasThemes plugins (Swatchly and
+         // others register it too). Because every hooked callback runs on the
+         // same request, adding a nonce check to a shared name would abort the
+         // request and break the other plugin's activate button on any site
+         // running both.
+        add_action( 'wp_ajax_whols_htim_activate_plugin', [ $this, 'activate_plugin' ] );
     }
 
     /**
@@ -47,6 +54,7 @@ class Install_Manager {
         wp_register_script( 'ht-install-manager', $this->current_directory_url. '/js/plugins_install_manager.js', array('jquery','wp-util', 'updates'), WHOLS_VERSION, true );
 
         $localize_vars['ajaxurl']   = admin_url('admin-ajax.php');
+        $localize_vars['nonce']     = wp_create_nonce( 'htim_activate_plugin' );
         $localize_vars['i18n'] = array(
             'buynow'        => esc_html__( 'Buy Now', 'whols' ),
             'preview'       => esc_html__( 'Preview', 'whols' ),
@@ -62,6 +70,10 @@ class Install_Manager {
      * @return [JSON]
      */
     public function activate_plugin(){
+        // Without this an attacker page can make a logged-in administrator
+        // activate any installed plugin.
+        check_ajax_referer( 'htim_activate_plugin', 'nonce' );
+
         if ( !current_user_can( 'install_plugins' ) || !isset( $_POST['location'] ) || !$_POST['location'] ) {
             wp_send_json_error(
                 array(
@@ -71,7 +83,7 @@ class Install_Manager {
             );
         }
 
-        $plugin_file = ( isset( $_POST['location'] ) ) ? esc_attr( $_POST['location'] ) : '';
+        $plugin_file = plugin_basename( sanitize_text_field( wp_unslash( $_POST['location'] ) ) );
         $activate    = activate_plugin( $plugin_file, '', false, true );
 
         if ( is_wp_error( $activate ) ) {

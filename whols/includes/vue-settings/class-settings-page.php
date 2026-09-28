@@ -145,12 +145,22 @@ class Settings_Page {
             'rolesApiEndpoint' => 'whols/v1/wholesaler-roles',
             'proAdvInfo' => array(
                 'purchaseURL' => 'https://wpwhols.com/pricing/?utm_source=wprepo&utm_medium=freeplugin&utm_campaign=purchasepro',
-                'message' => __('Our free version is great, but it doesn\'t have all our advanced features. The best way to unlock all of the features in our plugin is by purchasing the pro version.', 'whols'),
+                'message' => __('Unlock multi-tier pricing, Dynamic Rules, the Wallet system, and every other Pro feature.', 'whols'),
+                // Shown, with a copy button, only during the first 24 hours after
+                // a merchant's first click on any Pro-locked field. A single
+                // constant here, not generated per-visitor — changing it later is
+                // a one-line edit, not a Vue rebuild. Enforcement/expiry of the
+                // discount itself happens on the checkout site, not here.
+                'couponCode' => 'WELCOME30',
+                'offerMessage' => __('Unlock multi-tier pricing, Dynamic Rules, the Wallet system, and every other Pro feature — at 30% off, for the next 24 hours only.', 'whols'),
             ),
             'adminUrl' => admin_url(),
             'supportUrl' => 'https://hasthemes.com/contact-us/',
             'docsUrl' => 'https://wpwhols.com/docs/',
-            'proUrl' => 'https://wpwhols.com/pricing/',
+            // Tagged like proAdvInfo.purchaseURL — this is the URL the sidebar
+            // upgrade button and every other upgrade link use, and it was the
+            // one that carried no campaign parameters.
+            'proUrl' => 'https://wpwhols.com/pricing/?utm_source=wprepo&utm_medium=freeplugin&utm_campaign=upgradetopro',
 
             // There is some dynamic defaults so manage it from one place here
             'defaultSettings' => Settings_Defaults::get_defaults(),

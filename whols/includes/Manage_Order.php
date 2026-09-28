@@ -9,8 +9,14 @@ class Manage_Order {
      * Constructor
      */
     public function __construct() {
-        // Add order meta to trac wholesale orders
+        // Add order meta to track wholesale orders.
+        //
+        // woocommerce_checkout_update_order_meta only fires for the shortcode
+        // checkout. Orders placed through the Cart & Checkout blocks (the
+        // WooCommerce default) go through the Store API and never reach it, so
+        // they were never tagged and the dashboard under-reported them.
         add_action( 'woocommerce_checkout_update_order_meta', array( $this, 'add_order_meta' ), 10, 2 );
+        add_action( 'woocommerce_store_api_checkout_order_processed', array( $this, 'add_order_meta_from_order' ), 10, 1 );
 
         // Adding a meta data to the order item
         // It will show on the order received page and order edit page for admin
@@ -27,21 +33,37 @@ class Manage_Order {
      * @param posted The  data for the checkout form
      */
     public function add_order_meta( $order_id, $posted ){
+        $this->add_order_meta_from_order( wc_get_order( $order_id ) );
+    }
 
-        // Save the wholesaler role in the order meta
-        if( whols_is_wholesaler() ){
-            $wholesaler_roles = whols_get_current_user_roles();
-            // $wholesaler_roles = count($wholesaler_roles) > 1 ? implode(',', $wholesaler_roles) : current($wholesaler_roles);
+    /**
+     * Tag an order with the customer's wholesale role.
+     *
+     * Takes the order object so it can serve both the shortcode checkout and the
+     * Store API (block checkout).
+     *
+     * @param \WC_Order $order Order object.
+     */
+    public function add_order_meta_from_order( $order ){
+        if ( ! $order instanceof \WC_Order ) {
+            return;
+        }
 
-            foreach( $wholesaler_roles as $slug => $role ){
-                // Get the order object
-                $order = wc_get_order( $order_id );
+        if ( ! whols_is_wholesaler() ) {
+            return;
+        }
 
-                // Update the order meta data
+        // Record the wholesale role this customer holds. Only roles that are
+        // actually Whols roles count — the user may also be a `customer`.
+        $whols_roles = whols_get_taxonomy_terms( 'whols_role_cat' );
+        $user_roles  = whols_get_current_user_roles();
+
+        foreach ( (array) $user_roles as $role ) {
+            if ( isset( $whols_roles[ $role ] ) ) {
                 $order->update_meta_data( '_whols_order_type', $role );
                 $order->save();
+                return;
             }
-            
         }
     }
 
@@ -185,7 +207,7 @@ class Manage_Order {
             $order    = wc_get_order( $order_id ); // The WC_Order object
 
             $custom_message = str_replace('{billing_first_name}', $order->get_billing_first_name(), $custom_message);
-            $custom_message = str_replace('{billing_last_name}', $order->get_billing_first_name(), $custom_message);
+            $custom_message = str_replace('{billing_last_name}', $order->get_billing_last_name(), $custom_message);
             $custom_message = str_replace('{billing_email}', $order->get_billing_email(), $custom_message);
             $custom_message = '<div class="whols-custom-thank-you-message">'. wpautop($custom_message) .'</div>';
         }

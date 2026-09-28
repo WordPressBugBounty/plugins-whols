@@ -41,7 +41,10 @@ class Frontend {
      */
     public function enqueue_frontend_assets() {
         // Scripts
-        $suffix = \Automattic\Jetpack\Constants::is_true( 'SCRIPT_DEBUG' ) ? '' : '.min';
+        // Do not depend on the Jetpack Autoloader class WooCommerce happens to
+        // bundle — it is not public API, and if it moves every front-end page
+        // fatals on wp_enqueue_scripts.
+        $suffix = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '' : '.min';
         wp_enqueue_script( 'serializejson', WC()->plugin_url() . '/assets/js/jquery-serializejson/jquery.serializejson' . $suffix . '.js', array( 'jquery' ), '2.8.1' );
     }
 

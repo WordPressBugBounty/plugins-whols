@@ -214,6 +214,19 @@ if ( ! class_exists( 'CSF_Options' ) ) {
       $options   = ( ! empty( $response[$this->unique] ) ) ? $response[$this->unique] : array();
       $transient = ( ! empty( $response['csf_transient'] ) ) ? $response['csf_transient'] : array();
 
+      // A nonce proves the request came from a form, not that the sender is
+      // allowed to write these options. Both are required.
+      //
+      // Use this instance's own `menu_capability` — the same capability that
+      // already gates rendering the page at line ~128. This framework is shared
+      // with sibling plugins that configure `manage_woocommerce`, so hardcoding
+      // `manage_options` here would lock shop managers out of their settings.
+      $save_capability = ! empty( $this->args['menu_capability'] ) ? $this->args['menu_capability'] : 'manage_options';
+
+      if ( ! current_user_can( $save_capability ) ) {
+        return false;
+      }
+
       if ( wp_verify_nonce( $nonce, 'csf_options_nonce' ) ) {
 
         $importing  = false;
