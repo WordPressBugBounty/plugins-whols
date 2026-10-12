@@ -11,7 +11,7 @@ return ['product-visibility_route' => [
         ]
     ],
     'texts' => [
-        'notice' => __('Since you set the "Wholesale Price Visibility" to "Public Mode", so the "Product Visibility" settings are not effective and they are hidden. <br>The options will be available once you set the visibility to "Testing Mode" or "Private Mode".', 'whols')
+        'notice' => __('Since you set the "Wholesale Price Visibility" to "Public Mode", so the "Product Visibility" settings are not effective and they are hidden. The options will be available once you set the visibility to "Testing Mode" or "Private Mode".', 'whols')
     ],
 
     'fields' => [

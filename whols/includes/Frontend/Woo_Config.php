@@ -46,6 +46,7 @@ class Woo_Config {
 
         // Set default value in the quantity field
         add_filter( 'woocommerce_loop_add_to_cart_link', array($this, 'set_min_qty_for_shop'), 10, 2 );
+        add_filter( 'woocommerce_blocks_product_grid_add_to_cart_attributes', array($this, 'set_min_qty_for_product_grid_block'), 10, 2 );
         add_filter( 'woocommerce_quantity_input_args', array( $this, 'set_default_value_in_quantity_field' ), 10, 2 );
     }
 
@@ -282,7 +283,7 @@ class Woo_Config {
             ?>
             <div class="whols_loop_custom_price">
     
-                <!-- retailer price -->
+                <?php /* retailer price */ ?>
                 <?php if( !$hide_retailer_price ): ?>
                 <div class="whols_retailer_price">
                     <span class="whols_label">
@@ -324,7 +325,7 @@ class Woo_Config {
                 </div>
                 <?php endif; ?>
     
-                <!-- wholesaler price -->
+                <?php /* wholesaler price */ ?>
                 <?php if( !$hide_wholesaler_price ): ?>
                 <div class="whols_wholesaler_price">
                     <span class="whols_label">
@@ -334,13 +335,13 @@ class Woo_Config {
                 </div>
                 <?php endif; ?>
     
-                <!-- price save info -->
+                <?php /* price save info */ ?>
                 <?php if( !$hide_discount_percent ): ?>
                 <div class="whols_save_amount">
                     <?php echo wp_kses_post(whols_get_price_save_info( $price_type, $price_value, $product )); ?>
                 </div>
                 <?php endif; ?>
-            </div> <!-- .whols_loop_custom_price -->
+            </div> <?php /* .whols_loop_custom_price */ ?>
     
             <?php if( $minimum_quantity ): 
                     $default = esc_html__('Wholesale price will apply for minimum quantity of {qty} products.', 'whols');
@@ -655,8 +656,70 @@ class Woo_Config {
 	 * @return array
 	 */
     function set_min_qty_for_shop( $html, $product ) {
+		$min_qty = $this->get_forced_min_qty( $product );
+
+		if( $min_qty ){
+			$html = str_replace( 'quantity="1"', 'quantity="'. $min_qty .'"', $html );
+
+			// With AJAX add to cart disabled, the button is a plain link and WooCommerce ignores data-quantity,
+			// so also pass the quantity in the add to cart URL.
+			if( (int) $min_qty > 1 ){
+				$add_to_cart_url = $product->add_to_cart_url();
+				$html = str_replace( esc_url( $add_to_cart_url ), esc_url( add_query_arg( 'quantity', (int) $min_qty, $add_to_cart_url ) ), $html );
+			}
+		}
+
+        return $html;
+    }
+
+	/**
+	 * Set minimum quantity for the WooCommerce product grid blocks (e.g. the "New in store" list on the empty cart page).
+	 *
+	 * These blocks build their own add to cart button with a fixed data-quantity of 1, so the loop link filter
+	 * above never runs for them.
+	 *
+	 * @param array      $attributes Button HTML attributes.
+	 * @param WC_Product $product
+	 *
+	 * @return array
+	 */
+	function set_min_qty_for_product_grid_block( $attributes, $product ) {
+		$min_qty = (int) $this->get_forced_min_qty( $product );
+
+		if( $min_qty <= 1 ){
+			return $attributes;
+		}
+
+		$attributes['data-quantity'] = $min_qty;
+
+		// The block reads the add to cart URL right after this filter. Add the quantity to it for this one call only,
+		// so it also works when AJAX add to cart is disabled.
+		$product_id = $product->get_id();
+		$callback   = null;
+		$callback   = function( $url, $url_product ) use ( &$callback, $product_id, $min_qty ) {
+			if( !is_object( $url_product ) || $url_product->get_id() !== $product_id ){
+				return $url;
+			}
+
+			remove_filter( 'woocommerce_product_add_to_cart_url', $callback, 99 );
+
+			return add_query_arg( 'quantity', $min_qty, $url );
+		};
+		add_filter( 'woocommerce_product_add_to_cart_url', $callback, 99, 2 );
+
+		return $attributes;
+	}
+
+	/**
+	 * Minimum quantity to force on product list add to cart buttons for the current user.
+	 *
+	 * @param WC_Product $product
+	 *
+	 * @return int|float Zero when it should not be forced.
+	 */
+	private function get_forced_min_qty( $product ) {
 		if( !whols_is_wholesaler() || !$product->is_type('simple') || !whols_get_option('auto_apply_minimum_quantity') || !whols_get_option('force_auto_apply_minimum_quantity') ){
-			return $html;
+			return 0;
 		}
 
 		$product_status      = whols_get_product_status( $product );
@@ -664,20 +727,16 @@ class Woo_Config {
 		$minimum_quantity    = $product_status['minimum_quantity'];
 		$price_tiers 	   	 = !empty($product_status['tiers']) ? $product_status['tiers'] : array();
 
-		// If auto apply minimum quantity option is disabled, then return.
 		if( !$enable_this_pricing ){
-			return $html;
+			return 0;
 		}
 
 		if( $price_tiers ){
-			$min_qty = min( array_keys($price_tiers) );
-            $html = str_replace( 'quantity="1"', 'quantity="'. $min_qty .'"', $html );
-		} elseif( $minimum_quantity ){
-			$html = str_replace( 'quantity="1"', 'quantity="'. $minimum_quantity .'"', $html );
+			return min( array_keys($price_tiers) );
 		}
 
-        return $html;
-    }
+		return $minimum_quantity ? $minimum_quantity : 0;
+	}
 
 
 	/**

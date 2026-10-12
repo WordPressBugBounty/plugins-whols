@@ -3,7 +3,7 @@ Contributors: htplugins, aslamhasib, zenaulislam, yeasinrony, madhusudandev
 Tags: wholesale, wholesale pricing, b2b, woocommerce wholesale, woocommerce b2b
 Requires at least: 5.0
 Tested up to: 7.1
-Stable tag: 2.4.13
+Stable tag: 2.4.14
 Requires PHP: 7.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -338,6 +338,11 @@ Yes. Yearly plans include a 30-day money-back guarantee, and you can cancel at a
 23. Fixed and percentage category pricing setup (Pro).
 
 == Changelog ==
+
+= Version: 2.4.14 - Date: 12 Oct 2026 =
+- Fixed: "Force Applying Minimum Quantity" was not applied on shop and archive pages when "Enable AJAX add to cart buttons on archives" is turned off.
+- Fixed: Wholesale price section labels showing as visible text in product lists on the empty cart page.
+- Tested: Compatibility with the latest version of WordPress.
 
 = Version: 2.4.13 - Date: 28 Sep 2026 =
 - Security: General security hardening across several admin and settings actions.
