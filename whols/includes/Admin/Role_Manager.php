@@ -79,6 +79,18 @@ class Role_Manager{
 
                 $user->add_role( $assign_role_new );
 
+                // Registration parks the user on `subscriber` until approval.
+                // Once a Whols role is granted that placeholder must go, or the
+                // wholesaler still matches `subscriber`-based rules (e.g. product
+                // visibility). The request meta is rewritten on every admin
+                // save, so it cannot be relied on to say who assigned the role.
+                // Rejecting the request or deleting the Whols role gives the
+                // user `subscriber` back, so nobody is left without a role.
+                // Other roles, like WooCommerce `customer`, are kept.
+                if( array_key_exists( $assign_role_new, $whols_roles ) && in_array( 'subscriber', (array) $user->roles, true ) ){
+                    $user->remove_role( 'subscriber' );
+                }
+
             } else if( $status_new == 'reject' ||  empty( $assign_role_new ) ){
                 $user = new \WP_User( $user_id );
 
@@ -104,6 +116,24 @@ class Role_Manager{
      */
     public function delete_role( $term_id, $tt_id, $deleted_term_id, $object_ids ){
         $term_obj = get_term( $deleted_term_id, 'whols_role_cat' );
+
+        if( ! $term_obj instanceof \WP_Term ){
+            return;
+        }
+
+        // Collect the holders first; the role query reads the capabilities
+        // meta, which is only reliable while the role still exists.
+        $user_ids = get_users( array( 'role' => $term_obj->slug, 'fields' => 'ID' ) );
+
         remove_role( $term_obj->slug );
+
+        // Same rule as a rejected request: nobody is left without a role.
+        foreach( $user_ids as $user_id ){
+            $user = new \WP_User( $user_id );
+
+            if( empty( $user->roles ) ){
+                $user->add_role( 'subscriber' );
+            }
+        }
     }
 }

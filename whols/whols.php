@@ -3,7 +3,7 @@
  * Plugin Name: Whols - Wholesale Prices and B2B Store Solution for WooCommerce
  * Plugin URI:  https://wpwhols.com/
  * Description: This plugin provides all the necessary features that you will ever need to sell wholesale products from your WooCommerce online store.
- * Version:     2.4.14
+ * Version:     2.4.15
  * Author:      HasThemes
  * Author URI:  https://hasthemes.com
  * License:     GPL v2 or later
@@ -38,7 +38,7 @@ final class Whols_Lite {
      *
      * @since 1.0.0
      */
-    public $version = '2.4.14';
+    public $version = '2.4.15';
 
     /**
      * The single instance of the class
@@ -128,8 +128,10 @@ final class Whols_Lite {
 
         if ( ! class_exists( 'CSF' ) ) {
             require_once WHOLS_PATH .'/includes/Admin/csf-settings-custom/classes/setup.class.php';
-            require_once WHOLS_PATH . '/includes/Admin/csf-fields/CSF_Field_registration_details.php';
         }
+
+        // Custom field must load even when another plugin already loaded CSF.
+        require_once WHOLS_PATH . '/includes/Admin/csf-fields/CSF_Field_registration_details.php';
 
         // Assets
         require_once WHOLS_PATH . '/includes/class-assets-manager.php';

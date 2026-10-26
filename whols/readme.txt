@@ -3,7 +3,7 @@ Contributors: htplugins, aslamhasib, zenaulislam, yeasinrony, madhusudandev
 Tags: wholesale, wholesale pricing, b2b, woocommerce wholesale, woocommerce b2b
 Requires at least: 5.0
 Tested up to: 7.1
-Stable tag: 2.4.14
+Stable tag: 2.4.15
 Requires PHP: 7.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -338,6 +338,11 @@ Yes. Yearly plans include a 30-day money-back guarantee, and you can cancel at a
 23. Fixed and percentage category pricing setup (Pro).
 
 == Changelog ==
+
+= Version: 2.4.15 - Date: 26 Oct 2026 =
+- Fixed: After a wholesale request was approved, the customer kept the temporary "Subscriber" role from registration, so they could still see products restricted to Subscriber users.
+- Fixed: Deleting a wholesale role could leave its users without any role; they now fall back to "Subscriber".
+- Fixed: "Registration Details" showing "Field not found!" on the Wholesaler Request edit screen in some cases when other plugins are active.
 
 = Version: 2.4.14 - Date: 12 Oct 2026 =
 - Fixed: "Force Applying Minimum Quantity" was not applied on shop and archive pages when "Enable AJAX add to cart buttons on archives" is turned off.
