@@ -111,7 +111,8 @@ return array(
     
         'show_wholesale_price_for'            => 'only_wholesalers',
         'exclude_tax_for_wholesale_customers' => '',
-        'enable_wholesale_store'              => '1',
+        'show_net_prices_for_wholesale_customers' => '',
+        'enable_wholesale_store'            => '1',
         'registration_notification_recipients' => '',
         'enable_wholesale_price_quick_edit' => true,
 

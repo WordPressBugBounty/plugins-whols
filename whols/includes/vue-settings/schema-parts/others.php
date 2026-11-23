@@ -34,6 +34,14 @@ return ['others_route' => [
             'help' => __('Manage tax settings for wholesalers:<br>• ON: Remove tax charges for wholesale orders<br>• OFF: Apply normal tax rates<br>• Affects all wholesale user roles', 'whols'),
             'default' => '0'
         ],
+        'show_net_prices_for_wholesale_customers' => [
+            'id' => 'show_net_prices_for_wholesale_customers',
+            'type' => 'switch',
+            'title' => __('Show Prices Excluding Tax', 'whols'),
+            'label' => __('Yes', 'whols'),
+            'help' => __('Display net prices to wholesalers while still charging tax:<br>• ON: Shop, cart and checkout list net prices, then the tax, then the gross total<br>• OFF: Use the WooCommerce tax display settings<br>• Not needed when "Exclude Tax" is ON, because no tax is charged then', 'whols'),
+            'default' => '0'
+        ],
         'disable_coupon_for_wholesale_customers' => [
             'id' => 'disable_coupon_for_wholesale_customers',
             'type' => 'switch',

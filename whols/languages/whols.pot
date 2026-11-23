@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: Whols - Wholesale Prices and B2B Store Solution for "
 "WooCommerce\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-17 06:25+0000\n"
+"POT-Creation-Date: 2026-11-23 05:22+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Loco https://localise.biz/\n"
-"X-Loco-Version: 2.8.0; wp-6.8.1; php-8.0.30\n"
+"X-Loco-Version: 2.8.10; wp-7.1.5; php-8.4.18\n"
 "X-Domain: whols"
 
 #: includes/Email_Notifications.php:124
@@ -31,7 +31,7 @@ msgstr ""
 msgid " - Whols Role"
 msgstr ""
 
-#: includes/functions.php:128
+#: includes/functions.php:208
 msgid " cannot be empty."
 msgstr ""
 
@@ -53,7 +53,7 @@ msgstr ""
 
 #. 1: Whols.
 #. 2: WooCommerce.
-#: whols.php:329
+#: whols.php:401
 #, php-format
 msgid ""
 "%1$s plugin requires the %2$s plugin to be installed and activated in order "
@@ -74,7 +74,7 @@ msgstr[0] ""
 msgstr[1] ""
 
 #. %s: Number of installations.
-#: includes/Admin/recommended-plugins/class.recommended-plugins.php:296
+#: includes/Admin/recommended-plugins/class.recommended-plugins.php:311
 #, php-format
 msgid "%s Active Installations"
 msgstr ""
@@ -89,12 +89,12 @@ msgid ""
 "(These options can be overridden for each category & product individually.)"
 msgstr ""
 
-#: includes/vue-settings/schema-parts/others.php:43
 #: includes/vue-settings/schema-parts/others.php:51
+#: includes/vue-settings/schema-parts/others.php:59
 msgid "(This option can be overridden for each role individually)"
 msgstr ""
 
-#: includes/vue-settings/schema-parts/others.php:64
+#: includes/vue-settings/schema-parts/others.php:72
 msgid "(This option can be overridden for role individually)"
 msgstr ""
 
@@ -172,23 +172,23 @@ msgstr ""
 msgid "Actions"
 msgstr ""
 
-#: includes/Admin/recommended-plugins/class.recommended-plugins.php:241
+#: includes/Admin/recommended-plugins/class.recommended-plugins.php:256
 msgid "Activate"
 msgstr ""
 
-#: includes/Admin/recommended-plugins/class.recommended-plugins.php:124
-#: includes/Admin/recommended-plugins/class.recommended-plugins.php:252
-#: includes/Admin/install-manager/class-install-manager.php:55
+#: includes/Admin/recommended-plugins/class.recommended-plugins.php:125
+#: includes/Admin/recommended-plugins/class.recommended-plugins.php:267
+#: includes/Admin/install-manager/class-install-manager.php:63
 msgid "Activated"
 msgstr ""
 
-#: includes/Admin/recommended-plugins/class.recommended-plugins.php:123
-#: includes/Admin/install-manager/class-install-manager.php:54
+#: includes/Admin/recommended-plugins/class.recommended-plugins.php:124
+#: includes/Admin/install-manager/class-install-manager.php:62
 msgid "Activating.."
 msgstr ""
 
 #. %s: Number of millions.
-#: includes/Admin/recommended-plugins/class.recommended-plugins.php:370
+#: includes/Admin/recommended-plugins/class.recommended-plugins.php:423
 #, php-format
 msgctxt "Active plugin installations"
 msgid "%s+ Million"
@@ -196,7 +196,7 @@ msgid_plural "%s+ Million"
 msgstr[0] ""
 msgstr[1] ""
 
-#: includes/Admin/recommended-plugins/class.recommended-plugins.php:374
+#: includes/Admin/recommended-plugins/class.recommended-plugins.php:427
 msgctxt "Active plugin installations"
 msgid "Less Than 10"
 msgstr ""
@@ -291,7 +291,7 @@ msgid "All Rules"
 msgstr ""
 
 #: includes/Admin/Role_Cat_Metabox.php:68
-#: includes/vue-settings/schema-parts/others.php:61
+#: includes/vue-settings/schema-parts/others.php:69
 msgid "Allow Free Shipping"
 msgstr ""
 
@@ -299,7 +299,7 @@ msgstr ""
 msgid "Allow Selected Methods - Disable all others"
 msgstr ""
 
-#: includes/vue-settings/schema-parts/fields-manager.php:125
+#: includes/vue-settings/schema-parts/fields-manager.php:120
 msgid "Allowed File Types"
 msgstr ""
 
@@ -348,21 +348,6 @@ msgstr ""
 msgid "Assign Role(s)"
 msgstr ""
 
-#. %1$s: Project name, %2$s: Strong tag, %3$s: Strong tag, %4$s: Privacy Policy link, %5$s: Privacy Policy link
-#: includes/Admin/Diagnostic_Data.php:556
-#, php-format
-msgid ""
-"At %2$s%1$s%3$s, we prioritize continuous improvement and compatibility. To "
-"achieve this, we gather non-sensitive diagnostic information and details "
-"about plugin usage. This includes your site's URL, the versions of WordPress "
-"and PHP you're using, and a list of your installed plugins and themes. We "
-"also require your email address to provide you with exclusive discount "
-"coupons and updates. This data collection is crucial for ensuring that "
-"%2$s%1$s%3$s remains up-to-date and compatible with the most widely-used "
-"plugins and themes. Rest assured, your privacy is our priority – no spam, "
-"guaranteed. %4$sPrivacy Policy%5$s"
-msgstr ""
-
 #: includes/vue-settings/schema-parts/dynamic-rules.php:561
 msgid "At least"
 msgstr ""
@@ -406,6 +391,10 @@ msgid "Billing Address"
 msgstr ""
 
 #: includes/vue-settings/schema-parts/fields-manager.php:34
+msgid "Billing Address 2"
+msgstr ""
+
+#: includes/vue-settings/schema-parts/fields-manager.php:35
 msgid "Billing City"
 msgstr ""
 
@@ -413,20 +402,24 @@ msgstr ""
 msgid "Billing Company"
 msgstr ""
 
-#: includes/vue-settings/schema-parts/fields-manager.php:36
+#: includes/vue-settings/schema-parts/fields-manager.php:37
 msgid "Billing Country"
 msgstr ""
 
-#: includes/vue-settings/schema-parts/fields-manager.php:38
+#: includes/vue-settings/schema-parts/fields-manager.php:39
 msgid "Billing Phone"
 msgstr ""
 
-#: includes/vue-settings/schema-parts/fields-manager.php:35
+#: includes/vue-settings/schema-parts/fields-manager.php:36
 msgid "Billing Postcode"
 msgstr ""
 
-#: includes/vue-settings/schema-parts/fields-manager.php:37
+#: includes/vue-settings/schema-parts/fields-manager.php:38
 msgid "Billing State"
+msgstr ""
+
+#: includes/Admin/templates/dashboard-widget.php:91
+msgid "Blog"
 msgstr ""
 
 #: includes/vue-settings/schema-parts/dynamic-rules.php:63
@@ -442,10 +435,10 @@ msgstr ""
 msgid "Bulk Order Form"
 msgstr ""
 
-#: includes/Admin/recommended-plugins/class.recommended-plugins.php:120
-#: includes/Admin/recommended-plugins/class.recommended-plugins.php:229
-#: includes/Admin/recommended-plugins/class.recommended-plugins.php:283
-#: includes/Admin/install-manager/class-install-manager.php:51
+#: includes/Admin/recommended-plugins/class.recommended-plugins.php:121
+#: includes/Admin/recommended-plugins/class.recommended-plugins.php:244
+#: includes/Admin/recommended-plugins/class.recommended-plugins.php:298
+#: includes/Admin/install-manager/class-install-manager.php:59
 msgid "Buy Now"
 msgstr ""
 
@@ -453,7 +446,7 @@ msgstr ""
 msgid "Buy Products"
 msgstr ""
 
-#: includes/Admin/recommended-plugins/class.recommended-plugins.php:269
+#: includes/Admin/recommended-plugins/class.recommended-plugins.php:284
 msgid "By "
 msgstr ""
 
@@ -480,7 +473,7 @@ msgstr ""
 msgid "Cart Discount - Apply Discount to Entire Cart"
 msgstr ""
 
-#: includes/functions.php:65
+#: includes/functions.php:141
 #: includes/vue-settings/schema-parts/dynamic-rules.php:120
 msgid "Cash on Delivery"
 msgstr ""
@@ -493,7 +486,7 @@ msgstr ""
 msgid "Check Payments"
 msgstr ""
 
-#: includes/vue-settings/schema-parts/fields-manager.php:71
+#: includes/vue-settings/schema-parts/fields-manager.php:66
 msgid "Checkbox"
 msgstr ""
 
@@ -501,7 +494,7 @@ msgstr ""
 msgid "Checkout - shipping country"
 msgstr ""
 
-#: includes/functions.php:66
+#: includes/functions.php:142
 msgid "Cheque Payment"
 msgstr ""
 
@@ -509,7 +502,7 @@ msgstr ""
 msgid "Choose Action"
 msgstr ""
 
-#: includes/functions.php:654
+#: includes/functions.php:751
 msgid "Choose an option"
 msgstr ""
 
@@ -555,7 +548,7 @@ msgid ""
 " regardless of their role."
 msgstr ""
 
-#: includes/vue-settings/schema-parts/fields-manager.php:197
+#: includes/vue-settings/schema-parts/fields-manager.php:192
 msgid "Class"
 msgstr ""
 
@@ -588,14 +581,14 @@ msgstr ""
 msgid "Condition Name"
 msgstr ""
 
-#: includes/vue-settings/schema-parts/registration.php:159
+#: includes/vue-settings/schema-parts/registration.php:165
 msgid ""
 "Configure reCAPTCHA security level:<br>• Enter value between 0.0 and 1.0<br>"
 "• Higher score = stricter verification<br>• Recommended: 0.5<br>• Leave "
 "empty to accept all scores"
 msgstr ""
 
-#: includes/vue-settings/schema-parts/others.php:63
+#: includes/vue-settings/schema-parts/others.php:71
 msgid ""
 "Configure wholesale shipping options:<br>• ON: Enable free shipping for "
 "wholesale orders<br>• OFF: Apply normal shipping rates<br>• Note: Requires "
@@ -603,7 +596,7 @@ msgid ""
 "configured per wholesale role"
 msgstr ""
 
-#: includes/vue-settings/schema-parts/others.php:42
+#: includes/vue-settings/schema-parts/others.php:50
 msgid ""
 "Control coupon usage for wholesalers:<br>• ON: Prevent wholesalers from "
 "using any coupons<br>• OFF: Allow normal coupon usage<br>• Can be configured "
@@ -614,7 +607,7 @@ msgstr ""
 msgid "Control Criteria"
 msgstr ""
 
-#: includes/vue-settings/schema-parts/general.php:258
+#: includes/vue-settings/schema-parts/general.php:260
 msgid ""
 "Control discount percentage visibility:<br>• Hide/show savings percentage on "
 "all pages<br>• Affects both product listings and detail pages"
@@ -635,7 +628,7 @@ msgid ""
 "buttons<br>• Only works when Auto Input Minimum Quantity is enabled"
 msgstr ""
 
-#: includes/vue-settings/schema-parts/registration.php:174
+#: includes/vue-settings/schema-parts/registration.php:180
 msgid ""
 "Control reCAPTCHA badge visibility:<br>• ON: Hide the badge<br>• OFF: Show "
 "badge at bottom-right"
@@ -660,16 +653,29 @@ msgid ""
 "product pages<br>• Useful when you want to show only wholesale prices"
 msgstr ""
 
-#: includes/vue-settings/schema-parts/general.php:231
+#: includes/vue-settings/schema-parts/general.php:232
 msgid ""
 "Control visibility of wholesale prices:<br>• Affects both shop listings and "
 "product pages"
+msgstr ""
+
+#: includes/vue-settings/schema-parts/general.php:60
+msgid ""
+"Controls who can see wholesale prices:<br>• <strong>Testing Mode</strong>: "
+"admins and wholesalers only — use while setting prices up<br>• <strong>"
+"Public Mode</strong>: everyone, including logged-out visitors<br>• <strong>"
+"Private Mode</strong>: logged-in wholesalers only"
 msgstr ""
 
 #: includes/vue-settings/menu.php:39
 #: includes/vue-settings/schema-parts/conversation.php:3
 #: includes/vue-settings/schema-parts/email-notifications.php:9
 msgid "Conversation"
+msgstr ""
+
+#: includes/Admin/recommended-plugins/recommendations.php:81
+#: includes/Admin/recommended-plugins/recommendations.php:122
+msgid "CookieRay – Cookie Banner for Cookie Consent (GDPR/CCPA Compliant)"
 msgstr ""
 
 #: includes/vue-settings/schema-parts/bulk-order-form.php:21
@@ -680,12 +686,16 @@ msgstr ""
 msgid "Count"
 msgstr ""
 
-#: includes/Admin/Diagnostic_Data.php:569
+#: includes/Admin/Diagnostic_Data.php:647
 msgid "Count Me In"
 msgstr ""
 
 #: includes/vue-settings/schema-parts/dynamic-rules.php:614
 msgid "Country"
+msgstr ""
+
+#: includes/Admin/recommended-plugins/recommendations.php:137
+msgid "CourseGlade LMS – Online Course & eLearning Platform"
 msgstr ""
 
 #: includes/vue-settings/schema-parts/request-a-quote.php:24
@@ -736,7 +746,7 @@ msgstr ""
 msgid "Customer Registration Confirmation"
 msgstr ""
 
-#: includes/vue-settings/schema-parts/general.php:283
+#: includes/vue-settings/schema-parts/general.php:285
 msgid ""
 "Customize minimum quantity notice:<br>• Use {qty} to show required "
 "quantity<br>• Example: \"Buy {qty} or more for wholesale price\"<br>• Leave "
@@ -749,8 +759,13 @@ msgid ""
 "Make it clear and action-oriented<br>• Default: \"Register as a Wholesaler\""
 msgstr ""
 
-#: includes/vue-settings/schema-parts/general.php:210
-#: includes/vue-settings/schema-parts/general.php:264
+#: includes/vue-settings/schema-parts/general.php:267
+msgid ""
+"Customize the discount label:<br>• Displays before the savings percentage<br>"
+"• Shows on both product lists and detail pages"
+msgstr ""
+
+#: includes/vue-settings/schema-parts/general.php:211
 msgid ""
 "Customize the retail price label:<br>• Displays before the retail price<br>• "
 "Shows on both product lists and detail pages"
@@ -760,7 +775,7 @@ msgstr ""
 msgid "Customize the text displayed on the save list button."
 msgstr ""
 
-#: includes/vue-settings/schema-parts/general.php:237
+#: includes/vue-settings/schema-parts/general.php:239
 msgid ""
 "Customize the wholesale price label:<br>• Displays before the wholesale "
 "price<br>• Shows on both product lists and detail pages"
@@ -791,15 +806,15 @@ msgstr ""
 msgid "Default Price Tier Selection"
 msgstr ""
 
-#: whols.php:347
+#: whols.php:419
 msgid "Default Role"
 msgstr ""
 
-#: includes/vue-settings/schema-parts/fields-manager.php:177
+#: includes/vue-settings/schema-parts/fields-manager.php:172
 msgid "Default Value"
 msgstr ""
 
-#: whols.php:350
+#: whols.php:422
 msgid "Default Wholesale Role"
 msgstr ""
 
@@ -845,7 +860,7 @@ msgstr ""
 msgid "Delete"
 msgstr ""
 
-#: includes/vue-settings/schema-parts/fields-manager.php:171
+#: includes/vue-settings/schema-parts/fields-manager.php:166
 #: includes/save-order-list/templates/my-account/whols-saved-lists.php:23
 #: includes/save-order-list/templates/my-account/whols-saved-lists.php:39
 msgid "Description"
@@ -861,11 +876,11 @@ msgid "Direct Bank Transfer"
 msgstr ""
 
 #: includes/Admin/Role_Cat_Metabox.php:44
-#: includes/vue-settings/schema-parts/others.php:40
+#: includes/vue-settings/schema-parts/others.php:48
 msgid "Disable Coupons"
 msgstr ""
 
-#: includes/vue-settings/schema-parts/others.php:49
+#: includes/vue-settings/schema-parts/others.php:57
 msgid "Disable Payment Gateway"
 msgstr ""
 
@@ -873,7 +888,7 @@ msgstr ""
 msgid "Disable Payment Methods"
 msgstr ""
 
-#: includes/vue-settings/schema-parts/registration.php:173
+#: includes/vue-settings/schema-parts/registration.php:179
 msgid "Disable Recaptcha Badge"
 msgstr ""
 
@@ -882,11 +897,11 @@ msgid "Disallow Selected Methods - Allow all others"
 msgstr ""
 
 #: includes/vue-settings/schema-parts/general.php:27
-#: includes/vue-settings/schema-parts/general.php:253
+#: includes/vue-settings/schema-parts/general.php:255
 msgid "Discount Label"
 msgstr ""
 
-#: includes/vue-settings/schema-parts/general.php:263
+#: includes/vue-settings/schema-parts/general.php:265
 msgid "Discount Percentage Custom Label"
 msgstr ""
 
@@ -902,11 +917,23 @@ msgstr ""
 msgid "Discounted Product"
 msgstr ""
 
-#: includes/Admin/Notice_Handler.php:256
+#: includes/Admin/Notice_Handler.php:297
 msgid "Dismiss this notice."
 msgstr ""
 
-#: includes/vue-settings/schema-parts/fields-manager.php:128
+#: includes/vue-settings/schema-parts/others.php:42
+msgid ""
+"Display net prices to wholesalers while still charging tax:<br>• ON: Shop, "
+"cart and checkout list net prices, then the tax, then the gross total<br>• "
+"OFF: Use the WooCommerce tax display settings<br>• Not needed when \"Exclude "
+"Tax\" is ON, because no tax is charged then"
+msgstr ""
+
+#: includes/Admin/templates/dashboard-widget.php:97
+msgid "Documentation"
+msgstr ""
+
+#: includes/vue-settings/schema-parts/fields-manager.php:123
 msgid "Documents (PDF)"
 msgstr ""
 
@@ -915,8 +942,20 @@ msgstr ""
 msgid "Dynamic Rules"
 msgstr ""
 
-#: includes/vue-settings/schema-parts/fields-manager.php:90
+#: includes/vue-settings/schema-parts/fields-manager.php:85
 msgid "e.g: company_name"
+msgstr ""
+
+#: includes/vue-settings/schema-parts/general.php:210
+msgid "e.g: Retailer Price:"
+msgstr ""
+
+#: includes/vue-settings/schema-parts/general.php:266
+msgid "e.g: Save:"
+msgstr ""
+
+#: includes/vue-settings/schema-parts/general.php:238
+msgid "e.g: Wholesale Price:"
 msgstr ""
 
 #: includes/vue-settings/schema-parts/fields-manager.php:5
@@ -936,32 +975,18 @@ msgstr ""
 msgid "Edit Rule"
 msgstr ""
 
-#: includes/functions.php:475 includes/Admin/defaults.php:28
+#: includes/functions.php:568 includes/Admin/defaults.php:28
 #: includes/Admin/csf-fields/CSF_Field_registration_details.php:43
 #: includes/vue-settings/schema-parts/wallet.php:41
-#: includes/vue-settings/schema-parts/fields-manager.php:43
-#: includes/vue-settings/schema-parts/fields-manager.php:221
+#: includes/vue-settings/schema-parts/fields-manager.php:216
 msgid "Email"
 msgstr ""
 
-#: includes/functions.php:180
+#: includes/functions.php:260
 msgid "Email Already in Use"
 msgstr ""
 
-#: includes/Admin/recommended-plugins/recommendations.php:100
-msgid ""
-"Email Candy is an outstanding WordPress plugin that allows you to customize "
-"the default WooCommerce email templates and give a professional look to your "
-"WooCommerce emails. If you are tired of using the boring design of "
-"WooCommerce emails and want to create customized emails, then this plugin "
-"will come in handy."
-msgstr ""
-
-#: includes/Admin/recommended-plugins/recommendations.php:97
-msgid "Email Candy Pro - Email customizer for WooCommerce"
-msgstr ""
-
-#: includes/functions.php:173
+#: includes/functions.php:253
 msgid "Email is not valid"
 msgstr ""
 
@@ -996,7 +1021,7 @@ msgstr ""
 #: includes/vue-settings/schema-parts/dynamic-rules.php:230
 #: includes/vue-settings/schema-parts/save-order-list.php:9
 #: includes/vue-settings/schema-parts/conversation.php:9
-#: includes/vue-settings/schema-parts/fields-manager.php:52
+#: includes/vue-settings/schema-parts/fields-manager.php:47
 #: includes/vue-settings/schema-parts/email-notifications.php:20
 #: includes/vue-settings/schema-parts/email-notifications.php:68
 #: includes/vue-settings/schema-parts/email-notifications.php:98
@@ -1013,11 +1038,11 @@ msgstr ""
 msgid "Enable Auto Approve"
 msgstr ""
 
-#: includes/vue-settings/schema-parts/registration.php:122
+#: includes/vue-settings/schema-parts/registration.php:128
 msgid "Enable Google reCAPTCHA (V3)"
 msgstr ""
 
-#: includes/vue-settings/schema-parts/others.php:70
+#: includes/vue-settings/schema-parts/others.php:78
 msgid "Enable Quick & Bulk Edit Products"
 msgstr ""
 
@@ -1068,11 +1093,11 @@ msgstr ""
 msgid "Enable Website Restriction Type"
 msgstr ""
 
-#: includes/vue-settings/schema-parts/others.php:73
+#: includes/vue-settings/schema-parts/others.php:81
 msgid "Enable/Disable Quick and Bulk Edit for Products"
 msgstr ""
 
-#: includes/vue-settings/schema-parts/others.php:72
+#: includes/vue-settings/schema-parts/others.php:80
 msgid ""
 "Enabling this option will allow you to edit wholesale price from product "
 "quick edit screen"
@@ -1090,7 +1115,7 @@ msgstr ""
 msgid "Enter a name to help you identify this rule in your admin panel"
 msgstr ""
 
-#: includes/vue-settings/schema-parts/fields-manager.php:111
+#: includes/vue-settings/schema-parts/fields-manager.php:106
 msgid ""
 "Enter each option on a new line with key|value pair . For example: <br> "
 "<code>option-1|Option 1</code> <br> <code>option-2|Option 2</code> <br> "
@@ -1129,12 +1154,8 @@ msgstr ""
 msgid "Enter your subject"
 msgstr ""
 
-#: includes/vue-settings/class-settings-page.php:162
+#: includes/vue-settings/class-settings-page.php:172
 msgid "Error"
-msgstr ""
-
-#: includes/Admin/recommended-plugins/recommendations.php:57
-msgid "EverCompare"
 msgstr ""
 
 #: includes/Admin/class-product-quick-edit-fields.php:138
@@ -1164,15 +1185,15 @@ msgstr ""
 msgid "Field is required."
 msgstr ""
 
-#: includes/vue-settings/schema-parts/fields-manager.php:110
+#: includes/vue-settings/schema-parts/fields-manager.php:105
 msgid "Field Options"
 msgstr ""
 
-#: includes/vue-settings/schema-parts/fields-manager.php:66
+#: includes/vue-settings/schema-parts/fields-manager.php:61
 msgid "Field Type"
 msgstr ""
 
-#: includes/vue-settings/schema-parts/fields-manager.php:88
+#: includes/vue-settings/schema-parts/fields-manager.php:83
 msgid "Field Unique Name"
 msgstr ""
 
@@ -1181,7 +1202,7 @@ msgstr ""
 msgid "Fields Manager"
 msgstr ""
 
-#: includes/vue-settings/schema-parts/fields-manager.php:73
+#: includes/vue-settings/schema-parts/fields-manager.php:68
 msgid "File / Upload"
 msgstr ""
 
@@ -1292,7 +1313,7 @@ msgstr ""
 msgid "Friday"
 msgstr ""
 
-#: includes/vue-settings/class-settings-page.php:160
+#: includes/vue-settings/class-settings-page.php:170
 #: includes/vue-settings/menu.php:4
 #: includes/vue-settings/schema-parts/general.php:3
 #: includes/vue-settings/schema-parts/registration.php:7
@@ -1327,26 +1348,20 @@ msgstr ""
 msgid "Guest Access Restriction"
 msgstr ""
 
-#: includes/Admin/recommended-plugins/recommendations.php:106
-msgid "HashBar - Notification Bar"
+#: includes/Admin/recommended-plugins/recommendations.php:66
+msgid "HashBar – Announcement, Notification Bar & Popup Campaign"
 msgstr ""
 
-#: includes/Admin/recommended-plugins/recommendations.php:109
-msgid ""
-"HashBar is a WordPress Notification / Alert / Offer Bar plugin which allows "
-"you to create unlimited notification bars to notify your customers. This "
-"plugin has option to show email subscription form (sometimes it increases up "
-"to 500% email subscriber), Offer text and buttons about your promotions. "
-"This plugin has the options to add unlimited background colors and images to "
-"make your notification bar more professional."
-msgstr ""
-
-#: includes/Admin/recommended-plugins/class.recommended-plugins.php:226
+#: includes/Admin/recommended-plugins/class.recommended-plugins.php:240
 msgid "HasTheme"
 msgstr ""
 
 #. Author of the plugin
 msgid "HasThemes"
+msgstr ""
+
+#: includes/Admin/class-dashboard-widget.php:29
+msgid "HasThemes Stories"
 msgstr ""
 
 #: includes/vue-settings/schema-parts/email-notifications.php:47
@@ -1424,7 +1439,7 @@ msgstr ""
 msgid "Hide \"Wholesaler Only\" Products"
 msgstr ""
 
-#: includes/vue-settings/schema-parts/general.php:257
+#: includes/vue-settings/schema-parts/general.php:259
 msgid "Hide Discount %"
 msgstr ""
 
@@ -1440,12 +1455,20 @@ msgstr ""
 msgid "Hide Retailer Price"
 msgstr ""
 
-#: includes/vue-settings/schema-parts/general.php:230
+#: includes/vue-settings/schema-parts/general.php:231
 msgid "Hide Wholesaler Price"
 msgstr ""
 
 #: includes/vue-settings/schema-parts/dynamic-rules.php:344
 msgid "How many items customer must buy to qualify for the BOGO offer"
+msgstr ""
+
+#: includes/Admin/recommended-plugins/recommendations.php:76
+msgid "HT Contact Form – Drag & Drop Form Builder for WordPress"
+msgstr ""
+
+#: includes/Admin/recommended-plugins/recommendations.php:117
+msgid "HT Easy GA4 – Google Analytics WordPress Plugin"
 msgstr ""
 
 #. Author URI of the plugin
@@ -1503,13 +1526,7 @@ msgid ""
 "started."
 msgstr ""
 
-#: includes/vue-settings/schema-parts/general.php:60
-msgid ""
-"If you select \"Test Mode\", Admin & Wholesalers will be able to access "
-"pricing."
-msgstr ""
-
-#: includes/vue-settings/schema-parts/fields-manager.php:127
+#: includes/vue-settings/schema-parts/fields-manager.php:122
 msgid "Images (JPG, PNG, GIF)"
 msgstr ""
 
@@ -1517,16 +1534,20 @@ msgstr ""
 msgid "Include Children Categories"
 msgstr ""
 
+#: includes/Admin/recommended-plugins/recommendations.php:127
+msgid "Insert Headers and Footers Code – HT Script"
+msgstr ""
+
 #: includes/Admin/Custom_Posts.php:57
 msgid "Insert into request"
 msgstr ""
 
-#: includes/Admin/recommended-plugins/class.recommended-plugins.php:247
+#: includes/Admin/recommended-plugins/class.recommended-plugins.php:262
 msgid "Install Now"
 msgstr ""
 
-#: includes/Admin/recommended-plugins/class.recommended-plugins.php:122
-#: includes/Admin/install-manager/class-install-manager.php:53
+#: includes/Admin/recommended-plugins/class.recommended-plugins.php:123
+#: includes/Admin/install-manager/class-install-manager.php:61
 msgid "Installing.."
 msgstr ""
 
@@ -1534,7 +1555,7 @@ msgstr ""
 msgid "Invalid email address."
 msgstr ""
 
-#: includes/vue-settings/schema-parts/fields-manager.php:89
+#: includes/vue-settings/schema-parts/fields-manager.php:84
 msgid ""
 "It will be used to save the field value in the database. It must be unique."
 msgstr ""
@@ -1544,26 +1565,14 @@ msgstr ""
 msgid "Items"
 msgstr ""
 
-#: includes/Admin/recommended-plugins/recommendations.php:62
-msgid "JustTables"
-msgstr ""
-
-#: includes/Admin/recommended-plugins/recommendations.php:82
+#: includes/Admin/recommended-plugins/recommendations.php:86
 msgid ""
-"JustTables is an incredible WordPress plugin that lets you showcase all your "
-"WooCommerce products in a sortable and filterable table view. It allows your "
-"customers to easily navigate through different attributes of the products "
-"and compare them on a single page. This plugin will be of great help if you "
-"are looking for an easy solution that increases the chances of landing a "
-"sale on your online store."
-msgstr ""
-
-#: includes/Admin/recommended-plugins/recommendations.php:79
-msgid "JustTables Pro"
+"Kelune CRM – Contact Management, Email Marketing, Newsletter & Marketing "
+"Automation"
 msgstr ""
 
 #: includes/vue-settings/schema-parts/dynamic-rules.php:45
-#: includes/vue-settings/schema-parts/fields-manager.php:104
+#: includes/vue-settings/schema-parts/fields-manager.php:99
 msgid "Label"
 msgstr ""
 
@@ -1575,7 +1584,7 @@ msgstr ""
 msgid "Label of the start conversation text shown on the popup form."
 msgstr ""
 
-#: includes/vue-settings/schema-parts/fields-manager.php:145
+#: includes/vue-settings/schema-parts/fields-manager.php:140
 msgid "Leave it empty for default. Default: 2MB"
 msgstr ""
 
@@ -1621,7 +1630,7 @@ msgstr ""
 msgid "List saved successfully!"
 msgstr ""
 
-#: includes/vue-settings/class-settings-page.php:161
+#: includes/vue-settings/class-settings-page.php:171
 msgid "Loading..."
 msgstr ""
 
@@ -1629,12 +1638,12 @@ msgstr ""
 msgid "Login To See Price\" Custom Label"
 msgstr ""
 
-#: includes/Frontend/Woo_Config.php:62
+#: includes/Frontend/Woo_Config.php:152
 #: includes/vue-settings/schema-parts/guest-access.php:26
 msgid "Login to view price"
 msgstr ""
 
-#: includes/Frontend/Wholesaler_Login_Register.php:84
+#: includes/Frontend/Wholesaler_Login_Register.php:85
 msgid "Logout"
 msgstr ""
 
@@ -1684,7 +1693,7 @@ msgid ""
 "limit."
 msgstr ""
 
-#: includes/vue-settings/schema-parts/fields-manager.php:144
+#: includes/vue-settings/schema-parts/fields-manager.php:139
 msgid "Maximum File Size"
 msgstr ""
 
@@ -1739,7 +1748,7 @@ msgstr ""
 msgid "Minimum Order Count"
 msgstr ""
 
-#: includes/Frontend/Woo_Config.php:301
+#: includes/Frontend/Woo_Config.php:396
 #: includes/Admin/Product_Category_Metabox.php:76
 #: includes/vue-settings/schema-parts/general.php:133
 #: includes/vue-settings/schema-parts/general.php:178
@@ -1751,7 +1760,7 @@ msgstr ""
 msgid "Minimum Quantity Notice"
 msgstr ""
 
-#: includes/vue-settings/schema-parts/general.php:282
+#: includes/vue-settings/schema-parts/general.php:284
 msgid "Minimum Quantity Notice Custom Text"
 msgstr ""
 
@@ -1763,38 +1772,22 @@ msgstr ""
 msgid "Monday"
 msgstr ""
 
-#: includes/Admin/recommended-plugins/class.recommended-plugins.php:291
+#: includes/Admin/recommended-plugins/class.recommended-plugins.php:306
 msgid "More Details"
-msgstr ""
-
-#: includes/Admin/recommended-plugins/recommendations.php:67
-msgid "Multi Currency"
-msgstr ""
-
-#: includes/Admin/recommended-plugins/recommendations.php:88
-msgid "Multi Currency Pro for WooCommerce"
 msgstr ""
 
 #: includes/vue-settings/schema-parts/general.php:15
 msgid "Multi Role Pricing"
 msgstr ""
 
-#: includes/Admin/recommended-plugins/recommendations.php:91
-msgid ""
-"Multi-Currency Pro for WooCommerce is a prominent currency switcher plugin "
-"for WooCommerce. This plugin allows your website or online store visitors to "
-"switch to their preferred currency or their country’s currency."
-msgstr ""
-
 #: includes/vue-settings/schema-parts/general.php:43
 msgid "Multiple Role Based"
 msgstr ""
 
-#: includes/functions.php:459 includes/functions.php:462
+#: includes/functions.php:552 includes/functions.php:555
 #: includes/Admin/defaults.php:18
 #: includes/Admin/csf-fields/CSF_Field_registration_details.php:35
-#: includes/vue-settings/schema-parts/fields-manager.php:41
-#: includes/vue-settings/schema-parts/fields-manager.php:207
+#: includes/vue-settings/schema-parts/fields-manager.php:202
 msgid "Name"
 msgstr ""
 
@@ -1842,7 +1835,7 @@ msgstr ""
 msgid "No dynamic rules added yet"
 msgstr ""
 
-#: includes/vue-settings/class-settings-rest-api.php:293
+#: includes/vue-settings/class-settings-rest-api.php:337
 msgid "No fields specified for reset."
 msgstr ""
 
@@ -1871,15 +1864,15 @@ msgstr ""
 msgid "No rules added yet."
 msgstr ""
 
-#: includes/Admin/Diagnostic_Data.php:572
-msgid "No, Thanks"
+#: includes/Admin/Diagnostic_Data.php:650
+msgid "No thanks"
 msgstr ""
 
-#: includes/Admin/Diagnostic_Data.php:184
+#: includes/Admin/Diagnostic_Data.php:189
 msgid "Nonce Varification fail"
 msgstr ""
 
-#: includes/vue-settings/class-settings-rest-api.php:222
+#: includes/vue-settings/class-settings-rest-api.php:244
 msgid "Nonce verification failed."
 msgstr ""
 
@@ -1947,7 +1940,7 @@ msgstr ""
 msgid "Option value"
 msgstr ""
 
-#: includes/functions.php:573
+#: includes/functions.php:666
 msgid "optional"
 msgstr ""
 
@@ -1964,13 +1957,6 @@ msgstr ""
 msgid "OTP Verification Method"
 msgstr ""
 
-#: includes/vue-settings/class-settings-page.php:148
-msgid ""
-"Our free version is great, but it doesn't have all our advanced features. "
-"The best way to unlock all of the features in our plugin is by purchasing "
-"the pro version."
-msgstr ""
-
 #: includes/Admin/Custom_Posts.php:41
 msgid "Parent Request:"
 msgstr ""
@@ -1983,13 +1969,12 @@ msgstr ""
 msgid "Parent Role:"
 msgstr ""
 
-#: includes/functions.php:483
-#: includes/vue-settings/schema-parts/fields-manager.php:44
-#: includes/vue-settings/schema-parts/fields-manager.php:228
+#: includes/functions.php:576
+#: includes/vue-settings/schema-parts/fields-manager.php:223
 msgid "Password"
 msgstr ""
 
-#: includes/functions.php:162
+#: includes/functions.php:242
 msgid "Password length must be greater than 5"
 msgstr ""
 
@@ -2005,7 +1990,7 @@ msgstr ""
 msgid "Payment Methods Control Settings"
 msgstr ""
 
-#: includes/functions.php:67
+#: includes/functions.php:143
 #: includes/vue-settings/schema-parts/dynamic-rules.php:121
 msgid "PayPal"
 msgstr ""
@@ -2020,7 +2005,11 @@ msgstr ""
 msgid "Percentage"
 msgstr ""
 
-#: includes/vue-settings/schema-parts/fields-manager.php:165
+#: includes/Admin/recommended-plugins/recommendations.php:132
+msgid "Pixelavo – Server Side Tracking & Pixel + AI Ads Tools"
+msgstr ""
+
+#: includes/vue-settings/schema-parts/fields-manager.php:160
 msgid "Placeholder"
 msgstr ""
 
@@ -2040,18 +2029,26 @@ msgstr ""
 msgid "Please login to save lists."
 msgstr ""
 
-#: includes/Frontend/Wholesaler_Login_Register.php:95
+#: includes/Frontend/Wholesaler_Login_Register.php:100
 msgid "Please Wait..."
 msgstr ""
 
-#: includes/Admin/recommended-plugins/class.recommended-plugins.php:392
-#: includes/Admin/install-manager/class-install-manager.php:69
+#: whols.php:537
+msgid "Plugin Activation Error"
+msgstr ""
+
+#: includes/Admin/recommended-plugins/class.recommended-plugins.php:447
+#: includes/Admin/install-manager/class-install-manager.php:81
 msgid "Plugin Not Found"
 msgstr ""
 
-#: includes/Admin/recommended-plugins/class.recommended-plugins.php:412
-#: includes/Admin/install-manager/class-install-manager.php:89
+#: includes/Admin/recommended-plugins/class.recommended-plugins.php:467
+#: includes/Admin/install-manager/class-install-manager.php:101
 msgid "Plugin Successfully Activated"
+msgstr ""
+
+#: includes/Admin/recommended-plugins/recommendations.php:107
+msgid "Popular"
 msgstr ""
 
 #: includes/Admin/Custom_Taxonomies.php:49
@@ -2068,21 +2065,21 @@ msgctxt "Post Type Singular Name"
 msgid "Wholesaler Request"
 msgstr ""
 
-#: includes/vue-settings/schema-parts/registration.php:115
+#: includes/vue-settings/schema-parts/registration.php:121
 msgid ""
-"Post-login redirect:<br>• Enter full URL for redirect page<br>• Must be same-"
-"domain URL<br>• Leave empty for default dashboard"
+"Post-login redirect:<br>• Select the page to redirect to<br>• Choose \"— "
+"None —\" for the default dashboard"
 msgstr ""
 
-#: includes/vue-settings/schema-parts/registration.php:107
+#: includes/vue-settings/schema-parts/registration.php:110
 msgid ""
-"Post-registration redirect:<br>• Enter full URL for redirect page<br>• "
-"Redirects after successful registration<br>• Leave empty to stay on "
-"registration page"
+"Post-registration redirect:<br>• Select the page to redirect to<br>• "
+"Redirects after successful registration<br>• Choose \"— None —\" to stay on "
+"the registration page"
 msgstr ""
 
-#: includes/Admin/recommended-plugins/class.recommended-plugins.php:121
-#: includes/Admin/install-manager/class-install-manager.php:52
+#: includes/Admin/recommended-plugins/class.recommended-plugins.php:122
+#: includes/Admin/install-manager/class-install-manager.php:60
 msgid "Preview"
 msgstr ""
 
@@ -2098,7 +2095,7 @@ msgstr ""
 msgid "Price Options For Pricing Model: Single"
 msgstr ""
 
-#: includes/Frontend/Woo_Config.php:302
+#: includes/Frontend/Woo_Config.php:397
 msgid "Price Per Unit"
 msgstr ""
 
@@ -2126,10 +2123,6 @@ msgstr ""
 
 #: includes/vue-settings/schema-parts/dynamic-rules.php:52
 msgid "Private Note"
-msgstr ""
-
-#: includes/Admin/recommended-plugins/recommendations.php:30
-msgid "Pro Version"
 msgstr ""
 
 #: includes/request-a-quote/html-product-data.php:11
@@ -2191,15 +2184,15 @@ msgstr ""
 msgid "Quote Request Notification Message"
 msgstr ""
 
-#: includes/vue-settings/schema-parts/fields-manager.php:72
+#: includes/vue-settings/schema-parts/fields-manager.php:67
 msgid "Radio"
 msgstr ""
 
-#: includes/vue-settings/schema-parts/registration.php:158
+#: includes/vue-settings/schema-parts/registration.php:164
 msgid "Recaptcha Minimum Score"
 msgstr ""
 
-#: includes/vue-settings/schema-parts/registration.php:144
+#: includes/vue-settings/schema-parts/registration.php:150
 msgid "Recaptcha Secret Key"
 msgstr ""
 
@@ -2207,31 +2200,35 @@ msgstr ""
 msgid "reCAPTCHA Settings"
 msgstr ""
 
-#: includes/vue-settings/schema-parts/registration.php:130
+#: includes/vue-settings/schema-parts/registration.php:136
 msgid "Recaptcha Site Key"
 msgstr ""
 
-#: includes/Admin/recommended-plugins/recommendations.php:46
+#: includes/Admin/recommended-plugins/recommendations.php:42
 msgid "Recommended Plugins"
+msgstr ""
+
+#: includes/Admin/recommended-plugins/recommendations.php:100
+msgid "Recurio – Ultimate Subscription for WooCommerce"
 msgstr ""
 
 #: includes/vue-settings/schema-parts/bulk-order-form.php:48
 msgid "Redirect After Add to Cart"
 msgstr ""
 
-#: includes/vue-settings/schema-parts/registration.php:114
-msgid "Redirect Page URL (After Login)"
+#: includes/vue-settings/schema-parts/registration.php:120
+msgid "Redirect Page (After Login)"
 msgstr ""
 
-#: includes/vue-settings/schema-parts/registration.php:106
-msgid "Redirect Page URL (After Registration)"
+#: includes/vue-settings/schema-parts/registration.php:109
+msgid "Redirect Page (After Registration)"
 msgstr ""
 
 #: includes/vue-settings/schema-parts/registration.php:15
 msgid "Redirect Settings"
 msgstr ""
 
-#: includes/Frontend/Wholesaler_Login_Register.php:69
+#: includes/functions.php:51 includes/Frontend/Wholesaler_Login_Register.php:69
 #: includes/vue-settings/schema-parts/registration.php:67
 msgid "Register as a Wholesaler"
 msgstr ""
@@ -2317,15 +2314,15 @@ msgstr ""
 msgid "Requests list navigation"
 msgstr ""
 
-#: includes/functions.php:571
+#: includes/functions.php:664
 msgid "required"
 msgstr ""
 
-#: includes/vue-settings/schema-parts/fields-manager.php:183
+#: includes/vue-settings/schema-parts/fields-manager.php:178
 msgid "Required?"
 msgstr ""
 
-#: includes/vue-settings/schema-parts/others.php:50
+#: includes/vue-settings/schema-parts/others.php:58
 msgid ""
 "Restrict payment methods:<br>• Select gateways to disable for wholesalers<br>"
 "• Affects checkout payment options<br>• Can be configured per wholesale role"
@@ -2360,10 +2357,10 @@ msgstr ""
 msgid "Retailer Price Label"
 msgstr ""
 
-#: includes/class-wholesale-product-pricing.php:1033
-#: includes/class-wholesale-product-pricing.php:1105
-#: includes/Frontend/Woo_Config.php:199
-#: includes/vue-settings/schema-parts/general.php:218
+#: includes/class-wholesale-product-pricing.php:1041
+#: includes/class-wholesale-product-pricing.php:1114
+#: includes/Frontend/Woo_Config.php:298
+#: includes/vue-settings/schema-parts/general.php:219
 msgid "Retailer Price:"
 msgstr ""
 
@@ -2381,7 +2378,7 @@ msgctxt "Role Singular Name"
 msgid "Role"
 msgstr ""
 
-#: includes/Manage_Order.php:71
+#: includes/Manage_Order.php:93
 msgid "Roles"
 msgstr ""
 
@@ -2451,11 +2448,11 @@ msgid "Save Order List"
 msgstr ""
 
 #: includes/class-wholesale-product-pricing.php:865
-#: includes/vue-settings/schema-parts/general.php:274
+#: includes/vue-settings/schema-parts/general.php:276
 msgid "Save:"
 msgstr ""
 
-#: includes/functions.php:409
+#: includes/functions.php:502
 msgid "Save: "
 msgstr ""
 
@@ -2480,7 +2477,7 @@ msgid "Search Roles"
 msgstr ""
 
 #: includes/vue-settings/schema-parts/wholesale-only-categories.php:44
-#: includes/vue-settings/schema-parts/fields-manager.php:70
+#: includes/vue-settings/schema-parts/fields-manager.php:65
 msgid "Select"
 msgstr ""
 
@@ -2509,7 +2506,7 @@ msgstr ""
 msgid "Select Country(s)"
 msgstr ""
 
-#: includes/vue-settings/schema-parts/others.php:53
+#: includes/vue-settings/schema-parts/others.php:61
 msgid "Select Gateways"
 msgstr ""
 
@@ -2596,14 +2593,14 @@ msgstr ""
 msgid "Separate roles with commas"
 msgstr ""
 
-#. %1$s: Learn more link, %2$s: Learn more link
-#: includes/Admin/Diagnostic_Data.php:567
+#. %1$s: Privacy Policy link, %2$s: Privacy Policy link
+#: includes/Admin/Diagnostic_Data.php:645
 #, php-format
 msgid ""
 "Server information (Web server, PHP version, MySQL version), WordPress "
 "information, site name, site URL, number of plugins, number of users, your "
 "name, and email address. You can rest assured that no sensitive data will be "
-"collected or tracked. %1$sLearn more%2$s."
+"collected or tracked. %1$sPrivacy Policy%2$s"
 msgstr ""
 
 #: includes/Admin/Custom_Posts.php:54
@@ -2632,13 +2629,17 @@ msgid "Set up The Registration Page"
 msgstr ""
 
 #. 1: Settings label
-#: includes/Admin.php:65 includes/Admin/class-menu-manager.php:76
+#: includes/Admin.php:66 includes/Admin/class-menu-manager.php:76
 #: includes/Admin/Menu_Manager.php:37
 msgid "Settings"
 msgstr ""
 
 #: includes/vue-settings/schema-parts/dynamic-rules.php:11
 msgid "Shipping"
+msgstr ""
+
+#: includes/Admin/recommended-plugins/recommendations.php:38
+msgid "ShopLentor – All-in-One WooCommerce Growth & Store Enhancement Plugin"
 msgstr ""
 
 #: includes/vue-settings/schema-parts/bulk-order-form.php:20
@@ -2649,12 +2650,16 @@ msgstr ""
 msgid "Show only \"Wholesaler Only\" products"
 msgstr ""
 
+#: includes/vue-settings/schema-parts/others.php:40
+msgid "Show Prices Excluding Tax"
+msgstr ""
+
 #: includes/vue-settings/schema-parts/product-visibility.php:14
 msgid ""
 "Since you set the \"Wholesale Price Visibility\" to \"Public Mode\", so the "
-"\"Product Visibility\" settings are not effective and they are hidden. <br>"
-"The options will be available once you set the visibility to \"Testing "
-"Mode\" or \"Private Mode\"."
+"\"Product Visibility\" settings are not effective and they are hidden. The "
+"options will be available once you set the visibility to \"Testing Mode\" or "
+"\"Private Mode\"."
 msgstr ""
 
 #: includes/vue-settings/schema-parts/general.php:42
@@ -2665,7 +2670,7 @@ msgstr ""
 msgid "Single Role Pricing"
 msgstr ""
 
-#: includes/ajax-actions.php:72
+#: includes/ajax-actions.php:76
 msgid "Something is wrong please check again!"
 msgstr ""
 
@@ -2673,11 +2678,11 @@ msgstr ""
 msgid "Something went wrong!"
 msgstr ""
 
-#: includes/functions.php:144
+#: includes/functions.php:224
 msgid "Sorry, that username already exists!"
 msgstr ""
 
-#: includes/functions.php:151
+#: includes/functions.php:231
 msgid "Sorry, the username you entered is not valid"
 msgstr ""
 
@@ -2755,15 +2760,25 @@ msgstr ""
 msgid "Sunday"
 msgstr ""
 
+#: includes/Admin/templates/dashboard-widget.php:103
+msgid "Support"
+msgstr ""
+
+#: includes/Admin/recommended-plugins/recommendations.php:61
+msgid ""
+"Support Genix – Helpdesk, AI Chatbot, Knowledge Base & Customer Support "
+"Ticketing System"
+msgstr ""
+
 #: includes/vue-settings/schema-parts/general.php:55
 msgid "Testing Mode (Admin & Wholesalers Only)"
 msgstr ""
 
-#: includes/vue-settings/schema-parts/fields-manager.php:68
+#: includes/vue-settings/schema-parts/fields-manager.php:63
 msgid "Text"
 msgstr ""
 
-#: includes/vue-settings/schema-parts/fields-manager.php:69
+#: includes/vue-settings/schema-parts/fields-manager.php:64
 msgid "Textarea"
 msgstr ""
 
@@ -2792,9 +2807,13 @@ msgid ""
 msgstr ""
 
 #. %1$s: Project name, %2$s: Strong tag, %3$s: Strong tag
-#: includes/Admin/Diagnostic_Data.php:595
+#: includes/Admin/Diagnostic_Data.php:672
 #, php-format
 msgid "Thank you very much for supporting %2$s%1$s%3$s."
+msgstr ""
+
+#: includes/vue-settings/class-settings-rest-api.php:312
+msgid "That option cannot be updated from here."
 msgstr ""
 
 #: includes/vue-settings/schema-parts/dynamic-rules.php:405
@@ -2837,12 +2856,24 @@ msgstr ""
 msgid "Tuesday"
 msgstr ""
 
-#: includes/Manage_Order.php:61
+#: includes/Manage_Order.php:83
 msgid "Types"
 msgstr ""
 
+#: includes/vue-settings/class-settings-page.php:155
+msgid ""
+"Unlock multi-tier pricing, Dynamic Rules, the Wallet system, and every other "
+"Pro feature — at 30% off, for the next 24 hours only."
+msgstr ""
+
+#: includes/vue-settings/class-settings-page.php:148
+msgid ""
+"Unlock multi-tier pricing, Dynamic Rules, the Wallet system, and every other "
+"Pro feature."
+msgstr ""
+
 #: includes/class-wholesale-product-pricing.php:877
-#: includes/class-wholesale-product-pricing.php:933
+#: includes/class-wholesale-product-pricing.php:941
 msgid "Up to"
 msgstr ""
 
@@ -2858,11 +2889,15 @@ msgstr ""
 msgid "Update Role"
 msgstr ""
 
+#: includes/Admin.php:76
+msgid "Upgrade to Pro"
+msgstr ""
+
 #: includes/Admin/Custom_Posts.php:58
 msgid "Uploaded to this request"
 msgstr ""
 
-#: includes/functions.php:372
+#: includes/functions.php:465
 msgid "Upto "
 msgstr ""
 
@@ -2927,15 +2962,14 @@ msgstr ""
 msgid "User ID"
 msgstr ""
 
-#: includes/functions.php:467 includes/functions.php:470
+#: includes/functions.php:560 includes/functions.php:563
 #: includes/Admin/Wholesaler_Request_Metabox.php:92
 #: includes/Admin/csf-fields/CSF_Field_registration_details.php:39
-#: includes/vue-settings/schema-parts/fields-manager.php:42
-#: includes/vue-settings/schema-parts/fields-manager.php:214
+#: includes/vue-settings/schema-parts/fields-manager.php:209
 msgid "Username"
 msgstr ""
 
-#: includes/functions.php:137
+#: includes/functions.php:217
 msgid "Username too short. At least 4 characters is required"
 msgstr ""
 
@@ -2962,6 +2996,13 @@ msgstr ""
 #: includes/vue-settings/menu.php:42
 #: includes/vue-settings/schema-parts/wallet.php:3
 msgid "Wallet"
+msgstr ""
+
+#: includes/Admin/Diagnostic_Data.php:655
+#, php-format
+msgid ""
+"Want to help make %2$s%1$s%3$s even more awesome? Allow %1$s to collect "
+"diagnostic data and usage information. (%4$swhat we collect%5$s)"
 msgstr ""
 
 #: includes/vue-settings/schema-parts/dynamic-rules.php:166
@@ -3004,14 +3045,18 @@ msgstr ""
 msgid "Wholesale Price Visibility"
 msgstr ""
 
-#: includes/class-wholesale-product-pricing.php:1081
-#: includes/Frontend/Woo_Config.php:256
-#: includes/vue-settings/schema-parts/general.php:284
+#: includes/class-wholesale-product-pricing.php:1090
+#: includes/Frontend/Woo_Config.php:351
+#: includes/vue-settings/schema-parts/general.php:286
 msgid "Wholesale price will apply for minimum quantity of {qty} products."
 msgstr ""
 
 #: includes/Admin/class-product-quick-edit-fields.php:229
 msgid "Wholesale Pricing"
+msgstr ""
+
+#: whols.php:282
+msgid "Wholesale Registration"
 msgstr ""
 
 #: includes/Admin/Product_Metabox.php:68
@@ -3039,18 +3084,18 @@ msgstr ""
 msgid "Wholesaler Price - Price"
 msgstr ""
 
-#: includes/vue-settings/schema-parts/general.php:236
+#: includes/vue-settings/schema-parts/general.php:237
 msgid "Wholesaler Price Custom Label"
 msgstr ""
 
-#: includes/vue-settings/schema-parts/general.php:226
+#: includes/vue-settings/schema-parts/general.php:227
 msgid "Wholesaler Price Label"
 msgstr ""
 
-#: includes/class-wholesale-product-pricing.php:1054
-#: includes/class-wholesale-product-pricing.php:1108
-#: includes/Frontend/Woo_Config.php:240
-#: includes/vue-settings/schema-parts/general.php:245
+#: includes/functions.php:57 includes/class-wholesale-product-pricing.php:1062
+#: includes/class-wholesale-product-pricing.php:1117
+#: includes/Frontend/Woo_Config.php:276
+#: includes/vue-settings/schema-parts/general.php:247
 msgid "Wholesaler Price:"
 msgstr ""
 
@@ -3077,7 +3122,7 @@ msgstr ""
 msgid "Wholesalers Only"
 msgstr ""
 
-#: whols.php:330 includes/Admin/class-menu-manager.php:28
+#: whols.php:402 includes/Admin/class-menu-manager.php:28
 #: includes/Admin/class-menu-manager.php:29 includes/Admin/Menu_Manager.php:26
 #: includes/Admin/Menu_Manager.php:27
 #: includes/Admin/class-product-quick-edit-fields.php:131
@@ -3098,7 +3143,7 @@ msgstr ""
 msgid "Whols Admin"
 msgstr ""
 
-#: includes/Admin/recommended-plugins/recommendations.php:40
+#: includes/Admin/recommended-plugins/recommendations.php:53
 msgid ""
 "Whols is an outstanding WordPress plugin for WooCommerce that allows store "
 "owners to set wholesale prices for the products of their online stores. This "
@@ -3109,12 +3154,26 @@ msgid ""
 "manually or automatically."
 msgstr ""
 
-#: includes/Admin/recommended-plugins/recommendations.php:37
+#: includes/Admin/recommended-plugins/recommendations.php:49
 msgid "Whols Pro – WooCommerce Wholesale Prices"
 msgstr ""
 
-#: includes/Admin.php:115
+#: includes/Admin.php:124
 msgid "Whols Registration Page"
+msgstr ""
+
+#. 1: required PHP version, 2: PHP version running on the server
+#: whols.php:507
+#, php-format
+msgid ""
+"Whols requires PHP %1$s or higher. This site is running PHP %2$s, so the "
+"plugin has not been loaded. Ask your host to upgrade PHP."
+msgstr ""
+
+#. 1: required PHP version, 2: PHP version running on the server
+#: whols.php:532
+#, php-format
+msgid "Whols requires PHP %1$s or higher. This site is running PHP %2$s."
 msgstr ""
 
 #: includes/Admin/Custom_Posts.php:38
@@ -3125,30 +3184,20 @@ msgstr ""
 msgid "Wholsaler Requests"
 msgstr ""
 
-#: includes/Admin/recommended-plugins/recommendations.php:52
-msgid "WishSuite"
-msgstr ""
-
-#: whols.php:331
+#: whols.php:403 includes/Admin/recommended-plugins/recommendations.php:93
 msgid "WooCommerce"
 msgstr ""
 
-#: includes/vue-settings/schema-parts/fields-manager.php:129
+#: includes/vue-settings/schema-parts/fields-manager.php:124
 msgid "Word Documents (DOC, DOCX)"
 msgstr ""
 
-#: includes/Admin/recommended-plugins/recommendations.php:115
-msgid "WP Plugin Manager Pro"
+#: includes/Admin/recommended-plugins/recommendations.php:71
+#: includes/Admin/recommended-plugins/recommendations.php:112
+msgid "WP Plugin Manager – Deactivate plugins per page"
 msgstr ""
 
-#: includes/Admin/recommended-plugins/recommendations.php:118
-msgid ""
-"WP Plugin Manager Pro is a specialized WordPress Plugin that helps you to "
-"deactivate unnecessary WordPress Plugins page wise and boosts the speed of "
-"your WordPress site to improve the overall site performance."
-msgstr ""
-
-#: includes/Frontend/Woo_Config.php:548 includes/Admin/Role_Cat_Metabox.php:48
+#: includes/Frontend/Woo_Config.php:671 includes/Admin/Role_Cat_Metabox.php:48
 #: includes/Admin/Product_Category_Metabox.php:46
 #: includes/Admin/csf-settings/email-notifications.php:154
 #: includes/vue-settings/schema-parts/wallet.php:10
@@ -3160,8 +3209,9 @@ msgstr ""
 #: includes/vue-settings/schema-parts/others.php:10
 #: includes/vue-settings/schema-parts/others.php:33
 #: includes/vue-settings/schema-parts/others.php:41
-#: includes/vue-settings/schema-parts/others.php:62
-#: includes/vue-settings/schema-parts/others.php:71
+#: includes/vue-settings/schema-parts/others.php:49
+#: includes/vue-settings/schema-parts/others.php:70
+#: includes/vue-settings/schema-parts/others.php:79
 #: includes/vue-settings/schema-parts/request-a-quote.php:10
 #: includes/vue-settings/schema-parts/request-a-quote.php:25
 #: includes/vue-settings/schema-parts/dynamic-rules.php:39
@@ -3170,8 +3220,8 @@ msgstr ""
 #: includes/vue-settings/schema-parts/dynamic-rules.php:231
 #: includes/vue-settings/schema-parts/save-order-list.php:10
 #: includes/vue-settings/schema-parts/conversation.php:10
-#: includes/vue-settings/schema-parts/fields-manager.php:53
-#: includes/vue-settings/schema-parts/fields-manager.php:184
+#: includes/vue-settings/schema-parts/fields-manager.php:48
+#: includes/vue-settings/schema-parts/fields-manager.php:179
 #: includes/vue-settings/schema-parts/email-notifications.php:21
 #: includes/vue-settings/schema-parts/email-notifications.php:69
 #: includes/vue-settings/schema-parts/email-notifications.php:99
@@ -3187,7 +3237,7 @@ msgstr ""
 msgid "Yes, Customers other than <b>Wholesale Role</b> cannot see this product"
 msgstr ""
 
-#: includes/Frontend/Wholesaler_Login_Register.php:84
+#: includes/Frontend/Wholesaler_Login_Register.php:85
 msgid "You are Logged in as: "
 msgstr ""
 
@@ -3199,7 +3249,7 @@ msgstr ""
 msgid "You can define which categories are visible only to wholesalers."
 msgstr ""
 
-#: includes/vue-settings/class-settings-rest-api.php:210
+#: includes/vue-settings/class-settings-rest-api.php:232
 msgid "You do not have permissions to manage settings."
 msgstr ""
 
@@ -3211,12 +3261,8 @@ msgstr ""
 msgid "You have reached the maximum number of saved lists."
 msgstr ""
 
-#: includes/Admin/recommended-plugins/recommendations.php:73
-msgid "You May Also Like"
-msgstr ""
-
-#: includes/functions.php:478
-#: includes/vue-settings/schema-parts/fields-manager.php:222
+#: includes/functions.php:571
+#: includes/vue-settings/schema-parts/fields-manager.php:217
 msgid "Your Email"
 msgstr ""
 
@@ -3225,12 +3271,12 @@ msgid ""
 "Your message has been submitted successfully. We will get back to you soon."
 msgstr ""
 
-#: includes/vue-settings/schema-parts/fields-manager.php:208
+#: includes/vue-settings/schema-parts/fields-manager.php:203
 msgid "Your Name"
 msgstr ""
 
-#: includes/functions.php:486
-#: includes/vue-settings/schema-parts/fields-manager.php:229
+#: includes/functions.php:579
+#: includes/vue-settings/schema-parts/fields-manager.php:224
 msgid "Your Password"
 msgstr ""
 
@@ -3239,7 +3285,7 @@ msgid ""
 "Your request has been submitted successfully. We will get back to you soon."
 msgstr ""
 
-#: includes/vue-settings/schema-parts/fields-manager.php:215
+#: includes/vue-settings/schema-parts/fields-manager.php:210
 msgid "Your Username"
 msgstr ""
 
@@ -3250,6 +3296,11 @@ msgstr ""
 #: includes/Admin/class-product-quick-edit-fields.php:220
 #: includes/Admin/class-product-quick-edit-fields.php:232
 msgid "— No change —"
+msgstr ""
+
+#: includes/vue-settings/schema-parts/registration.php:108
+#: includes/vue-settings/schema-parts/registration.php:119
+msgid "— None —"
 msgstr ""
 
 #: includes/vue-settings/schema-parts/bulk-order-form.php:14
@@ -3264,10 +3315,4 @@ msgid ""
 "• Maximum number of search results to display. <br>• Use -1 or 0 for no "
 "limit. <br>• Lower values improve search performance, especially for sites "
 "with many products."
-msgstr ""
-
-#. %1$s: Project name
-#: includes/Admin/Diagnostic_Data.php:577
-#, php-format
-msgid "🌟 Enhance Your %1$s Experience as a Valued Contributor!"
 msgstr ""

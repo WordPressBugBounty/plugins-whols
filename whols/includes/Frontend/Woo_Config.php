@@ -41,6 +41,10 @@ class Woo_Config {
         // Tax
         add_action( 'woocommerce_before_calculate_totals', array( $this, 'tax_extempt_for_wholesalers' ), 100, 1 );
 
+        // Show net prices to wholesalers while tax is still charged
+        add_filter( 'option_woocommerce_tax_display_shop', array( $this, 'maybe_display_prices_excluding_tax' ) );
+        add_filter( 'option_woocommerce_tax_display_cart', array( $this, 'maybe_display_prices_excluding_tax' ) );
+
         // Cart page
         add_filter( 'woocommerce_get_item_data', array( $this, 'filter_get_item_data' ), 99, 2 );
 
@@ -618,6 +622,28 @@ class Woo_Config {
         if( $new_tax_exempt_status && whols_is_wholesaler() ){
             WC()->customer->set_is_vat_exempt(true);
         }
+    }
+
+    /**
+     * Force "excl" tax display (shop, cart, checkout) for wholesalers.
+     *
+     * Unlike "Exclude Tax", tax is still calculated and charged. Only the
+     * price display changes: net prices, then tax, then the gross total.
+     *
+     * @param string $value 'incl' or 'excl' from WooCommerce settings.
+     * @return string
+     */
+    public function maybe_display_prices_excluding_tax( $value ){
+        // The user is not available before init, and wp-admin keeps the WooCommerce setting.
+        if( ! did_action('init') || ( is_admin() && ! wp_doing_ajax() ) ){
+            return $value;
+        }
+
+        if( whols_get_option('show_net_prices_for_wholesale_customers') && whols_is_wholesaler() ){
+            return 'excl';
+        }
+
+        return $value;
     }
 
     public function filter_get_item_data( $item_data, $cart_item ){

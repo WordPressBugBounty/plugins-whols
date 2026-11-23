@@ -3,7 +3,7 @@ Contributors: htplugins, aslamhasib, zenaulislam, yeasinrony, madhusudandev
 Tags: wholesale, wholesale pricing, b2b, woocommerce wholesale, woocommerce b2b
 Requires at least: 5.0
 Tested up to: 7.1
-Stable tag: 2.4.15
+Stable tag: 2.4.16
 Requires PHP: 7.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -338,6 +338,10 @@ Yes. Yearly plans include a 30-day money-back guarantee, and you can cancel at a
 23. Fixed and percentage category pricing setup (Pro).
 
 == Changelog ==
+
+= Version: 2.4.16 - Date: 23 Nov 2026 =
+- Added: "Show Prices Excluding Tax" option (Whols > Settings > Others) to show wholesalers net prices, with tax listed as a separate line at checkout.
+- Tested: Compatibility with the latest versions of WordPress and WooCommerce.
 
 = Version: 2.4.15 - Date: 26 Oct 2026 =
 - Fixed: After a wholesale request was approved, the customer kept the temporary "Subscriber" role from registration, so they could still see products restricted to Subscriber users.
